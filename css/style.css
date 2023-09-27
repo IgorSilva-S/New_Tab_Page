@@ -29,6 +29,10 @@ body {
     font-size: 90px;
 }
 
+#day {
+    font-size: 20px;
+}
+
 .search {
     position: absolute;
     top: 50%;
@@ -440,6 +444,11 @@ body {
     align-items: center;
 }
 
+.header p {
+    position: absolute;
+    left: 10px;
+}
+
 .appButtons {
     width: 40px;
     height: 40px;
@@ -488,4 +497,50 @@ body {
 
 .notepad textarea:focus {
     outline: none;
+}
+
+.appHided {
+    width: 8%;
+    height: 30px;
+    position: absolute;
+    background-color: rgba(250,250,250,0.7);
+    border-radius: 8px 8px 0 0 ;
+    backdrop-filter: blur(20px);
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .2s;
+}
+
+.appHided:hover {
+    background-color: rgba(250,250,250,1);
+}
+
+.notepadHide {
+    left: 0;
+}
+
+.calc {
+    width: 400px;
+    height: 600px;
+    background-color: #f0f0f0;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 2px 2px 20px 2px #191919;
+}
+
+.calc .header {
+    width: 400px;
+    position: absolute;
+    top: -40px;
+    height: 40px;
+    background-color: rgba(250,250,250,0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

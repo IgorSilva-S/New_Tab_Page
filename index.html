@@ -186,13 +186,25 @@
     <div class="charmsinfo" id="appsinfo" >
       <div class="back" onclick="bts()"></div>
       <h1>Aplicações</h1>
-      <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)'" ondblclick="bts()">Bloco de notas</div>
+      <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">Bloco de notas</div>
       <div class="linkc">Calculadora</div>
       <div class="linkc">Reprodutor de música</div>
     </div>
+
+    <div class="calc" id="clApp">
+      <div class="header" id="clHeader">
+        <p>Calculadora</p>
+        <div class="appButtons" onclick="hide_calc()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
+        <div class="appButtons" onclick="max_min_calc()"><img src="img/WindowIcons/Maximize.png" alt=""  id="iconMaxMinNP"></div>
+        <div class="appButtons close" onclick="closeCalc()"><img src="img/WindowIcons/Close.png" alt=""></div>
+      </div>
+    </div>
+
+    <!--Bloco de notas-->
     <div class="notepad" id="NpApp" style="transform: scale(0)">
       <div class="header" id="NpHeader">
-        <div class="appButtons"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
+        <p>Bloco de Notas</p>
+        <div class="appButtons" onclick="hide_np()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
         <div class="appButtons" onclick="max_min_np()"><img src="img/WindowIcons/Maximize.png" alt=""  id="iconMaxMinNP"></div>
         <div class="appButtons close" onclick="closeNp()"><img src="img/WindowIcons/Close.png" alt=""></div>
       </div>
@@ -211,10 +223,8 @@
         <button onclick="closePop()">Cancelar</button>
       </div>
     </div>
-    <div class="appHided">
-      <div class="icon notepadIcon">
-        
-      </div>
+    <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
+      Bloco de Notas
     </div>
     <div class="lock" id="lockscreen">
       <input type="password" name="" id="passlock" />

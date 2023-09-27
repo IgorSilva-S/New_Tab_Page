@@ -371,3 +371,13 @@ function closeNp() {
   document.getElementById('NpApp').style.transform = 'scale(0)'
   textNotepad.value = ''
 }
+
+function hide_np() {
+  document.getElementById('NpApp').style.transform = 'scale(0)'
+  document.getElementById('npHided').style.display = 'flex'
+}
+
+function appear_np() {
+  document.getElementById('NpApp').style.transform = 'scale(1)'
+  document.getElementById('npHided').removeAttribute('style')
+}
