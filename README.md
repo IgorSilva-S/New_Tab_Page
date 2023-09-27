@@ -1,2 +1,2 @@
-# Algorithm_Project_for_October
+# Algorithm Project for October
  A project to remake simple New Tab pages
