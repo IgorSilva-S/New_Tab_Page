@@ -1,0 +1,491 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../img/Backgrounds/img1.jpg);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    transition-duration: .2s;
+}
+
+.time {
+    position: absolute;
+    top: 10%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+}
+
+#hour {
+    font-size: 90px;
+}
+
+.search {
+    position: absolute;
+    top: 50%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input {
+    width: 50%;
+    height: 40px;
+    border-radius: 40px;
+    border: 2px solid #ccc;
+    background-color: #eee;
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: black;
+    transition-duration: .2s;
+}
+
+.search input:focus {
+    border: 2px solid #0078d4;
+    outline: none;
+}
+
+.searchengine {
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    margin: 10px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.google {
+    background-image: url(../img/SearchEnginesIcons/Google.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+.bing {
+    background-image: url(../img/SearchEnginesIcons/Bing.png);
+}
+
+.lupe {
+    background-image: url(../img/SearchEnginesIcons/SeacrhLupe.jfif);
+    background-size: 80%;
+    background-repeat: no-repeat;
+}
+
+.charms {
+    display: flex;
+    width: 15%;
+    height: 100vh;
+    background-color: #00000066;
+    backdrop-filter: blur(20px);
+    position: fixed;
+    right: -14%;
+    opacity: 1;
+    transition-duration: .2s;
+    transition-delay: .2s;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 999;
+}
+
+.charms:hover {
+    opacity: 1;
+    right: 0;
+}
+
+.lock {
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: grayscale(100%) blur(15px) ;
+    transition-duration: 1s;
+    position: fixed;
+    top: -110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1001;
+}
+
+.lock input {
+        width: 50%;
+    height: 40px;
+    border-radius: 40px;
+    border: 2px solid #ccc;
+    background-color: #eee;
+    box-sizing: border-box;
+    padding-left: 20px;
+    color: black;
+    transition-duration: .2s;
+}
+
+.lock input:focus {
+       border: 2px solid #444;
+    outline: none;
+}
+
+.charmsicons {
+    width: 120px;
+    height: 120px;
+    background-position: center;
+    background-size: cover;
+}
+
+.locki {
+    background-image: url(../img/CharmsIcons/Lock.png);
+}
+
+.settingsi {
+    background-image: url(../img/CharmsIcons/Settings.png);
+}
+
+.useri {
+    background-image: url(../img/CharmsIcons/User.png);
+}
+
+.appsi {
+    background-image: url(../img/CharmsIcons/Apps.png);
+}
+
+.reseti {
+    background-image: url(../img/CharmsIcons/Reset.png);
+}
+
+.pincharms {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    transition-duration: .3s;
+}
+
+.notPinned {
+    background-image: url(../img/CharmsIcons/NotPinned.png);
+}
+
+.charmsPinned {
+    background-image: url(../img/CharmsIcons/Pinned.png);
+}
+
+.reci {
+    background-image: url(../img/CharmsIcons/Recomendation.png);
+}
+
+.charmsinfo {
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    right: -26%;
+    background-color: #44444499;
+    backdrop-filter: blur(20px);
+    color: white;
+    box-sizing: border-box;
+    padding: 0 1%;
+    transition-duration: .2s;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 1000;
+}
+
+.charmsinfo h1 {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.charmsinfo input[type='password'], 
+.charmsinfo input[type='text'] {
+    border-radius: 5px;
+    width: 60%;
+    border: 2px solid #ccc;
+    transition-duration: .4s;
+}
+
+.charmsinfo input[type='password']:focus, 
+.charmsinfo input[type='text']:focus {
+    border: 2px solid #444;
+    outline: none;
+}
+
+.charmsinfo button {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: #ccc;
+    border: 2px solid #aaa;
+    margin: 10px 0;
+    transition-duration: .2s;
+}
+
+.charmsinfo button:hover {
+    background-color: #aaa;
+}
+
+.back {
+    position:absolute;
+    left: 4%;
+    top: 2%;
+    width:50px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../img/CharmsIcons/Back.png);
+}
+
+.charmsinfo input[type="radio"] {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    box-sizing: border-box;
+    border: 1px solid #777;
+    background-color: #fff;
+    border-radius: 100%;
+    transition-duration: .1s;
+}
+
+.charmsinfo input[type="radio"]:checked {
+    border: 4px solid #0078d4
+}
+
+.lock button {
+    padding: 5px;
+    border-radius: 4px;
+    border: 2px solid #aaa;
+    background-color: #ddd;
+    margin: 10px 0;
+    transition-duration: .2s;
+}
+
+.lock button:hover {
+    background-color: #aaa;
+}
+
+.charmsinfo h2 {
+    margin: 5px 0;
+}
+
+.charmsinfo .linkc{
+    width: 90%;
+    margin: 5px 0;
+    transition-duration: .2s;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.charmsinfo .linkc:hover {
+    background-color: #cccccc22;
+}
+
+.charmsinfo .links {
+
+    color: white;
+    text-decoration: none;
+}
+
+.charmsinfo ol {
+    margin-left: 3%;
+}
+
+.chooseColor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 60%;
+    border-radius: 8px;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    left: 30%;
+    position: absolute;
+    top: 20%;
+    transition-duration: 1s;
+    transform: scale(0);
+}
+
+.chooseColor h1 {
+    position: absolute;
+    top: 10px;
+    color: black;
+}
+
+.chooseColor input {
+    position: absolute;
+    left: 15%;
+    width: 70%;
+    height: 100px;
+    appearance: none;
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.chooseColor .bottomPopup {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+    background-color: #d5d5d5;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.chooseColor .bottomPopup button {
+    margin: 0 2%;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #0078d4;
+    border: 2px solid #0088ff;
+    border-radius: 4px;
+    color: #e0e0e0;
+    transition-duration: .3s;
+}
+
+.chooseColor .bottomPopup button:hover {
+    background-color: #0088ff;
+    border: 2px solid #0088ff;
+}
+
+.leftPop {
+    position: absolute;
+    left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftPop label {
+    position: absolute;
+    left: 80px;
+    width: 100px;
+}
+
+#closeThis {
+    width: 60px;
+    height: 30px;
+    background-color: #999;
+    border: 2px solid #888;
+    border-radius: 20px;
+    position: relative;
+    transition-duration: .2s;
+}
+
+#closeThis::after {
+    width: 24px;
+    height: 24px;
+    content: '';
+    background-color: #888;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    position: absolute;
+    left: 1px;
+    border-radius: 100%;
+    top: 1px;
+    transition-duration: .2s;
+}
+
+#closeThis:checked {
+    background-color: #0088ff;
+    border: 2px solid #0078d4;
+}
+
+#closeThis:checked::after {
+    background-color: #0632ff;
+    border: 2px solid #0120a8;
+    left: 30px;
+}
+
+.notepad {
+    width: 800px;
+    height: 600px;
+    background-color: #f0f0f0;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 2px 2px 20px 2px #191919;
+    /*min-height: 30px;
+    min-width: 30px;
+    resize: both;
+    overflow: auto;*/
+}
+
+.notepad .header {
+    width: 800px;
+    position: absolute;
+    top: -40px;
+    height: 40px;
+    background-color: rgba(250,250,250,0.3);
+    backdrop-filter: blur(15px);
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.appButtons {
+    width: 40px;
+    height: 40px;
+    transition-duration: .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.appButtons img {
+    width: 20px;
+    height: 20px;
+    transition-duration: .2s;
+}
+
+.appButtons:hover {
+    background-color: #80808066;
+    color: white;
+}
+
+.appButtons:hover img {
+    filter: invert(100%);
+}
+
+.close {
+    border-top-right-radius: 8px;
+}
+
+.close:hover {
+    background-color: #ff000066;
+    color: white;
+}
+
+.notepad textarea {
+    width: 760px;
+    position: absolute;
+    left: 20px;
+    height: 580px;
+    border: none;
+    background-color: transparent;
+    resize: none;
+    top: 10px;
+    font-size: 16px;
+}
+
+.notepad textarea:focus {
+    outline: none;
+}

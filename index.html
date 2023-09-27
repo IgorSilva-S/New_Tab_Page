@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova aba</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="time">
+      <div id="hour">00:00</div>
+      <div id="day">Segunda, 01 de janeiro de 1970</div>
+      <p id="userinfos"></p>
+    </div>
+    <div class="search">
+      <div
+        class="searchengine google"
+        onclick="changeEngine()"
+        id="engsec"
+      ></div>
+      <input
+        type="text"
+        name=""
+        id="searchinput"
+        placeholder="Pesquise nesse site"
+      />
+      <div class="searchengine lupe" id="searchbutton"></div>
+    </div>
+
+    <div class="charms">
+      <div class="charmsicons locki" onclick="lock()"></div>
+      <div class="charmsicons useri" onclick="user()"></div>
+      <div class="charmsicons reci" onclick="recomendations()"></div>
+      <div class="charmsicons appsi" onclick="apps()"></div>
+      <div class="charmsicons settingsi" onclick="setting()"></div>
+      <div class="charmsicons reseti" onclick="reset()"></div>
+      <div class="pincharms notPinned" onclick="un_pin()" id="pinIcon"></div>
+    </div>
+
+    <!--Funções charms-->
+    <div class="charmsinfo" id="lockinfo">
+      <div class="back" onclick="bts()"></div>
+      <h1>Bloquear</h1>
+      Insira uma senha para bloquear:
+      <input type="password" name="" id="passcharms" /><br />
+      <button onclick="lockall()">Bloquear</button>
+    </div>
+
+    <div class="charmsinfo" id="userinfo">
+      <div class="back" onclick="bts()"></div>
+      <h1>Usuário</h1>
+      Insira um nome de usuário<br />
+      Esse nome ficará visível na tela principal e na tela de bloqueio<br />
+      Vale notar que esse nome e genero ficara salvo até que recarregue a
+      página<br /><br />
+      <input
+        type="text"
+        name=""
+        id="usern"
+        placeholder="Nome de usuário"
+      /><br /><br />
+      <label for="gen">Gênero</label><br />
+      <input type="radio" name="gen" id="mas" /> Masculino<br />
+      <input type="radio" name="gen" id="fem" /> Feminino<br />
+      <input type="radio" name="gen" id="pns" /> Prefiro que não seja citado
+      <button onclick="userinfos()">Aplicar informações</button>
+    </div>
+
+    <div class="charmsinfo" id="settingsinfo">
+      <div class="back" onclick="bts()"></div>
+      <h1>Configurações</h1>
+      <h2>Personalizações</h2><br /><br />
+      Imagem de fundo<br />
+      <input type="radio" name="image" id="img1" checked onchange="image1()" />
+      Pôr do sol (Padrão)<br />
+      <input type="radio" name="image" id="img2" onchange="image2()" /> Fundo do
+      mar<br />
+      <input type="radio" name="image" id="img3" onchange="image3()" />
+      Gradiente azulado com roxo<br />
+      <input type="radio" name="image" id="img4" onchange="image4()" />
+      Universo<br />
+      <input type="radio" name="image" id="img5" onchange="image5()" /> Nascer
+      do sol<br />
+      <input type="radio" name="image" id="colorRand" onchange="colorImage()"> Cor sólida randômica <br>
+      <input type="radio" name="image" id="colorChoose" onchange="selectColorImage()"> Cor sólida escolhida pelo usuário<br>
+      <button onclick="applyimg()">Aplicar</button><br />
+      <p>Aviso: Ao checar as caixas, as informações da charms fechará, isso inclui as configurações</p>
+      <label for="transpEffect">Efeito de transparência</label>
+      <input type="checkbox" name="transpEffect" id="transpToggle" checked onchange="transpEffect()"><br>
+      <label for="blurEffect">Efeito de blur</label>
+      <input type="checkbox" name="blurEffect" id="blurToggle" checked onchange="blurEffect()">
+      <p>O efeito de blur não é desativado na tela de bloqueio para evitar que dados sejam vistos.</p>
+
+      <h2>Pesquisas</h2>
+      <label for="newTab">Abrir em nova aba</label>
+      <input type="checkbox" name="newTab" id="tabToggle" checked onchange="un_tab()">
+      <p>Aviso: essa configuração não é aplicada na seção Recomendações</p>
+      <label for="disableRecomendations">Desablitar recomendações</label>
+      <input type="checkbox" name="disableRecomendations" id=""  onchange="recomendationsDisable()">
+      <p>Essa configuração desabilita o botão recomendações da Charms</p>
+    </div>
+
+    <div class="charmsinfo" id="resetinfo">
+      <div class="back" onclick="bts()"></div>
+      <h1>Reiniciar site</h1>
+      Clique no botão abaixo para reiniciar o site<br />
+      É o mesmo efeito do que apertar a tecla F5 ou apertar o botão de
+      recarregar<br />
+      <button onclick="reloadpage()">Recarregar</button>
+    </div>
+
+    <div class="charmsinfo" id="recomendations">
+        
+      <div class="back" onclick="bts()"></div>
+      <h1>Recomendações</h1>
+      Os sites serão abertos em uma nova aba
+      <h2>Para estudantes do IFSP</h2>
+      <div class="linkc">
+      <a
+        href="https://ecad.ifspcaraguatatuba.edu.br"
+        class="links"
+        target="_blank"
+        ><div class="linkc">EcAD</div></a
+      >
+      </div>
+      <div class="linkc">
+        <a href="https://suap.ifsp.edu.br" class="links" target="_blank"
+          ><div class="linkc">SUAP</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://ifspcaraguatatuba.edu.br" class="links" target="_blank"
+          ><div class="linkc">Site do IFSP - Caraguatatuba</div></a
+        >
+      </div>
+      <h2>Jogos Online</h2>
+      <div class="linkc">
+        <a href="https://krunker.io" class="links" target="_blank"
+          ><div class="linkc">Krunker</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://chess.com" class="links" target="_blank"
+          ><div class="linkc">Chess</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://tetr.io" class="links" target="_blank"
+          ><div class="linkc">Tetr.io</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://roblox.com" class="links" target="_blank"
+          ><div class="linkc">Roblox</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://friv.com" class="links" target="_blank"
+          ><div class="linkc">Friv</div></a
+        >
+      </div>
+      <h2>Trabalhos</h2>
+      <div class="linkc">
+        <a href="https://office.com" class="links" target="_blank"
+          ><div class="linkc">Microsoft 365</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://canva.com" class="links" target="_blank"
+          ><div class="linkc">Canva</div></a
+        >
+      </div>
+      <h2>Serviços do Google mais usados</h2>
+      <div class="linkc">
+        <a href="https://gmail.com" class="links" target="_blank"
+          ><div class="linkc">Gmail</div></a
+        >
+      </div>
+      <div class="linkc">
+        <a href="https://drive.com" class="links" target="_blank"
+          ><div class="linkc">Drive</div></a
+        >
+      </div>
+
+    </div>
+    <div class="charmsinfo" id="appsinfo" >
+      <div class="back" onclick="bts()"></div>
+      <h1>Aplicações</h1>
+      <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)'" ondblclick="bts()">Bloco de notas</div>
+      <div class="linkc">Calculadora</div>
+      <div class="linkc">Reprodutor de música</div>
+    </div>
+    <div class="notepad" id="NpApp" >
+      <div class="header" id="NpHeader">
+        <div class="appButtons"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
+        <div class="appButtons" onclick="max_min_np()"><img src="img/WindowIcons/Maximize.png" alt=""  id="iconMaxMinNP"></div>
+        <div class="appButtons close" onclick="closeNp()"><img src="img/WindowIcons/Close.png" alt=""></div>
+      </div>
+      <textarea name="" cols="30" rows="10" id="textNp"></textarea>
+    </div>
+    <div class="chooseColor" style="opacity: 0">
+      <h1>Escolha a cor sólida</h1>
+      <input type="color" name="" id="colorChoosed">
+      <div class="bottomPopup">
+        <div class="leftPop">
+          <input type="checkbox" name="" id="closeThis" checked>
+          <label for="closeThis">Fechar janela ao aplicar cor</label>
+      
+        </div>
+        <button onclick="applyColor()">Aplicar cor</button>
+        <button onclick="closePop()">Cancelar</button>
+      </div>
+    </div>
+    <div class="lock" id="lockscreen">
+      <input type="password" name="" id="passlock" />
+      <button onclick="lockall()">Desbloquear</button>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/dragWindows.js"></script>
+  </body>
+</html>
