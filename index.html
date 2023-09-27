@@ -187,18 +187,11 @@
       <div class="back" onclick="bts()"></div>
       <h1>Aplicações</h1>
       <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">Bloco de notas</div>
-      <div class="linkc">Calculadora</div>
+      <div class="linkc" style="display: none;">Calculadora</div>
       <div class="linkc">Reprodutor de música</div>
     </div>
 
-    <div class="calc" id="clApp">
-      <div class="header" id="clHeader">
-        <p>Calculadora</p>
-        <div class="appButtons" onclick="hide_calc()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
-        <div class="appButtons" onclick="max_min_calc()"><img src="img/WindowIcons/Maximize.png" alt=""  id="iconMaxMinNP"></div>
-        <div class="appButtons close" onclick="closeCalc()"><img src="img/WindowIcons/Close.png" alt=""></div>
-      </div>
-    </div>
+   
 
     <!--Bloco de notas-->
     <div class="notepad" id="NpApp" style="transform: scale(0)">
@@ -223,8 +216,13 @@
         <button onclick="closePop()">Cancelar</button>
       </div>
     </div>
+
+    <!--Quando minúsculo-->
     <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
       Bloco de Notas
+    </div>
+    <div class="appHided calcHide" onclick="appear_cl()" id="npHided">
+      Calculadora
     </div>
     <div class="lock" id="lockscreen">
       <input type="password" name="" id="passlock" />

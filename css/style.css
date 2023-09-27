@@ -447,6 +447,7 @@ body {
 .header p {
     position: absolute;
     left: 10px;
+    color: black;
 }
 
 .appButtons {
@@ -511,6 +512,7 @@ body {
     justify-content: center;
     align-items: center;
     transition-duration: .2s;
+    color: black;
 }
 
 .appHided:hover {
@@ -519,6 +521,10 @@ body {
 
 .notepadHide {
     left: 0;
+}
+
+.calcHide {
+    left: calc(8% + 10px);
 }
 
 .calc {
