@@ -1,87 +1,87 @@
 //Var
-  let engineselector = document.getElementById('engsec')
-  enginechanged = false
-  unlocked = true
-  let image = 1
-  let pinned = false
-  let transpToggle = document.getElementById('transpToggle')
-  let blurToggle = document.getElementById("blurToggle");
-  let newTabOpen = true
-  let tabToggle = document.getElementById('tabToggle');
-  let recomendationEnabled = true
-  let red, green, blue
-  let NpMax = false
-  let textNotepad = document.getElementById('textNp')
+let engineselector = document.getElementById('engsec')
+enginechanged = false
+unlocked = true
+let image = 1
+let pinned = false
+let transpToggle = document.getElementById('transpToggle')
+let blurToggle = document.getElementById("blurToggle");
+let newTabOpen = true
+let tabToggle = document.getElementById('tabToggle');
+let recomendationEnabled = true
+let red, green, blue
+let NpMax = false
+let textNotepad = document.getElementById('textNp')
 
 
-  //Charms functions 
+//Charms functions 
 
-  let charmslocks = document.getElementById('lockinfo')
-  let charmsuser = document.getElementById('userinfo')
-  let charmssetting = document.getElementById('settingsinfo')
-  let charmsreset = document.getElementById('resetinfo')
-  let charmsrecomendations = document.getElementById('recomendations')
-  let charmsapps = document.getElementById('appsinfo')
+let charmslocks = document.getElementById('lockinfo')
+let charmsuser = document.getElementById('userinfo')
+let charmssetting = document.getElementById('settingsinfo')
+let charmsreset = document.getElementById('resetinfo')
+let charmsrecomendations = document.getElementById('recomendations')
+let charmsapps = document.getElementById('appsinfo')
 
 setInterval(() => {
-    const d = new Date
-    let hour = d.getHours()
-    let minute = d.getMinutes()
-    const zero = n => {
-        return('0' + n).slice(-2)
-    }
+  const d = new Date
+  let hour = d.getHours()
+  let minute = d.getMinutes()
+  const zero = n => {
+    return ('0' + n).slice(-2)
+  }
 
-    document.getElementById('hour').innerHTML = `${zero(hour)}:${zero(minute)}`
+  document.getElementById('hour').innerHTML = `${zero(hour)}:${zero(minute)}`
 
-    let weekday = d.getDay()
-    let extweekday
-    if (weekday == 0) {
-      extweekday = "Domingo";
-    } else if (weekday == 1) {
-      extweekday = "Segunda";
-    } else if (weekday == 2) {
-      extweekday = "Terça";
-    } else if (weekday == 3) {
-      extweekday = "Quarta";
-    } else if (weekday == 4) {
-      extweekday = "Quinta";
-    } else if (weekday == 5) {
-      extweekday = "Sexta";
-    } else {
-        extweekday = 'Sábado'
-    }
+  let weekday = d.getDay()
+  let extweekday
+  if (weekday == 0) {
+    extweekday = "Domingo";
+  } else if (weekday == 1) {
+    extweekday = "Segunda";
+  } else if (weekday == 2) {
+    extweekday = "Terça";
+  } else if (weekday == 3) {
+    extweekday = "Quarta";
+  } else if (weekday == 4) {
+    extweekday = "Quinta";
+  } else if (weekday == 5) {
+    extweekday = "Sexta";
+  } else {
+    extweekday = 'Sábado'
+  }
 
-    let day = d.getDate() 
-    let month = d.getMonth()
-    let extmonth 
-    if (month == 0) {
-      extmonth = "janeiro";
-    } else if (month == 1) {
-      extmonth = "fevereiro";
-    } else if (month == 2) {
-      extmonth = "março";
-    } else if (month == 3) {
-      extmonth = "abril";
-    } else if (month == 4) {
-      extmonth = "maio";
-    } else if (month == 5) {
-      extmonth = "junho";
-    } else if (month == 6) {
-      extmonth = "julho";
-    } else if (month == 7) {
-      extmonth = "agosto";
-    } else if (month == 8) {
-      extmonth = "setembro";
-    } else if (month == 9) {
-      extmonth = "outubro";
-    } else if (month == 10) {
-      extmonth = "novembro";
-    } else {
-        extmonth = "dezembro"
-    }
+  let day = d.getDate()
+  let month = d.getMonth()
+  let extmonth
+  if (month == 0) {
+    extmonth = "janeiro";
+  } else if (month == 1) {
+    extmonth = "fevereiro";
+  } else if (month == 2) {
+    extmonth = "março";
+  } else if (month == 3) {
+    extmonth = "abril";
+  } else if (month == 4) {
+    extmonth = "maio";
+  } else if (month == 5) {
+    extmonth = "junho";
+  } else if (month == 6) {
+    extmonth = "julho";
+  } else if (month == 7) {
+    extmonth = "agosto";
+  } else if (month == 8) {
+    extmonth = "setembro";
+  } else if (month == 9) {
+    extmonth = "outubro";
+  } else if (month == 10) {
+    extmonth = "novembro";
+  } else {
+    extmonth = "dezembro"
+  }
 
-    let year = d.getFullYear() 
-        document.getElementById('day').innerHTML = `${extweekday}, ${zero(day)} de ${extmonth} de ${year}`
+  let year = d.getFullYear()
+  document.getElementById('day').innerHTML = `${extweekday}, ${zero(day)} de ${extmonth} de ${year}`
 }, 1);
 
 function changeEngine() {
@@ -119,25 +119,25 @@ function apps() {
 }
 
 function bts() {
-charmslocks.style.right = "-26%"
-charmsuser.style.right = "-26%"
-charmsreset.style.right = "-26%"
-charmssetting.style.right = "-26%"
-charmsrecomendations.style.right = "-26%"
-charmsapps.style.right = '-26%'
+  charmslocks.style.right = "-26%"
+  charmsuser.style.right = "-26%"
+  charmsreset.style.right = "-26%"
+  charmssetting.style.right = "-26%"
+  charmsrecomendations.style.right = "-26%"
+  charmsapps.style.right = '-26%'
 }
 
-document.getElementById('searchbutton').onclick = function() {
+document.getElementById('searchbutton').onclick = function () {
   let searchtext = document.getElementById('searchinput').value
-  if(newTabOpen){
-  if (searchtext != '') {
-    if(!enginechanged) {
-      window.open(`https://www.google.com/search?q=${searchtext}`, '_blank')
+  if (newTabOpen) {
+    if (searchtext != '') {
+      if (!enginechanged) {
+        window.open(`https://www.google.com/search?q=${searchtext}`, '_blank')
       } else {
         window.open(`https://www.bing.com/search?q=${searchtext}`, '_blank')
       }
-  }
-} else {
+    }
+  } else {
     if (searchtext != "") {
       if (!enginechanged) {
         location.href = `https://www.google.com/search?q=${searchtext}`;
@@ -145,7 +145,7 @@ document.getElementById('searchbutton').onclick = function() {
         location.href = `https://www.bing.com/search?q=${searchtext}`;
       }
     }
-}
+  }
 }
 
 function lockall() {
@@ -170,9 +170,9 @@ function userinfos() {
   let grettings = document.getElementById('userinfos')
   if (masradio.checked) {
     grettings.innerHTML = `Bem-vindo, ${name}!`
-  } else if(femradio.checked) {
+  } else if (femradio.checked) {
     grettings.innerHTML = `Bem-vinda, ${name}!`
-  } else if(pnsradio.checked) {
+  } else if (pnsradio.checked) {
     grettings.innerHTML = `Olá, ${name}!`
   } else {
     alert('Insira um valor em uma das caixas de escolha')
@@ -208,13 +208,13 @@ function selectColorImage() {
 }
 
 function applyimg() {
-  if(image == 1) {
+  if (image == 1) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
     document.body.style.color = 'white'
   } else if (image == 2) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
     document.body.style.color = 'white'
-  } else if(image == 3) {
+  } else if (image == 3) {
     document.body.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
     document.body.style.color = 'white'
   } else if (image == 4) {
@@ -247,7 +247,7 @@ function reloadpage() {
 }
 
 function un_pin() {
-  if(!pinned) {
+  if (!pinned) {
     document.querySelector('.charms').style.right = '0'
     document.querySelector('.charms').style.opacity = '1'
     pinned = true
@@ -266,50 +266,50 @@ function un_pin() {
 }
 
 function transpEffect() {
-  if(!transpToggle.checked) {
-charmsapps.style.backgroundColor = "#444"
-charmslocks.style.backgroundColor = "#444"
-charmsuser.style.backgroundColor = "#444"
-charmsreset.style.backgroundColor = "#444"
-charmssetting.style.backgroundColor = "#444"
-charmsrecomendations.style.backgroundColor = "#444"
-      document.querySelector(".charms").style.backgroundColor = "#000";
-      document.getElementById("lockscreen").style.backgroundColor = "#444"
+  if (!transpToggle.checked) {
+    charmsapps.style.backgroundColor = "#444"
+    charmslocks.style.backgroundColor = "#444"
+    charmsuser.style.backgroundColor = "#444"
+    charmsreset.style.backgroundColor = "#444"
+    charmssetting.style.backgroundColor = "#444"
+    charmsrecomendations.style.backgroundColor = "#444"
+    document.querySelector(".charms").style.backgroundColor = "#000";
+    document.getElementById("lockscreen").style.backgroundColor = "#444"
   } else {
     charmsapps.removeAttribute('style')
-    charmslocks. removeAttribute('style')
+    charmslocks.removeAttribute('style')
     charmsuser.removeAttribute('style')
     charmsreset.removeAttribute('style')
     charmssetting.removeAttribute('style')
     charmsrecomendations.removeAttribute('style')
     document.querySelector(".charms").removeAttribute('style')
     document.getElementById("lockscreen").removeAttribute('style')
-    if(pinned) {
-          document.querySelector(".charms").style.right = "0";
-          document.querySelector(".charms").style.opacity = "1";
+    if (pinned) {
+      document.querySelector(".charms").style.right = "0";
+      document.querySelector(".charms").style.opacity = "1";
     }
-    if(!blurToggle.checked) {
+    if (!blurToggle.checked) {
       blurEffect()
     }
   }
 }
 
 function blurEffect() {
-  if(!blurToggle.checked) {
-charmsapps.style.backdropFilter = "none"
-charmslocks.style.backdropFilter = "none"
-charmsuser.style.backdropFilter = "none"
-charmssetting.style.backdropFilter = "none"
-charmsreset.style.backdropFilter = "none"
-charmsrecomendations.style.backdropFilter = "none"
-document.querySelector(".charms").style.backdropFilter = "none"
+  if (!blurToggle.checked) {
+    charmsapps.style.backdropFilter = "none"
+    charmslocks.style.backdropFilter = "none"
+    charmsuser.style.backdropFilter = "none"
+    charmssetting.style.backdropFilter = "none"
+    charmsreset.style.backdropFilter = "none"
+    charmsrecomendations.style.backdropFilter = "none"
+    document.querySelector(".charms").style.backdropFilter = "none"
   } else {
     transpEffect()
   }
 }
 
 function un_tab() {
-  if(!tabToggle.checked) {
+  if (!tabToggle.checked) {
     newTabOpen = false
   } else {
     newTabOpen = true
@@ -317,7 +317,7 @@ function un_tab() {
 }
 
 function recomendationsDisable() {
-  if(recomendationEnabled) {
+  if (recomendationEnabled) {
     document.querySelector('.reci').style.display = "none"
     recomendationEnabled = false
   } else {
@@ -348,12 +348,17 @@ function max_min_np() {
   let app = document.getElementById('NpApp')
   let appHd = document.getElementById('NpHeader')
   let icon = document.getElementById('iconMaxMinNP')
-  if(!NpMax) {
+  if (!NpMax) {
     app.style.left = '0'
     app.style.top = '40px'
-    app.style.width = 'calc(100vw - 1%)'
+    if (!pinned) {
+      app.style.width = 'calc(100vw - 1%)'
+      appHd.style.width = 'calc(100vw - 1%)'
+    } else {
+      app.style.width = 'calc(100vw - 15%)'
+      appHd.style.width = 'calc(100vw - 17.6%)'
+    }
     app.style.height = 'calc(100vh - 40px)'
-    appHd.style.width = 'calc(100vw - 1%)'
     NpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
