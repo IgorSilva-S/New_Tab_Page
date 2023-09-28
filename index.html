@@ -187,8 +187,7 @@
       <div class="back" onclick="bts()"></div>
       <h1>Aplicações</h1>
       <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">Bloco de notas</div>
-      <div class="linkc" style="display: none;">Calculadora</div>
-      <div class="linkc">Reprodutor de música</div>
+      <div class="linkc">Calculadora</div>
     </div>
 
    
@@ -214,6 +213,35 @@
         </div>
         <button onclick="applyColor()">Aplicar cor</button>
         <button onclick="closePop()">Cancelar</button>
+      </div>
+    </div>
+
+    <!--Calculadora-->
+    <div class="calc" id="clApp">
+      <div class="header" id="clHeader">
+        <p>Calculadora</p>
+        <div class="appButtons"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
+        <div class="appButtons close"><img src="img/WindowIcons/Close.png" alt=""></div>
+      </div>
+      <div class="calcDsp">0</div>
+      <div class="calcKeys">
+        <button class="key--operator" data-action="add">+</button>
+        <button class="key--operator" data-action="subtract">-</button>
+        <button class="key--operator" data-action="multiply">&times;</button>
+        <button class="key--operator" data-action="divide">÷</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>0</button>
+        <button data-action="decimal">.</button>
+        <button data-action="clear">AC</button>
+        <button class="key--equal" data-action="calculate">=</button>
       </div>
     </div>
 
