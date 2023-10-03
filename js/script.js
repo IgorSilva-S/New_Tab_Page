@@ -8,7 +8,7 @@ let transpToggle = document.getElementById('transpToggle')
 let blurToggle = document.getElementById("blurToggle");
 let newTabOpen = true
 let tabToggle = document.getElementById('tabToggle');
-let recomendationEnabled = true
+let recomendationEnabled = false
 let red, green, blue
 let NpMax = false
 let textNotepad = document.getElementById('textNp')
@@ -236,9 +236,6 @@ function applyimg() {
     }
   } else if (image == 7) {
     document.querySelector('.chooseColor').style.transform = 'scale(1)'
-    setTimeout(() => {
-      document.querySelector('.chooseColor').style.opacity = '1'
-    }, 500);
   }
 }
 
@@ -316,7 +313,7 @@ function un_tab() {
   }
 }
 
-function recomendationsDisable() {
+function recomendationsEnable() {
   if (recomendationEnabled) {
     document.querySelector('.reci').style.display = "none"
     recomendationEnabled = false
@@ -327,11 +324,7 @@ function recomendationsDisable() {
 }
 
 function closePop() {
-  document.querySelector('.chooseColor').style.opacity = "0"
-  setTimeout(() => {
     document.querySelector('.chooseColor').removeAttribute('style')
-    document.querySelector('.chooseColor').style.opacity = "0"
-  }, 1000);
 }
 
 function applyColor() {

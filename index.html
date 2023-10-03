@@ -30,7 +30,7 @@
     <div class="charms">
       <div class="charmsicons locki" onclick="lock()"></div>
       <div class="charmsicons useri" onclick="user()"></div>
-      <div class="charmsicons reci" onclick="recomendations()"></div>
+      <div class="charmsicons reci" onclick="recomendations()" style="display: none;"></div>
       <div class="charmsicons appsi" onclick="apps()"></div>
       <div class="charmsicons settingsi" onclick="setting()"></div>
       <div class="charmsicons reseti" onclick="reset()"></div>
@@ -95,9 +95,9 @@
       <label for="newTab">Abrir em nova aba</label>
       <input type="checkbox" name="newTab" id="tabToggle" checked onchange="un_tab()">
       <p>Aviso: essa configuração não é aplicada na seção Recomendações</p>
-      <label for="disableRecomendations">Desablitar recomendações</label>
-      <input type="checkbox" name="disableRecomendations" id=""  onchange="recomendationsDisable()">
-      <p>Essa configuração desabilita o botão recomendações da Charms</p>
+      <label for="enableRecomendations">Habliltar recomendações</label>
+      <input type="checkbox" name="enableRecomendations" id="enableRecomendations"  onchange="recomendationsEnable()">
+      <p>Essa configuração habililta o botão recomendações da Charms</p>
     </div>
 
     <div class="charmsinfo" id="resetinfo">
@@ -115,79 +115,89 @@
       <h1>Recomendações</h1>
       Os sites serão abertos em uma nova aba
       <h2>Para estudantes do IFSP</h2>
-      <div class="linkc">
+      
       <a
         href="https://ecad.ifspcaraguatatuba.edu.br"
         class="links"
         target="_blank"
         ><div class="linkc">EcAD</div></a
       >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://suap.ifsp.edu.br" class="links" target="_blank"
           ><div class="linkc">SUAP</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://ifspcaraguatatuba.edu.br" class="links" target="_blank"
           ><div class="linkc">Site do IFSP - Caraguatatuba</div></a
         >
-      </div>
+      
       <h2>Jogos Online</h2>
-      <div class="linkc">
+      
         <a href="https://krunker.io" class="links" target="_blank"
           ><div class="linkc">Krunker</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://chess.com" class="links" target="_blank"
           ><div class="linkc">Chess</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://tetr.io" class="links" target="_blank"
           ><div class="linkc">Tetr.io</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://roblox.com" class="links" target="_blank"
           ><div class="linkc">Roblox</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://friv.com" class="links" target="_blank"
           ><div class="linkc">Friv</div></a
         >
-      </div>
+      
       <h2>Trabalhos</h2>
-      <div class="linkc">
+      
         <a href="https://office.com" class="links" target="_blank"
           ><div class="linkc">Microsoft 365</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://canva.com" class="links" target="_blank"
           ><div class="linkc">Canva</div></a
         >
-      </div>
+      
       <h2>Serviços do Google mais usados</h2>
-      <div class="linkc">
+      
         <a href="https://gmail.com" class="links" target="_blank"
           ><div class="linkc">Gmail</div></a
         >
-      </div>
-      <div class="linkc">
+      
+      
         <a href="https://drive.com" class="links" target="_blank"
           ><div class="linkc">Drive</div></a
         >
-      </div>
+      
+      <h2>Sistema Windows©</h2>
+      Para estes, será necessário permitir a abertura
+      <a href="ms-settings:" class="links" target="_blank"
+      ><div class="linkc">Configurações</div></a
+    >
+
+    <a href="mswindowsmusic:" class="links" target="_blank"
+    ><div class="linkc">Reprodutor Multimídia</div></a
+  >
+      
 
     </div>
     <div class="charmsinfo" id="appsinfo" >
       <div class="back" onclick="bts()"></div>
       <h1>Aplicações</h1>
       <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">Bloco de notas</div>
-      <div class="linkc">Calculadora</div>
+      <div class="linkc" onclick="document.getElementById('clApp').style.transform = 'scale(1)', document.getElementById('clHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('clHided').removeAttribute('style')">Calculadora</div>
     </div>
 
    
@@ -202,7 +212,7 @@
       </div>
       <textarea name="" cols="30" rows="10" id="textNp"></textarea>
     </div>
-    <div class="chooseColor" style="opacity: 0">
+    <div class="chooseColor">
       <h1>Escolha a cor sólida</h1>
       <input type="color" name="" id="colorChoosed">
       <div class="bottomPopup">
@@ -223,8 +233,8 @@
         <div class="appButtons" onclick="hide_cl()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
         <div class="appButtons close" onclick="closeCl()"><img src="img/WindowIcons/Close.png" alt=""></div>
       </div>
-      <div class="calcDsp">0</div>
-      <div class="calcKeys">
+      <div class="calculator__display" style="color: black;">0</div>
+      <div class="calculator__keys">
         <button class="key--operator" data-action="add">+</button>
         <button class="key--operator" data-action="subtract">-</button>
         <button class="key--operator" data-action="multiply">&times;</button>
@@ -239,7 +249,7 @@
         <button>2</button>
         <button>3</button>
         <button>0</button>
-        <button data-action="decimal">.</button>
+        <button data-action="decimal">,</button>
         <button data-action="clear">AC</button>
         <button class="key--equal" data-action="calculate">=</button>
       </div>
@@ -259,5 +269,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/dragWindows.js"></script>
+    <script src="js/calcScript.js"></script>
   </body>
 </html>
