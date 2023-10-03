@@ -299,6 +299,7 @@ function blurEffect() {
     charmssetting.style.backdropFilter = "none"
     charmsreset.style.backdropFilter = "none"
     charmsrecomendations.style.backdropFilter = "none"
+    document.getElementById("lockscreen").style.backgroundColor = "#444"
     document.querySelector(".charms").style.backdropFilter = "none"
   } else {
     transpEffect()

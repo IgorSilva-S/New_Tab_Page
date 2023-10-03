@@ -112,7 +112,7 @@ body {
 .lock {
     width: 100vw;
     height: 100vh;
-    backdrop-filter: grayscale(100%) blur(15px) ;
+    backdrop-filter: grayscale(100%) blur(15px);
     transition-duration: 1s;
     position: fixed;
     top: -110%;
@@ -124,7 +124,7 @@ body {
 }
 
 .lock input {
-        width: 50%;
+    width: 50%;
     height: 40px;
     border-radius: 40px;
     border: 2px solid #ccc;
@@ -136,7 +136,7 @@ body {
 }
 
 .lock input:focus {
-       border: 2px solid #444;
+    border: 2px solid #444;
     outline: none;
 }
 
@@ -211,7 +211,7 @@ body {
     text-align: center;
 }
 
-.charmsinfo input[type='password'], 
+.charmsinfo input[type='password'],
 .charmsinfo input[type='text'] {
     border-radius: 5px;
     width: 60%;
@@ -219,7 +219,7 @@ body {
     transition-duration: .4s;
 }
 
-.charmsinfo input[type='password']:focus, 
+.charmsinfo input[type='password']:focus,
 .charmsinfo input[type='text']:focus {
     border: 2px solid #444;
     outline: none;
@@ -239,10 +239,10 @@ body {
 }
 
 .back {
-    position:absolute;
+    position: absolute;
     left: 4%;
     top: 2%;
-    width:50px;
+    width: 50px;
     height: 50px;
     background-position: center;
     background-size: cover;
@@ -281,7 +281,7 @@ body {
     margin: 5px 0;
 }
 
-.charmsinfo .linkc{
+.charmsinfo .linkc {
     width: 90%;
     margin: 5px 0;
     transition-duration: .2s;
@@ -435,7 +435,7 @@ body {
     position: absolute;
     top: -40px;
     height: 40px;
-    background-color: rgba(250,250,250,0.3);
+    background-color: rgba(250, 250, 250, 0.3);
     backdrop-filter: blur(15px);
     border-radius: 8px 8px 0 0;
     display: flex;
@@ -504,8 +504,8 @@ body {
     width: 8%;
     height: 30px;
     position: absolute;
-    background-color: rgba(250,250,250,0.7);
-    border-radius: 8px 8px 0 0 ;
+    background-color: rgba(250, 250, 250, 0.7);
+    border-radius: 8px 8px 0 0;
     backdrop-filter: blur(20px);
     bottom: 0;
     display: none;
@@ -513,10 +513,11 @@ body {
     align-items: center;
     transition-duration: .2s;
     color: black;
+    cursor: progress;
 }
 
 .appHided:hover {
-    background-color: rgba(250,250,250,1);
+    background-color: rgba(250, 250, 250, 1);
 }
 
 .notepadHide {
@@ -543,7 +544,7 @@ body {
     position: absolute;
     top: -40px;
     height: 40px;
-    background-color: rgba(250,250,250,0.3);
+    background-color: rgba(250, 250, 250, 0.3);
     backdrop-filter: blur(15px);
     border-radius: 8px 8px 0 0;
     display: flex;
@@ -564,32 +565,131 @@ body {
     font-size: 25px;
 }
 
-.calculator__keys { 
-    display: grid; 
+.calculator__keys {
+    display: grid;
     grid-gap: 1px;
     grid-template-columns: repeat(4, 1fr);
-  }
+}
 
-  .key--operator {
+.key--operator {
     margin-top: 5px;
     height: 100px;
     background-color: aliceblue;
     border-radius: 8px;
     border: 1px solid #cee8ff;
     font-size: 50px;
-  }
+}
 
-  .calculator__keys button {
+.calculator__keys button {
     height: 80px;
     background-color: aliceblue;
     border-radius: 8px;
     border: 1px solid #cee8ff;
     font-size: 30px;
-  }
+}
 
-  .calculator__keys .key--equal {
+.calculator__keys .key--equal {
     background-image: linear-gradient(to bottom, #fe886a, #ff7033);
     grid-column: -2;
     grid-row: 2 /span 4;
     height: 322px;
-  }
+}
+
+.screenSaver {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1010;
+    background-color: #000;
+    transform: scale(0);
+}
+
+/*Animação da proteção de tela*/
+
+@keyframes circle1Path {
+    0% {
+        transform: translate(0vw, 0vh);
+        width: 30vw;
+        height: 30vw;
+    }
+
+    100% {
+        transform: translate(0vw, -35vh);
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+@keyframes circle2Path {
+    0% {
+        transform: translate(0vw, 0vh);
+        width: 20vw;
+        height: 20vw;
+    }
+
+    100% {
+        transform: translate(-45vw, -40vh);
+        width: 80vw;
+        height: 80vw;
+    }
+}
+
+@keyframes circle3Path {
+    0% {
+        transform: translate(0vw, 0vh);
+        width: 20vw;
+        height: 20vw;
+    }
+
+    100% {
+        transform: translate(-55vw, -80vh);
+        width: 120vw;
+        height: 120vw;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeCircleIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.circle1 {
+    left: 30vw;
+    top: 25vh;
+    position: absolute;
+    animation: circle1Path 12s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(12, 119, 255, 0.3) 15.62%, rgba(12, 119, 255, 0) 100%);
+}
+
+.circle2 {
+    left: 45vw;
+    top: 30vh;
+    position: absolute;
+    animation: circle2Path 11.5s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 56, 255, 0.3) 15.62%, rgba(12, 119, 255, 0) 100%);
+}
+
+.circle3 {
+    left: 35vw;
+    top: 30vh;
+    position: absolute;
+    animation: circle3Path 15s infinite, fadeCircleIn 1332ms ease-out;
+    animation-direction: alternate;
+    border-radius: 100vw;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(65, 56, 210, 0.5) 15.62%, rgba(65, 56, 210, 0) 100%);
+}
