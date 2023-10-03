@@ -220,8 +220,8 @@
     <div class="calc" id="clApp">
       <div class="header" id="clHeader">
         <p>Calculadora</p>
-        <div class="appButtons"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
-        <div class="appButtons close"><img src="img/WindowIcons/Close.png" alt=""></div>
+        <div class="appButtons" onclick="hide_cl()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
+        <div class="appButtons close" onclick="closeCl()"><img src="img/WindowIcons/Close.png" alt=""></div>
       </div>
       <div class="calcDsp">0</div>
       <div class="calcKeys">
@@ -249,7 +249,7 @@
     <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
       Bloco de Notas
     </div>
-    <div class="appHided calcHide" onclick="appear_cl()" id="npHided">
+    <div class="appHided calcHide" onclick="appear_cl()" id="clHided">
       Calculadora
     </div>
     <div class="lock" id="lockscreen">

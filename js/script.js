@@ -386,3 +386,19 @@ function appear_np() {
   document.getElementById('NpApp').style.transform = 'scale(1)'
   document.getElementById('npHided').removeAttribute('style')
 }
+
+
+function closeCl() {
+  document.getElementById('clApp').style.transform = 'scale(0)'
+  document.querySelector('.calcDsp').innerHTML = '0'
+}
+
+function hide_cl() {
+  document.getElementById('clApp').style.transform = 'scale(0)'
+  document.getElementById('clHided').style.display = 'flex'
+}
+
+function appear_cl() {
+  document.getElementById('clApp').style.transform = 'scale(1)'
+  document.getElementById('clHided').removeAttribute('style')
+}
