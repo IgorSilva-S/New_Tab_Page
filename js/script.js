@@ -199,12 +199,16 @@ function image5() {
   image = 5
 }
 
-function colorImage() {
+function image6() {
   image = 6
 }
 
-function selectColorImage() {
+function colorImage() {
   image = 7
+}
+
+function selectColorImage() {
+  image = 8
 }
 
 function applyimg() {
@@ -224,6 +228,9 @@ function applyimg() {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
     document.body.style.color = 'white'
   } else if (image == 6) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
+    document.body.style.color = 'white'
+  } else if (image == 7) {
     red = Math.random() * 255
     green = Math.random() * 255
     blue = Math.random() * 255
@@ -234,7 +241,7 @@ function applyimg() {
     } else {
       document.querySelector('.time').removeAttribute('style')
     }
-  } else if (image == 7) {
+  } else if (image == 8) {
     document.querySelector('.chooseColor').style.transform = 'scale(1)'
   }
 }
@@ -325,7 +332,7 @@ function recomendationsEnable() {
 }
 
 function closePop() {
-    document.querySelector('.chooseColor').removeAttribute('style')
+  document.querySelector('.chooseColor').removeAttribute('style')
 }
 
 function applyColor() {
@@ -347,10 +354,9 @@ function max_min_np() {
     app.style.top = '40px'
     if (!pinned) {
       app.style.width = 'calc(100vw - 1%)'
-      appHd.style.width = 'calc(100vw - 1%)'
+
     } else {
       app.style.width = 'calc(100vw - 15%)'
-      appHd.style.width = 'calc(100vw - 17.6%)'
     }
     app.style.height = 'calc(100vh - 40px)'
     NpMax = true
@@ -360,7 +366,6 @@ function max_min_np() {
     app.style.top = '100px'
     app.style.width = '800px'
     app.style.height = '600px'
-    appHd.style.width = '800px'
     NpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
@@ -395,4 +400,34 @@ function hide_cl() {
 function appear_cl() {
   document.getElementById('clApp').style.transform = 'scale(1)'
   document.getElementById('clHided').removeAttribute('style')
+}
+
+function lockAllSS() {
+  var pin = document.getElementById('passcharms').value
+  var passwordlocks = document.getElementById('passlock').value
+  document.getElementById('scrSvr').style.display = 'block'
+  if (unlocked) {
+    document.getElementById('lockscreen').style.top = "0"
+    unlocked = false
+  } else {
+    if (passwordlocks == pin) {
+      document.getElementById('lockscreen').style.top = "-110%"
+      unlocked = true
+    }
+  }
+}
+
+function disScrSvr(){
+  document.getElementById('scrSvr').style.display = 'none'
+}
+
+function clockBckg() {
+  let clockChecker = document.getElementById('clockBckg');
+  if (clockChecker.checked) {
+    document.querySelector('.time').style.backgroundColor = "#f0f0f066"
+    document.querySelector('.time').style.backdropFilter = "blur(20px)"
+  } else {
+    document.querySelector('.time').style.backgroundColor = "transparent"
+    document.querySelector('.time').style.backdropFilter = "none"
+  }
 }

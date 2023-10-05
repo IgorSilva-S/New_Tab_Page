@@ -30,7 +30,11 @@
     <div class="charms">
       <div class="charmsicons locki" onclick="lock()"></div>
       <div class="charmsicons useri" onclick="user()"></div>
-      <div class="charmsicons reci" onclick="recomendations()" style="display: none;"></div>
+      <div
+        class="charmsicons reci"
+        onclick="recomendations()"
+        style="display: none"
+      ></div>
       <div class="charmsicons appsi" onclick="apps()"></div>
       <div class="charmsicons settingsi" onclick="setting()"></div>
       <div class="charmsicons reseti" onclick="reset()"></div>
@@ -44,10 +48,10 @@
       Insira uma senha para bloquear:
       <input type="password" name="" id="passcharms" /><br />
       <button onclick="lockall()">Bloquear</button>
-      <br><br>
+      <br /><br />
       <h2>Protetor de tela</h2>
-      O protetor de tela é como um bloqueio de tela, ao ligar, uma animação é iniciada, para usar tudo novamente, é necessário colocar a senha única.<br>
-      O protetor de tela não pode ser ativo sem inserir uma senha.
+      O protetor de tela é como um bloqueio de tela, ao ligar, uma animação é
+      iniciada, para usar tudo novamente, é necessário colocar a senha única.<br />
       <button onclick="lockAllSS()">Iniciar protetor de tela</button>
     </div>
 
@@ -74,10 +78,11 @@
     <div class="charmsinfo" id="settingsinfo">
       <div class="back" onclick="bts()"></div>
       <h1>Configurações</h1>
-      <h2>Personalizações</h2><br /><br />
+      <h2>Personalizações</h2>
+      <br /><br />
       Imagem de fundo<br />
       <input type="radio" name="image" id="img1" checked onchange="image1()" />
-      Pôr do sol (Padrão)<br />
+      Floresta (Padrão)<br />
       <input type="radio" name="image" id="img2" onchange="image2()" /> Fundo do
       mar<br />
       <input type="radio" name="image" id="img3" onchange="image3()" />
@@ -86,23 +91,78 @@
       Universo<br />
       <input type="radio" name="image" id="img5" onchange="image5()" /> Nascer
       do sol<br />
-      <input type="radio" name="image" id="colorRand" onchange="colorImage()"> Cor sólida randômica <br>
-      <input type="radio" name="image" id="colorChoose" onchange="selectColorImage()"> Cor sólida escolhida pelo usuário<br>
+      <input type="radio" name="image" id="img5" onchange="image6()" />
+      Por do sol<br />
+      <input type="radio" name="image" id="colorRand" onchange="colorImage()" />
+      Cor sólida randômica <br />
+      <input
+        type="radio"
+        name="image"
+        id="colorChoose"
+        onchange="selectColorImage()"
+      />
+      Cor sólida escolhida pelo usuário<br />
       <button onclick="applyimg()">Aplicar</button><br />
-      <p>Aviso: Ao checar as caixas, as informações da charms fechará, isso inclui as configurações</p>
+      <p>
+        Aviso: Ao checar as caixas, as informações da charms fechará, isso
+        inclui as configurações
+      </p>
       <label for="transpEffect">Efeito de transparência</label>
-      <input type="checkbox" name="transpEffect" id="transpToggle" checked onchange="transpEffect()"><br>
+      <input
+        type="checkbox"
+        name="transpEffect"
+        id="transpToggle"
+        checked
+        onchange="transpEffect()"
+      /><br />
       <label for="blurEffect">Efeito de blur</label>
-      <input type="checkbox" name="blurEffect" id="blurToggle" checked onchange="blurEffect()">
-      <p>Na tela de bloqueio, ao desativar o blur, ela fica sem transparência, para evitar que dados sejam expostos.</p>
+      <input
+        type="checkbox"
+        name="blurEffect"
+        id="blurToggle"
+        checked
+        onchange="blurEffect()"
+      />
+      <p>
+        Na tela de bloqueio, ao desativar o blur, ela fica sem transparência,
+        para evitar que dados sejam expostos.
+      </p>
 
       <h2>Pesquisas</h2>
       <label for="newTab">Abrir em nova aba</label>
-      <input type="checkbox" name="newTab" id="tabToggle" checked onchange="un_tab()">
+      <input
+        type="checkbox"
+        name="newTab"
+        id="tabToggle"
+        checked
+        onchange="un_tab()"
+      />
       <p>Aviso: essa configuração não é aplicada na seção Recomendações</p>
       <label for="enableRecomendations">Habliltar recomendações</label>
-      <input type="checkbox" name="enableRecomendations" id="enableRecomendations"  onchange="recomendationsEnable()">
+      <input
+        type="checkbox"
+        name="enableRecomendations"
+        id="enableRecomendations"
+        onchange="recomendationsEnable()"
+      />
       <p>Essa configuração habililta o botão recomendações da Charms</p>
+
+      <h2>Acessibilidade e visão</h2>
+      <h3>Relógio</h3>
+      Alterar a cor do relógio
+      <div class="alignAcessButtons">
+        <div
+          class="blackClock"
+          onclick="document.querySelector('.time').style.color = '#191919'"
+        ></div>
+        <div
+          class="whiteClock"
+          onclick="document.querySelector('.time').style.color = '#ffffff'"
+        ></div>
+      </div>
+      <label for="clockBckg">Fundo no relógio</label>
+      <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
+      <p>Essa função traz um fundo para o relógio, para que ele seja mais visível.</p>
     </div>
 
     <div class="charmsinfo" id="resetinfo">
@@ -115,116 +175,122 @@
     </div>
 
     <div class="charmsinfo" id="recomendations">
-        
       <div class="back" onclick="bts()"></div>
       <h1>Recomendações</h1>
       Os sites serão abertos em uma nova aba
       <h2>Para estudantes do IFSP</h2>
-      
+
       <a
         href="https://ecad.ifspcaraguatatuba.edu.br"
         class="links"
         target="_blank"
         ><div class="linkc">EcAD</div></a
       >
-      
-      
-        <a href="https://suap.ifsp.edu.br" class="links" target="_blank"
-          ><div class="linkc">SUAP</div></a
-        >
-      
-      
-        <a href="https://ifspcaraguatatuba.edu.br" class="links" target="_blank"
-          ><div class="linkc">Site do IFSP - Caraguatatuba</div></a
-        >
-      
+
+      <a href="https://suap.ifsp.edu.br" class="links" target="_blank"
+        ><div class="linkc">SUAP</div></a
+      >
+
+      <a href="https://ifspcaraguatatuba.edu.br" class="links" target="_blank"
+        ><div class="linkc">Site do IFSP - Caraguatatuba</div></a
+      >
+
       <h2>Jogos Online</h2>
-      
-        <a href="https://krunker.io" class="links" target="_blank"
-          ><div class="linkc">Krunker</div></a
-        >
-      
-      
-        <a href="https://chess.com" class="links" target="_blank"
-          ><div class="linkc">Chess</div></a
-        >
-      
-      
-        <a href="https://tetr.io" class="links" target="_blank"
-          ><div class="linkc">Tetr.io</div></a
-        >
-      
-      
-        <a href="https://roblox.com" class="links" target="_blank"
-          ><div class="linkc">Roblox</div></a
-        >
-      
-      
-        <a href="https://friv.com" class="links" target="_blank"
-          ><div class="linkc">Friv</div></a
-        >
-      
+
+      <a href="https://krunker.io" class="links" target="_blank"
+        ><div class="linkc">Krunker</div></a
+      >
+
+      <a href="https://chess.com" class="links" target="_blank"
+        ><div class="linkc">Chess</div></a
+      >
+
+      <a href="https://tetr.io" class="links" target="_blank"
+        ><div class="linkc">Tetr.io</div></a
+      >
+
+      <a href="https://roblox.com" class="links" target="_blank"
+        ><div class="linkc">Roblox</div></a
+      >
+
+      <a href="https://friv.com" class="links" target="_blank"
+        ><div class="linkc">Friv</div></a
+      >
+
       <h2>Trabalhos</h2>
-      
-        <a href="https://office.com" class="links" target="_blank"
-          ><div class="linkc">Microsoft 365</div></a
-        >
-      
-      
-        <a href="https://canva.com" class="links" target="_blank"
-          ><div class="linkc">Canva</div></a
-        >
-      
+
+      <a href="https://office.com" class="links" target="_blank"
+        ><div class="linkc">Microsoft 365</div></a
+      >
+
+      <a href="https://canva.com" class="links" target="_blank"
+        ><div class="linkc">Canva</div></a
+      >
+
       <h2>Serviços do Google mais usados</h2>
-      
-        <a href="https://gmail.com" class="links" target="_blank"
-          ><div class="linkc">Gmail</div></a
-        >
-      
-      
-        <a href="https://drive.com" class="links" target="_blank"
-          ><div class="linkc">Drive</div></a
-        >
-      
+
+      <a href="https://gmail.com" class="links" target="_blank"
+        ><div class="linkc">Gmail</div></a
+      >
+
+      <a href="https://drive.com" class="links" target="_blank"
+        ><div class="linkc">Drive</div></a
+      >
+
       <h2>Sistema Windows©</h2>
       Para estes, será necessário permitir a abertura
       <a href="ms-settings:" class="links" target="_blank"
-      ><div class="linkc">Configurações</div></a
-    >
+        ><div class="linkc">Configurações</div></a
+      >
 
-    <a href="mswindowsmusic:" class="links" target="_blank"
-    ><div class="linkc">Reprodutor Multimídia</div></a
-  >
-      
-
+      <a href="mswindowsmusic:" class="links" target="_blank"
+        ><div class="linkc">Reprodutor Multimídia</div></a
+      >
     </div>
-    <div class="charmsinfo" id="appsinfo" >
+    <div class="charmsinfo" id="appsinfo">
       <div class="back" onclick="bts()"></div>
       <h1>Aplicações</h1>
-      <div class="linkc" onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">Bloco de notas</div>
-      <div class="linkc" onclick="document.getElementById('clApp').style.transform = 'scale(1)', document.getElementById('clHided').removeAttribute('style')" ondblclick="bts(), document.getElementById('clHided').removeAttribute('style')">Calculadora</div>
+      <div
+        class="linkc"
+        onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')"
+        ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')"
+      >
+        Bloco de notas
+      </div>
+      <div
+        class="linkc"
+        onclick="document.getElementById('clApp').style.transform = 'scale(1)', document.getElementById('clHided').removeAttribute('style')"
+        ondblclick="bts(), document.getElementById('clHided').removeAttribute('style')"
+      >
+        Calculadora
+      </div>
     </div>
-
-   
 
     <!--Bloco de notas-->
     <div class="notepad" id="NpApp" style="transform: scale(0)">
       <div class="header" id="NpHeader">
         <p>Bloco de Notas</p>
-        <div class="appButtons" onclick="hide_np()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
-        <div class="appButtons" onclick="max_min_np()"><img src="img/WindowIcons/Maximize.png" alt=""  id="iconMaxMinNP"></div>
-        <div class="appButtons close" onclick="closeNp()"><img src="img/WindowIcons/Close.png" alt=""></div>
+        <div class="appButtons" onclick="hide_np()">
+          <img src="img/WindowIcons/HideWindow.png" alt="" />
+        </div>
+        <div class="appButtons" onclick="max_min_np()">
+          <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
+        </div>
+        <div class="appButtons close" onclick="closeNp()">
+          <img src="img/WindowIcons/Close.png" alt="" />
+        </div>
       </div>
       <textarea name="" cols="30" rows="10" id="textNp"></textarea>
     </div>
     <div class="chooseColor">
       <h1>Escolha a cor sólida</h1>
-      <input type="color" name="" id="colorChoosed">
+      <input type="color" name="" id="colorChoosed" />
       <div class="bottomPopup">
         <div class="leftPop">
-          <input type="checkbox" name="" id="closeThis" checked>
-          <label for="closeThis">Fechar janela ao aplicar cor</label>
-      
+          <input type="checkbox" name="" id="closeThis" checked />
+          <label for="closeThis" style="color: black"
+            >Fechar janela ao aplicar cor</label
+          >
         </div>
         <button onclick="applyColor()">Aplicar cor</button>
         <button onclick="closePop()">Cancelar</button>
@@ -235,10 +301,14 @@
     <div class="calc" id="clApp">
       <div class="header" id="clHeader">
         <p>Calculadora</p>
-        <div class="appButtons" onclick="hide_cl()"><img src="img/WindowIcons/HideWindow.png" alt=""></div>
-        <div class="appButtons close" onclick="closeCl()"><img src="img/WindowIcons/Close.png" alt=""></div>
+        <div class="appButtons" onclick="hide_cl()">
+          <img src="img/WindowIcons/HideWindow.png" alt="" />
+        </div>
+        <div class="appButtons close" onclick="closeCl()">
+          <img src="img/WindowIcons/Close.png" alt="" />
+        </div>
       </div>
-      <div class="calculator__display" style="color: black;">0</div>
+      <div class="calculator__display" style="color: black">0</div>
       <div class="calculator__keys">
         <button class="key--operator" data-action="add">+</button>
         <button class="key--operator" data-action="subtract">-</button>
