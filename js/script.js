@@ -127,7 +127,7 @@ function bts() {
   charmsapps.style.right = '-26%'
 }
 
-document.getElementById('searchbutton').onclick = function () {
+function searchingNow() {
   let searchtext = document.getElementById('searchinput').value
   if (newTabOpen) {
     if (searchtext != '') {
@@ -211,6 +211,14 @@ function selectColorImage() {
   image = 8
 }
 
+function colorGradient() {
+  image = 9
+}
+
+function selectColorGradient() {
+  image = 10
+}
+
 function applyimg() {
   if (image == 1) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
@@ -243,6 +251,19 @@ function applyimg() {
     }
   } else if (image == 8) {
     document.querySelector('.chooseColor').style.transform = 'scale(1)'
+  } else if (image == 9) {
+    let red2, green2, blue2;
+    red = Math.random() * 255
+    green = Math.random() * 255
+    blue = Math.random() * 255
+    red2 = Math.random() * 255
+    green2 = Math.random() * 255
+    blue2 = Math.random() * 255
+
+    document.body.style.backgroundImage = `linear-gradient(to bottom right, rgb(${red}, ${green}, ${blue}), rgb(${red2}, ${green2}, ${blue2}))`
+    document.body.style.color = 'white'
+  } else if (image == 10) {
+    document.querySelector('.chooseGradient').style.transform = 'scale(1)'
   }
 }
 
@@ -333,6 +354,7 @@ function recomendationsEnable() {
 
 function closePop() {
   document.querySelector('.chooseColor').removeAttribute('style')
+  document.querySelector('.chooseGradient').removeAttribute('style')
 }
 
 function applyColor() {
@@ -340,6 +362,17 @@ function applyColor() {
   document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
   document.body.style.backgroundColor = color
   let closeInp = document.getElementById('closeThis')
+  if (closeInp.checked) {
+    closePop()
+  }
+}
+
+function applyGradient() {
+  let col1 = document.getElementById('colorChoosed1').value
+  let col2 = document.getElementById('colorChoosed2').value
+  document.body.style.backgroundImage = `linear-gradient(to bottom right, ${col1}, ${col2})`
+  document.body.style.color = 'white'
+  let closeInp = document.getElementById('closeThisGd')
   if (closeInp.checked) {
     closePop()
   }
@@ -417,7 +450,7 @@ function lockAllSS() {
   }
 }
 
-function disScrSvr(){
+function disScrSvr() {
   document.getElementById('scrSvr').style.display = 'none'
 }
 
@@ -441,3 +474,16 @@ function focusCalc() {
   document.getElementById('NpApp').style.zIndex = 'auto'
   document.getElementById('clApp').style.zIndex = '998'
 }
+
+document.querySelector('#searchinput').addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    searchingNow()
+  }
+});
+
+document.querySelector('.helpWithCharms').addEventListener('mouseover', function() {
+  document.querySelector('.helpWithCharms').style.opacity = '0';
+  setTimeout(() => {
+    document.querySelector('.helpWithCharms').style.display = 'none';
+  }, 200);
+})
