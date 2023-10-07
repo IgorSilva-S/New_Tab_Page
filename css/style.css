@@ -48,13 +48,14 @@ body {
 
 .search input {
     width: 50%;
-    height: 40px;
-    border-radius: 40px;
+    height: 60px;
+    border-radius: 120px;
     border: 2px solid #ccc;
     background-color: #eee;
     box-sizing: border-box;
     padding-left: 20px;
     color: black;
+    font-size: 20px;
     transition-duration: .2s;
 }
 
@@ -64,8 +65,8 @@ body {
 }
 
 .searchengine {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     box-sizing: border-box;
     margin: 10px;
     background-color: #fff;
@@ -328,6 +329,7 @@ body {
     position: absolute;
     top: 10px;
     color: black;
+    text-align: center;
 }
 
 .chooseColor input {
@@ -743,6 +745,7 @@ body {
     position: absolute;
     top: 10px;
     color: black;
+    text-align: center;
 }
 
 .chooseGradient input {
@@ -856,12 +859,14 @@ body {
     position: absolute;
     top: 20%;
     transform: scale(0);
+    color: black;
 }
 
 .chooseImage h1 {
     position: absolute;
     top: 10px;
     color: black;
+    text-align: center;
 }
 
 .chooseImage .bottomPopup {

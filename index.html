@@ -82,11 +82,11 @@
     Cor sólida randômica <br />
     <input type="radio" name="image" id="colorChoose" onchange="selectColorImage()" />
     Cor sólida escolhida pelo usuário<br />
-    <input type="radio" name="image" id="colorRand" onchange="colorGradient()" />
+    <input type="radio" name="image" id="gradRand" onchange="colorGradient()" />
     Gradiente aleatório <br />
-    <input type="radio" name="image" id="colorRand" onchange="selectColorGradient()" />
+    <input type="radio" name="image" id="gradChoose" onchange="selectColorGradient()" />
     Gradiente montado peo usuário<br />
-    <input type="radio" name="image" id="colorRand" onchange="userImage()" />
+    <input type="radio" name="image" id="imgChoose" onchange="userImage()" />
     Selecione sua imagem de fundo<br />
     <button onclick="applyimg()" id="buttontoApply">Aplicar</button><br />
     <p>
@@ -120,6 +120,17 @@
     <label for="clockBckg">Fundo no relógio</label>
     <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
     <p>Essa função traz um fundo para o relógio, para que ele seja mais visível.</p>
+    <h3>Botões de pesquisa</h3>
+    Tamanho dos Botões:<br>
+    <input type="radio" name="buttonsSize" id="bsc1" onchange="size1()">
+    Pequeno<br>
+    <input type="radio" name="buttonsSize" id="bsc2" checked onchange="size2()">
+    Médio (Padrão)<br>
+    <input type="radio" name="buttonsSize" id="bsc3" onchange="size3()">
+    Grande<br>
+    <input type="radio" name="buttonsSize" id="bsc4" onchange="size4()">
+    Enorme<br>
+    <button onclick="applyBtnSize()">Aplicar</button><br />
   </div>
 
   <div class="charmsinfo" id="resetinfo">
@@ -273,11 +284,11 @@
     <h1>Escolha a sua imagem</h1>
     <div class="alignImageChoose">
       <div class="alignNames">
-      <label for="imageToBckg" class="labelImage">Escolher imagem</label>
+        <label for="imageToBckg" class="labelImage">Escolher imagem</label>
         Nome do arquivo: <p id="nameImg">Não selecionado</p>
       </div>
-          <input type="file" name="" id="imageToBckg" accept="image/*" class="imageInput">
-          <div class="imagePreview" id="prevImg"></div>
+      <input type="file" name="" id="imageToBckg" accept="image/*" class="imageInput">
+      <div class="imagePreview" id="prevImg"></div>
     </div>
     <p style="color: black;">Cor do relógio:</p>
     <div class="alignAcessButtonsColors">

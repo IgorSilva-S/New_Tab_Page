@@ -13,6 +13,9 @@ let red, green, blue
 let NpMax = false
 let textNotepad = document.getElementById('textNp')
 let buttonApply = document.getElementById('buttontoApply')
+let sizing = 1
+let searchInp = document.getElementById('searchinput')
+let searchB = document.getElementById('searchbutton')
 
 
 //Charms functions 
@@ -463,6 +466,9 @@ function appear_np() {
 function closeCl() {
   document.getElementById('clApp').style.transform = 'scale(0)'
   document.querySelector('.calculator__display').innerHTML = '0'
+  num1 = NaN;
+  num2 = undefined
+  op = undefined
 }
 
 function hide_cl() {
@@ -527,3 +533,48 @@ document.querySelector('.helpWithCharms').addEventListener('mouseover', function
     document.querySelector('.helpWithCharms').style.display = 'none';
   }, 200);
 })
+
+function size1() {
+  sizing = 1
+}
+
+function size2() {
+  sizing = 2
+}
+
+function size3() {
+  sizing = 3
+}
+
+function size4() {
+  sizing = 4
+}
+
+function applyBtnSize() {
+  if (sizing == 1) {
+    engineselector.style.width = '40px'
+    engineselector.style.height = '40px'
+    searchInp.style.height = '40px'
+    searchInp.style.fontSize = '15px'
+    searchB.style.width = '40px'
+    searchB.style.height = '40px'
+  } else if (sizing == 2) {
+    engineselector.removeAttribute('style')
+    searchInp.removeAttribute('style')
+    searchB.removeAttribute('style')
+  } else if (sizing == 3) {
+    engineselector.style.width = '80px'
+    engineselector.style.height = '80px'
+    searchInp.style.height = '80px'
+    searchInp.style.fontSize = '30px'
+    searchB.style.width = '80px'
+    searchB.style.height = '80px'
+  } else if (sizing == 4) {
+    engineselector.style.width = '120px'
+    engineselector.style.height = '120px'
+    searchInp.style.height = '120px'
+    searchInp.style.fontSize = '60px'
+    searchB.style.width = '120px'
+    searchB.style.height = '120px'
+  }
+} 
