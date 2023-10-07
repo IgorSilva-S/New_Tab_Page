@@ -26,6 +26,7 @@ body {
     font-weight: bold;
     padding: 10px;
     border-radius: 8px;
+    text-align: center;
 }
 
 #hour {
@@ -564,7 +565,7 @@ body {
     font-size: 25px;
 }
 
-.calculator__keys {
+.calcKeys {
     display: grid;
     grid-gap: 1px;
     grid-template-columns: repeat(4, 1fr);
@@ -579,7 +580,7 @@ body {
     font-size: 50px;
 }
 
-.calculator__keys button {
+.calcKeys button {
     height: 80px;
     background-color: aliceblue;
     border-radius: 8px;
@@ -587,7 +588,7 @@ body {
     font-size: 30px;
 }
 
-.calculator__keys .key--equal {
+.calcKeys .key--equal {
     background-image: linear-gradient(to bottom, #fe886a, #ff7033);
     grid-column: -2;
     grid-row: 2 /span 4;

@@ -389,7 +389,7 @@ function appear_np() {
 
 function closeCl() {
   document.getElementById('clApp').style.transform = 'scale(0)'
-  document.querySelector('.calcDsp').innerHTML = '0'
+  document.querySelector('.calculator__display').innerHTML = '0'
 }
 
 function hide_cl() {
@@ -430,4 +430,14 @@ function clockBckg() {
     document.querySelector('.time').style.backgroundColor = "transparent"
     document.querySelector('.time').style.backdropFilter = "none"
   }
+}
+
+function focusNp() {
+  document.getElementById('NpApp').style.zIndex = '998'
+  document.getElementById('clApp').style.zIndex = 'auto'
+}
+
+function focusCalc() {
+  document.getElementById('NpApp').style.zIndex = 'auto'
+  document.getElementById('clApp').style.zIndex = '998'
 }

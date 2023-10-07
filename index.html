@@ -267,7 +267,7 @@
     </div>
 
     <!--Bloco de notas-->
-    <div class="notepad" id="NpApp" style="transform: scale(0)">
+    <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
       <div class="header" id="NpHeader">
         <p>Bloco de Notas</p>
         <div class="appButtons" onclick="hide_np()">
@@ -298,7 +298,7 @@
     </div>
 
     <!--Calculadora-->
-    <div class="calc" id="clApp">
+    <div class="calc" id="clApp" style="transform: scale(0)" onclick="focusCalc()">
       <div class="header" id="clHeader">
         <p>Calculadora</p>
         <div class="appButtons" onclick="hide_cl()">
@@ -309,7 +309,7 @@
         </div>
       </div>
       <div class="calculator__display" style="color: black">0</div>
-      <div class="calculator__keys">
+      <div class="calcKeys">
         <button class="key--operator" data-action="add">+</button>
         <button class="key--operator" data-action="subtract">-</button>
         <button class="key--operator" data-action="multiply">&times;</button>
@@ -325,7 +325,7 @@
         <button>3</button>
         <button>0</button>
         <button data-action="decimal">,</button>
-        <button data-action="clear">AC</button>
+        <button data-action="clear">DEL</button>
         <button class="key--equal" data-action="calculate">=</button>
       </div>
     </div>
