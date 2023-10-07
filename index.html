@@ -16,7 +16,7 @@
   </div>
   <div class="search">
     <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
-    <input type="text" name="" id="searchinput" placeholder="Pesquise nesse site"/>
+    <input type="text" name="" id="searchinput" placeholder="Pesquise nesse site" />
     <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
   </div>
 
@@ -85,7 +85,9 @@
     Gradiente aleatório <br />
     <input type="radio" name="image" id="colorRand" onchange="selectColorGradient()" />
     Gradiente montado peo usuário<br />
-    <button onclick="applyimg()">Aplicar</button><br />
+    <input type="radio" name="image" id="colorRand" onchange="userImage()" />
+    Selecione sua imagem de fundo<br />
+    <button onclick="applyimg()" id="buttontoApply">Aplicar</button><br />
     <p>
       Aviso: Ao checar as caixas, as informações da charms fechará, isso
       inclui as configurações
@@ -232,11 +234,11 @@
   <div class="chooseColor">
     <h1>Escolha a cor sólida</h1>
     <input type="color" name="" id="colorChoosed" />
-        <p style="color: black;">Cor do relógio:</p>
-        <div class="alignAcessButtonsColors">
-          <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-          <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
-        </div>
+    <p style="color: black;">Cor do relógio:</p>
+    <div class="alignAcessButtonsColors">
+      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
+      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    </div>
     <div class="bottomPopup">
       <div class="leftPop">
         <input type="checkbox" name="" id="closeThis" checked />
@@ -252,10 +254,10 @@
     <input type="color" name="" id="colorChoosed1" />
     <input type="color" name="" id="colorChoosed2" />
     <p style="color: black;">Cor do relógio:</p>
-        <div class="alignAcessButtonsColors">
-          <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-          <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
-        </div>
+    <div class="alignAcessButtonsColors">
+      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
+      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    </div>
     <div class="bottomPopup">
       <div class="leftPop">
         <input type="checkbox" name="" id="closeThisGd" checked />
@@ -263,6 +265,27 @@
       </div>
       <button onclick="applyGradient()">Criar gradiente</button>
       <button onclick="closePop()">Cancelar</button>
+    </div>
+  </div>
+
+  <div class="chooseImage">
+    <h1>Escolha a sua imagem</h1>
+    <div class="alignImageChoose">
+      <div class="alignNames">
+      <label for="imageToBckg" class="labelImage">Escolher imagem</label>
+        Nome do arquivo: <p id="nameImg">Não selecionado</p>
+      </div>
+          <input type="file" name="" id="imageToBckg" accept="image/*" class="imageInput">
+          <div class="imagePreview" id="prevImg"></div>
+    </div>
+    <p style="color: black;">Cor do relógio:</p>
+    <div class="alignAcessButtonsColors">
+      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
+      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    </div>
+    <div class="bottomPopup">
+      <button onclick="applyImageFile()">Aplicar imagem</button>
+      <button onclick="closePop()">Fechar</button>
     </div>
   </div>
 

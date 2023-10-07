@@ -12,6 +12,7 @@ let recomendationEnabled = false
 let red, green, blue
 let NpMax = false
 let textNotepad = document.getElementById('textNp')
+let buttonApply = document.getElementById('buttontoApply')
 
 
 //Charms functions 
@@ -181,42 +182,57 @@ function userinfos() {
 
 function image1() {
   image = 1
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function image2() {
   image = 2
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function image3() {
   image = 3
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function image4() {
   image = 4
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function image5() {
   image = 5
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function image6() {
   image = 6
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function colorImage() {
   image = 7
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function selectColorImage() {
   image = 8
+  buttonApply.innerHTML = 'Continuar'
 }
 
 function colorGradient() {
   image = 9
+  buttonApply.innerHTML = 'Aplicar'
 }
 
 function selectColorGradient() {
   image = 10
+  buttonApply.innerHTML = 'Continuar'
+}
+
+function userImage() {
+  image = 11
+  buttonApply.innerHTML = 'Continuar'
 }
 
 function applyimg() {
@@ -264,6 +280,8 @@ function applyimg() {
     document.body.style.color = 'white'
   } else if (image == 10) {
     document.querySelector('.chooseGradient').style.transform = 'scale(1)'
+  } else if (image == 11) {
+    document.querySelector('.chooseImage').style.transform = 'scale(1)'
   }
 }
 
@@ -355,6 +373,7 @@ function recomendationsEnable() {
 function closePop() {
   document.querySelector('.chooseColor').removeAttribute('style')
   document.querySelector('.chooseGradient').removeAttribute('style')
+  document.querySelector('.chooseImage').removeAttribute('style')
 }
 
 function applyColor() {
@@ -376,6 +395,27 @@ function applyGradient() {
   if (closeInp.checked) {
     closePop()
   }
+}
+
+//Input da imagem
+
+let imageFile = document.getElementById('imageToBckg')
+imageFile.addEventListener('change', function() {
+  var reader = new FileReader
+  reader.addEventListener('load', function () {
+    document.getElementById('prevImg').style.backgroundImage = `url(${reader.result})`
+  });
+  reader.readAsDataURL(imageFile.files[0]);
+  let name = imageFile.value
+  name = name.replace(/C:\\fakepath\\/i, '')
+  document.getElementById('nameImg').textContent = name
+})
+function applyImageFile() {
+  var reader = new FileReader
+  reader.addEventListener('load', function() {
+    document.body.style.backgroundImage = `url(${reader.result})`
+  });
+  reader.readAsDataURL(imageFile.files[0]);
 }
 
 function max_min_np() {
