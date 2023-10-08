@@ -3,8 +3,8 @@
 Este projeto traz uma nova experiência para as páginas de redirecionamento
 
 # Tópicos do site
- * <a href="#Apps">Aplicativos integrados</a>
- * <a href="#Custom">Customizações</a>
+ * <a href="#aplicações">Aplicativos integrados</a>
+ * <a href="#customizações">Customizações</a>
  * <a href="#Charms">Barra lateral</a>
  * <a href="#Access">Acessibilidade</a>
  * <a href="#Locks">Bloqueio do site</a>
