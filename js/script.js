@@ -292,6 +292,10 @@ function reloadpage() {
   location.href = 'index.html'
 }
 
+function reloadSpage() {
+  location.href = 'simpleSearch.html'
+}
+
 function un_pin() {
   if (!pinned) {
     document.querySelector('.charms').style.right = '0'

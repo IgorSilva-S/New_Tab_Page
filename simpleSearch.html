@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Aba</title>
+    <link rel="shortcut icon" href="img/FavIcon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/simpleStyle.css">
+</head>
+<body>
+        <p id="hour">00:00</p>
+    <div class="searchLogo">
+        <img src="img/FavIcon/NewTab Icon.png" alt="Logo">
+        <h1>Pesquise aqui!</h1>
+    </div>
+    <div class="searchAlign">
+        <div class="engineChoose google" onclick="changeEngine()" id="engineChoose"></div>
+    <input type="text" class="searchBar">
+        <button onclick="searchingNow()">Pesquisar</button>
+    </div>
+
+    <div class="return">
+        Voltar para o modo normal
+        <button onclick="returnToNormalMode()">Voltar</button>
+    </div>
+
+    <div class="changeColor">
+        Alterar a cor de fundo
+        <button onclick="changeColor()">Alterar</button>
+    </div>
+    <script src="js/simpleScript.js"></script>
+</body>
+</html>
