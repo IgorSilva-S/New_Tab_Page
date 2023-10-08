@@ -6,4 +6,11 @@ Este projeto traz uma nova experiência para as páginas de redirecionamento
  * <a href="#Apps">Aplicativos integrados</a>
  * <a href="#Custom">Customizações</a>
  * <a href="#Charms">Barra lateral</a>
+ * <a href="#Access">Acessibilidade</a>
+ * <a href="#Locks">Bloqueio do site</a>
+ * <a href="#Reset">Reinicialização do site</a>
+
+ ___
+
+<h1></h1>
 
