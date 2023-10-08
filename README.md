@@ -1,5 +1,5 @@
 # Projeto de Algoritmos (ALGO), para outubro
-![Logo do projeto](img/FavIcon/NewTab%20Icon.png)<br>
+<img src="img/FavIcon/NewTab Icon.png" alt="Logotipo do projeto" align = "center"><br>
 Este projeto traz uma nova experiência para as páginas de redirecionamento
 
 # Tópicos do site

@@ -56,7 +56,9 @@ body {
     background-repeat: no-repeat;
     border-radius: 8px;
     backdrop-filter: blur(20px);
-    display: none;
+    position: absolute;
+    bottom: 200px;
+    left: calc(50% - 90px);
 }
 
 .search input {
