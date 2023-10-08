@@ -24,6 +24,14 @@ body {
     border-radius: 8px;
 }
 
+.searchLogo img {
+    transition-duration: .2s;
+}
+
+.searchLogo img:active {
+    filter: grayscale(100%);
+}
+
 input {
     width: 30%;
     height: 50px;

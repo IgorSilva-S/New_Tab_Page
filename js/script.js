@@ -582,3 +582,9 @@ function applyBtnSize() {
     searchB.style.height = '120px'
   }
 } 
+
+function openGitHub() {
+  setTimeout(() => {
+    window.open('https:/github.com/IgorSilva-S/New_Tab_Screen')
+  }, 210);
+}

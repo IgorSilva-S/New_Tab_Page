@@ -50,3 +50,11 @@ function searchingNowS() {
                 window.open(`https://www.bing.com/search?q=${searchtext}`)
             }
 }
+
+function openGitHub() {
+    setTimeout(() => {
+        window.open('https:/github.com/IgorSilva-S/New_Tab_Screen')
+    }, 210);
+}
+
+
