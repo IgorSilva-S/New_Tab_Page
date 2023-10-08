@@ -38,11 +38,11 @@ function changeColor() {
 
 document.querySelector('.searchBar').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        searchingNow()
+        searchingNowS()
     }
 });
 
-function searchingNow() {
+function searchingNowS() {
     let searchtext = document.querySelector('.searchBar').value
             if (!engineChanged) {
                 window.open(`https://www.google.com/search?q=${searchtext}`)

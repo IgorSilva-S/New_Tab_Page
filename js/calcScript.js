@@ -81,6 +81,7 @@ keys.addEventListener('click', e => {
             num1 = NaN;
             num2 = undefined
             op = undefined
+            decimal = false
             display.textContent = 'Limpo!'
             setTimeout(() => {
                 display.textContent = '0'
