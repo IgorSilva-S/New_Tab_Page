@@ -518,11 +518,19 @@ function clockBckg() {
 function focusNp() {
   document.getElementById('NpApp').style.zIndex = '998'
   document.getElementById('clApp').style.zIndex = 'auto'
+  document.getElementById('mpApp').style.zIndex = 'auto'
 }
 
 function focusCalc() {
   document.getElementById('NpApp').style.zIndex = 'auto'
   document.getElementById('clApp').style.zIndex = '998'
+  document.getElementById('mpApp').style.zIndex = 'auto'
+}
+
+function focusMp() {
+  document.getElementById('NpApp').style.zIndex = 'auto'
+  document.getElementById('clApp').style.zIndex = 'auto'
+  document.getElementById('mpApp').style.zIndex = '998'
 }
 
 document.querySelector('#searchinput').addEventListener('keydown', function (event) {

@@ -237,22 +237,6 @@
     </div>
   </div>
 
-  <!--Bloco de notas-->
-  <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
-    <div class="header" id="NpHeader">
-      <p>Bloco de Notas</p>
-      <div class="appButtons" onclick="hide_np()">
-        <img src="img/WindowIcons/HideWindow.png" alt="" />
-      </div>
-      <div class="appButtons" onclick="max_min_np()">
-        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
-      </div>
-      <div class="appButtons close" onclick="closeNp()">
-        <img src="img/WindowIcons/Close.png" alt="" />
-      </div>
-    </div>
-    <textarea name="" cols="30" rows="10" id="textNp"></textarea>
-  </div>
   <div class="chooseColor">
     <h1>Escolha a cor sólida</h1>
     <input type="color" name="" id="colorChoosed" />
@@ -311,6 +295,23 @@
     </div>
   </div>
 
+    <!--Bloco de notas-->
+    <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
+      <div class="header" id="NpHeader">
+        <p>Bloco de Notas</p>
+        <div class="appButtons" onclick="hide_np()">
+          <img src="img/WindowIcons/HideWindow.png" alt="" />
+        </div>
+        <div class="appButtons" onclick="max_min_np()">
+          <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
+        </div>
+        <div class="appButtons close" onclick="closeNp()">
+          <img src="img/WindowIcons/Close.png" alt="" />
+        </div>
+      </div>
+      <textarea name="" cols="30" rows="10" id="textNp"></textarea>
+    </div>
+
   <!--Calculadora-->
   <div class="calc" id="clApp" style="transform: scale(0)" onclick="focusCalc()">
     <div class="header" id="clHeader">
@@ -344,6 +345,23 @@
     </div>
   </div>
 
+  <!--Reprodutor de música-->
+  <div class="music" id="mpApp" onclick="focusMp()">
+    <div class="header" id="mpHeader">
+      <p>Reprodutor de música</p>
+      <div class="appButtons" onclick="hide_Mp()">
+        <img src="img/WindowIcons/HideWindow.png" alt="" />
+      </div>
+      <div class="appButtons" onclick="max_min_Mp()">
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
+      </div>
+      <div class="appButtons close" onclick="closeMp()">
+        <img src="img/WindowIcons/Close.png" alt="" />
+      </div>
+    </div>
+    Conteúdo
+  </div>
+
   <!--Ajuda para iniciar com a Charms-->
   <div class="helpWithCharms">
 
@@ -355,6 +373,9 @@
   </div>
   <div class="appHided calcHide" onclick="appear_cl()" id="clHided">
     Calculadora
+  </div>
+  <div class="appHided mpHide">
+    Reprodutor de música
   </div>
   <div class="lock" id="lockscreen">
     <input type="password" name="" id="passlock" />
