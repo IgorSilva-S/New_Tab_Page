@@ -7,7 +7,10 @@ let hour, minute
 setInterval(() => {
     hour = t.getHours()
     minute = t.getMinutes()
-    document.getElementById('hour').innerHTML = `${hour}:${minute}`
+    const zero = n => {
+        return ('0' + n).slice(-2)
+    }
+    document.getElementById('hour').innerHTML = `${zero(hour)}:${zero(minute)}`
 }, 1);
 
 red = Math.random() * 255
