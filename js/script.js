@@ -596,3 +596,12 @@ function openGitHub() {
     window.open('https:/github.com/IgorSilva-S/New_Tab_Screen')
   }, 210);
 }
+
+let songFile = document.getElementById('chooseSong')
+songFile.addEventListener('change', function() {
+  let songReader = new FileReader
+  songReader.readAsDataURL(songFile.files[0])
+  let songName = document.getElementById('chooseSong').value
+  songName = songName.replace(/C:\\fakepath\\/i, '')
+  document.getElementById('songName').innerText = songName
+})
