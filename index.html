@@ -222,17 +222,17 @@
     <div class="back" onclick="bts()"></div>
     <h1>Aplicações</h1>
     <div class="linkc"
-      onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style')"
+      onclick="document.getElementById('NpApp').style.transform = 'scale(1)', document.getElementById('npHided').removeAttribute('style'), focusNp()"
       ondblclick="bts(), document.getElementById('npHided').removeAttribute('style')">
       Bloco de notas
     </div>
     <div class="linkc"
-      onclick="document.getElementById('clApp').style.transform = 'scale(1)', document.getElementById('clHided').removeAttribute('style')"
+      onclick="document.getElementById('clApp').style.transform = 'scale(1)', document.getElementById('clHided').removeAttribute('style'), focusCalc()"
       ondblclick="bts(), document.getElementById('clHided').removeAttribute('style')">
       Calculadora
     </div>
     <div class="linkc"
-    onclick="document.getElementById('mpApp').style.transform = 'scale(1)', document.getElementById('mpHided').removeAttribute('style')"
+    onclick="document.getElementById('mpApp').style.transform = 'scale(1)', document.getElementById('mpHided').removeAttribute('style'), focusMp()"
       ondblclick="bts()">
       Reprodutor de música simples
     </div>
@@ -362,12 +362,28 @@
     </div>
     <div class="nameandcover">
       <img src="img/MusicPlayer/NormalCover.png" alt="">
-      <p id="songName">Nome da música</p>
-      <label for="chooseSong">Escolha a música que irá tocar</label>
+      <p id="songName">O nome da música aparecerá aqui</p>
+      <label for="chooseSong">Escolha a sua música</label>
       <input type="file" name="" id="chooseSong" style="display: none;" accept="audio/*">
       <audio src="" id="songByUser"></audio>
     </div>
     <div class="player">
+      <div class="volume">
+        <div class="playerIcons">
+        
+        </div>
+        <input type="range" value="100" max="100" id="volSlid">
+        <p id="volnum"></p>
+      </div>
+      <div class="songTime">
+        <p id="actualTime"></p>
+        <input type="range" name="" id="" class="timeSong" value="0">
+        <p id="totalTime">00:00</p>
+      </div>
+      
+      <div class="playerIcons simpleB" id="repeatb" onclick="repeater()"></div>
+      <div class="playerIcons playB" onclick="playorpause()"></div>
+      <div class="playerIcons simpleB"></div>
 
     </div>
   </div>

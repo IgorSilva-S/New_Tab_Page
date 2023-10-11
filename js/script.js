@@ -18,7 +18,9 @@ let sizing = 1
 let searchInp = document.getElementById('searchinput')
 let searchB = document.getElementById('searchbutton')
 let song = document.getElementById('songByUser')
-
+let playing = false
+let repeating = false;
+let repeaterb = document.getElementById('repeatb')
 
 //Charms functions 
 
@@ -490,7 +492,7 @@ function appear_cl() {
 function closeMp() {
   document.getElementById('mpApp').style.transform = 'scale(0)'
   song.src = ''
-  document.getElementById('songName').innerText = 'Sem som selecionado'
+  document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
 }
 
 function hide_Mp() {
@@ -520,10 +522,10 @@ function max_min_Mp() {
     MpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
-    app.style.left = '100px'
-    app.style.top = '100px'
-    app.style.width = '800px'
-    app.style.height = '600px'
+    app.style.left = '50px'
+    app.style.top = '50px'
+    app.style.width = '500px'
+    app.style.height = '440px'
     MpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
@@ -644,14 +646,110 @@ function openGitHub() {
 
 let songFile = document.getElementById('chooseSong')
 songFile.addEventListener('change', function() {
-  let songReader = new FileReader
+  const songReader = new FileReader
   songReader.addEventListener('load', function() {
     let songName = document.getElementById('chooseSong').value
     songName = songName.replace(/C:\\fakepath\\/i, '')
     document.getElementById('songName').innerText = songName
     song.src = songReader.result
     song.play()
-  
+    playing = true
   })
   songReader.readAsDataURL(songFile.files[0])
+})
+
+setInterval(() => {
+  document.getElementById('volnum').innerText = document.getElementById('volSlid').value + "%"
+  song.volume = document.getElementById('volSlid').value / 100
+}, 1);
+
+function playorpause() {
+  if (playing == false) {
+    song.play();
+    playing = true;
+  } else {
+    song.pause();
+    playing = false;
+  }
+}
+
+function repeater() {
+  if (repeating == false) {
+    repeating = true;
+    repeaterb.innerHTML = ""
+  } else {
+    repeating = false;
+    repeaterb.innerHTML = ""
+  }
+}
+
+
+setInterval(() => {
+  if (playing) {
+    document.querySelector('.playB').innerText = ''
+  } else {
+    document.querySelector('.playB').innerText = ''
+  }
+}, 1);
+
+song.addEventListener('ended', function() {
+  if (repeating) {
+    song.currentTime = 0;
+    song.play()
+  } else {
+    playing = false
+  }
+})
+
+//Slider 
+
+var progressEl = document.querySelector('.timeSong');
+let mouseDownOnSlider = false;
+
+song.addEventListener('loadeddata', () => {
+  progressEl.value = 0;
+});
+song.addEventListener('timeupdate', () => {
+  if (!mouseDownOnSlider) {
+    progressEl.value = (song.currentTime / song.duration) * 100;
+  }
+});
+
+progressEl.addEventListener('change', () => {
+  const pct = progressEl.value / 100;
+  song.currentTime = (song.duration || 0) * pct;
+});
+progressEl.addEventListener('mousedown', () => {
+  mouseDownOnSlider = true;
+});
+progressEl.addEventListener('mouseup', () => {
+  mouseDownOnSlider = false;
+});
+
+//Fim slider
+
+song.addEventListener('timeupdate', function () {
+  let s = parseInt(song.currentTime % 60);
+  let m = parseInt((song.currentTime / 60) % 60);
+  let sd = parseInt(song.duration % 60);
+  let md = parseInt((song.duration / 60) % 60);
+  let musicTime = document.getElementById('totalTime')
+  if (s < 10) {
+    s = '0' + s
+  }
+  if (m < 10) {
+    m = '0' + m
+  }
+  if (sd < 10) {
+    sd = '0' + sd;
+  }
+  if (md < 10) {
+    md = '0' + md;
+  }
+  document.getElementById('actualTime').innerHTML = m + ":" + s
+  if (isNaN(song.duration)) {
+    musicTime.innerHTML = "Carregando"
+  } else {
+    musicTime.innerHTML = md + ":" + sd
+  }
 })

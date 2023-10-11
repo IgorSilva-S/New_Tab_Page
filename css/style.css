@@ -3,6 +3,11 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: Segoe Fluent Icons;
+    src: url(../fonts/Icons/SegoeFluentIcons.ttf);
+}
+
 body {
     height: 100vh;
     background-size: cover;
@@ -1054,15 +1059,16 @@ body {
 .music {
     width: 500px;
     height: 440px;
-    background-color: #f0f0f0aa;
+    background-color: #f0f0f077;
     position: absolute;
     left: 50px;
     top: 50px;
     border-radius: 8px 8px 8px 8px;
     box-shadow: 2px 2px 20px 2px #191919;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(20px);
     padding-top: 40px;
     color: black;
+    transform: scale(0)
 }
 
 .music .header {
@@ -1091,6 +1097,10 @@ body {
     border-radius: 8px;
 }
 
+.nameandcover p {
+    text-align: center;
+}
+
 
 .music label {
     padding: 5px;
@@ -1111,4 +1121,67 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
+
+.volume {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 150px;
+    position: absolute;
+    left: 10px;
+}
+
+.volume input {
+    width: 80px;
+}
+
+.playerIcons {
+font-family: Segoe Fluent Icons;
+}
+
+.simpleB {
+    font-size: 20px;
+        margin: 0 20px;
+}
+
+.playB {
+    font-size: 35px;
+
+}
+
+.songTime {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    position: absolute;
+    top: 0;
+}
+
+.player input {
+    appearance: none;
+    height: 15px;
+    border-radius: 100px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.player input::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 3px solid #0632ff;
+    background-color: #f0f0f0;
+    border-radius: 100%;
+    box-shadow: -1005px 0px 0px 1000px #0632ff;
+}
+
+.timeSong{
+    width: 80%
+}
+
+/*Início Responsividade*/
