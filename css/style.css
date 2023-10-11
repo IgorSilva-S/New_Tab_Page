@@ -1105,3 +1105,9 @@ body {
 .music label:hover {
     background-color: #0078d4;
 }
+
+.player {
+    width: 100%;
+    height: 20%;
+    background-color: #0078d4;
+}

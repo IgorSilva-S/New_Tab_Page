@@ -16,6 +16,7 @@ let buttonApply = document.getElementById('buttontoApply')
 let sizing = 1
 let searchInp = document.getElementById('searchinput')
 let searchB = document.getElementById('searchbutton')
+let song = document.getElementById('songByUser')
 
 
 //Charms functions 
@@ -600,8 +601,13 @@ function openGitHub() {
 let songFile = document.getElementById('chooseSong')
 songFile.addEventListener('change', function() {
   let songReader = new FileReader
+  songReader.addEventListener('load', function() {
+    let songName = document.getElementById('chooseSong').value
+    songName = songName.replace(/C:\\fakepath\\/i, '')
+    document.getElementById('songName').innerText = songName
+    song.src = songReader.result
+    song.play()
+  
+  })
   songReader.readAsDataURL(songFile.files[0])
-  let songName = document.getElementById('chooseSong').value
-  songName = songName.replace(/C:\\fakepath\\/i, '')
-  document.getElementById('songName').innerText = songName
 })
