@@ -232,6 +232,7 @@
       Calculadora
     </div>
     <div class="linkc"
+    onclick="document.getElementById('mpApp').style.transform = 'scale(1)', document.getElementById('mpHided').removeAttribute('style')"
       ondblclick="bts()">
       Reprodutor de música simples
     </div>
@@ -353,7 +354,7 @@
         <img src="img/WindowIcons/HideWindow.png" alt="" />
       </div>
       <div class="appButtons" onclick="max_min_Mp()">
-        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinMP" />
       </div>
       <div class="appButtons close" onclick="closeMp()">
         <img src="img/WindowIcons/Close.png" alt="" />
@@ -366,7 +367,7 @@
       <input type="file" name="" id="chooseSong" style="display: none;" accept="audio/*">
       <audio src="" id="songByUser"></audio>
     </div>
-    <div class="player" onclick="song.play()">
+    <div class="player">
 
     </div>
   </div>
@@ -383,7 +384,7 @@
   <div class="appHided calcHide" onclick="appear_cl()" id="clHided">
     Calculadora
   </div>
-  <div class="appHided mpHide">
+  <div class="appHided mpHide" onclick="appear_mp()" id="mpHided">
     Reprodutor de música
   </div>
   <div class="lock" id="lockscreen">

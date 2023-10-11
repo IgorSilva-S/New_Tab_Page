@@ -11,6 +11,7 @@ let tabToggle = document.getElementById('tabToggle');
 let recomendationEnabled = false
 let red, green, blue
 let NpMax = false
+let MpMax = false
 let textNotepad = document.getElementById('textNp')
 let buttonApply = document.getElementById('buttontoApply')
 let sizing = 1
@@ -485,6 +486,49 @@ function appear_cl() {
   document.getElementById('clApp').style.transform = 'scale(1)'
   document.getElementById('clHided').removeAttribute('style')
 }
+
+function closeMp() {
+  document.getElementById('mpApp').style.transform = 'scale(0)'
+  song.src = ''
+  document.getElementById('songName').innerText = 'Sem som selecionado'
+}
+
+function hide_Mp() {
+  document.getElementById('mpApp').style.transform = 'scale(0)'
+  document.getElementById('mpHided').style.display = 'flex'
+}
+
+function appear_mp() {
+  document.getElementById('mpApp').style.transform = 'scale(1)'
+  document.getElementById('mpHided').removeAttribute('style')
+}
+
+function max_min_Mp() {
+  let app = document.getElementById('mpApp')
+  let appHd = document.getElementById('mpHeader')
+  let icon = document.getElementById('iconMaxMinMP')
+  if (!MpMax) {
+    app.style.left = '0'
+    app.style.top = '0'
+    if (!pinned) {
+      app.style.width = 'calc(100vw - 1%)'
+
+    } else {
+      app.style.width = 'calc(100vw - 15%)'
+    }
+    app.style.height = 'calc(100vh - 40px)'
+    MpMax = true
+    icon.src = 'img/WindowIcons/Minimize.png'
+  } else {
+    app.style.left = '100px'
+    app.style.top = '100px'
+    app.style.width = '800px'
+    app.style.height = '600px'
+    MpMax = false
+    icon.src = 'img/WindowIcons/Maximize.png'
+  }
+}
+
 
 function lockAllSS() {
   var pin = document.getElementById('passcharms').value
