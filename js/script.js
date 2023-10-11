@@ -446,10 +446,10 @@ function max_min_np() {
     NpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
-    app.style.left = '100px'
-    app.style.top = '100px'
-    app.style.width = '800px'
-    app.style.height = '600px'
+    app.style.left = 'var(--spaceNp)'
+    app.style.top = 'var(--spaceNp)'
+    app.style.width = 'var(--widthNp)'
+    app.style.height = 'var(--heightNp)'
     NpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
@@ -522,10 +522,10 @@ function max_min_Mp() {
     MpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
-    app.style.left = '50px'
-    app.style.top = '50px'
-    app.style.width = '500px'
-    app.style.height = '440px'
+    app.style.left = 'var(--spaceMusic)'
+    app.style.top = 'var(--spaceMusic)'
+    app.style.width = 'var(--widthMusic)'
+    app.style.height = 'var(--heightMusic)'
     MpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
@@ -611,30 +611,30 @@ function size4() {
 
 function applyBtnSize() {
   if (sizing == 1) {
-    engineselector.style.width = '40px'
-    engineselector.style.height = '40px'
-    searchInp.style.height = '40px'
-    searchInp.style.fontSize = '15px'
-    searchB.style.width = '40px'
-    searchB.style.height = '40px'
+    engineselector.style.width = 'var(--smallSearch)'
+    engineselector.style.height = 'var(--smallSearch)'
+    searchInp.style.height = 'var(--smallSearch)'
+    searchInp.style.fontSize = 'var(--smallSize)'
+    searchB.style.width = 'var(--smallSearch)'
+    searchB.style.height = 'var(--smallSearch)'
   } else if (sizing == 2) {
     engineselector.removeAttribute('style')
     searchInp.removeAttribute('style')
     searchB.removeAttribute('style')
   } else if (sizing == 3) {
-    engineselector.style.width = '80px'
-    engineselector.style.height = '80px'
-    searchInp.style.height = '80px'
-    searchInp.style.fontSize = '30px'
-    searchB.style.width = '80px'
-    searchB.style.height = '80px'
+    engineselector.style.width = 'var(--largeSearch)'
+    engineselector.style.height = 'var(--largeSearch)'
+    searchInp.style.height = 'var(--largeSearch)'
+    searchInp.style.fontSize = 'var(--largeSize)'
+    searchB.style.width = 'var(--largeSearch)'
+    searchB.style.height = 'var(--largeSearch)'
   } else if (sizing == 4) {
-    engineselector.style.width = '120px'
-    engineselector.style.height = '120px'
-    searchInp.style.height = '120px'
-    searchInp.style.fontSize = '60px'
-    searchB.style.width = '120px'
-    searchB.style.height = '120px'
+    engineselector.style.width = 'var(--XLargeSearch)'
+    engineselector.style.height = 'var(--XLargeSearch)'
+    searchInp.style.height = 'var(--XLargeSearch)'
+    searchInp.style.fontSize = 'var(--XLargeSize)'
+    searchB.style.width = 'var(--XLargeSearch)'
+    searchB.style.height = 'var(--XLargeSearch)'
   }
 } 
 
