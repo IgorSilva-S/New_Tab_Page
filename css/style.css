@@ -551,6 +551,12 @@ body {
     left: calc(8% + 10px);
 }
 
+.mpHide {
+    left: calc((8% + 8% + 10px) + 10px);
+    display: flex;
+    width: 12%;
+}
+
 .calc {
     width: 400px;
     height: 510px;
@@ -1078,4 +1084,10 @@ body {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
+}
+
+.nameandcover img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
 }
