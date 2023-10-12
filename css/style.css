@@ -1226,6 +1226,17 @@ font-family: Segoe Fluent Icons;
     width: 80%
 }
 
+.charmsinfo::-webkit-scrollbar {
+    appearance: none;
+}
+
+.charmsinfo::-webkit-scrollbar-thumb {
+    appearance: none;
+    width: 3px;
+    border-radius: 100px;
+    background-color: #0078d477;
+}
+
 /*Início Responsividade*/
 
 @media (max-height: 780px) {
@@ -1262,8 +1273,21 @@ font-family: Segoe Fluent Icons;
     }
 
     .back {
-        width: 40px;
-        height: 40px;
-        top: 2.8%;
+        width: 35px;
+        height: 35px;
+        top: 3%;
+    }
+
+    .charmsicons {
+        width: 90px;
+        height: 90px;
+    }
+
+    #hour {
+        font-size: 70px;
+    }
+
+    #day {
+        font-size: 15px;
     }
 }
