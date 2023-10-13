@@ -24,6 +24,9 @@
     --heightPopUps: 60%;
     --spacePopUpsLeft: 30%;
     --spacePopUpsTop: 20%;
+    --headerSpacement: -40px;
+    --radiusTopHeader: 0px 0px 8px 8px;
+    --topHeader: 0;
 
     /*Pequeno, médio, grande e enorme*/
     --smallSearch: 40px;
@@ -290,6 +293,7 @@ body {
     width: 60%;
     border: 2px solid #ccc;
     transition-duration: .4s;
+    padding: 2px;
 }
 
 .charmsinfo input[type='password']:focus,
@@ -496,14 +500,15 @@ body {
     position: absolute;
     left: var(--spaceNp);
     top: var(--spaceNp);
-    border-radius: 0 0 8px 8px;
+    border-radius: var(--radiusTopHeader);
     box-shadow: 2px 2px 20px 2px #191919;
+    
 }
 
 .notepad .header {
     width: 100%;
     position: absolute;
-    top: -40px;
+    top: var(--headerSpacement);
     height: 40px;
     background-color: rgba(250, 250, 250, 0.3);
     backdrop-filter: blur(15px);
@@ -564,6 +569,7 @@ body {
     resize: none;
     top: 10px;
     font-size: 16px;
+    margin-top: var(--topHeader);
 }
 
 .notepad textarea:focus {
@@ -610,14 +616,16 @@ body {
     position: absolute;
     left: var(--spaceCalc);
     top: var(--spaceCalc);
-    border-radius: 0 0 8px 8px;
+    border-radius: var(--radiusTopHeader);
     box-shadow: 2px 2px 20px 2px #191919;
+    padding-top: var(--topHeader);
+    overflow: hidden;
 }
 
 .calc .header {
-    width: 400px;
+    width: 100%;
     position: absolute;
-    top: -40px;
+    top: var(--headerSpacement);
     height: 40px;
     background-color: rgba(250, 250, 250, 0.3);
     backdrop-filter: blur(15px);
@@ -643,7 +651,7 @@ body {
 .calcKeys {
     display: grid;
     grid-gap: 1px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 8fr);
 }
 
 .key--operator {
@@ -920,12 +928,12 @@ body {
 }
 
 .alignAcessButtonsColors {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-    }
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
 .helpWithCharms {
     width: 200px;
@@ -1180,12 +1188,12 @@ body {
 }
 
 .playerIcons {
-font-family: Segoe Fluent Icons;
+    font-family: Segoe Fluent Icons;
 }
 
 .simpleB {
     font-size: 20px;
-        margin: 0 20px;
+    margin: 0 20px;
 }
 
 .playB {
@@ -1222,7 +1230,7 @@ font-family: Segoe Fluent Icons;
     box-shadow: -1005px 0px 0px 1000px #0632ff;
 }
 
-.timeSong{
+.timeSong {
     width: 80%
 }
 
@@ -1232,9 +1240,54 @@ font-family: Segoe Fluent Icons;
 
 .charmsinfo::-webkit-scrollbar-thumb {
     appearance: none;
-    width: 3px;
     border-radius: 100px;
     background-color: #0078d477;
+}
+
+.openMobileCharms {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.openMobileCharms .lines {
+    width: 60%;
+    height: 3px;
+    background-color: aliceblue;
+    margin: 10px 0;
+}
+
+.closeMobileCharms {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+}
+
+.closeMobileCharms .lines {
+    width: 60%;
+    height: 3px;
+    background-color: aliceblue;
+    position: absolute;
+}
+
+#ltr {
+    transform: rotate(45deg);
+}
+
+#rtl {
+    transform: rotate(135deg);
 }
 
 /*Início Responsividade*/
@@ -1289,5 +1342,105 @@ font-family: Segoe Fluent Icons;
 
     #day {
         font-size: 15px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .openMobileCharms {
+        display: flex;
+    }
+
+    .closeMobileCharms {
+        display: flex;
+    }
+
+    .charms {
+        right: -101%;
+        width: 100vw;
+    }
+
+    .charmsinfo {
+        width: 100vw;
+        right: -101%;
+    }
+
+    .resetPosition {
+        display: none;
+    }
+
+    :root {
+        --widthNp: 100vw;
+        --heightNp: 100vh;
+        --spaceNp: 0;
+        --widthCalc: 100vw;
+        --heightCalc: 100vh;
+        --spaceCalc: 0;
+        --widthMusic: 100vw;
+        --heightMusic: 100vh;
+        --spaceMusic: 0;
+        --widthPopUps: 100vw;
+        --heightPopUps: 100vh;
+        --spacePopUpsLeft: 0;
+        --spacePopUpsTop: 0;
+        --headerSpacement: 0;
+        --radiusTopHeader: 8px;
+        --topHeader: 40px;
+    }
+
+    .calcKeys {
+        grid-template-rows: 100px
+    }
+
+    .time {
+        width: 90%;
+        left: 5%;
+    }
+
+    .helpWithCharms {
+        display: none;
+    }
+
+    .logo {
+        bottom: 10%;
+    }
+
+    .maxandmin {
+        display: none;
+    }
+
+    .charmsicons {
+        width: 180px;
+        height: 180px;
+    }
+
+    .mpHide {
+        width: 30%;
+        left: calc(100% - 30%);
+    }
+
+    .notepadHide {
+        width: 30%;
+        left: 0;
+    }
+
+    .calcHide {
+        width: 30%;
+        left: calc(50% - 15%)
+    }
+}
+
+@media (max-width: 450px) {
+    .buttonsSize {
+        display: none;
+    }
+
+    .charmsicons {
+        width: 80px;
+        height: 80px;
+    }
+
+    .mpHide {
+        font-size: 13px;
+        text-align: center;
     }
 }

@@ -21,6 +21,7 @@ let song = document.getElementById('songByUser')
 let playing = false
 let repeating = false;
 let repeaterb = document.getElementById('repeatb')
+let charmsForMobile = false
 
 //Charms functions 
 
@@ -133,6 +134,14 @@ function bts() {
   charmssetting.style.right = "-26%"
   charmsrecomendations.style.right = "-26%"
   charmsapps.style.right = '-26%'
+  if (charmsForMobile) {
+    charmslocks.style.right = "-101%"
+    charmsuser.style.right = "-101%"
+    charmsreset.style.right = "-101%"
+    charmssetting.style.right = "-101%"
+    charmsrecomendations.style.right = "-101%"
+    charmsapps.style.right = '-101%'
+  }
 }
 
 function searchingNow() {
@@ -165,7 +174,10 @@ function lockall() {
   } else {
     if (passwordlocks == pin) {
       document.getElementById('lockscreen').style.top = "-110%"
+      document.getElementById('wrongPass').innerHTML = ''
       unlocked = true
+    } else {
+      document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
     }
   }
 }
@@ -176,12 +188,16 @@ function userinfos() {
   let femradio = document.getElementById('fem')
   let pnsradio = document.getElementById('pns')
   let grettings = document.getElementById('userinfos')
+  let lockGrettings = document.getElementById('nameLock')
   if (masradio.checked) {
     grettings.innerHTML = `Bem-vindo, ${name}!`
+    lockGrettings.innerHTML = `Bem-vindo, ${name}, digite a sua senha para prosseguir`
   } else if (femradio.checked) {
     grettings.innerHTML = `Bem-vinda, ${name}!`
+    lockGrettings.innerHTML = `Bem-vinda, ${name}, digite a sua senha para prosseguir`
   } else if (pnsradio.checked) {
     grettings.innerHTML = `Olá, ${name}!`
+    lockGrettings.innerHTML = `Olá, ${name}, digite a sua senha para prosseguir`
   } else {
     alert('Insira um valor em uma das caixas de escolha')
   }
@@ -245,22 +261,22 @@ function userImage() {
 function applyimg() {
   if (image == 1) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 2) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 3) {
     document.body.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 4) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img4.jpg)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 5) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 6) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
-    document.body.style.color = 'white'
+    document.querySelector('.time').removeAttribute('style')
   } else if (image == 7) {
     red = Math.random() * 255
     green = Math.random() * 255
@@ -770,4 +786,17 @@ function resetMusPlay() {
   let app = document.getElementById('mpApp')
   app.style.left = 'var(--spaceMusic)'
   app.style.top = 'var(--spaceMusic)'
+}
+
+//Funções responsivas
+
+function openCharms() {
+  let charms = document.querySelector('.charms');
+  charms.style.right = '0';
+  charmsForMobile = true
+}
+
+function closeCharms() {
+  let charms = document.querySelector('.charms');
+  charms.style.right = '-101%';
 }
