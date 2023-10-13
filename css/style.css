@@ -1110,7 +1110,7 @@ body {
     backdrop-filter: blur(20px);
     padding-top: 40px;
     color: black;
-    transform: scale(0)
+    transform: scale(0);
 }
 
 .music .header {

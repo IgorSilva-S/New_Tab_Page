@@ -753,3 +753,21 @@ song.addEventListener('timeupdate', function () {
     musicTime.innerHTML = md + ":" + sd
   }
 })
+
+function resetNotepad() {
+  let app = document.getElementById('NpApp')
+  app.style.left = 'var(--spaceNp)'
+  app.style.top = 'var(--spaceNp)'
+}
+
+function resetCalc() {
+  let app = document.getElementById('clApp')
+  app.style.left = 'var(--spaceCalc)'
+  app.style.top = 'var(--spaceCalc)'
+}
+
+function resetMusPlay() {
+  let app = document.getElementById('mpApp')
+  app.style.left = 'var(--spaceMusic)'
+  app.style.top = 'var(--spaceMusic)'
+}
