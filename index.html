@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <!--Hora, dia e comprimento-->
+  <!--Hora, dia e cumprimento-->
   <div class="time">
     <div id="hour">00:00</div>
     <div id="day">Segunda, 01 de janeiro de 1970</div>
@@ -25,7 +25,7 @@
   <!--Parte da pesquisa-->
   <div class="search">
     <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
-    <input type="text" name="" id="searchinput" placeholder="Pesquise nesse site" />
+    <input type="text" name="" id="searchinput" placeholder="Pesquise aqui" />
     <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
   </div>
 
@@ -102,7 +102,7 @@
     <input type="radio" name="image" id="gradRand" onchange="colorGradient()" />
     Gradiente aleatório <br />
     <input type="radio" name="image" id="gradChoose" onchange="selectColorGradient()" />
-    Gradiente montado peo usuário<br />
+    Gradiente montado pelo usuário<br />
     <input type="radio" name="image" id="imgChoose" onchange="userImage()" />
     Selecione sua imagem de fundo<br />
     <button onclick="applyimg()" id="buttontoApply">Aplicar</button><br />
@@ -138,17 +138,17 @@
     <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
     <p>Essa função traz um fundo para o relógio, para que ele seja mais visível.</p>
     <div class="buttonsSize">
-    <h3>Botões de pesquisa</h3>
-    Tamanho dos Botões:<br>
-    <input type="radio" name="buttonsSize" id="bsc1" onchange="size1()">
-    Pequeno<br>
-    <input type="radio" name="buttonsSize" id="bsc2" checked onchange="size2()">
-    Médio (Padrão)<br>
-    <input type="radio" name="buttonsSize" id="bsc3" onchange="size3()">
-    Grande<br>
-    <input type="radio" name="buttonsSize" id="bsc4" onchange="size4()">
-    Enorme<br>
-    <button onclick="applyBtnSize()">Aplicar</button><br />
+      <h3>Botões de pesquisa</h3>
+      Tamanho dos Botões:<br>
+      <input type="radio" name="buttonsSize" id="bsc1" onchange="size1()">
+      Pequeno<br>
+      <input type="radio" name="buttonsSize" id="bsc2" checked onchange="size2()">
+      Médio (Padrão)<br>
+      <input type="radio" name="buttonsSize" id="bsc3" onchange="size3()">
+      Grande<br>
+      <input type="radio" name="buttonsSize" id="bsc4" onchange="size4()">
+      Enorme<br>
+      <button onclick="applyBtnSize()">Aplicar</button><br />
     </div>
   </div>
 
@@ -222,10 +222,12 @@
       <div class="linkc">Gmail</div>
     </a>
 
-    <a href="https://drive.com" class="links" target="_blank">
+    <a href="https://drive.google.com" class="links" target="_blank">
       <div class="linkc">Drive</div>
     </a>
-
+    <a href="https://youtube.com" class="links" target="_blank">
+      <div class="linkc">Youtube</div>
+    </a>
   </div>
 
   <!--Informações da Charms: Aplicativos-->
@@ -243,20 +245,20 @@
       Calculadora
     </div>
     <div class="linkc"
-    onclick="document.getElementById('mpApp').style.transform = 'scale(1)', document.getElementById('mpHided').removeAttribute('style'), focusMp()"
+      onclick="document.getElementById('mpApp').style.transform = 'scale(1)', document.getElementById('mpHided').removeAttribute('style'), focusMp()"
       ondblclick="bts()">
       Reprodutor de música
     </div>
-      <div class="resetPosition">
-        <h2>Restaurar posições</h2>
-        Caso algum aplicativo tenha saido acidentalmente para fora da área que se pode mexer, você pode voltar ele para a
-        posição original dele.<br>
-        <button onclick="resetNotepad()">Bloco de notas</button>
-        <button onclick="resetCalc()">Calculadora</button>
-        <button onclick="resetMusPlay()">Reprodutor de música</button>
-      </div>
+    <div class="resetPosition">
+      <h2>Restaurar posições</h2>
+      Caso algum aplicativo tenha saido acidentalmente para fora da área que se pode mexer, você pode voltar ele para a
+      posição original dele.<br>
+      <button onclick="resetNotepad()">Bloco de notas</button>
+      <button onclick="resetCalc()">Calculadora</button>
+      <button onclick="resetMusPlay()">Reprodutor de música</button>
+    </div>
   </div>
-  
+
   <!--Popup de "Escolha a sua cor"-->
   <div class="chooseColor">
     <h1>Escolha a cor sólida</h1>
@@ -318,22 +320,22 @@
     </div>
   </div>
 
-    <!--Bloco de notas-->
-    <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
-      <div class="header" id="NpHeader">
-        <p>Bloco de Notas</p>
-        <div class="appButtons" onclick="hide_np()">
-          <img src="img/WindowIcons/HideWindow.png" alt="" />
-        </div>
-        <div class="appButtons maxandmin" onclick="max_min_np()">
-          <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
-        </div>
-        <div class="appButtons close" onclick="closeNp()">
-          <img src="img/WindowIcons/Close.png" alt="" />
-        </div>
+  <!--Bloco de notas-->
+  <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
+    <div class="header" id="NpHeader">
+      <p>Bloco de Notas</p>
+      <div class="appButtons" onclick="hide_np()">
+        <img src="img/WindowIcons/HideWindow.png" alt="" />
       </div>
-      <textarea name="" cols="30" rows="10" id="textNp"></textarea>
+      <div class="appButtons maxandmin" onclick="max_min_np()">
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
+      </div>
+      <div class="appButtons close" onclick="closeNp()">
+        <img src="img/WindowIcons/Close.png" alt="" />
+      </div>
     </div>
+    <textarea name="" cols="30" rows="10" id="textNp"></textarea>
+  </div>
 
   <!--Calculadora-->
   <div class="calc" id="clApp" style="transform: scale(0)" onclick="focusCalc()">
@@ -392,7 +394,7 @@
     <div class="player">
       <div class="volume">
         <div class="playerIcons">
-        
+          
         </div>
         <input type="range" value="100" max="100" id="volSlid">
         <p id="volnum"></p>
@@ -402,7 +404,7 @@
         <input type="range" name="" id="" class="timeSong" value="0">
         <p id="totalTime">00:00</p>
       </div>
-      
+
       <div class="playerIcons simpleB" id="repeatb" onclick="repeater()"></div>
       <div class="playerIcons playB" onclick="playorpause()"></div>
       <div class="playerIcons simpleB"></div>
@@ -450,6 +452,9 @@
   <script src="js/script.js"></script>
   <script src="js/dragWindows.js"></script>
   <script src="js/calcScript.js"></script>
+      <script>
+        let enUs = false
+      </script>
 </body>
 
 </html>

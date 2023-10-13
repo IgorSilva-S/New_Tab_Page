@@ -89,8 +89,55 @@ setInterval(() => {
     extmonth = "dezembro"
   }
 
+  if(enUs) {
+    if (weekday == 0) {
+      extweekday = "Sunday";
+    } else if (weekday == 1) {
+      extweekday = "Monday";
+    } else if (weekday == 2) {
+      extweekday = "Tuesday";
+    } else if (weekday == 3) {
+      extweekday = "Wednesday";
+    } else if (weekday == 4) {
+      extweekday = "Thursday";
+    } else if (weekday == 5) {
+      extweekday = "Friday";
+    } else {
+      extweekday = 'Saturday'
+    }
+
+    if (month == 0) {
+      extmonth = "january";
+    } else if (month == 1) {
+      extmonth = "february";
+    } else if (month == 2) {
+      extmonth = "march";
+    } else if (month == 3) {
+      extmonth = "april";
+    } else if (month == 4) {
+      extmonth = "may";
+    } else if (month == 5) {
+      extmonth = "june";
+    } else if (month == 6) {
+      extmonth = "july";
+    } else if (month == 7) {
+      extmonth = "august";
+    } else if (month == 8) {
+      extmonth = "september";
+    } else if (month == 9) {
+      extmonth = "october";
+    } else if (month == 10) {
+      extmonth = "november";
+    } else {
+      extmonth = "december"
+    }
+  }
+
   let year = d.getFullYear()
   document.getElementById('day').innerHTML = `${extweekday}, ${zero(day)} de ${extmonth} de ${year}`
+  if (enUs) {
+    document.getElementById('day').innerHTML = `${extweekday}, ${extmonth} ${zero(day)}, ${year}`
+  }
 }, 1);
 
 function changeEngine() {
@@ -178,6 +225,9 @@ function lockall() {
       unlocked = true
     } else {
       document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
+      if (enUs) {
+        document.getElementById('wrongPass').innerHTML = 'Wrong password, try again :/'
+      }
     }
   }
 }
@@ -192,12 +242,24 @@ function userinfos() {
   if (masradio.checked) {
     grettings.innerHTML = `Bem-vindo, ${name}!`
     lockGrettings.innerHTML = `Bem-vindo, ${name}, digite a sua senha para prosseguir`
+    if (enUs) {
+      grettings.innerHTML = `Hello, ${name}!`
+      lockGrettings.innerHTML = `Hello, ${name}, type your password to unlock`
+    }
   } else if (femradio.checked) {
     grettings.innerHTML = `Bem-vinda, ${name}!`
     lockGrettings.innerHTML = `Bem-vinda, ${name}, digite a sua senha para prosseguir`
+    if (enUs) {
+      grettings.innerHTML = `Hi, ${name}!`
+      lockGrettings.innerHTML = `Hi, ${name}, type your password to unlock`
+    }
   } else if (pnsradio.checked) {
     grettings.innerHTML = `Olá, ${name}!`
     lockGrettings.innerHTML = `Olá, ${name}, digite a sua senha para prosseguir`
+    if (enUs) {
+      grettings.innerHTML = `Welcome, ${name}!`
+      lockGrettings.innerHTML = `Welcome, ${name}, type your password to unlock`
+    }
   } else {
     alert('Insira um valor em uma das caixas de escolha')
   }

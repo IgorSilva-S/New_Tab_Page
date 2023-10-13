@@ -619,7 +619,6 @@ body {
     border-radius: var(--radiusTopHeader);
     box-shadow: 2px 2px 20px 2px #191919;
     padding-top: var(--topHeader);
-    overflow: hidden;
 }
 
 .calc .header {
