@@ -945,6 +945,7 @@ body {
     background-image: url(../img/OtherIcons/HelpCharms.png);
     backdrop-filter: blur(20px);
     transition-duration: .2s;
+    background-color: rgba(0,0,0,.4);
 }
 
 .helpWithCharmsUS {
@@ -958,6 +959,7 @@ body {
     background-image: url(../img/OtherIcons/enUsHelpCharms.png);
     backdrop-filter: blur(20px);
     transition-duration: .2s;
+    background-color: rgba(0, 0, 0, .4);
 }
 
 /*PopUp imagem*/

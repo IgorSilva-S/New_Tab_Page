@@ -50,8 +50,12 @@
   <div class="charmsinfo" id="lockinfo">
     <div class="back" onclick="bts()"></div>
     <h1>Bloquear</h1>
-    Insira uma senha para bloquear:
+    Insira a sua senha:
     <input type="password" name="" id="passcharms" /><br />
+    <button onclick="savePassw()">Salvar senha</button><br>
+    Ao salvar a senha, você utilizará ela até que salve outra no lugar dela.<br>
+    Se você não lembra a senha utilizada, recomenda-se que troque a senha<br>
+    Não use uma senha que você já use!<br>
     <button onclick="lockall()">Bloquear</button>
     <br /><br />
     <h2>Protetor de tela</h2>
@@ -83,7 +87,7 @@
     <h2>Personalizações</h2>
     <br /><br />
     Imagem de fundo<br />
-    <input type="radio" name="image" id="img1" checked onchange="image1()" />
+    <input type="radio" name="image" id="img1" onchange="image1()" />
     Por do Sol (Padrão)<br />
     <input type="radio" name="image" id="img2" onchange="image2()" /> Fundo do
     mar<br />
@@ -131,8 +135,8 @@
     <h3>Relógio</h3>
     Alterar a cor do relógio
     <div class="alignAcessButtons">
-      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
     </div>
     <label for="clockBckg">Fundo no relógio</label>
     <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
@@ -269,8 +273,10 @@
     <input type="color" name="" id="colorChoosed" />
     <p style="color: black;">Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
-      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+      <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+      <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
     </div>
     <div class="bottomPopup">
       <div class="leftPop">
@@ -289,8 +295,10 @@
     <input type="color" name="" id="colorChoosed2" />
     <p style="color: black;">Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
-      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+      <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+      <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
     </div>
     <div class="bottomPopup">
       <div class="leftPop">
@@ -315,8 +323,10 @@
     </div>
     <p style="color: black;">Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
-      <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-      <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+      <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+      <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
     </div>
     <div class="bottomPopup">
       <button onclick="applyImageFile()">Aplicar imagem</button>

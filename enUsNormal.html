@@ -52,6 +52,10 @@
         <h1>Lock</h1>
         Insert an password to lock:
         <input type="password" name="" id="passcharms" /><br />
+            <button onclick="savePassw()">Save password</button><br>
+            When you save the password, you'll use it until you save another one instead.<br>
+            If you do not remember the password used, it is recommended that you change the password<br>
+            Don't use a password you already use!<br>
         <button onclick="lockall()">Lock</button>
         <br /><br />
         <h2>Screen saver</h2>
@@ -83,7 +87,7 @@
         <h2>Personalizations</h2>
         <br /><br />
         Background image<br />
-        <input type="radio" name="image" id="img1" checked onchange="image1()" />
+        <input type="radio" name="image" id="img1" onchange="image1()" />
         Sunset (default)<br />
         <input type="radio" name="image" id="img2" onchange="image2()" />Undersea<br />
         <input type="radio" name="image" id="img3" onchange="image3()" />
@@ -130,8 +134,10 @@
         <h3>Watch</h3>
         Change watch color
         <div class="alignAcessButtons">
-            <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-            <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+    <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
         </div>
         <label for="clockBckg">Watch background</label>
         <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
@@ -269,8 +275,10 @@
         <input type="color" name="" id="colorChoosed" />
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-            <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-            <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+    <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
         </div>
         <div class="bottomPopup">
             <div class="leftPop">
@@ -289,8 +297,10 @@
         <input type="color" name="" id="colorChoosed2" />
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-            <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-            <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+    <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
         </div>
         <div class="bottomPopup">
             <div class="leftPop">
@@ -315,8 +325,10 @@
         </div>
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-            <div class="blackClock" onclick="document.querySelector('.time').style.color = '#191919'"></div>
-            <div class="whiteClock" onclick="document.querySelector('.time').style.color = '#ffffff'"></div>
+    <div class="blackClock"
+        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
+    <div class="whiteClock"
+        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
         </div>
         <div class="bottomPopup">
             <button onclick="applyImageFile()">Apply image</button>

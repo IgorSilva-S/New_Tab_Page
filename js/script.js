@@ -140,6 +140,16 @@ setInterval(() => {
   }
 }, 1);
 
+image = localStorage.getItem('background')
+applyimg()
+
+let watchC = localStorage.getItem('watchColor')
+if (watchC == 1) {
+  document.querySelector('.time').style.color = '#191919'
+} else {
+  document.querySelector('.time').style.color = '#ffffff'
+}
+
 function changeEngine() {
   if (!enginechanged) {
     engineselector.className = "searchengine bing"
@@ -212,16 +222,22 @@ function searchingNow() {
   }
 }
 
+function savePassw() {
+  let pin = document.getElementById('passcharms').value
+  localStorage.setItem('userPassword', pin)
+}
+
 function lockall() {
-  var pin = document.getElementById('passcharms').value
-  var passwordlocks = document.getElementById('passlock').value
+  let pin = localStorage.getItem('userPassword')
+  var passwordlocks = document.getElementById('passlock')
   if (unlocked) {
     document.getElementById('lockscreen').style.top = "0"
     unlocked = false
   } else {
-    if (passwordlocks == pin) {
+    if (passwordlocks.value == pin) {
       document.getElementById('lockscreen').style.top = "-110%"
       document.getElementById('wrongPass').innerHTML = ''
+      passwordlocks.value = ''
       unlocked = true
     } else {
       document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
@@ -268,88 +284,82 @@ function userinfos() {
 function image1() {
   image = 1
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 1)
+  localStorage.setItem('background', 1)
 }
 
 function image2() {
   image = 2
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 2)
+  localStorage.setItem('background', 2)
 }
 
 function image3() {
   image = 3
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 3)
+  localStorage.setItem('background', 3)
 }
 
 function image4() {
   image = 4
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 4)
+  localStorage.setItem('background', 4)
 }
 
 function image5() {
   image = 5
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 5)
+  localStorage.setItem('background', 5)
 }
 
 function image6() {
   image = 6
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 6)
+  localStorage.setItem('background', 6)
 }
 
 function colorImage() {
   image = 7
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 7)
+  localStorage.setItem('background', 7)
 }
 
 function selectColorImage() {
   image = 8
   buttonApply.innerHTML = 'Continuar'
-  localStorage.setItem(image, 8)
+  localStorage.setItem('background', 8)
 }
 
 function colorGradient() {
   image = 9
   buttonApply.innerHTML = 'Aplicar'
-  localStorage.setItem(image, 9)
+  localStorage.setItem('background', 9)
 }
 
 function selectColorGradient() {
   image = 10
   buttonApply.innerHTML = 'Continuar'
-  localStorage.setItem(image, 10)
+  localStorage.setItem('background', 10)
 }
 
 function userImage() {
   image = 11
   buttonApply.innerHTML = 'Continuar'
-  localStorage.setItem(image, 11)
+  localStorage.setItem('background', 11)
 }
 
 function applyimg() {
   if (image == 1) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 2) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 3) {
     document.body.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 4) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img4.jpg)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 5) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 6) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
-    document.querySelector('.time').removeAttribute('style')
   } else if (image == 7) {
     red = Math.random() * 255
     green = Math.random() * 255
