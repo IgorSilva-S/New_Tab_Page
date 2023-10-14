@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -154,14 +154,17 @@
     <!--Informações da Charms: Reiniciar-->
     <div class="charmsinfo" id="resetinfo">
         <div class="back" onclick="bts()"></div>
-        <h1>Restart website</h1>
-        Click the button below to restart the site<br />
+        <h1>Reload website</h1>
+        Click the button below to reload the site<br />
         It's the same effect as pressing the F5 key or pressing the
         reload<br />
         <button onclick="location.href = 'enUsNormal.html'">Reload</button>
         <h2>Simple mode</h2>
         If you think the site is too cluttered, you can reload more simply.<br>
         <button onclick="reloadSpageUs()">Reload in simple mode</button>
+        <h2>Recarregar em português do Brasil</h2>
+        Se você quer usar o site em português ou não sabe o inglês, você pode recarregar o site para que ele fique em português.<br>
+        <button onclick="location.href = 'index.html'">Recarregar em português</button>
     </div>
 
     <!--Informações da Charms: Recomendações-->
@@ -414,7 +417,7 @@
     </div>
 
     <!--Ajuda para iniciar com a Charms-->
-    <div class="helpWithCharms">
+    <div class="helpWithCharmsUS" onmouseover="hideHelp()">
 
     </div>
 

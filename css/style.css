@@ -947,6 +947,19 @@ body {
     transition-duration: .2s;
 }
 
+.helpWithCharmsUS {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 1%;
+    top: 0;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../img/OtherIcons/enUsHelpCharms.png);
+    backdrop-filter: blur(20px);
+    transition-duration: .2s;
+}
+
 /*PopUp imagem*/
 
 .chooseImage {
@@ -1344,7 +1357,7 @@ body {
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 799px) {
     .openMobileCharms {
         display: flex;
     }

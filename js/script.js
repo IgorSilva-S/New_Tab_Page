@@ -268,56 +268,67 @@ function userinfos() {
 function image1() {
   image = 1
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 1)
 }
 
 function image2() {
   image = 2
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 2)
 }
 
 function image3() {
   image = 3
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 3)
 }
 
 function image4() {
   image = 4
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 4)
 }
 
 function image5() {
   image = 5
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 5)
 }
 
 function image6() {
   image = 6
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 6)
 }
 
 function colorImage() {
   image = 7
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 7)
 }
 
 function selectColorImage() {
   image = 8
   buttonApply.innerHTML = 'Continuar'
+  localStorage.setItem(image, 8)
 }
 
 function colorGradient() {
   image = 9
   buttonApply.innerHTML = 'Aplicar'
+  localStorage.setItem(image, 9)
 }
 
 function selectColorGradient() {
   image = 10
   buttonApply.innerHTML = 'Continuar'
+  localStorage.setItem(image, 10)
 }
 
 function userImage() {
   image = 11
   buttonApply.innerHTML = 'Continuar'
+  localStorage.setItem(image, 11)
 }
 
 function applyimg() {
@@ -376,6 +387,10 @@ function reloadpage() {
 
 function reloadSpage() {
   location.href = 'simpleSearch.html'
+}
+
+function reloadSpageUs() {
+  location.href = 'enUsSimpleSearch.html'
 }
 
 function un_pin() {
@@ -664,12 +679,21 @@ document.querySelector('#searchinput').addEventListener('keydown', function (eve
   }
 });
 
-document.querySelector('.helpWithCharms').addEventListener('mouseover', function() {
-  document.querySelector('.helpWithCharms').style.opacity = '0';
-  setTimeout(() => {
-    document.querySelector('.helpWithCharms').style.display = 'none';
-  }, 200);
-})
+
+function hideHelp() {
+  if (enUs) {
+      document.querySelector('.helpWithCharmsUS').style.opacity = '0';
+      setTimeout(() => {
+        document.querySelector('.helpWithCharmsUS').style.display = 'none';
+      }, 200);
+  } else {
+    document.querySelector('.helpWithCharms').style.opacity = '0';
+    setTimeout(() => {
+      document.querySelector('.helpWithCharms').style.display = 'none';
+    }, 200);
+  }
+}
+
 
 function size1() {
   sizing = 1

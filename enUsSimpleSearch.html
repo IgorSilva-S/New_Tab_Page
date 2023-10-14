@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Aba</title>
+    <title>New tab</title>
     <link rel="shortcut icon" href="img/FavIcon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/simpleStyle.css">
 </head>
+
 <body>
-        <p id="hour">00:00</p>
+    <p id="hour">00:00</p>
     <div class="searchLogo">
         <img src="img/FavIcon/NewTab Icon.png" alt="Logo" id="logoimg" onclick="openGitHub()">
     </div>
     <div class="searchAlign">
         <div class="engineChoose google" onclick="changeEngine()" id="engineChoose"></div>
-    <input type="text" class="searchBar">
-        <button onclick="searchingNowS()">Pesquisar</button>
+        <input type="text" class="searchBar">
+        <button onclick="searchingNowS()">Search</button>
     </div>
 
     <div class="return">
-        Recarregar no modo normal
-        <img src="img/CharmsIcons/Reset.png" alt="" onclick="returnToNormalMode()">
+        Reload in normal mode
+        <img src="img/CharmsIcons/Reset.png" alt="" onclick="returnToNormalModeUs()">
     </div>
 
     <div class="changeColor">
-        Alterar a cor de fundo
-        <button onclick="changeColor()">Alterar</button>
+        Change background color
+        <button onclick="changeColor()">Change</button>
     </div>
     <script src="js/simpleScript.js"></script>
 </body>
+
 </html>

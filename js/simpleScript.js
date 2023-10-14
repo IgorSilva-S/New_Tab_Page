@@ -32,6 +32,10 @@ function returnToNormalMode() {
     location.href = 'index.html'
 }
 
+function returnToNormalModeUs() {
+    location.href = 'enUsNormal.html'
+}
+
 function changeColor() {
     red = Math.random() * 255
     green = Math.random() * 255
