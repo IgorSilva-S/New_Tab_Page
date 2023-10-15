@@ -49,11 +49,11 @@ ___
 </p>
 
 <p align="center">
-<img src="img/Screenshots/TelaDeBloqueio.png.png" src="Tela de bloqueio">
+<img src="img/Screenshots/TelaDeBloqueio.png" src="Tela de bloqueio">
 </p>
 
 <p align="center">
-<img src="img/Screenshots/AppsPlanodeFundo.png.png" src="Apps">
+<img src="img/Screenshots/AppsPlanodeFundo.png" src="Apps">
 </p>
 
 <p align="center">
