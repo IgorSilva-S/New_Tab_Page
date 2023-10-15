@@ -21,7 +21,9 @@ let song = document.getElementById('songByUser')
 let playing = false
 let repeating = false;
 let repeaterb = document.getElementById('repeatb')
-let charmsForMobile = false
+let charmsForMobile = false;
+let clockChecker = document.getElementById('clockBckg');
+let EnStyle = document.getElementById('enUsVersion')
 
 //Charms functions 
 
@@ -89,7 +91,7 @@ setInterval(() => {
     extmonth = "dezembro"
   }
 
-  if(enUs) {
+  if (EnStyle.checked) {
     if (weekday == 0) {
       extweekday = "Sunday";
     } else if (weekday == 1) {
@@ -135,7 +137,7 @@ setInterval(() => {
 
   let year = d.getFullYear()
   document.getElementById('day').innerHTML = `${extweekday}, ${zero(day)} de ${extmonth} de ${year}`
-  if (enUs) {
+  if (EnStyle.checked) {
     document.getElementById('day').innerHTML = `${extweekday}, ${extmonth} ${zero(day)}, ${year}`
   }
 }, 1);
@@ -148,6 +150,20 @@ if (watchC == 1) {
   document.querySelector('.time').style.color = '#191919'
 } else {
   document.querySelector('.time').style.color = '#ffffff'
+}
+
+let watchBckg = localStorage.getItem('watchBackg')
+if (watchBckg == 1) {
+  clockChecker.checked = true
+  clockBckg()
+}
+
+userinfos()
+
+let recomendEnabled = localStorage.getItem('recomendationActive')
+if (recomendEnabled == 1) {
+  document.getElementById('enableRecomendations').checked = true
+  recomendationsEnable()
 }
 
 function changeEngine() {
@@ -230,54 +246,97 @@ function savePassw() {
 function lockall() {
   let pin = localStorage.getItem('userPassword')
   var passwordlocks = document.getElementById('passlock')
-  if (unlocked) {
-    document.getElementById('lockscreen').style.top = "0"
-    unlocked = false
-  } else {
-    if (passwordlocks.value == pin) {
-      document.getElementById('lockscreen').style.top = "-110%"
-      document.getElementById('wrongPass').innerHTML = ''
-      passwordlocks.value = ''
-      unlocked = true
+  if (pin == null) {
+    if (!EnStyle.checked) {
+    alert('Você não tem uma senha salva, favor salvar uma senha')
     } else {
-      document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
-      if (enUs) {
-        document.getElementById('wrongPass').innerHTML = 'Wrong password, try again :/'
+      alert("You don't have a saved password, please save a password")
+    }
+  } else {
+    if (unlocked) {
+      document.getElementById('lockscreen').style.top = "0"
+      unlocked = false
+    } else {
+      if (passwordlocks.value == pin) {
+        document.getElementById('lockscreen').style.top = "-110%"
+        document.getElementById('wrongPass').innerHTML = ''
+        passwordlocks.value = ''
+        unlocked = true
+      } else {
+        document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
+        if (enUs) {
+          document.getElementById('wrongPass').innerHTML = 'Wrong password, try again :/'
+        }
       }
     }
   }
 }
 
 function userinfos() {
-  let name = document.getElementById('usern').value
-  let masradio = document.getElementById('mas')
-  let femradio = document.getElementById('fem')
-  let pnsradio = document.getElementById('pns')
   let grettings = document.getElementById('userinfos')
   let lockGrettings = document.getElementById('nameLock')
-  if (masradio.checked) {
-    grettings.innerHTML = `Bem-vindo, ${name}!`
-    lockGrettings.innerHTML = `Bem-vindo, ${name}, digite a sua senha para prosseguir`
-    if (enUs) {
-      grettings.innerHTML = `Hello, ${name}!`
-      lockGrettings.innerHTML = `Hello, ${name}, type your password to unlock`
+
+  if (localStorage.getItem('genero') != null && localStorage.getItem('username') != null) {
+    let normalText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}!`
+    let lockText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}. Digite a sua senha para continuar`
+    grettings.innerText = normalText
+    lockGrettings.innerText = lockText
+  }
+  if (EnStyle.checked) {
+    if (localStorage.getItem('grettingMode') != null && localStorage.getItem('username') != null) {
+      let normalText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}!`
+      let lockText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}. Enter your password to continue`
+      grettings.innerText = normalText
+      lockGrettings.innerText = lockText
     }
-  } else if (femradio.checked) {
-    grettings.innerHTML = `Bem-vinda, ${name}!`
-    lockGrettings.innerHTML = `Bem-vinda, ${name}, digite a sua senha para prosseguir`
-    if (enUs) {
-      grettings.innerHTML = `Hi, ${name}!`
-      lockGrettings.innerHTML = `Hi, ${name}, type your password to unlock`
-    }
-  } else if (pnsradio.checked) {
-    grettings.innerHTML = `Olá, ${name}!`
-    lockGrettings.innerHTML = `Olá, ${name}, digite a sua senha para prosseguir`
-    if (enUs) {
-      grettings.innerHTML = `Welcome, ${name}!`
-      lockGrettings.innerHTML = `Welcome, ${name}, type your password to unlock`
-    }
-  } else {
-    alert('Insira um valor em uma das caixas de escolha')
+
+  }
+}
+
+function saveName() {
+  let name = document.getElementById('usern').value
+  localStorage.setItem("username", name)
+}
+
+function mascheck() {
+  let checker = document.getElementById('mas')
+  if (checker.checked) {
+    localStorage.setItem('genero', 'Bem-vindo')
+  }
+}
+
+function femcheck() {
+  let checker = document.getElementById('fem')
+  if (checker.checked) {
+    localStorage.setItem('genero', 'Bem-vinda')
+  }
+}
+
+function pnscheck() {
+  let checker = document.getElementById('pns')
+  if (checker.checked) {
+    localStorage.setItem('genero', 'Olá')
+  }
+}
+
+function hellocheck() {
+  let checker = document.getElementById('hello')
+  if (checker.checked) {
+    localStorage.setItem('grettingMode', 'Hello')
+  }
+}
+
+function hicheck() {
+  let checker = document.getElementById('hi')
+  if (checker.checked) {
+    localStorage.setItem('grettingMode', 'Hi')
+  }
+}
+
+function welcomecheck() {
+  let checker = document.getElementById('welcome')
+  if (checker.checked) {
+    localStorage.setItem('grettingMode', 'Welcome')
   }
 }
 
@@ -285,66 +344,99 @@ function image1() {
   image = 1
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 1)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function image2() {
   image = 2
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 2)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function image3() {
   image = 3
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 3)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function image4() {
   image = 4
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 4)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function image5() {
   image = 5
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 5)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function image6() {
   image = 6
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 6)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function colorImage() {
   image = 7
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 7)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function selectColorImage() {
   image = 8
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 8)
+  if (enUs) {
+    buttonApply.innerHTML = 'Next'
+  }
 }
 
 function colorGradient() {
   image = 9
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 9)
+  if (enUs) {
+    buttonApply.innerHTML = 'Apply'
+  }
 }
 
 function selectColorGradient() {
   image = 10
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 10)
+  if (enUs) {
+    buttonApply.innerHTML = 'Next'
+  }
 }
 
 function userImage() {
   image = 11
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 11)
+  if (enUs) {
+    buttonApply.innerHTML = 'Next'
+  }
 }
 
 function applyimg() {
@@ -478,9 +570,11 @@ function recomendationsEnable() {
   if (recomendationEnabled) {
     document.querySelector('.reci').style.display = "none"
     recomendationEnabled = false
+    localStorage.setItem('recomendationActive', 0)
   } else {
     document.querySelector(".reci").style.display = "block";
     recomendationEnabled = true
+    localStorage.setItem('recomendationActive', 1)
   }
 }
 
@@ -514,7 +608,7 @@ function applyGradient() {
 //Input da imagem
 
 let imageFile = document.getElementById('imageToBckg')
-imageFile.addEventListener('change', function() {
+imageFile.addEventListener('change', function () {
   var reader = new FileReader
   reader.addEventListener('load', function () {
     document.getElementById('prevImg').style.backgroundImage = `url(${reader.result})`
@@ -526,7 +620,7 @@ imageFile.addEventListener('change', function() {
 })
 function applyImageFile() {
   var reader = new FileReader
-  reader.addEventListener('load', function() {
+  reader.addEventListener('load', function () {
     document.body.style.backgroundImage = `url(${reader.result})`
   });
   reader.readAsDataURL(imageFile.files[0]);
@@ -636,16 +730,15 @@ function max_min_Mp() {
 
 
 function lockAllSS() {
-  var pin = document.getElementById('passcharms').value
+  var pin = localStorage.getItem('userPassword')
   var passwordlocks = document.getElementById('passlock').value
   document.getElementById('scrSvr').style.display = 'block'
-  if (unlocked) {
-    document.getElementById('lockscreen').style.top = "0"
-    unlocked = false
-  } else {
-    if (passwordlocks == pin) {
-      document.getElementById('lockscreen').style.top = "-110%"
-      unlocked = true
+  lockall()
+  if (pin == null) {
+    if (!EnStyle.checked) {
+      alert('O protetor de tela será ativado, mas o site não será bloqueado')
+    } else {
+      alert('The screensaver will be activated, but the website will not be blocked')
     }
   }
 }
@@ -655,13 +748,14 @@ function disScrSvr() {
 }
 
 function clockBckg() {
-  let clockChecker = document.getElementById('clockBckg');
   if (clockChecker.checked) {
     document.querySelector('.time').style.backgroundColor = "#f0f0f066"
     document.querySelector('.time').style.backdropFilter = "blur(20px)"
+    localStorage.setItem('watchBackg', 1)
   } else {
     document.querySelector('.time').style.backgroundColor = "transparent"
     document.querySelector('.time').style.backdropFilter = "none"
+    localStorage.setItem('watchBackg', 0)
   }
 }
 
@@ -692,10 +786,10 @@ document.querySelector('#searchinput').addEventListener('keydown', function (eve
 
 function hideHelp() {
   if (enUs) {
-      document.querySelector('.helpWithCharmsUS').style.opacity = '0';
-      setTimeout(() => {
-        document.querySelector('.helpWithCharmsUS').style.display = 'none';
-      }, 200);
+    document.querySelector('.helpWithCharmsUS').style.opacity = '0';
+    setTimeout(() => {
+      document.querySelector('.helpWithCharmsUS').style.display = 'none';
+    }, 200);
   } else {
     document.querySelector('.helpWithCharms').style.opacity = '0';
     setTimeout(() => {
@@ -748,7 +842,7 @@ function applyBtnSize() {
     searchB.style.width = 'var(--XLargeSearch)'
     searchB.style.height = 'var(--XLargeSearch)'
   }
-} 
+}
 
 function openGitHub() {
   setTimeout(() => {
@@ -757,9 +851,9 @@ function openGitHub() {
 }
 
 let songFile = document.getElementById('chooseSong')
-songFile.addEventListener('change', function() {
+songFile.addEventListener('change', function () {
   const songReader = new FileReader
-  songReader.addEventListener('load', function() {
+  songReader.addEventListener('load', function () {
     let songName = document.getElementById('chooseSong').value
     songName = songName.replace(/C:\\fakepath\\/i, '')
     document.getElementById('songName').innerText = songName
@@ -804,7 +898,7 @@ setInterval(() => {
   }
 }, 1);
 
-song.addEventListener('ended', function() {
+song.addEventListener('ended', function () {
   if (repeating) {
     song.currentTime = 0;
     song.play()

@@ -10,33 +10,33 @@
 </head>
 
 <body>
-    <!--Hora, dia e cumprimento-->
+    <!--Time, Day, and Fulfillment-->
     <div class="time">
         <div id="hour">00:00</div>
         <div id="day">Monday, january 01, 1970</div>
         <p id="userinfos"></p>
     </div>
 
-    <!--Logotipo do projeto-->
+    <!--Project logo-->
     <div class="logo" onclick="openGitHub()">
 
     </div>
 
-    <!--Parte da pesquisa-->
+    <!--Part of the internet search-->
     <div class="search">
         <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
         <input type="text" name="" id="searchinput" placeholder="Search here" />
         <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
     </div>
 
-    <!--A Charms-->
+    <!--The Charms-->
     <div class="charms">
-        <!--Charms para Mobiles: Fechar-->
+        <!--Mobile Charms: close-->
         <div class="closeMobileCharms" onclick="closeCharms()">
             <div class="lines" id="ltr"></div>
             <div class="lines" id="rtl"></div>
         </div>
-        <!--Charms normal-->
+        <!--Normal Charms-->
         <div class="charmsicons locki" onclick="lock()"></div>
         <div class="charmsicons useri" onclick="user()"></div>
         <div class="charmsicons reci" onclick="recomendations()" style="display: none"></div>
@@ -46,16 +46,16 @@
         <div class="pincharms notPinned" onclick="un_pin()" id="pinIcon"></div>
     </div>
 
-    <!--Informações da Charms: Bloqueio-->
+    <!--Charms info: Lock-->
     <div class="charmsinfo" id="lockinfo">
         <div class="back" onclick="bts()"></div>
         <h1>Lock</h1>
         Insert an password to lock:
         <input type="password" name="" id="passcharms" /><br />
-            <button onclick="savePassw()">Save password</button><br>
-            When you save the password, you'll use it until you save another one instead.<br>
-            If you do not remember the password used, it is recommended that you change the password<br>
-            Don't use a password you already use!<br>
+        <button onclick="savePassw()">Save password</button><br>
+        When you save the password, you'll use it until you save another one instead.<br>
+        If you do not remember the password used, it is recommended that you change the password<br>
+        Don't use a password you already use!<br>
         <button onclick="lockall()">Lock</button>
         <br /><br />
         <h2>Screen saver</h2>
@@ -64,23 +64,22 @@
         <button onclick="lockAllSS()">Start screen saver</button>
     </div>
 
-    <!--Informações da Charms: Usuário-->
+    <!--Charms info: User-->
     <div class="charmsinfo" id="userinfo">
         <div class="back" onclick="bts()"></div>
         <h1>User</h1>
         Insert a username<br />
         This name will be visible on both the main screen and the lock screen<br />
-        It's worth noting that this name and greeting mode will be saved until you reload the
-        page<br /><br />
-        <input type="text" name="" id="usern" placeholder="Username" /><br /><br />
+        <input type="text" name="" id="usern" placeholder="Username" /><br /><button onclick="saveName()">Save
+            name</button><br />
         <label for="gen">Gretting mode</label><br />
-        <input type="radio" name="gen" id="mas" /> Hello<br />
-        <input type="radio" name="gen" id="fem" /> Hi<br />
-        <input type="radio" name="gen" id="pns" /> Welcome
+        <input type="radio" name="gen" id="hello" onchange="hellocheck()" /> Hello<br />
+        <input type="radio" name="gen" id="hi" onchange="hicheck()" /> Hi<br />
+        <input type="radio" name="gen" id="welcome" onchange="welcomecheck()" /> Welcome
         <button onclick="userinfos()">Apply</button>
     </div>
 
-    <!--Informações da Charms: Configurações-->
+    <!--Charms info: Settings-->
     <div class="charmsinfo" id="settingsinfo">
         <div class="back" onclick="bts()"></div>
         <h1>Settings</h1>
@@ -88,13 +87,13 @@
         <br /><br />
         Background image<br />
         <input type="radio" name="image" id="img1" onchange="image1()" />
-        Sunset (default)<br />
-        <input type="radio" name="image" id="img2" onchange="image2()" />Undersea<br />
+        Sunset<br />
+        <input type="radio" name="image" id="img2" onchange="image2()" /> Undersea<br />
         <input type="radio" name="image" id="img3" onchange="image3()" />
         Bluish gradient with purple<br />
         <input type="radio" name="image" id="img4" onchange="image4()" />
         Universe<br />
-        <input type="radio" name="image" id="img5" onchange="image5()" />Sunrise<br />
+        <input type="radio" name="image" id="img5" onchange="image5()" /> Sunrise<br />
         <input type="radio" name="image" id="img5" onchange="image6()" />
         Forest<br />
         <input type="radio" name="image" id="colorRand" onchange="colorImage()" />
@@ -107,7 +106,7 @@
         Gradient chosen<br />
         <input type="radio" name="image" id="imgChoose" onchange="userImage()" />
         Choose your background<br />
-        <button onclick="applyimg()" id="buttontoApply">Aplicar</button><br />
+        <button onclick="applyimg()" id="buttontoApply">Apply</button><br />
         <p>
             Warning: When checking the boxes, the "Charms" information will close, this
             Includes the settings
@@ -134,10 +133,12 @@
         <h3>Watch</h3>
         Change watch color
         <div class="alignAcessButtons">
-    <div class="blackClock"
-        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
-    <div class="whiteClock"
-        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
+            <div class="blackClock"
+                onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)">
+            </div>
+            <div class="whiteClock"
+                onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)">
+            </div>
         </div>
         <label for="clockBckg">Watch background</label>
         <input type="checkbox" name="" id="clockBckg" onchange="clockBckg()">
@@ -157,7 +158,7 @@
         </div>
     </div>
 
-    <!--Informações da Charms: Reiniciar-->
+    <!--Charms info: Reload-->
     <div class="charmsinfo" id="resetinfo">
         <div class="back" onclick="bts()"></div>
         <h1>Reload website</h1>
@@ -168,12 +169,21 @@
         <h2>Simple mode</h2>
         If you think the site is too cluttered, you can reload more simply.<br>
         <button onclick="reloadSpageUs()">Reload in simple mode</button>
+        <h2>Clear data</h2>
+        In case you want to clear the personalization data, username, password, and other settings, you can clear them
+        by
+        clicking
+        on the
+        down.<br>
+        The website will restart and the data will be cleared when you click.<br>
+        <button onclick="localStorage.clear(), location.href = 'enUsNormal.html'">Clear data</button>
         <h2>Recarregar em português do Brasil</h2>
-        Se você quer usar o site em português ou não sabe o inglês, você pode recarregar o site para que ele fique em português.<br>
+        Se você quer usar o site em português ou não sabe o inglês, você pode recarregar o site para que ele fique em
+        português.<br>
         <button onclick="location.href = 'index.html'">Recarregar em português</button>
     </div>
 
-    <!--Informações da Charms: Recomendações-->
+    <!--Charms info: Recomendations-->
     <div class="charmsinfo" id="recomendations">
         <div class="back" onclick="bts()"></div>
         <h1>Recomendations</h1>
@@ -189,7 +199,7 @@
         </a>
 
         <a href="https://ifspcaraguatatuba.edu.br" class="links" target="_blank">
-            <div class="linkc">Site do IFSP - Caraguatatuba</div>
+            <div class="linkc">IFSP - Caraguatatuba website</div>
         </a>
 
         <h2>Online games</h2>
@@ -239,7 +249,7 @@
 
     </div>
 
-    <!--Informações da Charms: Aplicativos-->
+    <!--Charms info: Apps-->
     <div class="charmsinfo" id="appsinfo">
         <div class="back" onclick="bts()"></div>
         <h1>Apps</h1>
@@ -269,16 +279,18 @@
         </div>
     </div>
 
-    <!--Popup de "Escolha a sua cor"-->
+    <!--"Choose your color" popup-->
     <div class="chooseColor">
         <h1>Choose your solid color</h1>
         <input type="color" name="" id="colorChoosed" />
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-    <div class="blackClock"
-        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
-    <div class="whiteClock"
-        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
+            <div class="blackClock"
+                onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)">
+            </div>
+            <div class="whiteClock"
+                onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)">
+            </div>
         </div>
         <div class="bottomPopup">
             <div class="leftPop">
@@ -290,17 +302,19 @@
         </div>
     </div>
 
-    <!--Popup de "Escolha o seu gradiente"-->
+    <!--"Choose your gradient" popup-->
     <div class="chooseGradient">
         <h1>Choose the colors that will be part of the gradient</h1>
         <input type="color" name="" id="colorChoosed1" />
         <input type="color" name="" id="colorChoosed2" />
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-    <div class="blackClock"
-        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
-    <div class="whiteClock"
-        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
+            <div class="blackClock"
+                onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)">
+            </div>
+            <div class="whiteClock"
+                onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)">
+            </div>
         </div>
         <div class="bottomPopup">
             <div class="leftPop">
@@ -312,7 +326,7 @@
         </div>
     </div>
 
-    <!--Popup de "Escolha a sua imagem"-->
+    <!--"Choose your image" popup-->
     <div class="chooseImage">
         <h1>Choose your image</h1>
         <div class="alignImageChoose">
@@ -325,10 +339,12 @@
         </div>
         <p style="color: black;">Watch color:</p>
         <div class="alignAcessButtonsColors">
-    <div class="blackClock"
-        onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
-    <div class="whiteClock"
-        onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)"></div>
+            <div class="blackClock"
+                onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)">
+            </div>
+            <div class="whiteClock"
+                onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0)">
+            </div>
         </div>
         <div class="bottomPopup">
             <button onclick="applyImageFile()">Apply image</button>
@@ -336,7 +352,7 @@
         </div>
     </div>
 
-    <!--Bloco de notas-->
+    <!--Notepad-->
     <div class="notepad" id="NpApp" style="transform: scale(0)" onclick="focusNp()">
         <div class="header" id="NpHeader">
             <p>Notepad</p>
@@ -353,7 +369,7 @@
         <textarea name="" cols="30" rows="10" id="textNp"></textarea>
     </div>
 
-    <!--Calculadora-->
+    <!--Calculator-->
     <div class="calc" id="clApp" style="transform: scale(0)" onclick="focusCalc()">
         <div class="header" id="clHeader">
             <p>Calculator</p>
@@ -386,7 +402,7 @@
         </div>
     </div>
 
-    <!--Reprodutor de música-->
+    <!--Music player-->
     <div class="music" id="mpApp" onclick="focusMp()">
         <div class="header" id="mpHeader">
             <p>Music player</p>
@@ -428,19 +444,19 @@
         </div>
     </div>
 
-    <!--Ajuda para iniciar com a Charms-->
+    <!--Help to start with Charms-->
     <div class="helpWithCharmsUS" onmouseover="hideHelp()">
 
     </div>
 
-    <!--Charms para mobiles: Abrir-->
+    <!--Mobile Charms: open-->
     <div class="openMobileCharms" onclick="openCharms()">
         <div class="lines"></div>
         <div class="lines"></div>
         <div class="lines"></div>
     </div>
 
-    <!--Quando minúsculo-->
+    <!--When apps are hided-->
     <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
         Notepad
     </div>
@@ -451,7 +467,7 @@
         Music player
     </div>
 
-    <!--Tela de bloqueio-->
+    <!--Lock screen-->
     <div class="lock" id="lockscreen">
         <h1 style="color: white; margin: 10px 0;" id="nameLock"></h1>
         <input type="password" name="" id="passlock" />
@@ -459,11 +475,16 @@
         <h2 style="color: red; margin: 10px 0;" id="wrongPass"></h2>
     </div>
 
-    <!--Protetor de tela-->
+    <!--Screensaver-->
     <div class="screenSaver" id="scrSvr" onclick="disScrSvr()">
         <div class="circle1"></div>
         <div class="circle2"></div>
         <div class="circle3"></div>
+    </div>
+
+    <!--Dividing English from Portuguese-->
+    <div style="display: none">
+        <input type="checkbox" name="" id="enUsVersion" checked>
     </div>
     <script src="js/script.js"></script>
     <script src="js/dragWindows.js"></script>

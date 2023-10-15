@@ -165,3 +165,22 @@ button:hover {
         padding: 10px;
     }
 }
+
+@media (max-width: 799px) {
+    .changeColor,
+    .return {
+        width: 120px;
+        height: 120px;
+        font-size: 12px;
+    }
+
+    .return img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .changeColor button {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

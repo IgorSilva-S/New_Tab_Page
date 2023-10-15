@@ -40,13 +40,20 @@
     --XLargeSize: 60px;
 }
 
-body {
+html {
+    width: 100vw;
     height: 100vh;
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     background-size: cover;
     background-position: center;
     background-image: url(../img/Backgrounds/img1.jpg);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
     transition-duration: .2s;
     color: black;
 }
@@ -214,6 +221,10 @@ body {
 .lock input:focus {
     border: 2px solid #444;
     outline: none;
+}
+
+.lock h1 {
+    text-align: center;
 }
 
 .charmsicons {
@@ -502,7 +513,7 @@ body {
     top: var(--spaceNp);
     border-radius: var(--radiusTopHeader);
     box-shadow: 2px 2px 20px 2px #191919;
-    
+
 }
 
 .notepad .header {
@@ -945,7 +956,8 @@ body {
     background-image: url(../img/OtherIcons/HelpCharms.png);
     backdrop-filter: blur(20px);
     transition-duration: .2s;
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 4px;
 }
 
 .helpWithCharmsUS {
@@ -960,6 +972,7 @@ body {
     backdrop-filter: blur(20px);
     transition-duration: .2s;
     background-color: rgba(0, 0, 0, .4);
+    border-radius: 4px;
 }
 
 /*PopUp imagem*/
@@ -1360,6 +1373,12 @@ body {
 }
 
 @media (max-width: 799px) {
+    body {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+
     .openMobileCharms {
         display: flex;
     }
@@ -1406,11 +1425,16 @@ body {
     }
 
     .time {
-        width: 90%;
-        left: 5%;
+        width: 100vw;
+        left: 0%;
+        border-radius: 0;
     }
 
     .helpWithCharms {
+        display: none;
+    }
+
+    .helpWithCharmsUS {
         display: none;
     }
 

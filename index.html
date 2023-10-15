@@ -70,13 +70,12 @@
     <h1>Usuário</h1>
     Insira um nome de usuário<br />
     Esse nome ficará visível na tela principal e na tela de bloqueio<br />
-    Vale notar que esse nome e genero ficara salvo até que recarregue a
-    página<br /><br />
-    <input type="text" name="" id="usern" placeholder="Nome de usuário" /><br /><br />
+    <input type="text" name="" id="usern" placeholder="Nome de usuário" /><br />
+    <button onclick="saveName()">Salvar nome</button><br />
     <label for="gen">Gênero</label><br />
-    <input type="radio" name="gen" id="mas" /> Masculino<br />
-    <input type="radio" name="gen" id="fem" /> Feminino<br />
-    <input type="radio" name="gen" id="pns" /> Prefiro que não seja citado
+    <input type="radio" name="gen" id="mas" onchange="mascheck()"/> Masculino<br />
+    <input type="radio" name="gen" id="fem" onchange="femcheck()"/> Feminino<br />
+    <input type="radio" name="gen" id="pns" onchange="pnscheck()"/> Prefiro que não seja citado
     <button onclick="userinfos()">Aplicar informações</button>
   </div>
 
@@ -88,7 +87,7 @@
     <br /><br />
     Imagem de fundo<br />
     <input type="radio" name="image" id="img1" onchange="image1()" />
-    Por do Sol (Padrão)<br />
+    Por do Sol<br />
     <input type="radio" name="image" id="img2" onchange="image2()" /> Fundo do
     mar<br />
     <input type="radio" name="image" id="img3" onchange="image3()" />
@@ -156,17 +155,21 @@
     </div>
   </div>
 
-  <!--Informações da Charms: Reiniciar-->
+  <!--Informações da Charms: Recarregar-->
   <div class="charmsinfo" id="resetinfo">
     <div class="back" onclick="bts()"></div>
-    <h1>Reiniciar site</h1>
-    Clique no botão abaixo para reiniciar o site<br />
+    <h1>Recarregar site</h1>
+    Clique no botão abaixo para recarregar o site<br />
     É o mesmo efeito do que apertar a tecla F5 ou apertar o botão de
     recarregar<br />
     <button onclick="reloadpage()">Recarregar</button>
     <h2>Modo simples</h2>
     Se você acha que o site está muito confuso, você pode recarregar de modo mais simples.<br>
     <button onclick="reloadSpage()">Recarregar no modo simples</button>
+    <h2>Limpar definições</h2>
+    Caso queira limpar os dados de personalização, usuário, senha e outras definições, você pode limpá-las clicando no botão abaixo.<br>
+    O site será reiniciado e os dados serão limpos quando clicar.<br>
+    <button onclick="localStorage.clear(), location.href = 'index.html'">Limpar dados</button>
     <h2>Reload in U.S. English</h2>
     If you want to use the site in English or don't know the Portuguese, you can reload the page so that it is in English<br>
     <button onclick="location.href = 'enUsNormal.html'">Reload in English</button>
@@ -463,6 +466,11 @@
     <div class="circle2"></div>
     <div class="circle3"></div>
   </div>
+
+      <!--Dividindo o Português do Inglês-->
+      <div style="display: none">
+        <input type="checkbox" name="" id="enUsVersion">
+      </div>
   <script src="js/script.js"></script>
   <script src="js/dragWindows.js"></script>
   <script src="js/calcScript.js"></script>
