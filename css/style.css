@@ -20,6 +20,9 @@
     --widthMusic: 500px;
     --heightMusic: 440px;
     --spaceMusic: 50px;
+    --widthGTN: 500px;
+    --heightGTN: 650px;
+    --spaceGTN: 50px;
     --widthPopUps: 40%;
     --heightPopUps: 60%;
     --spacePopUpsLeft: 30%;
@@ -604,6 +607,7 @@ body {
     transition-duration: .2s;
     color: black;
     cursor: progress;
+    text-align: center;
 }
 
 .appHided:hover {
@@ -1321,6 +1325,7 @@ body {
     transform: rotate(135deg);
 }
 
+
 /*Início Responsividade*/
 
 @media (max-height: 780px) {
@@ -1424,6 +1429,46 @@ body {
         --topHeader: 40px;
     }
 
+    .notepad {
+        border-radius: 0;
+    }
+
+    .notepad .header {
+        border-radius: 0;
+        backdrop-filter: none;
+        background-color: #f0f0f0;
+    }
+
+    .calc {
+        border-radius: 0;
+    }
+
+    .calc .header {
+        border-radius: 0;
+        backdrop-filter: none;
+        background-color: #cee8ff;
+    }
+
+    .music {
+        border-radius: 0;
+    }
+
+    .songTime {
+        width: 100%;
+    }
+
+    .volume {
+        width: 50%;
+        top: -20%;
+        left: calc(50% - 25%);
+    }
+
+    .chooseColor,
+    .chooseGradient,
+    .chooseImage {
+        border-radius: 0;
+    }
+
     .calcKeys {
         grid-template-rows: 100px
     }
@@ -1473,6 +1518,35 @@ body {
     .notPinned, 
     .charmsPinned {
         display: none;
+    }
+
+    #closeThis,
+    #closeThisGd,
+    #closeThisImg {
+        width: 40px;
+        height: 20px;
+    }
+
+    #closeThis::after,
+    #closeThisGd::after,
+    #closeThisImg::after {
+        width: 16px;
+        height: 16px;
+        top: 0px;
+        left: 0;
+    }
+
+    #closeThis:checked::after,
+    #closeThisGd:checked::after,
+    #closeThisImg:checked::after {
+        left: 19px
+    }
+
+    .leftPop label {
+        font-size: 12px;
+        position: absolute;
+        left: 50px;
+        width: 100px;
     }
 }
 

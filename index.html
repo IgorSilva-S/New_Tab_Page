@@ -108,7 +108,8 @@
     Gradiente montado pelo usuário<br />
     <input type="radio" name="image" id="imgChoose" onchange="userImage()" />
     Selecione sua imagem de fundo<br />
-    <button onclick="applyimg()" id="buttontoApply">Aplicar</button><br />
+    <button onclick="applyimg()" id="buttontoApply" ondblclick="forceAppearPopup()">Aplicar</button><br />
+    Caso já tenha feito um gradiente ou escolhido a cor sólida, aperte duas vezes no botão para abrir o popup<br><br>
     <p>
       Aviso: Ao checar as caixas, as informações da charms fechará, isso
       inclui as configurações
@@ -262,6 +263,7 @@
       ondblclick="bts()">
       Reprodutor de música
     </div>
+
     <div class="resetPosition">
       <h2>Restaurar posições</h2>
       Caso algum aplicativo tenha saido acidentalmente para fora da área que se pode mexer, você pode voltar ele para a
@@ -430,6 +432,8 @@
 
     </div>
   </div>
+
+  
 
   <!--Ajuda para iniciar com a Charms-->
   <div class="helpWithCharms" onmouseover="hideHelp()">

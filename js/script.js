@@ -171,6 +171,11 @@ if (helped == 1) {
   hideHelp()
 }
 
+let autoPin = localStorage.getItem('pinned')
+if (autoPin == 1) {
+  un_pin()
+}
+
 
 function changeEngine() {
   if (!enginechanged) {
@@ -470,6 +475,64 @@ function applyimg() {
       document.querySelector('.time').removeAttribute('style')
     }
   } else if (image == 8) {
+    let coloring = localStorage.getItem('colorChoosed')
+    if (coloring != null) {
+      document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+      document.body.style.backgroundColor = coloring
+
+    } else {
+    document.querySelector('.chooseColor').style.transform = 'scale(1)'
+    }
+
+  } else if (image == 9) {
+    let red2, green2, blue2;
+    red = Math.random() * 255
+    green = Math.random() * 255
+    blue = Math.random() * 255
+    red2 = Math.random() * 255
+    green2 = Math.random() * 255
+    blue2 = Math.random() * 255
+
+    document.body.style.backgroundImage = `linear-gradient(to bottom right, rgb(${red}, ${green}, ${blue}), rgb(${red2}, ${green2}, ${blue2}))`
+    document.body.style.color = 'white'
+  } else if (image == 10) {
+    let gradienting = localStorage.getItem('gradientChoosed')
+    if (gradienting != null) {
+      document.body.style.backgroundImage = gradienting
+      document.body.style.backgroundColor = white
+    } else {
+      document.querySelector('.chooseGradient').style.transform = 'scale(1)'
+    }
+  } else if (image == 11) {
+    document.querySelector('.chooseImage').style.transform = 'scale(1)'
+  }
+}
+
+function forceAppearPopup() {
+  if (image == 1) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
+  } else if (image == 2) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
+  } else if (image == 3) {
+    document.body.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
+  } else if (image == 4) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img4.jpg)'
+  } else if (image == 5) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
+  } else if (image == 6) {
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
+  } else if (image == 7) {
+    red = Math.random() * 255
+    green = Math.random() * 255
+    blue = Math.random() * 255
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+    document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    if (red >= 200 || blue >= 200 || green >= 200) {
+      document.querySelector('.time').style.color = "#191919"
+    } else {
+      document.querySelector('.time').removeAttribute('style')
+    }
+  } else if (image == 8) {
     document.querySelector('.chooseColor').style.transform = 'scale(1)'
   } else if (image == 9) {
     let red2, green2, blue2;
@@ -507,10 +570,12 @@ function un_pin() {
     document.querySelector('.charms').style.opacity = '1'
     pinned = true
     document.getElementById('pinIcon').className = "pincharms charmsPinned"
+    localStorage.setItem('pinned', 1)
   } else {
     document.querySelector('.charms').removeAttribute('style')
     document.getElementById('pinIcon').className = "pincharms notPinned"
     pinned = false
+    localStorage.setItem('pinned', 0)
     if (!transpToggle.checked) {
       transpEffect()
     }
@@ -594,6 +659,7 @@ function applyColor() {
   let color = document.getElementById('colorChoosed').value
   document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
   document.body.style.backgroundColor = color
+  localStorage.setItem('colorChoosed', color)
   let closeInp = document.getElementById('closeThis')
   if (closeInp.checked) {
     closePop()
@@ -605,6 +671,7 @@ function applyGradient() {
   let col2 = document.getElementById('colorChoosed2').value
   document.body.style.backgroundImage = `linear-gradient(to bottom right, ${col1}, ${col2})`
   document.body.style.color = 'white'
+  localStorage.setItem('gradientChoosed', `linear-gradient(to bottom right, ${col1}, ${col2})`)
   let closeInp = document.getElementById('closeThisGd')
   if (closeInp.checked) {
     closePop()
@@ -964,6 +1031,9 @@ function resetNotepad() {
   let app = document.getElementById('NpApp')
   app.style.left = 'var(--spaceNp)'
   app.style.top = 'var(--spaceNp)'
+  if (NpMax) {
+  max_min_np()
+  }
 }
 
 function resetCalc() {
@@ -976,6 +1046,11 @@ function resetMusPlay() {
   let app = document.getElementById('mpApp')
   app.style.left = 'var(--spaceMusic)'
   app.style.top = 'var(--spaceMusic)'
+  app.style.width = 'var(--widthMusic)'
+  app.style.height = 'var(--heightMusic)'
+  if (MpMax) {
+  max_min_Mp()
+  }
 }
 
 //Funções responsivas
