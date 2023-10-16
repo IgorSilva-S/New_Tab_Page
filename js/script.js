@@ -166,6 +166,12 @@ if (recomendEnabled == 1) {
   recomendationsEnable()
 }
 
+let helped = localStorage.getItem('helped')
+if (helped == 1) {
+  hideHelp()
+}
+
+
 function changeEngine() {
   if (!enginechanged) {
     engineselector.className = "searchengine bing"
@@ -785,7 +791,7 @@ document.querySelector('#searchinput').addEventListener('keydown', function (eve
 
 
 function hideHelp() {
-  if (enUs) {
+  if (EnStyle.checked) {
     document.querySelector('.helpWithCharmsUS').style.opacity = '0';
     setTimeout(() => {
       document.querySelector('.helpWithCharmsUS').style.display = 'none';
@@ -796,6 +802,7 @@ function hideHelp() {
       document.querySelector('.helpWithCharms').style.display = 'none';
     }, 200);
   }
+  localStorage.setItem('helped', 1)
 }
 
 
@@ -834,13 +841,6 @@ function applyBtnSize() {
     searchInp.style.fontSize = 'var(--largeSize)'
     searchB.style.width = 'var(--largeSearch)'
     searchB.style.height = 'var(--largeSearch)'
-  } else if (sizing == 4) {
-    engineselector.style.width = 'var(--XLargeSearch)'
-    engineselector.style.height = 'var(--XLargeSearch)'
-    searchInp.style.height = 'var(--XLargeSearch)'
-    searchInp.style.fontSize = 'var(--XLargeSize)'
-    searchB.style.width = 'var(--XLargeSearch)'
-    searchB.style.height = 'var(--XLargeSearch)'
   }
 }
 
@@ -990,3 +990,4 @@ function closeCharms() {
   let charms = document.querySelector('.charms');
   charms.style.right = '-101%';
 }
+
