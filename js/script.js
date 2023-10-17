@@ -12,6 +12,7 @@ let recomendationEnabled = false
 let red, green, blue
 let NpMax = false
 let MpMax = false
+let ghMax = false
 let textNotepad = document.getElementById('textNp')
 let buttonApply = document.getElementById('buttontoApply')
 let sizing = 1
@@ -775,6 +776,20 @@ function appear_mp() {
   document.getElementById('mpHided').removeAttribute('style')
 }
 
+function appear_ghost() {
+  document.getElementById('ghostApp').style.transform = 'scale(1)'
+  document.getElementById('ghostHided').removeAttribute('style')
+}
+
+function hideGhost() {
+  document.getElementById('ghostApp').style.transform = 'scale(0)'
+  document.getElementById('ghostHided').style.display = 'flex'
+}
+
+function closeGhost() {
+  document.getElementById('ghostApp').style.transform = 'scale(0)'
+}
+
 function max_min_Mp() {
   let app = document.getElementById('mpApp')
   let appHd = document.getElementById('mpHeader')
@@ -800,6 +815,33 @@ function max_min_Mp() {
     icon.src = 'img/WindowIcons/Maximize.png'
   }
 }
+
+function max_min_ghost() {
+  let app = document.getElementById('ghostApp')
+  let appHd = document.getElementById('ghostHeader')
+  let icon = document.getElementById('iconMaxMinGh')
+  if (!ghMax) {
+    app.style.left = '0'
+    app.style.top = '0'
+    if (!pinned) {
+      app.style.width = 'calc(100vw - 1%)'
+
+    } else {
+      app.style.width = 'calc(100vw - 15%)'
+    }
+    app.style.height = 'calc(100vh - 40px)'
+    ghMax = true
+    icon.src = 'img/WindowIcons/Minimize.png'
+  } else {
+    app.style.left = 'var(--spaceGhost)'
+    app.style.top = 'var(--spaceGhost)'
+    app.style.width = 'var(--widthGhost)'
+    app.style.height = 'var(--heightGhost)'
+    ghMax = false
+    icon.src = 'img/WindowIcons/Maximize.png'
+  }
+}
+
 
 
 function lockAllSS() {
@@ -1066,6 +1108,17 @@ function resetMusPlay() {
   app.style.height = 'var(--heightMusic)'
   if (MpMax) {
   max_min_Mp()
+  }
+}
+
+function resetGhost() {
+  let app = document.getElementById('ghostApp')
+  app.style.left = 'var(--spaceGhost)'
+  app.style.top = 'var(--spaceGhost)'
+  app.style.width = 'var(--widthGhost)'
+  app.style.height = 'var(--heightGhost)'
+  if (ghMax) {
+  max_min_ghost()
   }
 }
 

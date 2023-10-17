@@ -628,6 +628,10 @@ body {
     width: 12%;
 }
 
+.ghostHide {
+    left: calc((8% + 8% + 12% + 10px) + 20px);
+}
+
 .calc {
     width: var(--widthCalc);
     height: var(--heightCalc);
@@ -1361,8 +1365,104 @@ body {
     height: 50%;
     box-sizing: border-box;
     border: 2px solid #e0e0e0;
+    overflow: hidden;
 }
 
+.ghost .inst {
+    position: absolute;
+    bottom: 5%;
+    width: 90%;
+    text-align: center;
+}
+
+/*Apenas testes*/
+
+#dino {
+    width: 70px;
+    height: 70px;
+    animation-name: ghostWalking;
+    animation-duration: .5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: steps(1);
+    background-size: auto 70px;
+    position: relative;
+    top: 143px;
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes ghostWalking {
+    0% {
+        background-image: url(../img/GhostGame/Sprites/Walking1.png);
+    }
+
+    25% {
+        background-image: url(../img/GhostGame/Sprites/Walking2.png);
+    }
+
+    50% {
+        background-image: url(../img/GhostGame/Sprites/Walking3.png);
+    }
+
+    75% {
+        background-image: url(../img/GhostGame/Sprites/Walking1.png);
+    }
+
+    100% {
+        background-image: url(../img/GhostGame/Sprites/Walking2.png);
+    }
+}
+
+.jump {
+    animation: jump 0.3s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 143px;
+        /*distance from the top of the parent element*/
+    }
+
+    30% {
+        top: 115px;
+    }
+
+    50% {
+        top: 70px;
+    }
+
+    80% {
+        top: 115px;
+    }
+
+    100% {
+        top: 143px;
+    }
+}
+
+#cactus {
+    width: 20px;
+    height: 40px;
+    position: relative;
+    top: 91px;
+    left: 580px;
+    /*width of frame - width of cactus*/
+    background-image: url(https://www.tynker.com/projects/images/8618bf3a606c43a20351e2d723772e0944920d33/cacti---cacti3.png);
+    background-size: 20px 40px;
+    animation: cactus-block 1.2s infinite linear;
+}
+
+@keyframes cactus-block {
+    0% {
+        left: 600px;
+    }
+
+    100% {
+        left: -20px;
+    }
+}
+
+/*Fim testes*/
 
 /*Início Responsividade*/
 
@@ -1539,18 +1639,23 @@ body {
     }
 
     .mpHide {
-        width: 30%;
-        left: calc(100% - 30%);
+        width: 20%;
+        left: calc(46.6% + 6.6%)
     }
 
     .notepadHide {
-        width: 30%;
+        width: 20%;
         left: 0;
     }
 
     .calcHide {
-        width: 30%;
-        left: calc(50% - 15%)
+        width: 20%;
+        left: calc(20% + 6.6%);
+    }
+
+    .ghostHide {
+        width: 20%;
+        left: calc(100% - 20%)
     }
 
     .notPinned,

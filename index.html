@@ -264,6 +264,7 @@
       Reprodutor de música
     </div>
     <div class="linkc"
+      onclick="document.getElementById('ghostApp').style.transform = 'scale(1)', document.getElementById('ghostHided').removeAttribute('style'), focusGh()"
       ondblclick="bts()">
       Ghost
     </div>
@@ -275,7 +276,7 @@
       <button onclick="resetNotepad()">Bloco de notas</button>
       <button onclick="resetCalc()">Calculadora</button>
       <button onclick="resetMusPlay()">Reprodutor de música</button>
-      <button>Ghost</button>
+      <button onclick="resetGhost()">Ghost</button>
     </div>
   </div>
 
@@ -439,27 +440,31 @@
   </div>
 
   <!--Jogo do Dino-->
-  <div class="ghost" id="ghostApp">
+  <div class="ghost" id="ghostApp" onclick="focusGh()">
     <div class="header" id="ghostHeader">
       <p>Ghost</p>
       <div class="appButtons">
-        <img src="img/WindowIcons/HideWindow.png" alt="" />
+        <img src="img/WindowIcons/HideWindow.png" alt="" onclick="hideGhost()" />
       </div>
       <div class="appButtons maxandmin">
-        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinMP" />
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" onclick="max_min_ghost()" />
       </div>
       <div class="appButtons close">
-        <img src="img/WindowIcons/Close.png" alt="" />
+        <img src="img/WindowIcons/Close.png" alt="" onclick="closeGhost()" />
       </div>
     </div>
     <div class="game">
-      
+      <!--Apenas testes-->
+      <div id="dino"></div>
+      <div id="cactus"></div>
     </div>
     <div class="inst">
-
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, numquam? Deleniti suscipit, nam cupiditate, sunt
+      nesciunt aspernatur accusamus ab optio eligendi neque corrupti expedita. Corrupti reprehenderit quaerat sit illo
+      sapiente.
     </div>
   </div>
-  
+
 
   <!--Ajuda para iniciar com a Charms-->
   <div class="helpWithCharms" onmouseover="hideHelp()">
@@ -482,6 +487,9 @@
   </div>
   <div class="appHided mpHide" onclick="appear_mp()" id="mpHided">
     Reprodutor de música
+  </div>
+  <div class="appHided ghostHide" onclick="appear_ghost()" id="ghostHided">
+    Ghost
   </div>
 
   <!--Tela de bloqueio-->
@@ -506,6 +514,7 @@
   <script src="js/script.js"></script>
   <script src="js/dragWindows.js"></script>
   <script src="js/calcScript.js"></script>
+  <script src="js/ghostGame.js"></script>
   <script>
     let enUs = false
   </script>
