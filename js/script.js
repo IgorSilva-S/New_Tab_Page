@@ -499,7 +499,7 @@ function applyimg() {
     let gradienting = localStorage.getItem('gradientChoosed')
     if (gradienting != null) {
       document.body.style.backgroundImage = gradienting
-      document.body.style.backgroundColor = white
+      document.body.style.backgroundColor = 'white'
     } else {
       document.querySelector('.chooseGradient').style.transform = 'scale(1)'
     }
@@ -833,28 +833,44 @@ function clockBckg() {
 }
 
 function focusNp() {
-  document.getElementById('NpApp').style.zIndex = '998'
+  document.getElementById('NpApp').style.zIndex = '997'
   document.getElementById('clApp').style.zIndex = 'auto'
   document.getElementById('mpApp').style.zIndex = 'auto'
+  document.getElementById('ghostApp').style.zIndex = 'auto'
 }
 
 function focusCalc() {
   document.getElementById('NpApp').style.zIndex = 'auto'
-  document.getElementById('clApp').style.zIndex = '998'
+  document.getElementById('clApp').style.zIndex = '997'
   document.getElementById('mpApp').style.zIndex = 'auto'
+  document.getElementById('ghostApp').style.zIndex = 'auto'
 }
 
 function focusMp() {
   document.getElementById('NpApp').style.zIndex = 'auto'
   document.getElementById('clApp').style.zIndex = 'auto'
-  document.getElementById('mpApp').style.zIndex = '998'
+  document.getElementById('mpApp').style.zIndex = '997'
+  document.getElementById('ghostApp').style.zIndex = 'auto'
 }
 
-document.querySelector('#searchinput').addEventListener('keydown', function (event) {
+function focusGh() {
+  document.getElementById('NpApp').style.zIndex = 'auto'
+  document.getElementById('clApp').style.zIndex = 'auto'
+  document.getElementById('mpApp').style.zIndex = 'auto'
+  document.getElementById('ghostApp').style.zIndex = '997'
+}
+
+document.getElementById('searchinput').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     searchingNow()
   }
 });
+
+function entKey(event) {
+  if (event.key == 'Enter') {
+    searchingNow()
+  }
+}
 
 
 function hideHelp() {

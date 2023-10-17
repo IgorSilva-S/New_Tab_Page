@@ -25,7 +25,7 @@
   <!--Parte da pesquisa-->
   <div class="search">
     <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
-    <input type="text" name="" id="searchinput" placeholder="Pesquise aqui" />
+    <input type="text" name="" id="searchinput" placeholder="Pesquise aqui" onkeydown="entKey(event)" />
     <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
   </div>
 
@@ -263,6 +263,10 @@
       ondblclick="bts()">
       Reprodutor de música
     </div>
+    <div class="linkc"
+      ondblclick="bts()">
+      Ghost
+    </div>
 
     <div class="resetPosition">
       <h2>Restaurar posições</h2>
@@ -271,6 +275,7 @@
       <button onclick="resetNotepad()">Bloco de notas</button>
       <button onclick="resetCalc()">Calculadora</button>
       <button onclick="resetMusPlay()">Reprodutor de música</button>
+      <button>Ghost</button>
     </div>
   </div>
 
@@ -433,6 +438,27 @@
     </div>
   </div>
 
+  <!--Jogo do Dino-->
+  <div class="ghost" id="ghostApp">
+    <div class="header" id="ghostHeader">
+      <p>Ghost</p>
+      <div class="appButtons">
+        <img src="img/WindowIcons/HideWindow.png" alt="" />
+      </div>
+      <div class="appButtons maxandmin">
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinMP" />
+      </div>
+      <div class="appButtons close">
+        <img src="img/WindowIcons/Close.png" alt="" />
+      </div>
+    </div>
+    <div class="game">
+      
+    </div>
+    <div class="inst">
+
+    </div>
+  </div>
   
 
   <!--Ajuda para iniciar com a Charms-->

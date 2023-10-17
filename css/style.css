@@ -20,9 +20,9 @@
     --widthMusic: 500px;
     --heightMusic: 440px;
     --spaceMusic: 50px;
-    --widthGTN: 500px;
-    --heightGTN: 650px;
-    --spaceGTN: 50px;
+    --widthGhost: 650px;
+    --heightGhost: 500px;
+    --spaceGhost: 50px;
     --widthPopUps: 40%;
     --heightPopUps: 60%;
     --spacePopUpsLeft: 30%;
@@ -412,6 +412,7 @@ body {
     position: absolute;
     top: var(--spacePopUpsTop);
     transform: scale(0);
+    z-index: 998;
 }
 
 .chooseColor h1 {
@@ -860,6 +861,7 @@ body {
     position: absolute;
     top: var(--spacePopUpsTop);
     transform: scale(0);
+    z-index: 998;
 }
 
 .chooseGradient h1 {
@@ -998,6 +1000,7 @@ body {
     top: var(--spacePopUpsTop);
     transform: scale(0);
     color: black;
+    z-index: 998;
 }
 
 .chooseImage h1 {
@@ -1325,6 +1328,41 @@ body {
     transform: rotate(135deg);
 }
 
+.ghost {
+    width: var(--widthGhost);
+    height: var(--heightGhost);
+    background-color: #f0f0f0;
+    position: absolute;
+    left: var(--spaceGhost);
+    top: var(--spaceGhost);
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 2px 2px 20px 2px #191919;
+    backdrop-filter: blur(20px);
+    padding-top: 40px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ghost .header {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    height: 40px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.ghost .game {
+    width: 100%;
+    height: 50%;
+    box-sizing: border-box;
+    border: 2px solid #e0e0e0;
+}
+
 
 /*Início Responsividade*/
 
@@ -1515,7 +1553,7 @@ body {
         left: calc(50% - 15%)
     }
 
-    .notPinned, 
+    .notPinned,
     .charmsPinned {
         display: none;
     }

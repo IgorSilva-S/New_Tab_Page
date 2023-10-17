@@ -25,7 +25,7 @@
     <!--Part of the internet search-->
     <div class="search">
         <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
-        <input type="text" name="" id="searchinput" placeholder="Search here" />
+        <input type="text" name="" id="searchinput" placeholder="Search here" onkeydown="entKey(event)"/>
         <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
     </div>
 
