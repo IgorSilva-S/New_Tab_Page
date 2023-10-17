@@ -1377,7 +1377,7 @@ body {
 
 /*Apenas testes*/
 
-#dino {
+.normal {
     width: 70px;
     height: 70px;
     animation-name: ghostWalking;
@@ -1414,29 +1414,41 @@ body {
 }
 
 .jump {
-    animation: jump 0.3s linear;
+    animation: jump 0.3s linear infinite;
+    width: 70px;
+    height: 70px;
+    background-size: auto 70px;
+    position: relative;
+    top: 143px;
+    background-position: center;
+    background-size: cover;
 }
 
 @keyframes jump {
     0% {
         top: 143px;
         /*distance from the top of the parent element*/
+        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
     }
 
     30% {
         top: 115px;
+        background-image: url(../img/GhostGame/Sprites/Jumping2.png);
     }
 
     50% {
         top: 70px;
+        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
     }
 
     80% {
         top: 115px;
+        background-image: url(../img/GhostGame/Sprites/Jumping2.png);
     }
 
     100% {
         top: 143px;
+        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
     }
 }
 
