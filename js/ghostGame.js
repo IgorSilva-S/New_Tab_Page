@@ -1,11 +1,11 @@
-const dino = document.getElementById("dino");
-const cactus = document.getElementById("cactus");
+const ghost = document.getElementById("ghost");
+const crystal = document.getElementById("crystal");
 function jump() {
     if (dispatchEvent.classList != "jump") {
         //first it checks if the dino is mid-jump. If not, it makes it jump.
-        dino.classList.add("jump");
+        ghost.classList.add("jump");
         setTimeout(function () {
-            dino.classList.remove("jump");
+            ghost.classList.remove("jump");
             //removes the jump class from the dino once it has jumped so that it can jump again
         }, 500);
     }
@@ -13,20 +13,25 @@ function jump() {
 let checkerDeath = document.getElementById('disScr')
 let checkAlive = setInterval(function () {
     if (!checkerDeath.checked) {
-    let dinoTop = parseInt(
-        window.getComputedStyle(dino).getPropertyValue("top")
+    let ghostTop = parseInt(
+        window.getComputedStyle(ghost).getPropertyValue("top")
     );
-    let cactusLeft = parseInt(
-        window.getComputedStyle(cactus).getPropertyValue("left")
+    let crystalLeft = parseInt(
+        window.getComputedStyle(crystal).getPropertyValue("left")
     );
     //check for collision
-    if (cactusLeft > 0 && cactusLeft < 70 && dinoTop >= 143) {
-        dino.style.animationPlayState = "paused";
-        cactus.style.animationPlayState = "paused";
+    if (crystalLeft > 0 && crystalLeft < 70 && ghostTop >= 143) {
+        ghost.style.animationPlayState = "paused";
+        crystal.style.animationPlayState = "paused";
         alert("Whoops! Game Over :(");
         alert('Try again: ')
-        dino.removeAttribute('style')
-        cactus.removeAttribute('style')
+        ghost.removeAttribute('style')
+        crystal.removeAttribute('style')
     }
 }
 }, 10);
+
+setInterval(() => {
+    let typeOfCrystal = Math.floor((Math.random() * 10) + 1)
+    crystal.className = `type${typeOfCrystal}`
+}, 500);
