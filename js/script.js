@@ -24,7 +24,8 @@ let repeating = false;
 let repeaterb = document.getElementById('repeatb')
 let charmsForMobile = false;
 let clockChecker = document.getElementById('clockBckg');
-let EnStyle = document.getElementById('enUsVersion')
+let EnStyle = document.getElementById('enUsVersion');
+let ghostRunning = false
 
 //Charms functions 
 
@@ -779,15 +780,18 @@ function appear_mp() {
 function appear_ghost() {
   document.getElementById('ghostApp').style.display = 'flex'
   document.getElementById('ghostHided').removeAttribute('style')
+  ghostRunning = true
 }
 
 function hideGhost() {
   document.getElementById('ghostApp').style.display = 'none'
   document.getElementById('ghostHided').style.display = 'flex'
+  ghostRunning = false
 }
 
 function closeGhost() {
   document.getElementById('ghostApp').style.display = 'none'
+  ghostRunning = false
 }
 
 function max_min_Mp() {
