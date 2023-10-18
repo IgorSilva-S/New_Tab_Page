@@ -1457,7 +1457,7 @@ body {
 
 #crystal {
     position: relative;
-    top: 91px;
+    top: 143px;
     left: 580px;
     animation: cactus-block 1.2s infinite linear;
 }
@@ -1496,12 +1496,15 @@ body {
     }
 }
 
-.game .soil {
+/*.game .soil {
     width: 200%;
     height: 50%;
     background-position: center;
     background-size: cover;
-}
+    background-image: url(../img/GhostGame/Sprites/Soil.ase);
+    position: relative;
+    bottom: 0;
+}*/
 
 /*Início Responsividade*/
 
