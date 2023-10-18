@@ -1406,16 +1406,16 @@ body {
     }
 
     75% {
-        background-image: url(../img/GhostGame/Sprites/Walking1.png);
+        background-image: url(../img/GhostGame/Sprites/Walking2.png);
     }
 
     100% {
-        background-image: url(../img/GhostGame/Sprites/Walking2.png);
+        background-image: url(../img/GhostGame/Sprites/Walking1.png);
     }
 }
 
 .jump {
-    animation: jump 0.3s linear infinite;
+    animation: jump .5s linear infinite;
     width: 70px;
     height: 70px;
     background-size: auto 70px;
@@ -1429,39 +1429,43 @@ body {
     0% {
         top: 143px;
         /*distance from the top of the parent element*/
-        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
+        background-image: url(../img/GhostGame/Sprites/Upping.png);
     }
 
     30% {
         top: 115px;
-        background-image: url(../img/GhostGame/Sprites/Jumping2.png);
+        background-image: url(../img/GhostGame/Sprites/Upping.png);
     }
 
     50% {
         top: 70px;
-        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
+        background-image: url(../img/GhostGame/Sprites/Upping.png);
+    }
+
+    50.1% {
+        background-image: url(../img/GhostGame/Sprites/Falling.png);
     }
 
     80% {
         top: 115px;
-        background-image: url(../img/GhostGame/Sprites/Jumping2.png);
+        background-image: url(../img/GhostGame/Sprites/Falling.png);
     }
 
     100% {
         top: 143px;
-        background-image: url(../img/GhostGame/Sprites/Jumping1.png);
+        background-image: url(../img/GhostGame/Sprites/Falling.png);
     }
 }
 
 #cactus {
-    width: 20px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: relative;
     top: 91px;
     left: 580px;
     /*width of frame - width of cactus*/
-    background-image: url(https://www.tynker.com/projects/images/8618bf3a606c43a20351e2d723772e0944920d33/cacti---cacti3.png);
-    background-size: 20px 40px;
+    background-image: url(../img/GhostGame/Sprites/Crystal1.png);
+    background-size: 50px 50px;
     animation: cactus-block 1.2s infinite linear;
 }
 
