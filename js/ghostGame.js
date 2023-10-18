@@ -34,4 +34,4 @@ let checkAlive = setInterval(function () {
 setInterval(() => {
     let typeOfCrystal = Math.floor((Math.random() * 3) + 1)
     crystal.className = `type${typeOfCrystal}`
-}, 510);
+}, 1200);
