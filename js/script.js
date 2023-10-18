@@ -777,17 +777,17 @@ function appear_mp() {
 }
 
 function appear_ghost() {
-  document.getElementById('ghostApp').style.transform = 'scale(1)'
+  document.getElementById('ghostApp').style.display = 'flex'
   document.getElementById('ghostHided').removeAttribute('style')
 }
 
 function hideGhost() {
-  document.getElementById('ghostApp').style.transform = 'scale(0)'
+  document.getElementById('ghostApp').style.display = 'none'
   document.getElementById('ghostHided').style.display = 'flex'
 }
 
 function closeGhost() {
-  document.getElementById('ghostApp').style.transform = 'scale(0)'
+  document.getElementById('ghostApp').style.display = 'none'
 }
 
 function max_min_Mp() {

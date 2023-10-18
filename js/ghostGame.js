@@ -10,7 +10,9 @@ function jump() {
         }, 300);
     }
 }
+let checkerDeath = document.getElementById('disScr')
 let checkAlive = setInterval(function () {
+    if (!checkerDeath.checked) {
     let dinoTop = parseInt(
         window.getComputedStyle(dino).getPropertyValue("top")
     );
@@ -22,6 +24,9 @@ let checkAlive = setInterval(function () {
         dino.style.animationPlayState = "paused";
         cactus.style.animationPlayState = "paused";
         alert("Whoops! Game Over :(");
-        window.location.reload();
+        alert('Try again: ')
+        dino.removeAttribute('style')
+        cactus.removeAttribute('style')
     }
+}
 }, 10);

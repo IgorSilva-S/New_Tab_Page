@@ -1347,6 +1347,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    display: none;
 }
 
 .ghost .header {
@@ -1466,7 +1467,7 @@ body {
 
 @keyframes cactus-block {
     0% {
-        left: 600px;
+        left: 100%;
     }
 
     100% {
