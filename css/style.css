@@ -1376,8 +1376,6 @@ body {
     text-align: center;
 }
 
-/*Apenas testes*/
-
 .normal {
     width: 70px;
     height: 70px;
@@ -1498,7 +1496,12 @@ body {
     }
 }
 
-/*Fim testes*/
+.game .soil {
+    width: 200%;
+    height: 50%;
+    background-position: center;
+    background-size: cover;
+}
 
 /*Início Responsividade*/
 

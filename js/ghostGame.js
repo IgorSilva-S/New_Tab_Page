@@ -31,11 +31,7 @@ let checkAlive = setInterval(function () {
 }
 }, 10);
 
-setInterval(() => {
-if (ghostRunning) {
-setInterval(() => {
+crystal.addEventListener('animationiteration', function() {
     let typeOfCrystal = Math.floor((Math.random() * 3) + 1)
     crystal.className = `type${typeOfCrystal}`
-}, 1200);
-}
-}, 1200);
+})
