@@ -25,7 +25,7 @@
     <!--Part of the internet search-->
     <div class="search">
         <div class="searchengine google" onclick="changeEngine()" id="engsec"></div>
-        <input type="text" name="" id="searchinput" placeholder="Search here" onkeydown="entKey(event)"/>
+        <input type="text" name="" id="searchinput" placeholder="Search here" onkeydown="entKey(event)" />
         <div class="searchengine lupe" id="searchbutton" onclick="searchingNow()"></div>
     </div>
 
@@ -267,9 +267,9 @@
             ondblclick="bts()">
             Music player
         </div>
-            <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
-                Ghost
-            </div>
+        <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
+            Ghost
+        </div>
         <div class="resetPosition">
             <h2>Restore positions</h2>
             If an app has accidentally gone out of the area that can be moved, you can go back to it
@@ -463,7 +463,8 @@
         </div>
         <div class="maxSign" id="mSign">Max.Score: 00000</div>
         <div class="scoreSign" id="scrSign">Score: 00000</div>
-        <div class="game" onclick="jump()">
+        <div class="flyAlert" id="flyPos">Rested</div>
+        <div class="game" onclick="jump()" oncontextmenu="fly(event)">
             <div class="clouds"></div>
             <div class="soil"></div>
             <div id="crystal" class="type1"></div>
@@ -474,8 +475,10 @@
             </div>
         </div>
         <div class="inst">
-    Click on the game screen to jump over the crystals<br>
-    Warning! Some crystals may appear randomly
+            Click on the game screen to jump over the crystals<br>
+            Warning! Some crystals may appear randomly<br>
+            Tip: When you reach the last two digits above 90, use the "fly" button. <br>
+            To use, right-click or pinch and hold on touch screens.
         </div>
     </div>
 

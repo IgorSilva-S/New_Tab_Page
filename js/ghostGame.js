@@ -10,6 +10,8 @@ let normalTime = 1.2
 let cloudsTime = 1.7
 let bNT = 1.2
 let deathed = false
+let flyTimer = true
+const flyAlert = document.getElementById('flyPos')
 //let prevDie = document.getElementById('prevDie')
 const oldScore = scr => {
     return ('0000' + scr).slice(-5)
@@ -46,16 +48,49 @@ setInterval(() => {
 }, 100);
 function jump() {
     if (ghostRunning) {
-        if (dispatchEvent.classList != "jump") {
-            //first it checks if the dino is mid-jump. If not, it makes it jump.
+        if (dispatchEvent.classList != "jump" && dispatchEvent.classList != "flying") {
             ghost.classList.add("jump");
             setTimeout(function () {
                 ghost.classList.remove("jump");
-                //removes the jump class from the dino once it has jumped so that it can jump again
             }, 500);
         }
     }
 }
+
+function fly(event) {
+    event.preventDefault()
+    if (ghostRunning && flyTimer) {
+        if (dispatchEvent.classList != "jump" && dispatchEvent.classList != "flying") {
+            ghost.classList.add("flying");
+            flyAlert.innerText = 'Voando'
+            if (EnStyle.checked) {
+                flyAlert.innerText = 'Flying' 
+            }
+            setTimeout(function () {
+                ghost.classList.remove("flying");
+                flyAlert.innerText = 'Cansado'
+                if (EnStyle.checked) {
+                    flyAlert.innerText = 'Tired'
+                }
+                flyTimer = false
+            }, 7500);
+        }
+    }
+    if (!flyTimer) {
+        flyAlert.classList.add('alert')
+        setTimeout(() => {
+            flyAlert.classList.remove('alert') 
+        }, 500);
+    }
+}
+
+setInterval(() => {
+    flyTimer = true
+    flyAlert.innerText = 'Descansado'
+    if (EnStyle.checked) {
+        flyAlert.innerText = 'Rested'
+    }
+}, 10000);
 let checkAlive = setInterval(function () {
     let ghostTop = parseInt(
         window.getComputedStyle(ghost).getPropertyValue("top")
@@ -71,6 +106,10 @@ let checkAlive = setInterval(function () {
             crystal.style.animationPlayState = "paused";
             soil.style.animationPlayState = "paused";
             clouds.style.animationPlayState = "paused";
+            flyAlert.innerText = 'Morreu'
+            if (EnStyle.checked) {
+                flyAlert.innerText = 'Died'
+            }
             normalTime = 1.2
             cloudsTime = 1.7
             if (score > maxscore) {
@@ -79,7 +118,7 @@ let checkAlive = setInterval(function () {
                 localStorage.setItem('yourMax', maxscore)
             }
             gameOver.style.display = 'flex'
-            ghost.classList.remove("normal")
+            ghost.removeAttribute('class')
             ghost.classList.add("death")
         }
 
@@ -104,4 +143,9 @@ function resetGame() {
     ghost.classList.remove("death")
     ghost.classList.add("normal")
     gameOver.style.display = 'none'
+    flyTimer = true
+    flyAlert.innerText = 'Descansado'
+    if (EnStyle.checked) {
+        flyAlert.innerText = 'Rested'
+    }
 }

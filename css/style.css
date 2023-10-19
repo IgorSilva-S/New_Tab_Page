@@ -1377,9 +1377,13 @@ body {
 
 .ghost .inst {
     position: absolute;
-    bottom: 5%;
+    bottom: 0%;
     width: 90%;
+    height: 25%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .normal {
@@ -1458,6 +1462,46 @@ body {
     100% {
         top: 143px;
         background-image: url(../img/GhostGame/Sprites/Falling.png);
+    }
+}
+
+.flying {
+    animation: fly 7.5s linear infinite;
+    width: 70px;
+    height: 70px;
+    background-size: auto 70px;
+    position: absolute;
+    top: 143px;
+    background-position: center;
+    background-size: cover;
+}
+
+@keyframes fly {
+    0% {
+        top: 143px;
+        background-image: url(../img/GhostGame/Sprites/Upping.png);
+    }
+
+    4.9% {
+        background-image: url(../img/GhostGame/Sprites/Upping.png);
+    }
+
+    5% {
+        top: 70px;
+        background-image: url(../img/GhostGame/Sprites/Flying.gif);
+    }
+
+    94.9% {
+        background-image: url(../img/GhostGame/Sprites/Flying.gif);
+    }
+
+    95% {
+        top: 70px;
+        background-image: url(../img/GhostGame/Sprites/Falling.png);
+    }
+
+    100% {
+        top: 143px;
     }
 }
 
@@ -1579,7 +1623,7 @@ body {
 .ghost .scoreSign {
     position: absolute;
     top: 20%;
-    right: 10%;
+    left: 40%;
     font-size: 30px;
     color: black;
     font-family: arcade classic;
@@ -1588,10 +1632,47 @@ body {
 .ghost .maxSign {
     position: absolute;
     top: 20%;
-    right: 50%;
+    left: 1%;
     font-size: 30px;
     color: #777;
     font-family: arcade classic;
+}
+
+.ghost .flyAlert {
+    position: absolute;
+    top: 20%;
+    right: 1%;
+    font-size: 30px;
+    color: black;
+    font-family: arcade classic;
+}
+
+.ghost .alert {
+    animation-name: alertText;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+
+@keyframes alertText {
+    0% {
+        color: black;
+    }
+
+    25% {
+        color: red;
+    }
+
+    50% {
+        color: black;
+    }
+
+    75% {
+        color: red;
+    }
+
+    100% {
+        color: black;
+    }
 }
 
 .ghost .gameAlerts {
@@ -1817,14 +1898,15 @@ body {
                 background-image: url(../img/GhostGame/Sprites/Falling.png);
             }
         }*/
-    
-        .game .soil {
-            height: 60%
-        }
 
-        .game .clouds {
-            height: 40%;
-        }
+    .game .soil {
+        height: 60%
+    }
+
+    .game .clouds {
+        height: 40%;
+    }
+
     .calcKeys {
         grid-template-rows: 100px
     }
