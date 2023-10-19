@@ -8,6 +8,11 @@
     src: url(../fonts/Icons/SegoeFluentIcons.ttf);
 }
 
+@font-face {
+    font-family: Arcade Classic;
+    src: url(../fonts/ARCADECLASSIC.TTF);
+}
+
 /*Base de escala do site: 1920x1080px*/
 
 :root {
@@ -1367,6 +1372,7 @@ body {
     box-sizing: border-box;
     border: 2px solid #e0e0e0;
     overflow: hidden;
+    position: relative;
 }
 
 .ghost .inst {
@@ -1384,7 +1390,7 @@ body {
     animation-iteration-count: infinite;
     animation-timing-function: steps(1);
     background-size: auto 70px;
-    position: relative;
+    position: absolute;
     top: 143px;
     background-position: center;
     background-size: cover;
@@ -1417,7 +1423,7 @@ body {
     width: 70px;
     height: 70px;
     background-size: auto 70px;
-    position: relative;
+    position: absolute;
     top: 143px;
     background-position: center;
     background-size: cover;
@@ -1455,12 +1461,24 @@ body {
     }
 }
 
-#crystal {
-    position: relative;
+.death {
+    width: 70px;
+    height: 70px;
+    background-image: url(../img/GhostGame/Sprites/Death.png);
+    background-size: auto 70px;
+    position: absolute;
     top: 143px;
+    background-position: center;
+    background-size: cover;
+}
+
+#crystal {
+    position: absolute;
+    top: 160px;
     left: 580px;
     animation: cactus-block 1.2s infinite linear;
 }
+
 
 .type1 {
     width: 50px;
@@ -1486,25 +1504,127 @@ body {
     background-size: cover;
 }
 
+.type4 {
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/GhostGame/Sprites/Crystal4.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.type5 {
+    width: 75px;
+    height: 50px;
+    background-image: url(../img/GhostGame/Sprites/Crystal5.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.type6 {
+    width: 100px;
+    height: 50px;
+    background-image: url(../img/GhostGame/Sprites/Crystal6.png);
+    background-position: center;
+    background-size: cover;
+}
+
 @keyframes cactus-block {
     0% {
         left: 100%;
     }
 
     100% {
-        left: -20px;
+        left: -100px;
     }
 }
 
-/*.game .soil {
+.game .soil {
     width: 200%;
     height: 50%;
     background-position: center;
-    background-size: cover;
-    background-image: url(../img/GhostGame/Sprites/Soil.ase);
-    position: relative;
+    background-size: contain;
+    background-image: url(../img/GhostGame/Sprites/Soil.png);
+    position: absolute;
     bottom: 0;
-}*/
+    animation-name: walkingBckg;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.game .clouds {
+    width: 200%;
+    height: 50%;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../img/GhostGame/Sprites/Clouds.png);
+    position: absolute;
+    top: 0;
+    animation-name: walkingBckg;
+    animation-duration: 1.7s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes walkingBckg {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -100%
+    }
+}
+
+.ghost .scoreSign {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    font-size: 30px;
+    color: black;
+    font-family: arcade classic;
+}
+
+.ghost .maxSign {
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    font-size: 30px;
+    color: #777;
+    font-family: arcade classic;
+}
+
+.ghost .gameAlerts {
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: calc(50% - 25%);
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    left: calc(50% - 25%);
+    background-color: #191919;
+    border-radius: 4px;
+}
+
+.gameAlerts p {
+    font-size: 30px;
+    font-family: arcade classic;
+    color: white;
+}
+
+.gameAlerts button {
+    width: 50px;
+    height: 50px;
+    background-image: url(../img/GhostGame/Sprites/ResetButton.png);
+    background-position: center;
+    background-size: 80%;
+    background-color: #555;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 4px;
+}
 
 /*Início Responsividade*/
 
@@ -1600,6 +1720,9 @@ body {
         --widthMusic: 100vw;
         --heightMusic: 100vh;
         --spaceMusic: 0;
+        --widthGhost: 100vw;
+        --heightGhost: 100vh;
+        --spaceGhost: 0;
         --widthPopUps: 100vw;
         --heightPopUps: 100vh;
         --spacePopUpsLeft: 0;
@@ -1649,6 +1772,59 @@ body {
         border-radius: 0;
     }
 
+    /*.ghost {
+        border-radius: 0%;
+    }
+
+    #crystal {
+        top: 270px;
+    }
+
+    .normal,
+    .jump,
+    .death {
+        top: 250px;
+    }
+
+        @keyframes jump {
+            0% {
+                top: 250px;
+                
+                background-image: url(../img/GhostGame/Sprites/Upping.png);
+            }
+    
+            30% {
+                top: 200px;
+                background-image: url(../img/GhostGame/Sprites/Upping.png);
+            }
+    
+            50% {
+                top: 180px;
+                background-image: url(../img/GhostGame/Sprites/Upping.png);
+            }
+    
+            50.1% {
+                background-image: url(../img/GhostGame/Sprites/Falling.png);
+            }
+    
+            80% {
+                top: 200px;
+                background-image: url(../img/GhostGame/Sprites/Falling.png);
+            }
+    
+            100% {
+                top: 250px;
+                background-image: url(../img/GhostGame/Sprites/Falling.png);
+            }
+        }*/
+    
+        .game .soil {
+            height: 60%
+        }
+
+        .game .clouds {
+            height: 40%;
+        }
     .calcKeys {
         grid-template-rows: 100px
     }

@@ -1,6 +1,34 @@
 const ghost = document.getElementById("ghost");
 const crystal = document.getElementById("crystal");
+const soil = document.querySelector(".soil");
+const clouds = document.querySelector(".clouds");
+const gameOver = document.querySelector(".gameAlerts");
+let score = 0
+let maxscore = 0
+let normalTime = 1.2
+let deathed = false
+const oldScore = scr => {
+    return ('0000' + scr).slice(-5)
+}
+
+maxscore = localStorage.getItem('yourMax')
+if (maxscore == null) {
+    maxscore = 0
+}
+
+document.getElementById('mSign').innerText = `Max.Score: ${oldScore(maxscore)}`
+
+setInterval(() => {
+    if (ghostRunning) {
+    score = score + 1
+    document.getElementById('scrSign').innerText = `Score: ${oldScore(score)}`
+    if (score == 99999) {
+        score = 0
+    }
+    }
+}, 500);
 function jump() {
+    if (ghostRunning) {
     if (dispatchEvent.classList != "jump") {
         //first it checks if the dino is mid-jump. If not, it makes it jump.
         ghost.classList.add("jump");
@@ -10,9 +38,8 @@ function jump() {
         }, 500);
     }
 }
-let checkerDeath = document.getElementById('disScr')
+}
 let checkAlive = setInterval(function () {
-    if (!checkerDeath.checked) {
     let ghostTop = parseInt(
         window.getComputedStyle(ghost).getPropertyValue("top")
     );
@@ -21,17 +48,37 @@ let checkAlive = setInterval(function () {
     );
     //check for collision
     if (crystalLeft > 0 && crystalLeft < 70 && ghostTop >= 143) {
+        ghostRunning = false
+        deathed = true
         ghost.style.animationPlayState = "paused";
         crystal.style.animationPlayState = "paused";
-        alert("Whoops! Game Over :(");
-        alert('Try again: ')
-        ghost.removeAttribute('style')
-        crystal.removeAttribute('style')
+        soil.style.animationPlayState = "paused";
+        clouds.style.animationPlayState = "paused";
+        if (score > maxscore) {
+            maxscore = score
+            document.getElementById('mSign').innerText = `Max.Score: ${oldScore(maxscore)}`
+            localStorage.setItem('yourMax', maxscore)
+        }
+        gameOver.style.display = 'flex'
+        ghost.classList.remove("normal")
+        ghost.classList.add("death")
     }
-}
 }, 10);
 
 crystal.addEventListener('animationiteration', function() {
-    let typeOfCrystal = Math.floor((Math.random() * 3) + 1)
+    let typeOfCrystal = Math.floor((Math.random() * 6) + 1)
     crystal.className = `type${typeOfCrystal}`
 })
+
+function resetGame() {
+    deathed = false
+    ghostRunning = true
+    ghost.removeAttribute('style')
+    crystal.removeAttribute('style')
+    soil.removeAttribute('style')
+    clouds.removeAttribute('style')
+    score = -1
+    ghost.classList.remove("death")
+    ghost.classList.add("normal")
+    gameOver.style.display = 'none'
+}

@@ -264,7 +264,7 @@
       Reprodutor de música
     </div>
     <div class="linkc"
-      onclick="document.getElementById('ghostApp').style.display = 'flex', document.getElementById('ghostHided').removeAttribute('style'), ghostRunning = true, focusGh()"
+      onclick="openGhost(), focusGh()"
       ondblclick="bts()">
       Ghost
     </div>
@@ -439,7 +439,7 @@
     </div>
   </div>
 
-  <!--Jogo do Dino-->
+  <!--Jogo do Fantasma-->
   <div class="ghost" id="ghostApp" onclick="focusGh()">
     <div class="header" id="ghostHeader">
       <p>Ghost</p>
@@ -453,14 +453,20 @@
         <img src="img/WindowIcons/Close.png" alt="" onclick="closeGhost()" />
       </div>
     </div>
+    <div class="maxSign" id="mSign">Max.Score: 00000</div>
+    <div class="scoreSign" id="scrSign">Score: 00000</div>
     <div class="game" onclick="jump()">
-      <div id="crystal"></div>
+      <div class="clouds"></div>
+      <div class="soil"></div>
+      <div id="crystal" class="type1"></div>
       <div id="ghost" class="normal"></div>
+      <div class="gameAlerts">
+        <p>Game Over</p>
+        <button onclick="resetGame()"></button>
+      </div>
     </div>
     <div class="inst">
-      Clique na tela do jogo para pular sobre os cristais<br>
-      A cada 200 pontos, a velocidade do fantasma aumenta
-      <input type="checkbox" name="" id="disScr" checked>
+      Clique na tela do jogo para pular sobre os cristais
     </div>
   </div>
 

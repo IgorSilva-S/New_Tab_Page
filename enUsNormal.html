@@ -267,6 +267,9 @@
             ondblclick="bts()">
             Music player
         </div>
+            <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
+                Ghost
+            </div>
         <div class="resetPosition">
             <h2>Restore positions</h2>
             If an app has accidentally gone out of the area that can be moved, you can go back to it
@@ -275,6 +278,7 @@
             <button onclick="resetNotepad()">Notepad</button>
             <button onclick="resetCalc()">Calculator</button>
             <button onclick="resetMusPlay()">Music player</button>
+            <button onclick="resetGhost()">Ghost</button>
         </div>
     </div>
 
@@ -443,6 +447,37 @@
         </div>
     </div>
 
+    <!--Ghost game-->
+    <div class="ghost" id="ghostApp" onclick="focusGh()">
+        <div class="header" id="ghostHeader">
+            <p>Ghost</p>
+            <div class="appButtons">
+                <img src="img/WindowIcons/HideWindow.png" alt="" onclick="hideGhost()" />
+            </div>
+            <div class="appButtons maxandmin">
+                <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" onclick="max_min_ghost()" />
+            </div>
+            <div class="appButtons close">
+                <img src="img/WindowIcons/Close.png" alt="" onclick="closeGhost()" />
+            </div>
+        </div>
+        <div class="maxSign" id="mSign">Max.Score: 00000</div>
+        <div class="scoreSign" id="scrSign">Score: 00000</div>
+        <div class="game" onclick="jump()">
+            <div class="clouds"></div>
+            <div class="soil"></div>
+            <div id="crystal" class="type1"></div>
+            <div id="ghost" class="normal"></div>
+            <div class="gameAlerts">
+                <p>Game Over</p>
+                <button onclick="resetGame()"></button>
+            </div>
+        </div>
+        <div class="inst">
+            Click on the game screen to jump over the crystals
+        </div>
+    </div>
+
     <!--Help to start with Charms-->
     <div class="helpWithCharmsUS" onmouseover="hideHelp()">
 
@@ -464,6 +499,9 @@
     </div>
     <div class="appHided mpHide" onclick="appear_mp()" id="mpHided">
         Music player
+    </div>
+    <div class="appHided ghostHide" onclick="appear_ghost()" id="ghostHided">
+        Ghost
     </div>
 
     <!--Lock screen-->
@@ -488,6 +526,7 @@
     <script src="js/script.js"></script>
     <script src="js/dragWindows.js"></script>
     <script src="js/calcScript.js"></script>
+    <script src="js/ghostGame.js"></script>
     <script>
         let enUs = true
     </script>

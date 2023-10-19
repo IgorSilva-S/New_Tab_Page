@@ -780,7 +780,9 @@ function appear_mp() {
 function appear_ghost() {
   document.getElementById('ghostApp').style.display = 'flex'
   document.getElementById('ghostHided').removeAttribute('style')
+  if (!deathed) {
   ghostRunning = true
+  }
 }
 
 function hideGhost() {
@@ -792,6 +794,14 @@ function hideGhost() {
 function closeGhost() {
   document.getElementById('ghostApp').style.display = 'none'
   ghostRunning = false
+}
+
+function openGhost() {
+  document.getElementById('ghostApp').style.display = 'flex';
+   document.getElementById('ghostHided').removeAttribute('style');
+    if (!deathed) { 
+      ghostRunning = true 
+    }
 }
 
 function max_min_Mp() {
