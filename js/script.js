@@ -727,6 +727,11 @@ function max_min_np() {
   }
 }
 
+function snap_np(event) {
+  event.preventDefault();
+  document.getElementById('npSnap').classList.toggle('snapActive')
+}
+
 function closeNp() {
   document.getElementById('NpApp').style.transform = 'scale(0)'
   textNotepad.value = ''

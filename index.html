@@ -354,12 +354,15 @@
       <div class="appButtons" onclick="hide_np()">
         <img src="img/WindowIcons/HideWindow.png" alt="" />
       </div>
-      <div class="appButtons maxandmin" onclick="max_min_np()">
+      <div class="appButtons maxandmin" onclick="max_min_np()" oncontextmenu="snap_np(event)">
         <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
       </div>
       <div class="appButtons close" onclick="closeNp()">
         <img src="img/WindowIcons/Close.png" alt="" />
       </div>
+    </div>
+    <div class="snapStyle" id="npSnap">
+        
     </div>
     <textarea name="" cols="30" rows="10" id="textNp"></textarea>
   </div>
