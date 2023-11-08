@@ -32,6 +32,10 @@ Não quer espalhar informações sigilosas enquanto usa o bloco de notas? então
 ## Recarregamento
 O site está muito confuso? Deseja apagar todas as informações que você inseriu? Deseja usar o site em Inglês ou em Português? Tem como com a barra de recarregamento. Nela, você pode usar o modelo simples do site, deletar as informações salvas e trocar o idioma do site.
 
+## Snap Apps (Ajustar apps)
+Deseja usar mais de um app ao mesmo tempo, mas o tamanho deles não ajuda? Apresentamos o Snap, com ele, você pode ajustar o local e tamanho dos aplicativos de uma forma prática.
+Para usar, basta clicar com o botão direito no botão de maximizar/minimizar janelas
+
 ___
 
 # Capturas de tela

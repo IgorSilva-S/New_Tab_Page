@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8" />
@@ -361,15 +361,39 @@
             <p>Notepad</p>
             <div class="appButtons" onclick="hide_np()">
                 <img src="img/WindowIcons/HideWindow.png" alt="" />
-            </div>
-            <div class="appButtons maxandmin" onclick="max_min_np()">
+              </div>
+              <div class="appButtons maxandmin" onclick="max_min_np()" oncontextmenu="snap_np(event)">
                 <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinNP" />
-            </div>
-            <div class="appButtons close" onclick="closeNp()">
+              </div>
+              <div class="appButtons close" onclick="closeNp()">
                 <img src="img/WindowIcons/Close.png" alt="" />
+              </div>
             </div>
-        </div>
-        <textarea name="" cols="30" rows="10" id="textNp"></textarea>
+            <div class="snapStyle" id="npSnap">
+                <div class="snapOptions">
+                  <div class="snap50" onclick="npL50()"></div>
+                  <div class="snap50" onclick="npR50()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap25" onclick="npLT()"></div>
+                  <div class="snap25" onclick="npRT()"></div>
+                  <div class="snap25" onclick="npLB()"></div>
+                  <div class="snap25" onclick="npRB()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap50" onclick="npL50()"></div>
+                  <div class="snap25to50">
+                    <div class="snap25" onclick="npRT()"></div>
+                    <div class="snap25" onclick="npRB()"></div>
+                  </div>
+        
+                </div>
+                <div class="snapOptions">
+                  <div class="snapI50" onclick="npT()"></div>
+                  <div class="snapI50" onclick="npB()"></div>
+                </div>
+            </div>
+            <textarea name="" cols="30" rows="10" id="textNp"></textarea>
     </div>
 
     <!--Calculator-->
@@ -412,13 +436,37 @@
             <div class="appButtons" onclick="hide_Mp()">
                 <img src="img/WindowIcons/HideWindow.png" alt="" />
             </div>
-            <div class="appButtons maxandmin" onclick="max_min_Mp()">
+            <div class="appButtons maxandmin" onclick="max_min_Mp()" oncontextmenu="snap_Mp(event)">
                 <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinMP" />
-            </div>
-            <div class="appButtons close" onclick="closeMp()">
+              </div>
+              <div class="appButtons close" onclick="closeMp()">
                 <img src="img/WindowIcons/Close.png" alt="" />
+              </div>
+              <div class="snapStyle" id="mpSnap">
+                <div class="snapOptions">
+                  <div class="snap50" onclick="mpL50()"></div>
+                  <div class="snap50" onclick="mpR50()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap25" onclick="mpLT()"></div>
+                  <div class="snap25" onclick="mpRT()"></div>
+                  <div class="snap25" onclick="mpLB()"></div>
+                  <div class="snap25" onclick="mpRB()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap50" onclick="mpL50()"></div>
+                  <div class="snap25to50">
+                    <div class="snap25" onclick="mpRT()"></div>
+                    <div class="snap25" onclick="mpRB()"></div>
+                  </div>
+        
+                </div>
+                <div class="snapOptions">
+                  <div class="snapI50" onclick="mpT()"></div>
+                  <div class="snapI50" onclick="mpB()"></div>
+                </div>
             </div>
-        </div>
+            </div>
         <div class="nameandcover">
             <img src="img/MusicPlayer/NormalCover.png" alt="">
             <p id="songName">The name of the song will appear here</p>
@@ -451,16 +499,40 @@
     <div class="ghost" id="ghostApp" onclick="focusGh()">
         <div class="header" id="ghostHeader">
             <p>Ghost</p>
-            <div class="appButtons">
-                <img src="img/WindowIcons/HideWindow.png" alt="" onclick="hideGhost()" />
+            <div class="appButtons" onclick="hideGhost()" >
+                <img src="img/WindowIcons/HideWindow.png" alt="" />
             </div>
-            <div class="appButtons maxandmin">
-                <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" onclick="max_min_ghost()" />
+            <div class="appButtons maxandmin" onclick="max_min_ghost()" oncontextmenu="snap_ghost(event)">
+                <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" />
+              </div>
+              <div class="appButtons close" onclick="closeGhost()">
+                <img src="img/WindowIcons/Close.png" alt=""  />
+              </div>
+              <div class="snapStyle" id="ghSnap">
+                <div class="snapOptions">
+                  <div class="snap50" onclick="ghL50()"></div>
+                  <div class="snap50" onclick="ghR50()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap25" onclick="ghLT()"></div>
+                  <div class="snap25" onclick="ghRT()"></div>
+                  <div class="snap25" onclick="ghLB()"></div>
+                  <div class="snap25" onclick="ghRB()"></div>
+                </div>
+                <div class="snapOptions">
+                  <div class="snap50" onclick="ghL50()"></div>
+                  <div class="snap25to50">
+                    <div class="snap25" onclick="ghRT()"></div>
+                    <div class="snap25" onclick="ghRB()"></div>
+                  </div>
+        
+                </div>
+                <div class="snapOptions">
+                  <div class="snapI50" onclick="ghT()"></div>
+                  <div class="snapI50" onclick="ghB()"></div>
+                </div>
             </div>
-            <div class="appButtons close">
-                <img src="img/WindowIcons/Close.png" alt="" onclick="closeGhost()" />
             </div>
-        </div>
         <div class="maxSign" id="mSign">Max.Score: 00000</div>
         <div class="scoreSign" id="scrSign">Score: 00000</div>
         <div class="flyAlert" id="flyPos">Rested</div>
@@ -531,9 +603,7 @@
     <script src="js/dragWindows.js"></script>
     <script src="js/calcScript.js"></script>
     <script src="js/ghostGame.js"></script>
-    <script>
-        let enUs = true
-    </script>
+    <script src="js/snapWindows.js"></script>
 </body>
 
 </html>

@@ -703,7 +703,6 @@ function applyImageFile() {
 
 function max_min_np() {
   let app = document.getElementById('NpApp')
-  let appHd = document.getElementById('NpHeader')
   let icon = document.getElementById('iconMaxMinNP')
   if (!NpMax) {
     app.style.left = '0'
@@ -833,6 +832,16 @@ function max_min_Mp() {
     MpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+}
+
+function snap_Mp(event) {
+  event.preventDefault();
+  document.getElementById('mpSnap').classList.toggle('snapActive')
+}
+
+function snap_ghost(event) {
+  event.preventDefault();
+  document.getElementById('ghSnap').classList.toggle('snapActive')
 }
 
 function max_min_ghost() {
@@ -1108,6 +1117,8 @@ function resetNotepad() {
   let app = document.getElementById('NpApp')
   app.style.left = 'var(--spaceNp)'
   app.style.top = 'var(--spaceNp)'
+  app.style.width = 'var(--widthNp)'
+  app.style.height = 'var(--heightNp)'
   if (NpMax) {
   max_min_np()
   }
