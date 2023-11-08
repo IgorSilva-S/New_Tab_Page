@@ -731,6 +731,10 @@ function snap_np(event) {
   document.getElementById('npSnap').classList.toggle('snapActive')
 }
 
+function mobile_snap_np() {
+  document.getElementById('npSnapMobile').classList.toggle('snapMobileActive')
+}
+
 function closeNp() {
   document.getElementById('NpApp').style.transform = 'scale(0)'
   textNotepad.value = ''
