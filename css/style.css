@@ -1841,11 +1841,11 @@ body {
 
 .snapStyleMobile {
     position: absolute;
-    width: 175px;
+    width: 350px;
     height: 250px;
     border-radius: 8px;
     border: 1px solid #ccc;
-    top: 0px;
+    top: 40px;
     right: 0;
     background-color: #eaeaea;
     display: none;
@@ -1855,13 +1855,26 @@ body {
     z-index: 999;
 }
 
-.snapStyleMobile > .snapI50 {
-    width: 172px;
-    height: 120px;
+.snapStyleMobile .snapI50 {
+    width: 98%;
+    height: 48%;
 }
+
+.snapStyleMobile .snap25to50 {
+    width: 175px;
+    height: 250px;
+}
+
+.snapStyleMobile .snap50 {
+    width: 170px;
+    height: 245px;
+}
+
 
 .snapMobileActive {
     display: flex;
+    animation-name: appearSnapMetro;
+    animation-duration: .2s;
 }
 
 /*Início Responsividade*/

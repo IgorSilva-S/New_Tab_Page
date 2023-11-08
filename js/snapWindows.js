@@ -275,3 +275,44 @@ function npL50() {
     app.style.top = 'calc(50vh - 40px)';;
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+
+  //Responsive Snap
+
+  //Snap notepad 
+
+  function npTM() {
+    let app = document.getElementById('NpApp')
+    let icon = document.getElementById('iconMaxMinNP')
+    app.removeAttribute('style')
+    app.style.transform = 'scale(1)'
+    app.style.width = '100vw';
+    app.style.height = '50vh';
+    app.style.left = '0';
+    app.style.top = '0';
+    icon.src = 'img/WindowIcons/Maximize.png'
+  }
+  
+  function npBM() {
+    let app = document.getElementById('NpApp')
+    let icon = document.getElementById('iconMaxMinNP')
+    app.removeAttribute('style')
+    app.style.transform = 'scale(1)'
+    app.style.width = '100vw';
+    app.style.height = '50vh';
+    app.style.left = '0';
+    app.style.top = '50vh';
+    icon.src = 'img/WindowIcons/Maximize.png'
+  }
+
+  function npMax() {
+    let app = document.getElementById('NpApp')
+    let icon = document.getElementById('iconMaxMinNP')
+    app.removeAttribute('style')
+    app.style.transform = 'scale(1)'
+    app.style.width = '100vw';
+    app.style.height = '100vh';
+    app.style.left = '0';
+    app.style.top = '0';
+    icon.src = 'img/WindowIcons/Maximize.png'
+  }
+
