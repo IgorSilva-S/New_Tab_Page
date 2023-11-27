@@ -282,37 +282,89 @@ function npL50() {
 
   function npTM() {
     let app = document.getElementById('NpApp')
-    let icon = document.getElementById('iconMaxMinNP')
     app.removeAttribute('style')
     app.style.transform = 'scale(1)'
     app.style.width = '100vw';
     app.style.height = '50vh';
     app.style.left = '0';
     app.style.top = '0';
-    icon.src = 'img/WindowIcons/Maximize.png'
   }
   
   function npBM() {
     let app = document.getElementById('NpApp')
-    let icon = document.getElementById('iconMaxMinNP')
     app.removeAttribute('style')
     app.style.transform = 'scale(1)'
     app.style.width = '100vw';
     app.style.height = '50vh';
     app.style.left = '0';
     app.style.top = '50vh';
-    icon.src = 'img/WindowIcons/Maximize.png'
   }
 
   function npMax() {
     let app = document.getElementById('NpApp')
-    let icon = document.getElementById('iconMaxMinNP')
     app.removeAttribute('style')
     app.style.transform = 'scale(1)'
     app.style.width = '100vw';
     app.style.height = '100vh';
     app.style.left = '0';
     app.style.top = '0';
-    icon.src = 'img/WindowIcons/Maximize.png'
   }
 
+  // Snap Music Player
+
+function mpTM() {
+  let app = document.getElementById('mpApp')
+  app.removeAttribute('style')
+  app.style.transform = 'scale(1)'
+  app.style.width = '100vw';
+  app.style.height = '50vh';
+  app.style.left = '0';
+  app.style.top = '0';
+}
+
+function mpBM() {
+  let app = document.getElementById('mpApp')
+  app.removeAttribute('style')
+  app.style.transform = 'scale(1)'
+  app.style.width = '100vw';
+  app.style.height = '50vh';
+  app.style.left = '0';
+  app.style.top = '50vh';
+}
+
+function mpMax() {
+  let app = document.getElementById('mpApp')
+  app.removeAttribute('style')
+  app.style.transform = 'scale(1)'
+  app.style.width = '100vw';
+  app.style.height = '100vh';
+  app.style.left = '0';
+  app.style.top = '0';
+}
+
+
+// Snap Ghost
+
+function ghTM() {
+  let app = document.getElementById('ghostApp')
+  app.style.width = '100vw';
+  app.style.height = '50vh';
+  app.style.left = '0';
+  app.style.top = '0';
+}
+
+function ghBM() {
+  let app = document.getElementById('ghostApp')
+  app.style.width = '100vw';
+  app.style.height = '50vh';
+  app.style.left = '0';
+  app.style.top = '50vh';
+}
+
+function ghostMax() {
+  let app = document.getElementById('ghostApp')
+  app.style.width = '100vw';
+  app.style.height = '100vh';
+  app.style.left = '0';
+  app.style.top = '0';
+}

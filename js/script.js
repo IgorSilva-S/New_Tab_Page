@@ -843,9 +843,16 @@ function snap_Mp(event) {
   document.getElementById('mpSnap').classList.toggle('snapActive')
 }
 
+function mobile_snap_Mp() {
+  document.getElementById('mpSnapMobile').classList.toggle('snapMobileActive')
+}
+
 function snap_ghost(event) {
   event.preventDefault();
   document.getElementById('ghSnap').classList.toggle('snapActive')
+}
+function mobile_snap_ghost() {
+  document.getElementById('ghSnapMobile').classList.toggle('snapMobileActive')
 }
 
 function max_min_ghost() {
