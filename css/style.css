@@ -1344,7 +1344,7 @@ body {
     position: absolute;
     left: var(--spaceGhost);
     top: var(--spaceGhost);
-    border-radius:  0px;
+    border-radius:  8px;
     box-shadow: 2px 2px 20px 2px #191919;
     backdrop-filter: blur(20px);
     padding-top: 40px;
@@ -2023,51 +2023,9 @@ body {
         border-radius: 0;
     }
 
-    /*.ghost {
+    .ghost {
         border-radius: 0%;
     }
-
-    #crystal {
-        top: 270px;
-    }
-
-    .normal,
-    .jump,
-    .death {
-        top: 250px;
-    }
-
-        @keyframes jump {
-            0% {
-                top: 250px;
-                
-                background-image: url(../img/GhostGame/Sprites/Upping.png);
-            }
-    
-            30% {
-                top: 200px;
-                background-image: url(../img/GhostGame/Sprites/Upping.png);
-            }
-    
-            50% {
-                top: 180px;
-                background-image: url(../img/GhostGame/Sprites/Upping.png);
-            }
-    
-            50.1% {
-                background-image: url(../img/GhostGame/Sprites/Falling.png);
-            }
-    
-            80% {
-                top: 200px;
-                background-image: url(../img/GhostGame/Sprites/Falling.png);
-            }
-    
-            100% {
-                top: 250px;
-                background-image: url(../img/GhostGame/Sprites/Falling.png);
-            }
-        }*/
 
     .game .soil {
         height: 60%
