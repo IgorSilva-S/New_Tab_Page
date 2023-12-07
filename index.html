@@ -82,7 +82,7 @@
   <!--Informações da Charms: Configurações-->
   <div class="charmsinfo" id="settingsinfo">
     <div class="back" onclick="bts()"></div>
-    <h1>Configurações</h1>
+    <h1>Configurações Rápidas</h1>
     <h2>Personalizações</h2>
     <br /><br />
     Imagem de fundo<br />
@@ -264,6 +264,9 @@
     </div>
     <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
       Ghost
+    </div>
+    <div class="linkc" onclick="openSettings(), focusSet()" ondblclick="bts()">
+      Configurações
     </div>
 
     <div class="resetPosition">
@@ -580,6 +583,63 @@
       Cuidado! Alguns cristais podem aparecer aleatoriamente<br>
       Dica: ao chegar nos últimos dois digitos acima de 90, use o "voar".<br>
       Para usar, aperte com o botão direito do mouse ou aperte e segure em telas touch.
+    </div>
+  </div>
+
+  <!--Configurações do site-->
+  <div class="settings" id="settingApp" onclick="focusSet()">
+    <div class="header" id="settingHeader">
+      <p>Configurações</p>
+      <div class="appButtons" onclick="hideSett()">
+        <img src="img/WindowIcons/HideWindow.png" alt="" />
+      </div>
+      <div class="appButtons maxandmin" onclick="max_min_Sett()" oncontextmenu="snap_Sett(event)">
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" />
+      </div>
+      <div class="appButtons maxandminmobile" onclick="mobile_snap_Sett()">
+        <img src="img/WindowIcons/MoveWindow.png" alt="">
+      </div>
+      <div class="appButtons close" onclick="closeSett()">
+        <img src="img/WindowIcons/Close.png" alt="" />
+      </div>
+      <div class="snapStyle" id="settingSnap">
+        <div class="snapOptions">
+          <div class="snap50" onclick="stL50()"></div>
+          <div class="snap50" onclick="stR50()"></div>
+        </div>
+        <div class="snapOptions">
+          <div class="snap25" onclick="stLT()"></div>
+          <div class="snap25" onclick="stRT()"></div>
+          <div class="snap25" onclick="stLB()"></div>
+          <div class="snap25" onclick="stRB()"></div>
+        </div>
+        <div class="snapOptions">
+          <div class="snap50" onclick="stL50()"></div>
+          <div class="snap25to50">
+            <div class="snap25" onclick="stRT()"></div>
+            <div class="snap25" onclick="stRB()"></div>
+          </div>
+
+        </div>
+        <div class="snapOptions">
+          <div class="snapI50" onclick="stT()"></div>
+          <div class="snapI50" onclick="stB()"></div>
+        </div>
+      </div>
+      <div class="snapStyleMobile" id="settingSnapMobile">
+        <div class="snap25to50">
+          <div class="snapI50" onclick="stTM()"></div>
+          <div class="snapI50" onclick="stBM()"></div>
+        </div>
+        <div class="snap50" onclick="settingMax()"></div>
+
+      </div>
+    </div>
+
+    <div class="appHeader">
+      Configurações
+      <p>Olá! <span id="settingsName">User</span>
+      </p>
     </div>
   </div>
 

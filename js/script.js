@@ -261,7 +261,7 @@ function lockall() {
   var passwordlocks = document.getElementById('passlock')
   if (pin == null) {
     if (!EnStyle.checked) {
-    alert('Você não tem uma senha salva, favor salvar uma senha')
+      alert('Você não tem uma senha salva, favor salvar uma senha')
     } else {
       alert("You don't have a saved password, please save a password")
     }
@@ -288,21 +288,23 @@ function lockall() {
 function userinfos() {
   let grettings = document.getElementById('userinfos')
   let lockGrettings = document.getElementById('nameLock')
+  let settingName = document.getElementById('settingsName')
 
   if (localStorage.getItem('genero') != null && localStorage.getItem('username') != null) {
+    settingName.innerText = localStorage.getItem('username')
     let normalText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}!`
     let lockText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}. Digite a sua senha para continuar`
     grettings.innerText = normalText
     lockGrettings.innerText = lockText
   }
   if (EnStyle.checked) {
+    settingName.innerText = localStorage.getItem('username')
     if (localStorage.getItem('grettingMode') != null && localStorage.getItem('username') != null) {
       let normalText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}!`
       let lockText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}. Enter your password to continue`
       grettings.innerText = normalText
       lockGrettings.innerText = lockText
     }
-
   }
 }
 
@@ -483,7 +485,7 @@ function applyimg() {
       document.body.style.backgroundColor = coloring
 
     } else {
-    document.querySelector('.chooseColor').style.transform = 'scale(1)'
+      document.querySelector('.chooseColor').style.transform = 'scale(1)'
     }
 
   } else if (image == 9) {
@@ -789,7 +791,7 @@ function appear_ghost() {
   document.getElementById('ghostApp').style.display = 'flex'
   document.getElementById('ghostHided').removeAttribute('style')
   if (!deathed) {
-  ghostRunning = true
+    ghostRunning = true
   }
 }
 
@@ -806,10 +808,10 @@ function closeGhost() {
 
 function openGhost() {
   document.getElementById('ghostApp').style.display = 'flex';
-   document.getElementById('ghostHided').removeAttribute('style');
-    if (!deathed) { 
-      ghostRunning = true 
-    }
+  document.getElementById('ghostHided').removeAttribute('style');
+  if (!deathed) {
+    ghostRunning = true
+  }
 }
 
 function max_min_Mp() {
@@ -879,6 +881,11 @@ function max_min_ghost() {
     ghMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+}
+
+function snap_Sett(event) {
+  event.preventDefault();
+  document.getElementById('settingSnap').classList.toggle('snapActive')
 }
 
 
@@ -1131,7 +1138,7 @@ function resetNotepad() {
   app.style.width = 'var(--widthNp)'
   app.style.height = 'var(--heightNp)'
   if (NpMax) {
-  max_min_np()
+    max_min_np()
   }
 }
 
@@ -1148,7 +1155,7 @@ function resetMusPlay() {
   app.style.width = 'var(--widthMusic)'
   app.style.height = 'var(--heightMusic)'
   if (MpMax) {
-  max_min_Mp()
+    max_min_Mp()
   }
 }
 
@@ -1159,7 +1166,7 @@ function resetGhost() {
   app.style.width = 'var(--widthGhost)'
   app.style.height = 'var(--heightGhost)'
   if (ghMax) {
-  max_min_ghost()
+    max_min_ghost()
   }
 }
 
