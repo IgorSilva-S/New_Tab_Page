@@ -288,17 +288,14 @@ function lockall() {
 function userinfos() {
   let grettings = document.getElementById('userinfos')
   let lockGrettings = document.getElementById('nameLock')
-  let settingName = document.getElementById('settingsName')
 
   if (localStorage.getItem('genero') != null && localStorage.getItem('username') != null) {
-    settingName.innerText = localStorage.getItem('username')
     let normalText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}!`
     let lockText = `${localStorage.getItem('genero')}, ${localStorage.getItem('username')}. Digite a sua senha para continuar`
     grettings.innerText = normalText
     lockGrettings.innerText = lockText
   }
   if (EnStyle.checked) {
-    settingName.innerText = localStorage.getItem('username')
     if (localStorage.getItem('grettingMode') != null && localStorage.getItem('username') != null) {
       let normalText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}!`
       let lockText = `${localStorage.getItem('grettingMode')}, ${localStorage.getItem('username')}. Enter your password to continue`
@@ -737,11 +734,6 @@ function mobile_snap_np() {
   document.getElementById('npSnapMobile').classList.toggle('snapMobileActive')
 }
 
-function closeNp() {
-  document.getElementById('NpApp').style.transform = 'scale(0)'
-  textNotepad.value = ''
-}
-
 function hide_np() {
   document.getElementById('NpApp').style.transform = 'scale(0)'
   document.getElementById('npHided').style.display = 'flex'
@@ -752,15 +744,6 @@ function appear_np() {
   document.getElementById('npHided').removeAttribute('style')
 }
 
-
-function closeCl() {
-  document.getElementById('clApp').style.transform = 'scale(0)'
-  document.querySelector('.calculator__display').innerHTML = '0'
-  num1 = NaN;
-  num2 = undefined
-  op = undefined
-}
-
 function hide_cl() {
   document.getElementById('clApp').style.transform = 'scale(0)'
   document.getElementById('clHided').style.display = 'flex'
@@ -769,12 +752,6 @@ function hide_cl() {
 function appear_cl() {
   document.getElementById('clApp').style.transform = 'scale(1)'
   document.getElementById('clHided').removeAttribute('style')
-}
-
-function closeMp() {
-  document.getElementById('mpApp').style.transform = 'scale(0)'
-  song.src = ''
-  document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
 }
 
 function hide_Mp() {
@@ -798,11 +775,6 @@ function appear_ghost() {
 function hideGhost() {
   document.getElementById('ghostApp').style.display = 'none'
   document.getElementById('ghostHided').style.display = 'flex'
-  ghostRunning = false
-}
-
-function closeGhost() {
-  document.getElementById('ghostApp').style.display = 'none'
   ghostRunning = false
 }
 
@@ -1183,3 +1155,25 @@ function closeCharms() {
   charms.style.right = '-101%';
 }
 
+function closeApp(id) {
+  if (id == 'gh1') {
+    document.getElementById('ghostApp').style.display = 'none'
+    ghostRunning = false
+  } else {
+    document.getElementById(id + 'App').style.transform = 'scale(0)'
+    if (id == 'Np') {
+      textNotepad.value = ''
+    }
+    if (id == 'cl') {
+      document.querySelector('.calculator__display').innerHTML = '0'
+      num1 = NaN;
+      num2 = undefined
+      op = undefined
+    }
+    if (id == 'mp') {
+      song.src = ''
+      document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
+    }
+
+  }
+}
