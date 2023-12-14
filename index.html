@@ -82,7 +82,7 @@
   <!--Informações da Charms: Configurações-->
   <div class="charmsinfo" id="settingsinfo">
     <div class="back" onclick="bts()"></div>
-    <h1>Configurações Rápidas</h1>
+    <h1>Config. Rápidas</h1>
     <h2>Personalizações</h2>
     <br /><br />
     Imagem de fundo<br />
@@ -265,7 +265,9 @@
     <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
       Ghost
     </div>
-    <div class="linkc" onclick="openSettings(), focusSet()" ondblclick="bts()">
+    <div class="linkc"
+      onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), focusSet()"
+      ondblclick="bts()">
       Configurações
     </div>
 
@@ -575,7 +577,7 @@
       <div id="ghost" class="normal"></div>
       <div class="gameAlerts">
         <p>Game Over</p>
-        <button onclick="resetGame()"></button>
+        <button onclick="clearCrystal()"></button>
       </div>
     </div>
     <div class="inst">
@@ -589,12 +591,15 @@
   <!--Configurações do site-->
   <div class="settings" id="settingApp" onclick="focusSet()">
     <div class="header" id="settingHeader">
-      <p>Configurações</p>
+      <div class="appButtons home" id="settingHomeButton" onclick="homeSetting()" style="display: none;">
+        
+      </div>
+      <p id="settingAppName">Configurações</p>
       <div class="appButtons" onclick="hideSett()">
         <img src="img/WindowIcons/HideWindow.png" alt="" />
       </div>
       <div class="appButtons maxandmin" onclick="max_min_Sett()" oncontextmenu="snap_Sett(event)">
-        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinGh" />
+        <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinSetting" />
       </div>
       <div class="appButtons maxandminmobile" onclick="mobile_snap_Sett()">
         <img src="img/WindowIcons/MoveWindow.png" alt="">
@@ -635,15 +640,48 @@
 
       </div>
     </div>
-
-    <div class="appHeader">
-      Configurações
+    <div class="settingsPage" id="settingsHome" style="display: block;">
+      <div class="appHeader">
+        Configurações
+      </div>
+      <div class="appOptions">
+        <div class="option" id="sys" onclick="settingsGoTo(id)">Site</div>
+        <div class="option" id="acsly" onclick="settingsGoTo(id)">Acessibilidade</div>
+        <div class="option" id="psnl" onclick="settingsGoTo(id)">Personalização</div>
+        <div class="option" id="rst" onclick="seetingsGoTo(id)">Reiniciar</div>
+        <div class="alertPassword">Configurações bloqueadas, clique para desbloquear</div>
+      </div>
     </div>
-    <div class="appOptions">
-      <div class="option">Site</div>
-      <div class="option">Acessibilidade</div>
-      <div class="option">Personalização</div>
-      <div class="option">Reiniciar</div>
+    <div class="settingsPage" id="settingsSys">
+      <div class="appSectionHeader">
+        Site
+      </div>
+      <div class="settingsSectionOptions">
+        <label for="tabToggleSetting">Abrir pesquisas em nova aba</label>
+        <input type="checkbox" name="newTab" id="tabToggleSetting" checked onchange="un_tab()" />
+        <br><br>
+        <label for="enableRecomendations">Habliltar recomendações</label>
+        <input type="checkbox" name="enableRecomendations" id="enableRecomendationsSetting"
+          onchange="recomendationsEnable()" />
+        <br><br>
+        <label for="">Senha para mudança de configurações</label>
+        <button>Inserir</button>
+        <br><br>
+        <label for="">Abrir diretamente no modo simples</label>
+        <input type="checkbox" name="" id="">
+        <br><br>
+        <label for="">Habilitar Apps</label>
+        <input type="checkbox" name="" id="" checked>
+        <br><br>
+        <label for="">Habilitar Config. Rápidas</label>
+        <input type="checkbox" name="" id="" checked>
+        <br><br>
+        <label for="">Habilitar Jogos internos (Ghost) e Externos (Recomendações)</label>
+        <input type="checkbox" name="" id="" checked>
+        <br><br>
+        Definir nome de usuário e senha de bloqueio
+        <button>Começar</button>
+      </div>
     </div>
   </div>
 
@@ -697,6 +735,7 @@
   <script src="js/calcScript.js"></script>
   <script src="js/ghostGame.js"></script>
   <script src="js/snapWindows.js"></script>
+  <script src="js/win10Button.js"></script>
 </body>
 
 </html>

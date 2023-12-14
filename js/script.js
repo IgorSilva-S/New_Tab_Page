@@ -26,6 +26,7 @@ let charmsForMobile = false;
 let clockChecker = document.getElementById('clockBckg');
 let EnStyle = document.getElementById('enUsVersion');
 let ghostRunning = false
+let SettingMax = false
 
 //Charms functions 
 
@@ -1175,5 +1176,63 @@ function closeApp(id) {
       document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
     }
 
+  }
+}
+
+function settingsGoTo(id) {
+  let settName = document.getElementById('settingAppName')
+  let settButton = document.getElementById('settingHomeButton')
+  let Setthome = document.getElementById('settingsHome')
+  let SettSys = document.getElementById('settingsSys')
+  Setthome.style.display = 'none'
+  SettSys.style.display = 'none'
+  settName.style.left = '50px'
+  settButton.style.display = 'flex'
+  if (id == 'sys') {
+    SettSys.style.display = 'block'
+  }
+}
+
+function homeSetting() {
+  let settName = document.getElementById('settingAppName')
+  let settButton = document.getElementById('settingHomeButton')
+  let Setthome = document.getElementById('settingsHome')
+  let SettSys = document.getElementById('settingsSys')
+  Setthome.style.display = 'block'
+  SettSys.style.display = 'none'
+  settName.removeAttribute('style')
+  settButton.style.display = 'none'
+}
+
+function max_min_Sett() {
+  let app = document.getElementById('settingApp')
+  let appHd = document.getElementById('settingHeader')
+  let icon = document.getElementById('iconMaxMinSetting')
+  let pages = document.querySelectorAll('.settingsPage')
+  if (!SettingMax) {
+    app.style.left = '0'
+    app.style.top = '0'
+    if (!pinned) {
+      app.style.width = 'calc(100vw - 1%)'
+
+    } else {
+      app.style.width = 'calc(100vw - 15%)'
+    }
+    app.style.height = 'calc(100vh - 40px)'
+    pages.forEach((p) => {
+      p.style.height = 'calc((100vh - 40px) - 40px)'
+    })
+    SettingMax = true
+    icon.src = 'img/WindowIcons/Minimize.png'
+  } else {
+    app.style.left = 'var(--leftSpaceSettings)'
+    app.style.top = 'var(--topSpaceSettings)'
+    app.style.width = 'var(--widthSettings)'
+    app.style.height = 'var(--heightSettings)'
+    pages.forEach((p) => {
+      p.style.height = 'var(--heightSettingsPage)'
+    })
+    SettingMax = false
+    icon.src = 'img/WindowIcons/Maximize.png'
   }
 }

@@ -11,6 +11,7 @@ let cloudsTime = 1.7
 let bNT = 1.2
 let deathed = false
 let flyTimer = true
+let waitForTime = false
 const flyAlert = document.getElementById('flyPos')
 //let prevDie = document.getElementById('prevDie')
 const oldScore = scr => {
@@ -35,13 +36,20 @@ setInterval(() => {
             bScore = score
         }
         crystal.addEventListener('animationiteration', function () {
-            if (bScore % 100 == 0) {
+            if (bScore % 100 == 0 && bScore != 0) {
                 normalTime = normalTime - 0.05
                 cloudsTime = cloudsTime - 0.05
                 crystal.style.animationDuration = `${normalTime}s`
                 soil.style.animationDuration = `${normalTime}s`
                 clouds.style.animationDuration = `${cloudsTime}s`
                 bScore = 1
+                waitForTime = true
+                crystal.style.display = 'none'
+            }
+            if (waitForTime) {
+                setTimeout(() => {
+                    crystal.removeAttribute('style')
+                }, 100);
             }
         })
     }
@@ -130,12 +138,18 @@ crystal.addEventListener('animationiteration', function () {
     crystal.className = `type${typeOfCrystal}`
 })
 
+function clearCrystal() {
+    crystal.style.display = 'none'
+    setTimeout(() => {
+        resetGame()
+    }, 1);
+}
+
 function resetGame() {
     deathed = false
     ghostRunning = true
     ghost.removeAttribute('style')
     crystal.removeAttribute('style')
-    crystal.style.left = "100%"
     soil.removeAttribute('style')
     clouds.removeAttribute('style')
     score = -1
