@@ -591,7 +591,7 @@
   <!--Configurações do site-->
   <div class="settings" id="settingApp" onclick="focusSet()">
     <div class="header" id="settingHeader">
-      <div class="appButtons home" id="settingHomeButton" onclick="homeSetting()" style="display: none;">
+      <div class="appButtons home" id="settingHomeButton" onclick="settingsGoTo(id)" style="display: none;">
         
       </div>
       <p id="settingAppName">Configurações</p>
@@ -646,12 +646,13 @@
       </div>
       <div class="appOptions">
         <div class="option" id="sys" onclick="settingsGoTo(id)">Site</div>
-        <div class="option" id="acsly" onclick="settingsGoTo(id)">Acessibilidade</div>
+        <div class="option" id="acs" onclick="settingsGoTo(id)">Acessibilidade</div>
         <div class="option" id="psnl" onclick="settingsGoTo(id)">Personalização</div>
-        <div class="option" id="rst" onclick="seetingsGoTo(id)">Reiniciar</div>
-        <div class="alertPassword">Configurações bloqueadas, clique para desbloquear</div>
+        <div class="option" id="usr" onclick="settingsGoTo(id)">Usuário</div>
+        <div class="option" id="rst" onclick="settingsGoTo(id)">Reiniciar</div>
       </div>
     </div>
+    <div class="alertPassword" onclick="settingTypoPass()">Configurações bloqueadas, clique para desbloquear</div>
     <div class="settingsPage" id="settingsSys">
       <div class="appSectionHeader">
         Site
@@ -665,7 +666,7 @@
           onchange="recomendationsEnable()" />
         <br><br>
         <label for="">Senha para mudança de configurações</label>
-        <button>Inserir</button>
+        <button onclick="settingPassword()">Inserir</button>
         <br><br>
         <label for="">Abrir diretamente no modo simples</label>
         <input type="checkbox" name="" id="">
@@ -678,9 +679,11 @@
         <br><br>
         <label for="">Habilitar Jogos internos (Ghost) e Externos (Recomendações)</label>
         <input type="checkbox" name="" id="" checked>
-        <br><br>
-        Definir nome de usuário e senha de bloqueio
-        <button>Começar</button>
+      </div>
+    </div>
+    <div class="settingsPage" id="settingsAccess">
+      <div class="appSectionHeader">
+        Acessibilidade
       </div>
     </div>
   </div>

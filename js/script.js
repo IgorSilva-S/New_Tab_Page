@@ -27,6 +27,7 @@ let clockChecker = document.getElementById('clockBckg');
 let EnStyle = document.getElementById('enUsVersion');
 let ghostRunning = false
 let SettingMax = false
+let settingLocked = false
 
 //Charms functions 
 
@@ -1184,25 +1185,53 @@ function settingsGoTo(id) {
   let settButton = document.getElementById('settingHomeButton')
   let Setthome = document.getElementById('settingsHome')
   let SettSys = document.getElementById('settingsSys')
-  Setthome.style.display = 'none'
-  SettSys.style.display = 'none'
-  settName.style.left = '50px'
-  settButton.style.display = 'flex'
-  if (id == 'sys') {
-    SettSys.style.display = 'block'
+  let SettAcs = document.getElementById('settingsAccess')
+  if (settingLocked) {
+    alert('Configurações bloqueadas, insira a senha para desbloquear')
+  } else {
+    Setthome.style.display = 'none'
+    SettSys.style.display = 'none'
+    SettAcs.style.display = 'none'
+    settName.style.left = '50px'
+    settButton.style.display = 'flex'
+    if (id == 'settingHomeButton') {
+      settName.removeAttribute('style')
+      settButton.style.display = 'none'
+      Setthome.style.display = 'block'
+    }
+    if (id == 'sys') {
+      SettSys.style.display = 'block'
+    }
+    if (id == 'acs') {
+      SettAcs.style.display = 'block'
+    }
+  }
+
+}
+
+function settingPassword() {
+  settingPass = prompt('Digite a senha das configurações, caso esqueca, terá que reiniciar o site por completo.')
+  settingsGoTo('settingHomeButton')
+  if (settingPass == '') {
+    settingLocked = false
+    document.querySelector('.alertPassword').style.display = 'none'
+  } else {
+    settingLocked = true
+    document.querySelector('.alertPassword').style.display = 'block'
+  }
+  
+}
+
+function settingTypoPass() {
+  let passTry = prompt('Digite a senha')
+  if (passTry == settingPass) {
+    settingLocked = false
+    document.querySelector('.alertPassword').style.display = 'none'
+  } else {
+    alert('Senha incorreta')
   }
 }
 
-function homeSetting() {
-  let settName = document.getElementById('settingAppName')
-  let settButton = document.getElementById('settingHomeButton')
-  let Setthome = document.getElementById('settingsHome')
-  let SettSys = document.getElementById('settingsSys')
-  Setthome.style.display = 'block'
-  SettSys.style.display = 'none'
-  settName.removeAttribute('style')
-  settButton.style.display = 'none'
-}
 
 function max_min_Sett() {
   let app = document.getElementById('settingApp')

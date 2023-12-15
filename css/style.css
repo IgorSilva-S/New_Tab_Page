@@ -1947,12 +1947,14 @@ body {
     padding: 10px;
 }
 
-.settings .appOptions .alertPassword {
+.settings .alertPassword {
     color: #0632ff;
     position: absolute;
     bottom: 2%;
     cursor: pointer;
     display: none;
+    width: 100%;
+    text-align: center;
 }
 
 .settings .appOptions .option {
