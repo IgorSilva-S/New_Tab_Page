@@ -640,50 +640,23 @@
 
       </div>
     </div>
-    <div class="settingsPage" id="settingsHome" style="display: block;">
-      <div class="appHeader">
-        Configurações
-      </div>
-      <div class="appOptions">
-        <div class="option" id="sys" onclick="settingsGoTo(id)">Site</div>
-        <div class="option" id="acs" onclick="settingsGoTo(id)">Acessibilidade</div>
-        <div class="option" id="psnl" onclick="settingsGoTo(id)">Personalização</div>
-        <div class="option" id="usr" onclick="settingsGoTo(id)">Usuário</div>
-        <div class="option" id="rst" onclick="settingsGoTo(id)">Reiniciar</div>
-      </div>
+
+    <div class="settingsLeftBar">
+      <button class="settingsBarButtonActive">Início</button>
+      <button class="settingsBarButton">Site</button>
+      <button class="settingsBarButton">Personalização</butt>
+      <button class="settingsBarButton">Usuário</button>
+      <button class="settingsBarButton">Acessibilidade</button>
+      <button class="settingsBarButton">Reiniciar</button>
     </div>
-    <div class="alertPassword" onclick="settingTypoPass()">Configurações bloqueadas, clique para desbloquear</div>
-    <div class="settingsPage" id="settingsSys">
-      <div class="appSectionHeader">
-        Site
+    <div class="settingsPanel">
+      <div class="settingsPanelHeader">
+        Início
       </div>
-      <div class="settingsSectionOptions">
-        <label for="tabToggleSetting">Abrir pesquisas em nova aba</label>
-        <input type="checkbox" name="newTab" id="tabToggleSetting" checked onchange="un_tab()" />
-        <br><br>
-        <label for="enableRecomendations">Habliltar recomendações</label>
-        <input type="checkbox" name="enableRecomendations" id="enableRecomendationsSetting"
-          onchange="recomendationsEnable()" />
-        <br><br>
-        <label for="">Senha para mudança de configurações</label>
-        <button onclick="settingPassword()">Inserir</button>
-        <br><br>
-        <label for="">Abrir diretamente no modo simples</label>
-        <input type="checkbox" name="" id="">
-        <br><br>
-        <label for="">Habilitar Apps</label>
-        <input type="checkbox" name="" id="" checked>
-        <br><br>
-        <label for="">Habilitar Config. Rápidas</label>
-        <input type="checkbox" name="" id="" checked>
-        <br><br>
-        <label for="">Habilitar Jogos internos (Ghost) e Externos (Recomendações)</label>
-        <input type="checkbox" name="" id="" checked>
-      </div>
-    </div>
-    <div class="settingsPage" id="settingsAccess">
-      <div class="appSectionHeader">
-        Acessibilidade
+      <div class="settingsPanelCont">
+        <div class="quickSettingBlock">
+
+        </div>
       </div>
     </div>
   </div>
@@ -738,7 +711,6 @@
   <script src="js/calcScript.js"></script>
   <script src="js/ghostGame.js"></script>
   <script src="js/snapWindows.js"></script>
-  <script src="js/win10Button.js"></script>
 </body>
 
 </html>

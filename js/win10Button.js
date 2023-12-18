@@ -1,4 +1,4 @@
-document.querySelectorAll(".option").forEach((b) => {
+document.querySelectorAll(".settingsBarButton").forEach((b) => {
     b.onmouseleave = (e) => {
         e.target.style.background = "none";
         e.target.style.borderImage = null;
