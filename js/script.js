@@ -1180,3 +1180,8 @@ function closeApp(id) {
   }
 }
 
+function settingsGoTo(id) {
+  if (id == 'sSys') {
+    document.getElementById(id).className = 'settingsBarButtonActive'
+  }
+}
