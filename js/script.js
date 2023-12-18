@@ -705,6 +705,7 @@ function applyImageFile() {
 function max_min_np() {
   let app = document.getElementById('NpApp')
   let icon = document.getElementById('iconMaxMinNP')
+  app.style.transitionDuration = '.2s'
   if (!NpMax) {
     app.style.left = '0'
     app.style.top = '40px'
@@ -725,6 +726,9 @@ function max_min_np() {
     NpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+  setTimeout(() => {
+    app.style.transitionDuration = '0s'
+  }, 1);
 }
 
 function snap_np(event) {
@@ -792,6 +796,7 @@ function max_min_Mp() {
   let app = document.getElementById('mpApp')
   let appHd = document.getElementById('mpHeader')
   let icon = document.getElementById('iconMaxMinMP')
+  app.style.transitionDuration = '.2s'
   if (!MpMax) {
     app.style.left = '0'
     app.style.top = '0'
@@ -812,6 +817,9 @@ function max_min_Mp() {
     MpMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+  setTimeout(() => {
+    app.style.transitionDuration = '0s'
+  }, 1);
 }
 
 function snap_Mp(event) {
@@ -835,6 +843,7 @@ function max_min_ghost() {
   let app = document.getElementById('ghostApp')
   let appHd = document.getElementById('ghostHeader')
   let icon = document.getElementById('iconMaxMinGh')
+  app.style.transitionDuration = '.2s'
   if (!ghMax) {
     app.style.left = '0'
     app.style.top = '0'
@@ -855,6 +864,9 @@ function max_min_ghost() {
     ghMax = false
     icon.src = 'img/WindowIcons/Maximize.png'
   }
+  setTimeout(() => {
+    app.style.transitionDuration = '0s'
+  }, 1);
 }
 
 function snap_Sett(event) {
@@ -1157,6 +1169,8 @@ function closeCharms() {
   charms.style.right = '-101%';
 }
 
+//Funções Mútuas
+
 function closeApp(id) {
   if (id == 'gh1') {
     document.getElementById('ghostApp').style.display = 'none'
@@ -1176,7 +1190,6 @@ function closeApp(id) {
       song.src = ''
       document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
     }
-
   }
 }
 
@@ -1184,4 +1197,38 @@ function settingsGoTo(id) {
   if (id == 'sSys') {
     document.getElementById(id).className = 'settingsBarButtonActive'
   }
+}
+
+function max_min_Sett() {
+  let app = document.getElementById('settingApp')
+  let icon = document.getElementById('iconMaxMinSetting')
+  let closeButton = document.getElementById('setting')
+  app.style.transitionDuration = '.2s'
+  if (!SettingMax) {
+    app.style.left = '0'
+    app.style.top = '0'
+    if (!pinned) {
+      app.style.width = 'calc(100vw - 1%)'
+
+    } else {
+      app.style.width = 'calc(100vw - 15%)'
+    }
+    app.style.height = 'calc(100vh - 40px)'
+    SettingMax = true
+    icon.src = 'img/WindowIcons/Minimize.png'
+    app.style.borderRadius = '0'
+    closeButton.style.borderRadius = '0'
+  } else {
+    app.style.left = 'var(--leftSpaceSettings)'
+    app.style.top = 'var(--topSpaceSettings)'
+    app.style.width = 'var(--widthSettings)'
+    app.style.height = 'var(--heightSettings)'
+    SettingMax = false
+    icon.src = 'img/WindowIcons/Maximize.png'
+    app.style.borderRadius = '8px'
+    closeButton.removeAttribute('style')
+  }
+  setTimeout(() => {
+    app.style.transitionDuration = '0s'
+  }, 1);
 }
