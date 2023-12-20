@@ -1,3 +1,12 @@
+//Aviso para o programador futuramente:
+//
+//Arrumar os Modos de Snap
+//app.style.width = 'calc(50vw - 0.5%)'
+//app.style.left = '0%' (À Esquerda)
+//app.style.left = '49.5%' (À Direita)
+//app.style.borderRadius = '0' (Quando dividido)
+//app.style.borderRadius = '8px' (Quando voltar ao normal)
+
 //Snap Notepad
 
 function npL50() {

@@ -375,7 +375,7 @@
             <div class="appButtons maxandminmobile" onclick="mobile_snap_np()">
                 <img src="img/WindowIcons/MoveWindow.png" alt="">
             </div>
-            <div class="appButtons close" onclick="closeNp()">
+            <div class="appButtons close" id="Np" onclick="closeApp(id)">
                 <img src="img/WindowIcons/Close.png" alt="" />
             </div>
         </div>
@@ -421,7 +421,7 @@
             <div class="appButtons" onclick="hide_cl()">
                 <img src="img/WindowIcons/HideWindow.png" alt="" />
             </div>
-            <div class="appButtons close" onclick="closeCl()">
+            <div class="appButtons close" id="cl" onclick="closeApp(id)">
                 <img src="img/WindowIcons/Close.png" alt="" />
             </div>
         </div>
@@ -460,7 +460,7 @@
             <div class="appButtons maxandminmobile" onclick="mobile_snap_Mp()">
                 <img src="img/WindowIcons/MoveWindow.png" alt="">
             </div>
-            <div class="appButtons close" onclick="closeMp()">
+            <div class="appButtons close" id="mp" onclick="closeApp(id)">
                 <img src="img/WindowIcons/Close.png" alt="" />
             </div>
             <div class="snapStyle" id="mpSnap">
@@ -537,7 +537,7 @@
             <div class="appButtons maxandminmobile" onclick="mobile_snap_ghost()">
                 <img src="img/WindowIcons/MoveWindow.png" alt="">
             </div>
-            <div class="appButtons close" onclick="closeGhost()">
+            <div class="appButtons close" id="gh1" "onclick="closeApp(id)">
                 <img src="img/WindowIcons/Close.png" alt="" />
             </div>
             <div class="snapStyle" id="ghSnap">
@@ -583,7 +583,7 @@
             <div id="ghost" class="normal"></div>
             <div class="gameAlerts">
                 <p>Game Over</p>
-                <button onclick="resetGame()"></button>
+                <button onclick="clearCrystal()"></button>
             </div>
         </div>
         <div class="inst">

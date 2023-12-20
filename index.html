@@ -154,6 +154,7 @@
       Grande<br>
       <button onclick="applyBtnSize()">Aplicar</button><br />
     </div>
+    <button onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), bts(), focusSet()">Abrir App Config.</button>
   </div>
 
   <!--Informações da Charms: Recarregar-->
@@ -645,17 +646,102 @@
       <button class="settingsBarButtonActive" id="sHome" onclick="settingsGoTo(id)">Início</button>
       <button class="settingsBarButton" id="sSys" onclick="settingsGoTo(id)">Site</button>
       <button class="settingsBarButton" id="sPsn" onclick="settingsGoTo(id)">Personalização</butt>
-      <button class="settingsBarButton" id="sUsr" onclick="settingsGoTo(id)">Usuário</button>
-      <button class="settingsBarButton" id="sAcs" onclick="settingsGoTo(id)">Acessibilidade</button>
-      <button class="settingsBarButton" id="sRst" onclick="settingsGoTo(id)">Reiniciar</button>
-      <button class="settingsBarButton" id="sAbt" onclick="settingsGoTo(id)">Sobre</button>
+        <button class="settingsBarButton" id="sUsr" onclick="settingsGoTo(id)">Usuário</button>
+        <button class="settingsBarButton" id="sAcs" onclick="settingsGoTo(id)">Acessibilidade</button>
+        <button class="settingsBarButton" id="sRst" onclick="settingsGoTo(id)">Reiniciar</button>
+        <button class="settingsBarButton" id="sAbt" onclick="settingsGoTo(id)">Sobre</button>
     </div>
-    <div class="settingsPanel">
+
+    <!--Configurações: Início-->
+    <div class="settingsPanel" id="settingsHome">
       <div class="settingsPanelHeader">
         Início
+        <div class="alertLock">
+          Config. Bloqueada, clique para desbloquear
+        </div>
       </div>
       <div class="settingsPanelCont">
+        <div class="panelHeader">
+          Informações gerais sobre as configurações do site
+        </div>
+        <div class="infosContainer">
+          <div class="infoHeader">
+            Site
+          </div>
+          Protegido por senha: <span>Não</span><br><br>
+          Config. Protegida por senha: <span>Não</span><br><br>
+          Icones da Charms habilitados: <span>Bloqueio, Usuário, Apps, Config. Rápidas e Reiniciar</span><br><br>
+          Icones da Charms não habilitados: <span>Recomendações</span><br><br>
+          Charms: Jogos habilitados: <span>Sim</span><br>
+        </div>
+        <div class="infosContainer">
+          <div class="infoHeader">
+            Personalização
+          </div>
+          Papel de parede do Site: <span>Por do Sol</span><br><br>
+          Tema: <span>Claro</span><br><br>
+          Transparência: <span>Ativiada em todo o site</span><br><br>
+          Blur: <span>Ativado em todo o site</span><br><br>
+          Cor do relógio: <span>Branco</span><br><br>
+          Fundo do relógio: <span>Desativado</span><br>
+        </div>
+        <div class="infosContainer">
+          <div class="infoHeader">
+            Usuário
+          </div>
+          Nome de usuário: <span>Não definido</span><br><br>
+          Gênero do Usuáro: <span>Não definido</span><br><br>
+          Ícone de Usuário: <span>Não definido</span><br></br>
+          Usuário Empresárial: <span>Não</span><br>
+        </div>
+        <div class="infosContainer">
+          <div class="infoHeader">
+            Acessibilidade
+          </div>
+          Tema de Alto Contraste: <span>Não habilitado</span><br><br>
+          Tamanho de botões de pesquisa: <span>Médio</span><br><br>
+          Tamanho do Relógio: <span>Padrão</span><br><br>
+          Evitar o bloqueio da seção Acessibilidade nas Config.: <span>Sim</span><br>
+        </div>
+        <div class="infosContainer">
+          <div class="infoHeader">
+            Reinicar
+          </div>
+          Idioma de preferência: <span>Português do Brasil</span><br><br>
+          Última vez que os dados foram limpos: <span>01/01/1970</span><br><br>
+          Modo de Site de preferência: <span>Normal</span>
+        </div>
+      </div>
+    </div>
 
+    <!--Configurações: Site-->
+    <div class="settingsPanel" id="settingsSystem" style="display: block;">
+      <div class="settingsPanelHeader">
+        Site
+      </div>
+      <div>
+        <div class="settingOptionHeader">
+          Altere as seções da Charms:
+        </div>
+        <div class="harmonySettings">
+          <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Usuário:</label> <input type="checkbox" name="" id="" checked>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Recomendações:</label> <input type="checkbox" name="" id="" onchange="recomendationsEnable()">
+        </div>
+        <div class="harmonySettings">
+          <label for="">Apps:</label> <input type="checkbox" name="" id="" checked onchange="appsDisable()">
+        </div>
+        <div class="harmonySettings">
+          <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
+        </div>
+        *: Ao desabilitar, o botão abrirá o App Config.
       </div>
     </div>
   </div>

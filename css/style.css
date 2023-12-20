@@ -1964,16 +1964,25 @@ body {
     right: 0;
     bottom: 0;
     border-radius: 0 0 8px 0;
+    display: none;
 }
+
+
 
 .settingsPanel .settingsPanelHeader {
     width: 100%;
     height: 40px;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     font-size: 30px;
     font-weight: bold;
+}
+
+.settingsPanel .alertLock {
+    color: #0078d4;
+    font-size: 20px;
+    display: none;
 }
 
 .settingsPanelCont {
@@ -1982,10 +1991,103 @@ body {
     position: absolute;
     bottom: 0;
     border-radius: 0 0 8px 0;
+    overflow: auto;
 }
 
+.settingsPanelCont::-webkit-scrollbar {
+    appearance: none;
+}
 
+.settingsPanelCont::-webkit-scrollbar-thumb {
+    appearance: none;
+    border-radius: 100px;
+    background-color: #0078d477;
+}
 
+.panelHeader {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.settings .infosContainer {
+    width: 99%;
+    margin: 10px 0;
+    margin-right: 1%;
+    background-color: #f0f0f099;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding-left: 20px;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.settings .infosContainer .infoHeader {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    box-sizing: border-box;
+    flex-direction: column;
+    margin-left: -5px;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.settings .settingOptionHeader {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.harmonySettings {
+    width: 99%;
+    margin-right: 1%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border-radius: 4px;
+    align-items: center;
+    height: 40px;
+    background-color: #f0f0f077;
+    margin: 5px 0;
+}
+
+.settings .settingsPanel input[type="checkbox"] {
+    appearance: none;
+    width: 30px;
+    height: 15px;
+    border-radius: 120px;
+    border: 2px solid #ccc;
+    background: #fff;
+    transition-duration: .2s;
+    position: relative;
+}
+
+.settings .settingsPanel input[type="checkbox"]:checked {
+    border: 2px solid #0088ff;
+    background-color: #0078d4;
+}
+
+.settings .settingsPanel input[type="checkbox"]::after {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    left: 1px;
+    border-radius: 100%;
+    background-color: #999;
+    content: '';
+    transition-duration: .2s;
+}
+
+.settings .settingsPanel input[type="checkbox"]:checked::after {
+    background-color: #0120a8;
+    left: 14px;
+}
 
 /*Início Responsividade*/
 

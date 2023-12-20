@@ -9,6 +9,7 @@ let blurToggle = document.getElementById("blurToggle");
 let newTabOpen = true
 let tabToggle = document.getElementById('tabToggle');
 let recomendationEnabled = false
+let appsEnabled = true
 let red, green, blue
 let NpMax = false
 let MpMax = false
@@ -649,6 +650,16 @@ function recomendationsEnable() {
     document.querySelector(".reci").style.display = "block";
     recomendationEnabled = true
     localStorage.setItem('recomendationActive', 1)
+  }
+}
+
+function appsDisable() {
+  if (appsEnabled) {
+    document.querySelector('.appsi').style.display = "none"
+    appsEnabled = false
+  } else {
+    document.querySelector(".appsi").style.display = "block";
+    appsEnabled = true
   }
 }
 
