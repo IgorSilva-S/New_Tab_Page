@@ -1965,8 +1965,19 @@ body {
     bottom: 0;
     border-radius: 0 0 8px 0;
     display: none;
+    animation-name: settingsSlide;
+    animation-duration: 1s;
 }
 
+@keyframes settingsSlide {
+    from {
+        top: 100px;
+        opacity: 0;
+    } to {
+        top: 40px;
+        opacity: 1;
+    }
+}
 
 
 .settingsPanel .settingsPanelHeader {
@@ -2041,6 +2052,19 @@ body {
 .settings .settingOptionHeader {
     font-size: 20px;
     font-weight: 500;
+}
+
+.unifyHarmony .harmonySettings {
+    margin: 1px 0;
+    border-radius: 0;
+}
+
+.unifyHarmony .harmonyTop {
+    border-radius: 4px 4px 0 0;
+}
+
+.unifyHarmony .harmonyBottom {
+    border-radius: 0 0 4px 4px;
 }
 
 .harmonySettings {

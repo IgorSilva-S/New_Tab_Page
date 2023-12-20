@@ -154,7 +154,9 @@
       Grande<br>
       <button onclick="applyBtnSize()">Aplicar</button><br />
     </div>
-    <button onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), bts(), focusSet()">Abrir App Config.</button>
+    <button
+      onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), bts(), focusSet()">Abrir
+      App Config.</button>
   </div>
 
   <!--Informações da Charms: Recarregar-->
@@ -719,11 +721,11 @@
       <div class="settingsPanelHeader">
         Site
       </div>
-      <div>
+      <div class="unifyHarmony">
         <div class="settingOptionHeader">
           Altere as seções da Charms:
         </div>
-        <div class="harmonySettings">
+        <div class="harmonySettings harmonyTop">
           <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
         </div>
         <div class="harmonySettings">
@@ -738,10 +740,21 @@
         <div class="harmonySettings">
           <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
         </div>
-        <div class="harmonySettings">
+        <div class="harmonySettings harmonyBottom">
           <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
         </div>
         *: Ao desabilitar, o botão abrirá o App Config.
+      </div><br>
+      <div class="settingOptionHeader">
+        Altere algumas configurações:
+      </div>
+      <div class="harmonySettings">
+        <label for="">Abrir pesquisas em nova aba</label>
+        <input type="checkbox" name="" id="" checked>
+      </div>
+      <div class="harmonySettings">
+        <label for="">Habilitar jogos internos e jogos externos nas recomendações</label>
+        <input type="checkbox" name="" id="" checked>
       </div>
     </div>
   </div>
