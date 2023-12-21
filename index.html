@@ -670,11 +670,11 @@
           <div class="infoHeader">
             Site
           </div>
-          Protegido por senha: <span>Não</span><br><br>
           Config. Protegida por senha: <span>Não</span><br><br>
           Icones da Charms habilitados: <span>Bloqueio, Usuário, Apps, Config. Rápidas e Reiniciar</span><br><br>
           Icones da Charms não habilitados: <span>Recomendações</span><br><br>
-          Charms: Jogos habilitados: <span>Sim</span><br>
+          Charms: Jogos habilitados: <span>Sim</span><br><br>
+          Formato do relógio: <span>24 Horas</span><br>
         </div>
         <div class="infosContainer">
           <div class="infoHeader">
@@ -721,40 +721,140 @@
       <div class="settingsPanelHeader">
         Site
       </div>
-      <div class="unifyHarmony">
+      <div class="settingsPanelCont">
+        <div class="unifyHarmony">
+          <div class="settingOptionHeader">
+            Altere as seções da Charms:
+          </div>
+          <div class="harmonySettings harmonyTop">
+            <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
+          </div>
+          <div class="harmonySettings">
+            <label for="">Usuário:</label> <input type="checkbox" name="" id="" checked>
+          </div>
+          <div class="harmonySettings">
+            <label for="">Recomendações:</label> <input type="checkbox" name="" id="" onchange="recomendationsEnable()">
+          </div>
+          <div class="harmonySettings">
+            <label for="">Apps:</label> <input type="checkbox" name="" id="" checked onchange="appsDisable()">
+          </div>
+          <div class="harmonySettings">
+            <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
+          </div>
+          <div class="harmonySettings harmonyBottom">
+            <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
+          </div>
+          *: Ao desabilitar, o botão abrirá o App Config.
+        </div><br>
         <div class="settingOptionHeader">
-          Altere as seções da Charms:
-        </div>
-        <div class="harmonySettings harmonyTop">
-          <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
+          Altere algumas configurações:
         </div>
         <div class="harmonySettings">
-          <label for="">Usuário:</label> <input type="checkbox" name="" id="" checked>
+          <label for="">Abrir pesquisas em nova aba</label>
+          <input type="checkbox" name="" id="" checked>
         </div>
         <div class="harmonySettings">
-          <label for="">Recomendações:</label> <input type="checkbox" name="" id="" onchange="recomendationsEnable()">
+          <label for="">Habilitar jogos internos e jogos externos nas recomendações</label>
+          <input type="checkbox" name="" id="" checked>
         </div>
         <div class="harmonySettings">
-          <label for="">Apps:</label> <input type="checkbox" name="" id="" checked onchange="appsDisable()">
+          <label for="">Formato de hora AM/PM</label>
+          <input type="checkbox" name="" id="">
         </div>
         <div class="harmonySettings">
-          <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
+          Inserir senha nas Configurações
+          <button>Iniciar</button>
         </div>
-        <div class="harmonySettings harmonyBottom">
-          <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
-        </div>
-        *: Ao desabilitar, o botão abrirá o App Config.
-      </div><br>
-      <div class="settingOptionHeader">
-        Altere algumas configurações:
       </div>
-      <div class="harmonySettings">
-        <label for="">Abrir pesquisas em nova aba</label>
-        <input type="checkbox" name="" id="" checked>
+    </div>
+
+    <!--Configurações: Personalização-->
+
+    <div class="settingsPanel" id="settingsPerson" >
+      <div class="settingsPanelHeader">
+        Personalização
       </div>
-      <div class="harmonySettings">
-        <label for="">Habilitar jogos internos e jogos externos nas recomendações</label>
-        <input type="checkbox" name="" id="" checked>
+      <div class="settingsPanelCont">
+        <div class="settingsPersonalizeInfo">
+          <div class="siteBack" id="settingsBackgroundImage">
+            <div class="clockPreview">
+              12:00
+            </div>
+            <div class="nappPreview">
+              <div class="nappHeader"></div>
+            </div>
+            <div class="mappPreview"></div>
+            <div class="charmsPreview">
+              <div class="charmsPreButton"></div>
+              <div class="charmsPreButton"></div>
+              <div class="charmsPreButton"></div>
+              <div class="charmsPreButton"></div>
+              <div class="charmsPreButton"></div>
+              <div class="charmsPreButton"></div>
+            </div>
+          </div>
+          <div class="contentPerson">
+            <span>Aparência geral do Site:</span><br><br>
+            Papel de parede: Por do Sol;<br>
+            Transparência: Ativado em todo o site;<br>
+            Blur: Ativado em todo o site;<br>
+            Cor do Relógio: Branco;<br>
+            Fundo do Relógio: Desabilitado.
+          </div>
+        </div>
+          <div class="settingOptionHeader">
+            Papel de parede:
+          </div>
+          <div class="harmonySettingsOptions">
+            <div class="harmonyOption" id="bopt1" onclick="image1(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt2" onclick="image2(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt3" onclick="image3(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt4" onclick="image4(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt5" onclick="image5(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt6" onclick="image6(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt7" onclick="colorImage(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt8" onclick="selectColorImage(), applyimg()"  ondblclick="selectColorImage(), forceAppearPopup()"></div>
+            <div class="harmonyOption" id="bopt9" onclick="colorGradient(), applyimg()"></div>
+            <div class="harmonyOption" id="bopt10" onclick="selectColorGradient(), applyimg()"  ondblclick="selectColorGradient(), forceAppearPopup()"></div>
+            <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
+          </div>
+          Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção
+          <div class="harmonySettings">
+            <label for="">Transparência:</label>
+            <select name="" id="">
+              <option value="Act1">Ativada em todo o site</option>
+              <option value="Act2">Desativada na Charms e tela de bloqueio</option>
+              <option value="Des">Desativada em todo o site</option>
+            </select>
+          </div>
+          <div class="harmonySettings">
+            <label for="">Blur:</label>
+            <select name="" id="">
+              <option value="Act1">Ativado em todo o site</option>
+              <option value="Act2">Desativado na Charms e tela de bloqueio</option>
+              <option value="Des">Desativado em todo o site</option>
+            </select>
+          </div>
+          <div class="harmonySettings">
+            Cor do relógio:
+            <div class="twoOptDiv">
+              <button style="background-color: white;"></button>
+              <button style="background-color: black;"></button>
+            </div>
+          </div>
+          <div class="harmonySettings">
+            <label for="">Fundo no relógio</label>
+            <input type="checkbox" name="" id="">
+          </div>
+      </div>
+    </div>
+
+    <!--Configurações: Acessibilidade-->
+    <div class="settingsPanel" id="settingsUser"  >
+      <div class="settingsPanelHeader">
+        Usuário
+      </div>
+      <div class="settingsPanelContent">
       </div>
     </div>
   </div>
@@ -795,9 +895,7 @@
 
   <!--Protetor de tela-->
   <div class="screenSaver" id="scrSvr" onclick="disScrSvr()">
-    <div class="circle1"></div>
-    <div class="circle2"></div>
-    <div class="circle3"></div>
+
   </div>
 
   <!--Dividindo o Português do Inglês-->

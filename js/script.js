@@ -280,7 +280,7 @@ function lockall() {
         unlocked = true
       } else {
         document.getElementById('wrongPass').innerHTML = 'Senha errada, tente novamente :/'
-        if (enUs) {
+        if (EnStyle.checked) {
           document.getElementById('wrongPass').innerHTML = 'Wrong password, try again :/'
         }
       }
@@ -359,7 +359,7 @@ function image1() {
   image = 1
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 1)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -368,7 +368,7 @@ function image2() {
   image = 2
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 2)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -377,7 +377,7 @@ function image3() {
   image = 3
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 3)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -386,7 +386,7 @@ function image4() {
   image = 4
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 4)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -395,7 +395,7 @@ function image5() {
   image = 5
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 5)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -404,7 +404,7 @@ function image6() {
   image = 6
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 6)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -413,7 +413,7 @@ function colorImage() {
   image = 7
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 7)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -422,7 +422,7 @@ function selectColorImage() {
   image = 8
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 8)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Next'
   }
 }
@@ -431,7 +431,7 @@ function colorGradient() {
   image = 9
   buttonApply.innerHTML = 'Aplicar'
   localStorage.setItem('background', 9)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Apply'
   }
 }
@@ -440,7 +440,7 @@ function selectColorGradient() {
   image = 10
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 10)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Next'
   }
 }
@@ -449,7 +449,7 @@ function userImage() {
   image = 11
   buttonApply.innerHTML = 'Continuar'
   localStorage.setItem('background', 11)
-  if (enUs) {
+  if (EnStyle.checked) {
     buttonApply.innerHTML = 'Next'
   }
 }
