@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <div style="opacity: 0; pointer-events: none;">
+    <button onclick="location.href = 'simpleSearch.html'">Modo Simples Rápido</button>
+  </div>
   <!--Hora, dia e cumprimento-->
   <div class="time">
     <div id="hour">00:00</div>
@@ -648,14 +651,14 @@
       <button class="settingsBarButtonActive" id="sHome" onclick="settingsGoTo(id)">Início</button>
       <button class="settingsBarButton" id="sSys" onclick="settingsGoTo(id)">Site</button>
       <button class="settingsBarButton" id="sPsn" onclick="settingsGoTo(id)">Personalização</butt>
-        <button class="settingsBarButton" id="sUsr" onclick="settingsGoTo(id)">Usuário</button>
+        <button class="settingsBarButton" id="sUser" onclick="settingsGoTo(id)">Usuário</button>
         <button class="settingsBarButton" id="sAcs" onclick="settingsGoTo(id)">Acessibilidade</button>
         <button class="settingsBarButton" id="sRst" onclick="settingsGoTo(id)">Reiniciar</button>
         <button class="settingsBarButton" id="sAbt" onclick="settingsGoTo(id)">Sobre</button>
     </div>
 
     <!--Configurações: Início-->
-    <div class="settingsPanel" id="settingsHome">
+    <div class="settingsPanel" id="settingsHome" style="display: block;">
       <div class="settingsPanelHeader">
         Início
         <div class="alertLock">
@@ -693,7 +696,6 @@
           </div>
           Nome de usuário: <span>Não definido</span><br><br>
           Gênero do Usuáro: <span>Não definido</span><br><br>
-          Ícone de Usuário: <span>Não definido</span><br></br>
           Usuário Empresárial: <span>Não</span><br>
         </div>
         <div class="infosContainer">
@@ -717,7 +719,7 @@
     </div>
 
     <!--Configurações: Site-->
-    <div class="settingsPanel" id="settingsSystem" style="display: block;">
+    <div class="settingsPanel" id="settingsSystem">
       <div class="settingsPanelHeader">
         Site
       </div>
@@ -770,7 +772,7 @@
 
     <!--Configurações: Personalização-->
 
-    <div class="settingsPanel" id="settingsPerson" >
+    <div class="settingsPanel" id="settingsPerson">
       <div class="settingsPanelHeader">
         Personalização
       </div>
@@ -802,59 +804,189 @@
             Fundo do Relógio: Desabilitado.
           </div>
         </div>
-          <div class="settingOptionHeader">
-            Papel de parede:
+        <div class="settingOptionHeader">
+          Papel de parede:
+        </div>
+        <div class="harmonySettingsOptions">
+          <div class="harmonyOption" id="bopt1" onclick="image1(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt2" onclick="image2(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt3" onclick="image3(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt4" onclick="image4(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt5" onclick="image5(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt6" onclick="image6(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt7" onclick="colorImage(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt8" onclick="selectColorImage(), applyimg()"
+            ondblclick="selectColorImage(), forceAppearPopup()"></div>
+          <div class="harmonyOption" id="bopt9" onclick="colorGradient(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt10" onclick="selectColorGradient(), applyimg()"
+            ondblclick="selectColorGradient(), forceAppearPopup()"></div>
+          <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
+        </div>
+        Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção
+        <div class="harmonySettings">
+          <label for="">Transparência:</label>
+          <select name="" id="">
+            <option value="Act1">Ativada em todo o site</option>
+            <option value="Act2">Desativada na Charms e tela de bloqueio</option>
+            <option value="Des">Desativada em todo o site</option>
+          </select>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Blur:</label>
+          <select name="" id="">
+            <option value="Act1">Ativado em todo o site</option>
+            <option value="Act2">Desativado na Charms e tela de bloqueio</option>
+            <option value="Des">Desativado em todo o site</option>
+          </select>
+        </div>
+        <div class="harmonySettings">
+          Cor do relógio:
+          <div class="twoOptDiv">
+            <button style="background-color: white;"></button>
+            <button style="background-color: black;"></button>
           </div>
-          <div class="harmonySettingsOptions">
-            <div class="harmonyOption" id="bopt1" onclick="image1(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt2" onclick="image2(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt3" onclick="image3(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt4" onclick="image4(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt5" onclick="image5(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt6" onclick="image6(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt7" onclick="colorImage(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt8" onclick="selectColorImage(), applyimg()"  ondblclick="selectColorImage(), forceAppearPopup()"></div>
-            <div class="harmonyOption" id="bopt9" onclick="colorGradient(), applyimg()"></div>
-            <div class="harmonyOption" id="bopt10" onclick="selectColorGradient(), applyimg()"  ondblclick="selectColorGradient(), forceAppearPopup()"></div>
-            <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Fundo no relógio</label>
+          <input type="checkbox" name="" id="">
+        </div>
+        <div class="harmonySettings">
+          <label for="">Tema Escuro</label>
+          <input type="checkbox" name="" id="">
+        </div>
+      </div>
+    </div>
+
+    <!--Configurações: Usuário-->
+    <div class="settingsPanel" id="settingsUser">
+      <div class="settingsPanelHeader">
+        Usuário
+        <span>User</span>
+      </div><br>
+      <div class="settingsPanelContent">
+        <div class="harmonySettings">
+          Alterar nome de usuário:
+          <div class="txtOptDiv">
+            <input type="text">
+            <button>Alterar</button>
           </div>
-          Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção
-          <div class="harmonySettings">
-            <label for="">Transparência:</label>
-            <select name="" id="">
-              <option value="Act1">Ativada em todo o site</option>
-              <option value="Act2">Desativada na Charms e tela de bloqueio</option>
-              <option value="Des">Desativada em todo o site</option>
-            </select>
+        </div>
+        <div class="harmonySettings">
+          Senha de usuário:
+          <div class="txtOptDiv">
+            <input type="text">
+            <button>Alterar</button>
           </div>
-          <div class="harmonySettings">
-            <label for="">Blur:</label>
-            <select name="" id="">
-              <option value="Act1">Ativado em todo o site</option>
-              <option value="Act2">Desativado na Charms e tela de bloqueio</option>
-              <option value="Des">Desativado em todo o site</option>
-            </select>
-          </div>
-          <div class="harmonySettings">
-            Cor do relógio:
-            <div class="twoOptDiv">
-              <button style="background-color: white;"></button>
-              <button style="background-color: black;"></button>
-            </div>
-          </div>
-          <div class="harmonySettings">
-            <label for="">Fundo no relógio</label>
-            <input type="checkbox" name="" id="">
-          </div>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Gênero:</label>
+          <select name="" id="">
+            <option value="g1">Masculino</option>
+            <option value="g1">Feminino</option>
+            <option value="g1">Prefiro não dizer</option>
+          </select>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Usuário empresárial</label>
+          <input type="checkbox" name="" id="">
+        </div>
+        Configurar um usuário empresárial desativa automáticamente links no site que levem a lugares que possa desfocar
+        o usuário
       </div>
     </div>
 
     <!--Configurações: Acessibilidade-->
-    <div class="settingsPanel" id="settingsUser"  >
+    <div class="settingsPanel" id="settingsAccess">
       <div class="settingsPanelHeader">
-        Usuário
+        Acessibilidade
+      </div><br>
+      <div class="settingsPanelContent">
+        <div class="harmonySettings">
+          <label for="">Tema de Alto Contraste</label>
+          <input type="checkbox" name="" id="">
+        </div>
+        <div class="harmonySettings">
+          <label for="">Tamanho dos botões</label>
+          <select name="" id="">
+            <option value="tb1">Médio</option>
+            <option value="tb2">Pequeno</option>
+            <option value="tb3">Grande</option>
+          </select>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Tamanho do relógio</label>
+          <select name="" id="">
+            <option value="tw1">Médio</option>
+            <option value="tw2">Pequeno</option>
+            <option value="tw3">Grande</option>
+          </select>
+        </div>
+        <div class="harmonySettings">
+          <label for="">Evitar bloqueio desta seção</label>
+          <input type="checkbox" name="" id="" checked>
+        </div>
+      </div>
+    </div>
+
+    <!--Configurações: Reiniciar-->
+    <div class="settingsPanel" id="settingsReset">
+      <div class="settingsPanelHeader">
+        Reiniciar
       </div>
       <div class="settingsPanelContent">
+        <div class="harmonySettings">
+          <label for="">Abrir sempre no modo simples</label>
+          <input type="checkbox" name="" id="">
+        </div>
+        <div class="harmonySettings">
+          <label for="">Idioma de preferência</label>
+          <div class="twoOptDiv">
+            <button>Português</button>
+            <button>Inglês</button>
+          </div>
+        </div>
+        <div class="harmonySettings">
+          Limpar dados do site (A data da limpeza será salva)
+          <button>Limpar</button>
+        </div>
+        Esses dados incluem as suas configurações, personalizações, nomes e senhas salvas no site, e não há volta.
+      </div>
+    </div>
+
+    <!--Configurações: Sobre-->
+    <div class="settingsPanel" id="settingsAbout">
+      <div class="settingsPanelHeader">
+        Sobre
+      </div>
+      <div class="settingsPanelContent">
+        <div class="harmonySettings">
+          Versão do Site: D 1.1
+          <button>Verifique no GitHub novas versões</button>
+        </div>
+        <div class="harmonySettings">
+          Última correção de bugs: 22 de dezembro de 2023
+        </div>
+        <div class="harmonySettings">
+          Versão do Kernel NTS: 0.1
+        </div>
+        <div class="unifyHarmony">
+          <div class="harmonySettings harmonyTop">
+            Criação do site: C.E.S
+          </div>
+          <div class="harmonySettings">
+            Ideias de Interface Gráfica: Microsoft Windows 8.x, 10, 11
+          </div>
+          <div class="harmonySettings">
+            Códigos: C.E.S
+          </div>
+          <div class="harmonySettings harmonyBottom">
+            Códigos: W3Schools
+          </div>
+        </div>
+        <div class="harmonySettings">
+          Sugestões, Ideias, Críticas, Bugs?
+          <a href="https://github.com/IgorSilva-S/New_Tab_Screen/issues" target="_blank">Abra uma Issue no GitHub</a>
+        </div>
       </div>
     </div>
   </div>
@@ -907,6 +1039,7 @@
   <script src="js/calcScript.js"></script>
   <script src="js/ghostGame.js"></script>
   <script src="js/snapWindows.js"></script>
+
 </body>
 
 </html>

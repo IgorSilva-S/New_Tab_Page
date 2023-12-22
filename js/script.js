@@ -1205,8 +1205,61 @@ function closeApp(id) {
 }
 
 function settingsGoTo(id) {
+  let home = document.getElementById('settingsHome')
+  let sys = document.getElementById('settingsSystem')
+  let psn = document.getElementById('settingsPerson')
+  let user = document.getElementById('settingsUser')
+  let acs = document.getElementById('settingsAccess')
+  let rst = document.getElementById('settingsReset')
+  let abt = document.getElementById('settingsAbout')
+  let bHome = document.getElementById('sHome')
+  let bSys = document.getElementById('sSys')
+  let bPsn = document.getElementById('sPsn')
+  let bUser = document.getElementById('sUser')
+  let bAcs = document.getElementById('sAcs')
+  let bRst = document.getElementById('sRst')
+  let bAbt = document.getElementById('sAbt')
+  home.style.display = 'none'
+  sys.style.display = 'none'
+  psn.style.display = 'none'
+  user.style.display = 'none'
+  acs.style.display = 'none'
+  rst.style.display = 'none'
+  abt.style.display = 'none'
+  bHome.className = 'settingsBarButton'
+  bSys.className = 'settingsBarButton'
+  bPsn.className = 'settingsBarButton'
+  bUser.className = 'settingsBarButton'
+  bAcs.className = 'settingsBarButton'
+  bRst.className = 'settingsBarButton'
+  bAbt.className = 'settingsBarButton'
+  if (id == 'sHome') {
+    home.style.display = 'block'
+    bHome.className = 'settingsBarButtonActive'
+  }
   if (id == 'sSys') {
-    document.getElementById(id).className = 'settingsBarButtonActive'
+    sys.style.display = 'block'
+    bSys.className = 'settingsBarButtonActive'
+  }
+  if (id == 'sPsn') {
+    psn.style.display = 'block'
+    bPsn.className = 'settingsBarButtonActive'
+  }
+  if (id == 'sUser') {
+    user.style.display = 'block'
+    bUser.className = 'settingsBarButtonActive'
+  }
+  if (id == 'sAcs') {
+    acs.style.display = 'block'
+    bAcs.className = 'settingsBarButtonActive'
+  }
+  if (id == 'sRst') {
+    rst.style.display = 'block'
+    bRst.className = 'settingsBarButtonActive'
+  }
+  if (id == 'sAbt') {
+    abt.style.display = 'block'
+    bAbt.className = 'settingsBarButtonActive'
   }
 }
 

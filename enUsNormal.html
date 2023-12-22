@@ -594,6 +594,406 @@
         </div>
     </div>
 
+    <!--Configurações do site-->
+    <div class="settings" id="settingApp" onclick="focusSet()">
+        <div class="header" id="settingHeader">
+            <div class="appButtons home" id="settingHomeButton" onclick="settingsGoTo(id)" style="display: none;">
+                
+            </div>
+            <p id="settingAppName">Configurações</p>
+            <div class="appButtons" onclick="hideSett()">
+                <img src="img/WindowIcons/HideWindow.png" alt="" />
+            </div>
+            <div class="appButtons maxandmin" onclick="max_min_Sett()" oncontextmenu="snap_Sett(event)">
+                <img src="img/WindowIcons/Maximize.png" alt="" id="iconMaxMinSetting" />
+            </div>
+            <div class="appButtons maxandminmobile" onclick="mobile_snap_Sett()">
+                <img src="img/WindowIcons/MoveWindow.png" alt="">
+            </div>
+            <div class="appButtons close" id="setting" onclick="closeApp(id)">
+                <img src="img/WindowIcons/Close.png" alt="" />
+            </div>
+            <div class="snapStyle" id="settingSnap">
+                <div class="snapOptions">
+                    <div class="snap50" onclick="stL50()"></div>
+                    <div class="snap50" onclick="stR50()"></div>
+                </div>
+                <div class="snapOptions">
+                    <div class="snap25" onclick="stLT()"></div>
+                    <div class="snap25" onclick="stRT()"></div>
+                    <div class="snap25" onclick="stLB()"></div>
+                    <div class="snap25" onclick="stRB()"></div>
+                </div>
+                <div class="snapOptions">
+                    <div class="snap50" onclick="stL50()"></div>
+                    <div class="snap25to50">
+                        <div class="snap25" onclick="stRT()"></div>
+                        <div class="snap25" onclick="stRB()"></div>
+                    </div>
+    
+                </div>
+                <div class="snapOptions">
+                    <div class="snapI50" onclick="stT()"></div>
+                    <div class="snapI50" onclick="stB()"></div>
+                </div>
+            </div>
+            <div class="snapStyleMobile" id="settingSnapMobile">
+                <div class="snap25to50">
+                    <div class="snapI50" onclick="stTM()"></div>
+                    <div class="snapI50" onclick="stBM()"></div>
+                </div>
+                <div class="snap50" onclick="settingMax()"></div>
+    
+            </div>
+        </div>
+    
+        <div class="settingsLeftBar">
+            <button class="settingsBarButtonActive" id="sHome" onclick="settingsGoTo(id)">Início</button>
+            <button class="settingsBarButton" id="sSys" onclick="settingsGoTo(id)">Site</button>
+            <button class="settingsBarButton" id="sPsn" onclick="settingsGoTo(id)">Personalização</butt>
+                <button class="settingsBarButton" id="sUser" onclick="settingsGoTo(id)">Usuário</button>
+                <button class="settingsBarButton" id="sAcs" onclick="settingsGoTo(id)">Acessibilidade</button>
+                <button class="settingsBarButton" id="sRst" onclick="settingsGoTo(id)">Reiniciar</button>
+                <button class="settingsBarButton" id="sAbt" onclick="settingsGoTo(id)">Sobre</button>
+        </div>
+    
+        <!--Configurações: Início-->
+        <div class="settingsPanel" id="settingsHome" style="display: block;">
+            <div class="settingsPanelHeader">
+                Início
+                <div class="alertLock">
+                    Config. Bloqueada, clique para desbloquear
+                </div>
+            </div>
+            <div class="settingsPanelCont">
+                <div class="panelHeader">
+                    Informações gerais sobre as configurações do site
+                </div>
+                <div class="infosContainer">
+                    <div class="infoHeader">
+                        Site
+                    </div>
+                    Config. Protegida por senha: <span>Não</span><br><br>
+                    Icones da Charms habilitados: <span>Bloqueio, Usuário, Apps, Config. Rápidas e Reiniciar</span><br><br>
+                    Icones da Charms não habilitados: <span>Recomendações</span><br><br>
+                    Charms: Jogos habilitados: <span>Sim</span><br><br>
+                    Formato do relógio: <span>24 Horas</span><br>
+                </div>
+                <div class="infosContainer">
+                    <div class="infoHeader">
+                        Personalização
+                    </div>
+                    Papel de parede do Site: <span>Por do Sol</span><br><br>
+                    Tema: <span>Claro</span><br><br>
+                    Transparência: <span>Ativiada em todo o site</span><br><br>
+                    Blur: <span>Ativado em todo o site</span><br><br>
+                    Cor do relógio: <span>Branco</span><br><br>
+                    Fundo do relógio: <span>Desativado</span><br>
+                </div>
+                <div class="infosContainer">
+                    <div class="infoHeader">
+                        Usuário
+                    </div>
+                    Nome de usuário: <span>Não definido</span><br><br>
+                    Gênero do Usuáro: <span>Não definido</span><br><br>
+                    Usuário Empresárial: <span>Não</span><br>
+                </div>
+                <div class="infosContainer">
+                    <div class="infoHeader">
+                        Acessibilidade
+                    </div>
+                    Tema de Alto Contraste: <span>Não habilitado</span><br><br>
+                    Tamanho de botões de pesquisa: <span>Médio</span><br><br>
+                    Tamanho do Relógio: <span>Padrão</span><br><br>
+                    Evitar o bloqueio da seção Acessibilidade nas Config.: <span>Sim</span><br>
+                </div>
+                <div class="infosContainer">
+                    <div class="infoHeader">
+                        Reinicar
+                    </div>
+                    Idioma de preferência: <span>Português do Brasil</span><br><br>
+                    Última vez que os dados foram limpos: <span>01/01/1970</span><br><br>
+                    Modo de Site de preferência: <span>Normal</span>
+                </div>
+            </div>
+        </div>
+    
+        <!--Configurações: Site-->
+        <div class="settingsPanel" id="settingsSystem">
+            <div class="settingsPanelHeader">
+                Site
+            </div>
+            <div class="settingsPanelCont">
+                <div class="unifyHarmony">
+                    <div class="settingOptionHeader">
+                        Altere as seções da Charms:
+                    </div>
+                    <div class="harmonySettings harmonyTop">
+                        <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
+                    </div>
+                    <div class="harmonySettings">
+                        <label for="">Usuário:</label> <input type="checkbox" name="" id="" checked>
+                    </div>
+                    <div class="harmonySettings">
+                        <label for="">Recomendações:</label> <input type="checkbox" name="" id=""
+                            onchange="recomendationsEnable()">
+                    </div>
+                    <div class="harmonySettings">
+                        <label for="">Apps:</label> <input type="checkbox" name="" id="" checked onchange="appsDisable()">
+                    </div>
+                    <div class="harmonySettings">
+                        <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
+                    </div>
+                    <div class="harmonySettings harmonyBottom">
+                        <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
+                    </div>
+                    *: Ao desabilitar, o botão abrirá o App Config.
+                </div><br>
+                <div class="settingOptionHeader">
+                    Altere algumas configurações:
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Abrir pesquisas em nova aba</label>
+                    <input type="checkbox" name="" id="" checked>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Habilitar jogos internos e jogos externos nas recomendações</label>
+                    <input type="checkbox" name="" id="" checked>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Formato de hora AM/PM</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="harmonySettings">
+                    Inserir senha nas Configurações
+                    <button>Iniciar</button>
+                </div>
+            </div>
+        </div>
+    
+        <!--Configurações: Personalização-->
+    
+        <div class="settingsPanel" id="settingsPerson">
+            <div class="settingsPanelHeader">
+                Personalização
+            </div>
+            <div class="settingsPanelCont">
+                <div class="settingsPersonalizeInfo">
+                    <div class="siteBack" id="settingsBackgroundImage">
+                        <div class="clockPreview">
+                            12:00
+                        </div>
+                        <div class="nappPreview">
+                            <div class="nappHeader"></div>
+                        </div>
+                        <div class="mappPreview"></div>
+                        <div class="charmsPreview">
+                            <div class="charmsPreButton"></div>
+                            <div class="charmsPreButton"></div>
+                            <div class="charmsPreButton"></div>
+                            <div class="charmsPreButton"></div>
+                            <div class="charmsPreButton"></div>
+                            <div class="charmsPreButton"></div>
+                        </div>
+                    </div>
+                    <div class="contentPerson">
+                        <span>Aparência geral do Site:</span><br><br>
+                        Papel de parede: Por do Sol;<br>
+                        Transparência: Ativado em todo o site;<br>
+                        Blur: Ativado em todo o site;<br>
+                        Cor do Relógio: Branco;<br>
+                        Fundo do Relógio: Desabilitado.
+                    </div>
+                </div>
+                <div class="settingOptionHeader">
+                    Papel de parede:
+                </div>
+                <div class="harmonySettingsOptions">
+                    <div class="harmonyOption" id="bopt1" onclick="image1(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt2" onclick="image2(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt3" onclick="image3(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt4" onclick="image4(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt5" onclick="image5(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt6" onclick="image6(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt7" onclick="colorImage(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt8" onclick="selectColorImage(), applyimg()"
+                        ondblclick="selectColorImage(), forceAppearPopup()"></div>
+                    <div class="harmonyOption" id="bopt9" onclick="colorGradient(), applyimg()"></div>
+                    <div class="harmonyOption" id="bopt10" onclick="selectColorGradient(), applyimg()"
+                        ondblclick="selectColorGradient(), forceAppearPopup()"></div>
+                    <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
+                </div>
+                Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção
+                <div class="harmonySettings">
+                    <label for="">Transparência:</label>
+                    <select name="" id="">
+                        <option value="Act1">Ativada em todo o site</option>
+                        <option value="Act2">Desativada na Charms e tela de bloqueio</option>
+                        <option value="Des">Desativada em todo o site</option>
+                    </select>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Blur:</label>
+                    <select name="" id="">
+                        <option value="Act1">Ativado em todo o site</option>
+                        <option value="Act2">Desativado na Charms e tela de bloqueio</option>
+                        <option value="Des">Desativado em todo o site</option>
+                    </select>
+                </div>
+                <div class="harmonySettings">
+                    Cor do relógio:
+                    <div class="twoOptDiv">
+                        <button style="background-color: white;"></button>
+                        <button style="background-color: black;"></button>
+                    </div>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Fundo no relógio</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Tema Escuro</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+            </div>
+        </div>
+    
+        <!--Configurações: Usuário-->
+        <div class="settingsPanel" id="settingsUser">
+            <div class="settingsPanelHeader">
+                Usuário
+                <span>User</span>
+            </div><br>
+            <div class="settingsPanelContent">
+                <div class="harmonySettings">
+                    Alterar nome de usuário:
+                    <div class="txtOptDiv">
+                        <input type="text">
+                        <button>Alterar</button>
+                    </div>
+                </div>
+                <div class="harmonySettings">
+                    Senha de usuário:
+                    <div class="txtOptDiv">
+                        <input type="text">
+                        <button>Alterar</button>
+                    </div>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Gênero:</label>
+                    <select name="" id="">
+                        <option value="g1">Masculino</option>
+                        <option value="g1">Feminino</option>
+                        <option value="g1">Prefiro não dizer</option>
+                    </select>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Usuário empresárial</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+                Configurar um usuário empresárial desativa automáticamente links no site que levem a lugares que possa
+                desfocar
+                o usuário
+            </div>
+        </div>
+    
+        <!--Configurações: Acessibilidade-->
+        <div class="settingsPanel" id="settingsAccess">
+            <div class="settingsPanelHeader">
+                Acessibilidade
+            </div><br>
+            <div class="settingsPanelContent">
+                <div class="harmonySettings">
+                    <label for="">Tema de Alto Contraste</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Tamanho dos botões</label>
+                    <select name="" id="">
+                        <option value="tb1">Médio</option>
+                        <option value="tb2">Pequeno</option>
+                        <option value="tb3">Grande</option>
+                    </select>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Tamanho do relógio</label>
+                    <select name="" id="">
+                        <option value="tw1">Médio</option>
+                        <option value="tw2">Pequeno</option>
+                        <option value="tw3">Grande</option>
+                    </select>
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Evitar bloqueio desta seção</label>
+                    <input type="checkbox" name="" id="" checked>
+                </div>
+            </div>
+        </div>
+    
+        <!--Configurações: Reiniciar-->
+        <div class="settingsPanel" id="settingsReset">
+            <div class="settingsPanelHeader">
+                Reiniciar
+            </div>
+            <div class="settingsPanelContent">
+                <div class="harmonySettings">
+                    <label for="">Abrir sempre no modo simples</label>
+                    <input type="checkbox" name="" id="">
+                </div>
+                <div class="harmonySettings">
+                    <label for="">Idioma de preferência</label>
+                    <div class="twoOptDiv">
+                        <button>Português</button>
+                        <button>Inglês</button>
+                    </div>
+                </div>
+                <div class="harmonySettings">
+                    Limpar dados do site (A data da limpeza será salva)
+                    <button>Limpar</button>
+                </div>
+                Esses dados incluem as suas configurações, personalizações, nomes e senhas salvas no site, e não há volta.
+            </div>
+        </div>
+    
+        <!--Configurações: Sobre-->
+        <div class="settingsPanel" id="settingsAbout">
+            <div class="settingsPanelHeader">
+                Sobre
+            </div>
+            <div class="settingsPanelContent">
+                <div class="harmonySettings">
+                    Versão do Site: D 1.1
+                    <button>Verifique no GitHub novas versões</button>
+                </div>
+                <div class="harmonySettings">
+                    Última correção de bugs: 22 de dezembro de 2023
+                </div>
+                <div class="harmonySettings">
+                    Versão do Kernel NTS: 0.1
+                </div>
+                <div class="unifyHarmony">
+                    <div class="harmonySettings harmonyTop">
+                        Criação do site: C.E.S
+                    </div>
+                    <div class="harmonySettings">
+                        Ideias de Interface Gráfica: Microsoft Windows 8.x, 10, 11
+                    </div>
+                    <div class="harmonySettings">
+                        Códigos: C.E.S
+                    </div>
+                    <div class="harmonySettings harmonyBottom">
+                        Códigos: W3Schools
+                    </div>
+                </div>
+                <div class="harmonySettings">
+                    Sugestões, Ideias, Críticas, Bugs?
+                    <a href="https://github.com/IgorSilva-S/New_Tab_Screen/issues" target="_blank">Abra uma Issue no
+                        GitHub</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--Help to start with Charms-->
     <div class="helpWithCharmsUS" onmouseover="hideHelp()">
 

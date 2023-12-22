@@ -184,3 +184,13 @@ button:hover {
         font-size: 12px;
     }
 }
+
+.returnButton {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.returnButton:hover {
+    border: none;
+}
