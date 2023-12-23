@@ -153,6 +153,12 @@ body {
     transition-duration: .2s;
 }
 
+.dark .search input {
+    color: white;
+    border-color: #333;
+    background-color: #191919;
+}
+
 .search input:focus {
     border: 2px solid #0078d4;
     outline: none;
@@ -170,6 +176,11 @@ body {
     background-position: center;
 }
 
+.dark .searchengine {
+    background-color: #000;
+    border-color: #333;
+}
+
 .google {
     background-image: url(../img/SearchEnginesIcons/Google.png);
     background-size: 80%;
@@ -181,9 +192,13 @@ body {
 }
 
 .lupe {
-    background-image: url(../img/SearchEnginesIcons/SeacrhLupe.jfif);
+    background-image: url(../img/SearchEnginesIcons/SearchLupe.png);
     background-size: 80%;
     background-repeat: no-repeat;
+}
+
+.dark .lupe {
+    background-image: url(../img/SearchEnginesIcons/SearchLupeDark.png);
 }
 
 .charms {
@@ -233,6 +248,12 @@ body {
     padding-left: 20px;
     color: black;
     transition-duration: .2s;
+}
+
+.dark .lock input {
+    color: white;
+    border-color: #333;
+    background-color: #191919;
 }
 
 .lock input:focus {
@@ -427,11 +448,24 @@ body {
     z-index: 998;
 }
 
+.dark .chooseColor {
+    background-color: #191919;
+    color: white;
+}
+
+.dark .chooseColor p {
+    color: white;
+}
+
 .chooseColor h1 {
     position: absolute;
     top: 10px;
     color: black;
     text-align: center;
+}
+
+.dark .chooseColor h1 {
+    color: white;
 }
 
 .chooseColor input {
@@ -456,6 +490,10 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.dark .chooseColor .bottomPopup {
+    background-color: #252525;
 }
 
 .chooseColor .bottomPopup button {
@@ -535,6 +573,10 @@ body {
 
 }
 
+.dark .notepad {
+    background-color: #191919;
+}
+
 .notepad .header {
     width: 100%;
     position: absolute;
@@ -555,6 +597,14 @@ body {
     color: black;
 }
 
+.dark .notepad .header {
+    background-color: rgba(25, 25, 25, 0.3);
+}
+
+.dark .header p {
+    color: white;
+}
+
 .appButtons {
     width: 40px;
     height: 40px;
@@ -571,6 +621,10 @@ body {
     transition-duration: .2s;
 }
 
+.dark .appButtons img {
+    filter: invert()
+}
+
 .appButtons:hover {
     background-color: #80808066;
     color: white;
@@ -579,6 +633,7 @@ body {
 .appButtons:hover img {
     filter: invert(100%);
 }
+
 
 .close {
     border-top-right-radius: 8px;
@@ -602,6 +657,10 @@ body {
     margin-top: var(--topHeader);
 }
 
+.dark .notepad textarea {
+    color: white;
+}
+
 .notepad textarea:focus {
     outline: none;
 }
@@ -623,8 +682,17 @@ body {
     text-align: center;
 }
 
+.dark .appHided {
+    background-color: rgba(25, 25, 25, 0.7);
+    color: white;
+}
+
 .appHided:hover {
     background-color: rgba(250, 250, 250, 1);
+}
+
+.dark .appHided:hover {
+    background-color: rgba(40, 40, 40, 1);
 }
 
 .notepadHide {
@@ -656,6 +724,10 @@ body {
     padding-top: var(--topHeader);
 }
 
+.dark .calc {
+    background-color: #191919;
+}
+
 .calc .header {
     width: 100%;
     position: absolute;
@@ -669,6 +741,10 @@ body {
     align-items: center;
 }
 
+.dark .calc .header {
+    background-color: rgba(25, 25, 25, 0.3);
+}
+
 .calculator__display {
     width: 100%;
     height: 100px;
@@ -680,6 +756,11 @@ body {
     align-items: center;
     background-color: #cee8ff;
     font-size: 25px;
+}
+
+.dark .calculator__display {
+    background-color: #4c575f;
+    color: white;
 }
 
 .calcKeys {
@@ -698,6 +779,12 @@ body {
     transition-duration: .2s;
 }
 
+.dark .key--operator {
+    background-color: #5f6366;
+    border-color: #4c575f;
+    color: white;
+}
+
 .calcKeys button {
     height: 80px;
     background-color: aliceblue;
@@ -707,16 +794,34 @@ body {
     transition-duration: .2s;
 }
 
+.dark .calcKeys button {
+    background-color: #5f6366;
+    border-color: #4c575f;
+    color: white;
+}
+
 .key--operator:hover {
     background-color: #cee8ff;
+}
+
+.dark .key--operator:hover {
+    background-color: #4c575f;
 }
 
 .calcKeys button:hover {
     background-color: #cee8ff;
 }
 
+.dark .calcKeys button:hover {
+    background-color: #4c575f;
+}
+
 .calcKeys button:active {
     background-color: #93ccff;
+}
+
+.dark .calcKeys button:active {
+    background-color: #2d3338;
 }
 
 .calcKeys .key--equal {
@@ -727,12 +832,24 @@ body {
     transition-duration: .2s;
 }
 
+.dark .calcKeys .key--equal {
+    background-color: #5e3126;
+}
+
 .calcKeys .key--equal:hover {
     background-color: orangered;
 }
 
+.dark .calcKeys .key--equal:hover {
+    background-color: rgb(102, 28, 1);
+}
+
 .calcKeys .key--equal:active {
     background-color: orange;
+}
+
+.dark .calcKeys .key--equal:active {
+    background-color: rgb(94, 61, 1);
 }
 
 .screenSaver {
@@ -799,6 +916,15 @@ body {
     text-align: center;
 }
 
+.dark .chooseGradient {
+    background-color: #191919;
+    color: white;
+}
+
+.dark .chooseGradient h1 {
+    color: white;
+}
+
 .chooseGradient input {
     width: 70%;
     height: 100px;
@@ -821,6 +947,10 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.dark .chooseGradient .bottomPopup {
+    background-color: #252525;
 }
 
 .chooseGradient .bottomPopup button {
@@ -931,11 +1061,20 @@ body {
     z-index: 998;
 }
 
+.dark .chooseImage {
+    background-color: #191919;
+    color: white;
+}
+
 .chooseImage h1 {
     position: absolute;
     top: 10px;
     color: black;
     text-align: center;
+}
+
+.dark .chooseImage h1 {
+    color: white;
 }
 
 .chooseImage .bottomPopup {
@@ -949,6 +1088,10 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.dark .chooseImage .bottomPopup {
+    background-color: #252525;
 }
 
 .chooseImage .bottomPopup button {
@@ -1084,6 +1227,11 @@ body {
     padding-top: 40px;
     color: black;
     transform: scale(0);
+}
+
+.dark .music {
+    color: white;
+    background-color: #19191977;
 }
 
 .music .header {
@@ -1274,6 +1422,11 @@ body {
     display: none;
 }
 
+.dark .ghost {
+    color: white;
+    background-color: #191919;
+}
+
 .ghost .header {
     width: 100%;
     position: absolute;
@@ -1292,6 +1445,10 @@ body {
     border: 2px solid #e0e0e0;
     overflow: hidden;
     position: relative;
+}
+
+.dark .ghost .game {
+    border-color: #252525;
 }
 
 .ghost .inst {
@@ -1491,6 +1648,10 @@ body {
     background-size: cover;
 }
 
+.dark #crystal {
+    opacity: .7;
+}
+
 @keyframes cactus-block {
     0% {
         left: 100%;
@@ -1515,6 +1676,10 @@ body {
     animation-timing-function: linear;
 }
 
+.dark .game .soil {
+    opacity: .7;
+}
+
 .game .clouds {
     width: 200%;
     height: 50%;
@@ -1527,6 +1692,10 @@ body {
     animation-duration: 1.7s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+}
+
+.dark .game .clouds {
+    opacity: .7;
 }
 
 @keyframes walkingBckg {
@@ -1548,6 +1717,10 @@ body {
     font-family: arcade classic;
 }
 
+.dark .ghost .scoreSign {
+    color: white;
+}
+
 .ghost .maxSign {
     position: absolute;
     top: 20%;
@@ -1555,6 +1728,10 @@ body {
     font-size: 30px;
     color: #777;
     font-family: arcade classic;
+}
+
+.dark .ghost .maxSign {
+    color: #333
 }
 
 .ghost .flyAlert {
@@ -1566,10 +1743,18 @@ body {
     font-family: arcade classic;
 }
 
+.dark .ghost .flyAlert {
+    color: white;
+}
+
 .ghost .alert {
     animation-name: alertText;
     animation-duration: .5s;
     animation-timing-function: linear;
+}
+
+.dark .ghost .alert {
+    animation-name: alertTextDark;
 }
 
 @keyframes alertText {
@@ -1591,6 +1776,28 @@ body {
 
     100% {
         color: black;
+    }
+}
+
+@keyframes alertTextDark {
+    0% {
+        color: White;
+    }
+
+    25% {
+        color: red;
+    }
+
+    50% {
+        color: white;
+    }
+
+    75% {
+        color: red;
+    }
+
+    100% {
+        color: white;
     }
 }
 
@@ -1644,6 +1851,11 @@ body {
     z-index: 999;
 }
 
+.dark .snapStyle {
+    background-color: #252525;
+    border: 1px solid #404040;
+}
+
 @keyframes appearSnap {
     0% {
         top: -40px;
@@ -1687,6 +1899,10 @@ body {
     border-radius: 4px;
 }
 
+.dark .snap50 {
+    border-color: #404040;
+}
+
 .snap25to50 {
     width: 84px;
     height: 122px;
@@ -1713,6 +1929,10 @@ body {
     border-radius: 4px;
 }
 
+.dark .snap25 {
+    border-color: #404040;
+}
+
 .snap25:hover {
     background-color: #0120a8;
 }
@@ -1727,6 +1947,10 @@ body {
     border-radius: 4px;
 }
 
+.dark .snapI50 {
+    border-color: #404040;
+}
+
 .snapI50:hover {
     background-color: #0120a8;
 }
@@ -1738,6 +1962,12 @@ body {
     animation-name: appearSnapMetro;
     background-color: rgba(235, 235, 235, 0.7);
     backdrop-filter: blur(40px);
+}
+
+.dark #mpHeader .snapStyle,
+.dark #ghostHeader .snapStyle,
+.dark #settingHeader .snapStyle {
+    background-color: rgba(25, 25, 25, 0.7);
 }
 
 @keyframes appearSnapMetro {
@@ -1775,6 +2005,11 @@ body {
     z-index: 999;
 }
 
+.dark .snapStyleMobile {
+    border-color: #404040;
+    background-color: #252525;
+}
+
 .snapStyleMobile .snapI50 {
     width: 98%;
     height: 48%;
@@ -1810,6 +2045,11 @@ body {
     backdrop-filter: blur(50px);
     overflow: hidden;
     transform: scale(0);
+}
+
+.dark .settings {
+    background-color: #191919aa;
+    color: white;
 }
 
 .settings .header {
@@ -1855,8 +2095,17 @@ body {
     background-color: transparent;
 }
 
+.dark .settings .settingsLeftBar .settingsBarButton,
+.dark .settings .settingsLeftBar .settingsBarButtonActive {
+    color: white;
+}
+
 .settings .settingsLeftBar .settingsBarButtonActive {
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .settings .settingsLeftBar .settingsBarButtonActive {
+    background-color: rgba(19, 19, 19, 0.5);
 }
 
 .settings .settingsLeftBar .settingsBarButtonActive::before {
@@ -1871,6 +2120,10 @@ body {
 
 .settings .settingsLeftBar .settingsBarButton:hover {
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark .settings .settingsLeftBar .settingsBarButton:hover {
+    background-color: rgba(19, 19, 19, 0.3);
 }
 
 .settingsPanel {
@@ -1954,6 +2207,10 @@ body {
     flex-direction: column;
 }
 
+.dark .settings .infosContainer {
+    background-color: #19191999;
+}
+
 .settings .infosContainer .infoHeader {
     width: 100%;
     height: 40px;
@@ -2000,6 +2257,10 @@ body {
     margin: 5px 0;
 }
 
+.dark .harmonySettings {
+    background-color: #19191977;
+}
+
 .harmonySettingsOptions {
     width: 99%;
     margin-right: 1%;
@@ -2013,6 +2274,10 @@ body {
     margin: 5px 0;
     overflow-x: auto;
     overflow-y: hidden;
+}
+
+.dark .harmonySettingsOptions {
+    background-color: #19191977;
 }
 
 .harmonySettingsOptions::-webkit-scrollbar {
@@ -2137,6 +2402,10 @@ body {
     background-image: url(../img/Backgrounds/img1.jpg);
 }
 
+.dark .settingsPersonalizeInfo .siteBack {
+    border-color: #777;
+}
+
 .settingsPersonalizeInfo .siteBack .charmsPreview {
     position: absolute;
     width: 20%;
@@ -2168,6 +2437,10 @@ body {
     bottom: 10px;
 }
 
+.dark .settingsPersonalizeInfo .siteBack .nappPreview {
+    background-color: #191919;
+}
+
 .nappPreview .nappHeader {
     width: 100%;
     height: 10px;
@@ -2179,6 +2452,10 @@ body {
     border-radius: 4px 4px 0 0;
 }
 
+.dark .nappPreview .nappHeader {
+    background-color: rgba(19, 19, 19, 0.3);
+}
+
 .settingsPersonalizeInfo .siteBack .mappPreview {
     width: 60px;
     height: 60px;
@@ -2188,6 +2465,10 @@ body {
     position: absolute;
     left: 80px;
     bottom: 10px;
+}
+
+.dark .settingsPersonalizeInfo .siteBack .mappPreview {
+    background-color: #191919aa;
 }
 
 .settingsPersonalizeInfo .siteBack .clockPreview {
@@ -2213,6 +2494,10 @@ body {
     border-radius: 8px;
 }
 
+.dark .twoOptDiv {
+    background-color: #35353599;
+}
+
 .txtOptDiv {
     display: flex;
     justify-content: center;
@@ -2231,6 +2516,12 @@ body {
     border: none;
     padding: 2px;
     background-color: #ccc;
+    padding: 0 10px;
+}
+
+.dark .twoOptDiv button {
+    background-color: #444;
+    color: white;
 }
 
 /*Início Responsividade*/
@@ -2363,6 +2654,11 @@ body {
         border-radius: 0;
         backdrop-filter: none;
         background-color: #cee8ff;
+    }
+
+    .dark .calc .header {
+        background-color: #4c575f;
+        border: none;
     }
 
     .music {

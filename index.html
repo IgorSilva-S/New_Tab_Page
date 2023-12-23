@@ -299,7 +299,7 @@
   <div class="chooseColor">
     <h1>Escolha a cor sólida</h1>
     <input type="color" name="" id="colorChoosed" />
-    <p style="color: black;">Cor do relógio:</p>
+    <p>Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
       <div class="blackClock"
         onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
@@ -309,7 +309,7 @@
     <div class="bottomPopup">
       <div class="leftPop">
         <input type="checkbox" name="" id="closeThis" checked />
-        <label for="closeThis" style="color: black">Fechar janela ao aplicar cor</label>
+        <label for="closeThis">Fechar janela ao aplicar cor</label>
       </div>
       <button onclick="applyColor()">Aplicar cor</button>
       <button onclick="closePop()">Cancelar</button>
@@ -321,7 +321,7 @@
     <h1>Escolha as cores que farão parte do gradiente</h1>
     <input type="color" name="" id="colorChoosed1" />
     <input type="color" name="" id="colorChoosed2" />
-    <p style="color: black;">Cor do relógio:</p>
+    <p>Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
       <div class="blackClock"
         onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
@@ -331,7 +331,7 @@
     <div class="bottomPopup">
       <div class="leftPop">
         <input type="checkbox" name="" id="closeThisGd" checked />
-        <label for="closeThisGd" style="color: black; width: 150px">Fechar janela ao criar o gradiente</label>
+        <label for="closeThisGd" style="width: 150px">Fechar janela ao criar o gradiente</label>
       </div>
       <button onclick="applyGradient()">Criar gradiente</button>
       <button onclick="closePop()">Cancelar</button>
@@ -349,7 +349,7 @@
       <input type="file" name="" id="imageToBckg" accept="image/*" class="imageInput">
       <div class="imagePreview" id="prevImg"></div>
     </div>
-    <p style="color: black;">Cor do relógio:</p>
+    <p>Cor do relógio:</p>
     <div class="alignAcessButtonsColors">
       <div class="blackClock"
         onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1)"></div>
@@ -425,7 +425,7 @@
         <img src="img/WindowIcons/Close.png" alt="" />
       </div>
     </div>
-    <div class="calculator__display" style="color: black">0</div>
+    <div class="calculator__display">0</div>
     <div class="calcKeys">
       <button class="key--operator" data-action="add">+</button>
       <button class="key--operator" data-action="subtract">-</button>
@@ -779,7 +779,7 @@
       <div class="settingsPanelCont">
         <div class="settingsPersonalizeInfo">
           <div class="siteBack" id="settingsBackgroundImage">
-            <div class="clockPreview">
+            <div class="clockPreview" id="settingsClockPrev">
               12:00
             </div>
             <div class="nappPreview">
@@ -801,6 +801,7 @@
             Transparência: Ativado em todo o site;<br>
             Blur: Ativado em todo o site;<br>
             Cor do Relógio: Branco;<br>
+            Tema do site: Claro;<br>
             Fundo do Relógio: Desabilitado.
           </div>
         </div>
@@ -822,7 +823,8 @@
             ondblclick="selectColorGradient(), forceAppearPopup()"></div>
           <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
         </div>
-        Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção
+        Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção<br>
+        Pode ser um pouco complicado no momento de usar imagens escolhidas.
         <div class="harmonySettings">
           <label for="">Transparência:</label>
           <select name="" id="">
@@ -847,12 +849,12 @@
           </div>
         </div>
         <div class="harmonySettings">
-          <label for="">Fundo no relógio</label>
-          <input type="checkbox" name="" id="">
+          <label for="settingsClockBckg">Fundo no relógio</label>
+          <input type="checkbox" name="settingsClockBckg" id="settingsClockBckg">
         </div>
         <div class="harmonySettings">
-          <label for="">Tema Escuro</label>
-          <input type="checkbox" name="" id="">
+          <label for="changeColorStyle">Tema Escuro</label>
+          <input type="checkbox" name="changeColorStyle" id="changeColorStyle" onchange="changeWebSiteTheme()">
         </div>
       </div>
     </div>

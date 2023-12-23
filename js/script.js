@@ -29,6 +29,8 @@ let EnStyle = document.getElementById('enUsVersion');
 let ghostRunning = false
 let SettingMax = false
 let settingLocked = false
+let settingPersonBackground = document.getElementById("settingsBackgroundImage")
+let settClock = document.getElementById("settingsClockPrev")
 
 //Charms functions 
 
@@ -179,6 +181,12 @@ if (helped == 1) {
 let autoPin = localStorage.getItem('pinned')
 if (autoPin == 1) {
   un_pin()
+}
+
+let themeChanger = localStorage.getItem('darkTheme')
+if (themeChanger == "yes") {
+  document.getElementById('changeColorStyle').checked = true
+  changeWebSiteTheme()
 }
 
 
@@ -457,32 +465,44 @@ function userImage() {
 function applyimg() {
   if (image == 1) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/img1.jpg)'
   } else if (image == 2) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/img2.jpg)'
   } else if (image == 3) {
     document.body.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
+    settingPersonBackground.style.backgroundImage = 'linear-gradient(to bottom right, #0632ff, #8706d4)'
   } else if (image == 4) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img4.jpg)'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/img4.jpg)'
   } else if (image == 5) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/img5.jpg)'
   } else if (image == 6) {
     document.body.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/img6.jpg)'
   } else if (image == 7) {
     red = Math.random() * 255
     green = Math.random() * 255
     blue = Math.random() * 255
     document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
     document.body.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+    settingPersonBackground.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`
     if (red >= 200 || blue >= 200 || green >= 200) {
       document.querySelector('.time').style.color = "#191919"
+      settClock.style.color = "#191919"
     } else {
       document.querySelector('.time').removeAttribute('style')
+      settClock.removeAttribute('style')
     }
   } else if (image == 8) {
     let coloring = localStorage.getItem('colorChoosed')
     if (coloring != null) {
       document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
       document.body.style.backgroundColor = coloring
+      settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+      settingPersonBackground.style.backgroundColor = coloring
 
     } else {
       document.querySelector('.chooseColor').style.transform = 'scale(1)'
@@ -499,10 +519,12 @@ function applyimg() {
 
     document.body.style.backgroundImage = `linear-gradient(to bottom right, rgb(${red}, ${green}, ${blue}), rgb(${red2}, ${green2}, ${blue2}))`
     document.body.style.color = 'white'
+    settingPersonBackground.style.backgroundImage = `linear-gradient(to bottom right, rgb(${red}, ${green}, ${blue}), rgb(${red2}, ${green2}, ${blue2}))`
   } else if (image == 10) {
     let gradienting = localStorage.getItem('gradientChoosed')
     if (gradienting != null) {
       document.body.style.backgroundImage = gradienting
+      settingPersonBackground.style.backgroundImage = gradienting
       document.body.style.backgroundColor = 'white'
     } else {
       document.querySelector('.chooseGradient').style.transform = 'scale(1)'
@@ -673,6 +695,8 @@ function applyColor() {
   let color = document.getElementById('colorChoosed').value
   document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
   document.body.style.backgroundColor = color
+  settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+  settingPersonBackground.style.backgroundColor = color
   localStorage.setItem('colorChoosed', color)
   let closeInp = document.getElementById('closeThis')
   if (closeInp.checked) {
@@ -685,6 +709,8 @@ function applyGradient() {
   let col2 = document.getElementById('colorChoosed2').value
   document.body.style.backgroundImage = `linear-gradient(to bottom right, ${col1}, ${col2})`
   document.body.style.color = 'white'
+  settingPersonBackground.style.backgroundImage = `linear-gradient(to bottom right, ${col1}, ${col2})`
+  settingPersonBackground.style.color = 'white'
   localStorage.setItem('gradientChoosed', `linear-gradient(to bottom right, ${col1}, ${col2})`)
   let closeInp = document.getElementById('closeThisGd')
   if (closeInp.checked) {
@@ -709,8 +735,11 @@ function applyImageFile() {
   var reader = new FileReader
   reader.addEventListener('load', function () {
     document.body.style.backgroundImage = `url(${reader.result})`
+    settingPersonBackground.style.backgroundImage = `url(${reader.result})`
+    console.log(reader.result)
   });
   reader.readAsDataURL(imageFile.files[0]);
+
 }
 
 function max_min_np() {
@@ -1295,4 +1324,14 @@ function max_min_Sett() {
   setTimeout(() => {
     app.style.transitionDuration = '0s'
   }, 1);
+}
+
+function changeWebSiteTheme() {
+  if (document.body.className == "dark") {
+    document.body.removeAttribute('class')
+    localStorage.setItem("darkTheme", "no")
+  } else {
+    document.body.className = "dark"
+    localStorage.setItem("darkTheme", "yes")
+  }
 }
