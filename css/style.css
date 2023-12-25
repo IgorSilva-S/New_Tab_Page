@@ -712,6 +712,10 @@ body {
     left: calc((8% + 8% + 12% + 10px) + 20px);
 }
 
+.settingsHide {
+    left: calc((8% + 8% + 12% + 8% + 10px) + 30px);
+}
+
 .calc {
     width: var(--widthCalc);
     height: var(--heightCalc);
@@ -1648,9 +1652,6 @@ body {
     background-size: cover;
 }
 
-.dark #crystal {
-    opacity: .7;
-}
 
 @keyframes cactus-block {
     0% {
@@ -2474,10 +2475,11 @@ body {
 .settingsPersonalizeInfo .siteBack .clockPreview {
     position: absolute;
     color: white;
-    width: 120px;
     left: calc(50% - 20px);
     top: 30px;
     font-weight: 500;
+    padding: 5px;
+    border-radius: 4px;
 }
 
 .settingsPersonalizeInfo span {
@@ -2522,6 +2524,129 @@ body {
 .dark .twoOptDiv button {
     background-color: #444;
     color: white;
+}
+
+.settingsPanel input[type=text],
+.settingsPanel input[type=password] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    transition-duration: .1s;
+}
+
+.settingsPanel input[type=text]:focus,
+.settingsPanel input[type=password]:focus {
+    border-bottom: 5px solid #0632ff;
+    border-color: #0632ff;
+    outline: none;
+}
+
+.dark .settingsPanel input[type=text],
+.dark .settingsPanel input[type=password] {
+    border-color: #555;
+    background-color: #252525;
+    color: white;
+}
+
+.dark .settingsPanel input[type=text]:focus,
+.dark .settingsPanel input[type=password]:focus {
+    border-bottom: 5px solid #0632ff;
+    border-color: #0632ff;
+}
+
+.settingsPanel button,
+.settingsPanel a {
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    padding: 5px;
+    transition-duration: .2s;
+    color: black;
+    text-decoration: none;
+}
+
+.settingsPanel button:hover,
+.settingsPanel a:hover {
+    background-color: #fff;
+}
+
+.dark .settingsPanel button,
+.dark .settingsPanel a {
+    border-color: #252525;
+    background-color: #202020;
+    color: white;
+    text-decoration: none;
+}
+
+.dark .settingsPanel button:hover,
+.dark .settingsPanel a:hover {
+    background-color: #252525;
+}
+
+.nTaskB {
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    transition-duration: .2s;
+}
+
+.winTaskB {
+    width: 100%;
+    height: 47px;
+    position: fixed;
+    bottom: -50px;
+    background-color: #f0f0f0aa;
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-duration: .2s;
+    z-index: 998;
+}
+
+.winTaskB .appIcons {
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+    background-position: center;
+    background-size: 80%;
+    border-radius: 4px;
+    transition-duration: .2s;
+    padding: 3px;
+    background-repeat: no-repeat;
+}
+
+.winTaskB .appIcons:active {
+    background-size: 50%;
+}
+
+.winTaskB .appIcons:hover {
+    background-color: #f0f0f022;
+}
+
+.winTaskB .npIcon {
+    background-image: url(../IMG/AppsIcons/np.png);
+}
+
+.winTaskB .calcIcon {
+    background-image: url(../IMG/AppsIcons/calc.png);
+}
+
+.winTaskB .mpIcon {
+    background-image: url(../IMG/AppsIcons/mp.png);
+}
+
+.winTaskB .ghostIcon {
+    background-image: url(../IMG/AppsIcons/ghost.png);
+}
+
+.winTaskB .settingIcon {
+    background-image: url(../IMG/AppsIcons/setting.png);
+}
+
+.dark .winTaskB {
+    background-color: #191919aa;
 }
 
 /*Início Responsividade*/

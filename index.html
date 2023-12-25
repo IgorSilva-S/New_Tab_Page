@@ -15,7 +15,10 @@
   </div>
   <!--Hora, dia e cumprimento-->
   <div class="time">
-    <div id="hour">00:00</div>
+    <div style="display: flex;">
+      <div id="hour">00:00</div>
+      <div id="dayCycle" style="display: none;">AM</div>
+    </div>
     <div id="day">Segunda, 01 de janeiro de 1970</div>
     <p id="userinfos"></p>
   </div>
@@ -44,7 +47,8 @@
     <div class="charmsicons useri" onclick="user()"></div>
     <div class="charmsicons reci" onclick="recomendations()" style="display: none"></div>
     <div class="charmsicons appsi" onclick="apps()"></div>
-    <div class="charmsicons settingsi" onclick="setting()"></div>
+    <div class="charmsicons settingsi" id="quickSetting" onclick="setting()"></div>
+    <div class="charmsicons settingsi" id="nSetting" onclick="appear_setting(), bts()" style="display: none"></div>
     <div class="charmsicons reseti" onclick="reset()"></div>
     <div class="pincharms notPinned" onclick="un_pin()" id="pinIcon"></div>
   </div>
@@ -74,7 +78,7 @@
     Insira um nome de usuário<br />
     Esse nome ficará visível na tela principal e na tela de bloqueio<br />
     <input type="text" name="" id="usern" placeholder="Nome de usuário" /><br />
-    <button onclick="saveName()">Salvar nome</button><br />
+    <button onclick="saveName('byCharms')">Salvar nome</button><br />
     <label for="gen">Gênero</label><br />
     <input type="radio" name="gen" id="mas" onchange="mascheck()" /> Masculino<br />
     <input type="radio" name="gen" id="fem" onchange="femcheck()" /> Feminino<br />
@@ -113,14 +117,14 @@
     Selecione sua imagem de fundo<br />
     <button onclick="applyimg()" id="buttontoApply" ondblclick="forceAppearPopup()">Aplicar</button><br />
     Caso já tenha feito um gradiente ou escolhido a cor sólida, aperte duas vezes no botão para abrir o popup<br><br>
-    <p>
+    <!--<p>
       Aviso: Ao checar as caixas, as informações da charms fechará, isso
       inclui as configurações
     </p>
     <label for="transpEffect">Efeito de transparência</label>
     <input type="checkbox" name="transpEffect" id="transpToggle" checked onchange="transpEffect()" /><br />
     <label for="blurEffect">Efeito de blur</label>
-    <input type="checkbox" name="blurEffect" id="blurToggle" checked onchange="blurEffect()" />
+    <input type="checkbox" name="blurEffect" id="blurToggle" checked onchange="blurEffect()" />-->
     <p>
       Na tela de bloqueio, ao desativar o blur, ela fica sem transparência,
       para evitar que dados sejam expostos.
@@ -204,27 +208,29 @@
       <div class="linkc">Site do IFSP - Caraguatatuba</div>
     </a>
 
-    <h2>Jogos Online</h2>
+    <div id="recGames">
+      <h2>Jogos Online</h2>
 
-    <a href="https://krunker.io" class="links" target="_blank">
-      <div class="linkc">Krunker</div>
-    </a>
+      <a href="https://krunker.io" class="links" target="_blank">
+        <div class="linkc">Krunker</div>
+      </a>
 
-    <a href="https://chess.com" class="links" target="_blank">
-      <div class="linkc">Chess</div>
-    </a>
+      <a href="https://chess.com" class="links" target="_blank">
+        <div class="linkc">Chess</div>
+      </a>
 
-    <a href="https://tetr.io" class="links" target="_blank">
-      <div class="linkc">Tetr.io</div>
-    </a>
+      <a href="https://tetr.io" class="links" target="_blank">
+        <div class="linkc">Tetr.io</div>
+      </a>
 
-    <a href="https://roblox.com" class="links" target="_blank">
-      <div class="linkc">Roblox</div>
-    </a>
+      <a href="https://roblox.com" class="links" target="_blank">
+        <div class="linkc">Roblox</div>
+      </a>
 
-    <a href="https://friv.com" class="links" target="_blank">
-      <div class="linkc">Friv</div>
-    </a>
+      <a href="https://friv.com" class="links" target="_blank">
+        <div class="linkc">Friv</div>
+      </a>
+    </div>
 
     <h2>Trabalhos</h2>
 
@@ -268,7 +274,7 @@
       ondblclick="bts()">
       Reprodutor de música
     </div>
-    <div class="linkc" onclick="openGhost(), focusGh()" ondblclick="bts()">
+    <div class="linkc" id="ghCharms" onclick="openGhost(), focusGh()" ondblclick="bts()">
       Ghost
     </div>
     <div class="linkc"
@@ -284,7 +290,7 @@
       <button onclick="resetNotepad()">Bloco de notas</button>
       <button onclick="resetCalc()">Calculadora</button>
       <button onclick="resetMusPlay()">Reprodutor de música</button>
-      <button onclick="resetGhost()">Ghost</button>
+      <button onclick="resetGhost()" id="ghButton">Ghost</button>
     </div>
     <div class="makeSnap">
       <h2>Faça mais com o Snap!</h2>
@@ -595,7 +601,7 @@
   </div>
 
   <!--Configurações do site-->
-  <div class="settings" id="settingApp" onclick="focusSet()">
+  <div class="settings" id="settingApp" onclick="focusSet()" style="transform: scale(1);">
     <div class="header" id="settingHeader">
       <div class="appButtons home" id="settingHomeButton" onclick="settingsGoTo(id)" style="display: none;">
         
@@ -661,7 +667,7 @@
     <div class="settingsPanel" id="settingsHome" style="display: block;">
       <div class="settingsPanelHeader">
         Início
-        <div class="alertLock">
+        <div class="alertLock" onclick="unlockSettings()">
           Config. Bloqueada, clique para desbloquear
         </div>
       </div>
@@ -674,8 +680,6 @@
             Site
           </div>
           Config. Protegida por senha: <span>Não</span><br><br>
-          Icones da Charms habilitados: <span>Bloqueio, Usuário, Apps, Config. Rápidas e Reiniciar</span><br><br>
-          Icones da Charms não habilitados: <span>Recomendações</span><br><br>
           Charms: Jogos habilitados: <span>Sim</span><br><br>
           Formato do relógio: <span>24 Horas</span><br>
         </div>
@@ -685,8 +689,8 @@
           </div>
           Papel de parede do Site: <span>Por do Sol</span><br><br>
           Tema: <span>Claro</span><br><br>
-          Transparência: <span>Ativiada em todo o site</span><br><br>
-          Blur: <span>Ativado em todo o site</span><br><br>
+          Transparência: <span>Ativiada</span><br><br>
+          Blur: <span>Ativado</span><br><br>
           Cor do relógio: <span>Branco</span><br><br>
           Fundo do relógio: <span>Desativado</span><br>
         </div>
@@ -713,7 +717,7 @@
           </div>
           Idioma de preferência: <span>Português do Brasil</span><br><br>
           Última vez que os dados foram limpos: <span>01/01/1970</span><br><br>
-          Modo de Site de preferência: <span>Normal</span>
+          Modo de Site de preferência: <span>Normal</span><br>
         </div>
       </div>
     </div>
@@ -729,22 +733,28 @@
             Altere as seções da Charms:
           </div>
           <div class="harmonySettings harmonyTop">
-            <label for="">Bloqueio:</label> <input type="checkbox" name="" id="" checked>
+            <label for="lockSection1">Bloqueio:</label> <input type="checkbox" name="" id="lockSection1" checked
+              onchange="lockDisable()">
           </div>
           <div class="harmonySettings">
-            <label for="">Usuário:</label> <input type="checkbox" name="" id="" checked>
+            <label for="lockSection2">Usuário:</label> <input type="checkbox" name="" id="lockSection2" checked
+              onchange="userDisable()">
           </div>
           <div class="harmonySettings">
-            <label for="">Recomendações:</label> <input type="checkbox" name="" id="" onchange="recomendationsEnable()">
+            <label for="lockSection3">Recomendações:</label> <input type="checkbox" name="" id="lockSection3"
+              onchange="recomendationsEnable()">
           </div>
           <div class="harmonySettings">
-            <label for="">Apps:</label> <input type="checkbox" name="" id="" checked onchange="appsDisable()">
+            <label for="lockSection4">Apps:</label> <input type="checkbox" name="" id="lockSection4" checked
+              onchange="appsDisable()">
           </div>
           <div class="harmonySettings">
-            <label for="">Config. Rápidas*:</label> <input type="checkbox" name="" id="" checked>
+            <label for="lockSection5">Config. Rápidas*:</label> <input type="checkbox" name="" id="lockSection5" checked
+              onchange="quickSettingsDisable()">
           </div>
           <div class="harmonySettings harmonyBottom">
-            <label for="">Reiniciar:</label> <input type="checkbox" name="" id="" checked>
+            <label for="lockSection6">Reiniciar:</label> <input type="checkbox" name="" id="lockSection6" checked
+              onchange="resetDisable()">
           </div>
           *: Ao desabilitar, o botão abrirá o App Config.
         </div><br>
@@ -752,20 +762,20 @@
           Altere algumas configurações:
         </div>
         <div class="harmonySettings">
-          <label for="">Abrir pesquisas em nova aba</label>
-          <input type="checkbox" name="" id="" checked>
+          <label for="settingsOINT">Abrir pesquisas em nova aba</label>
+          <input type="checkbox" name="" id="settingsOINT" checked onchange="un_tab()">
         </div>
         <div class="harmonySettings">
-          <label for="">Habilitar jogos internos e jogos externos nas recomendações</label>
-          <input type="checkbox" name="" id="" checked>
+          <label for="enableGames">Habilitar jogos internos e jogos externos nas recomendações</label>
+          <input type="checkbox" name="" id="enableGames" checked onchange="enableGames()">
         </div>
         <div class="harmonySettings">
-          <label for="">Formato de hora AM/PM</label>
-          <input type="checkbox" name="" id="">
+          <label for="hourForm">Formato de hora AM/PM</label>
+          <input type="checkbox" name="" id="hourForm" onchange="dayCycle()">
         </div>
         <div class="harmonySettings">
           Inserir senha nas Configurações
-          <button>Iniciar</button>
+          <button onclick="passwordToSettings()">Iniciar</button>
         </div>
       </div>
     </div>
@@ -798,8 +808,8 @@
           <div class="contentPerson">
             <span>Aparência geral do Site:</span><br><br>
             Papel de parede: Por do Sol;<br>
-            Transparência: Ativado em todo o site;<br>
-            Blur: Ativado em todo o site;<br>
+            <!--Transparência: Ativada;<br>
+            Blur: Ativado;<br>-->
             Cor do Relógio: Branco;<br>
             Tema do site: Claro;<br>
             Fundo do Relógio: Desabilitado.
@@ -821,40 +831,44 @@
           <div class="harmonyOption" id="bopt9" onclick="colorGradient(), applyimg()"></div>
           <div class="harmonyOption" id="bopt10" onclick="selectColorGradient(), applyimg()"
             ondblclick="selectColorGradient(), forceAppearPopup()"></div>
-          <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"></div>
+          <div class="harmonyOption" id="bopt11" onclick="userImage(), applyimg()"
+            ondblclick="userImage(), forceAppearPopup()"></div>
         </div>
         Caso não consiga escolher a(s) cor(es), tente clicar duas vezes na opção<br>
-        Pode ser um pouco complicado no momento de usar imagens escolhidas.
-        <div class="harmonySettings">
+        Se ao voltar para o site, a imagem escolhida não esteja salva, tente salvar uma imagem menor.
+        <!--<div class="harmonySettings">
           <label for="">Transparência:</label>
-          <select name="" id="">
-            <option value="Act1">Ativada em todo o site</option>
-            <option value="Act2">Desativada na Charms e tela de bloqueio</option>
-            <option value="Des">Desativada em todo o site</option>
-          </select>
+          <input type="checkbox" name="" id="" checked>
         </div>
         <div class="harmonySettings">
           <label for="">Blur:</label>
-          <select name="" id="">
-            <option value="Act1">Ativado em todo o site</option>
-            <option value="Act2">Desativado na Charms e tela de bloqueio</option>
-            <option value="Des">Desativado em todo o site</option>
-          </select>
+          <input type="checkbox" name="" id="" checked>
         </div>
+        Aviso: A transparência e blur se aplica apenas na Charms e na tela de bloqueio, não se aplica em outras áreas do site.-->
         <div class="harmonySettings">
           Cor do relógio:
           <div class="twoOptDiv">
-            <button style="background-color: white;"></button>
-            <button style="background-color: black;"></button>
+            <button style="background-color: white;"
+              onclick="document.querySelector('.time').style.color = '#ffffff', localStorage.setItem('watchColor', 0),  settClock.style.color = '#ffffff'"></button>
+            <button style="background-color: black;"
+              onclick="document.querySelector('.time').style.color = '#191919', localStorage.setItem('watchColor', 1),  settClock.style.color = '#191919'"></button>
           </div>
         </div>
         <div class="harmonySettings">
           <label for="settingsClockBckg">Fundo no relógio</label>
-          <input type="checkbox" name="settingsClockBckg" id="settingsClockBckg">
+          <input type="checkbox" name="settingsClockBckg" id="settingsClockBckg" onchange="clockBckg()">
         </div>
         <div class="harmonySettings">
           <label for="changeColorStyle">Tema Escuro</label>
           <input type="checkbox" name="changeColorStyle" id="changeColorStyle" onchange="changeWebSiteTheme()">
+        </div>
+        <div class="harmonySettings">
+          <label for="changeTB">Barra de tarefas estilo Windows</label>
+          <input type="checkbox" name="" id="changeTB" onchange="pickTB()">
+        </div>
+        <div class="harmonySettings">
+          <label for="iconsAlign">Barra de tarefas Windows: Icones Centralizados</label>
+          <input type="checkbox" name="" id="iconsAlign" checked onchange="pickAlign()">
         </div>
       </div>
     </div>
@@ -863,29 +877,29 @@
     <div class="settingsPanel" id="settingsUser">
       <div class="settingsPanelHeader">
         Usuário
-        <span>User</span>
+        <span id="settingsUserName">Seu nome de usuário aparecerá aqui</span>
       </div><br>
       <div class="settingsPanelContent">
         <div class="harmonySettings">
           Alterar nome de usuário:
           <div class="txtOptDiv">
-            <input type="text">
-            <button>Alterar</button>
+            <input type="text" id="usernSetting">
+            <button onclick="saveName('bySettings'), userinfos()">Alterar</button>
           </div>
         </div>
         <div class="harmonySettings">
           Senha de usuário:
           <div class="txtOptDiv">
-            <input type="text">
+            <input type="password">
             <button>Alterar</button>
           </div>
         </div>
         <div class="harmonySettings">
-          <label for="">Gênero:</label>
-          <select name="" id="">
+          <label for="settingsGen">Gênero:</label>
+          <select name="" id="settingsGen" onchange="genere(), userinfos()">
             <option value="g1">Masculino</option>
-            <option value="g1">Feminino</option>
-            <option value="g1">Prefiro não dizer</option>
+            <option value="g2">Feminino</option>
+            <option value="g3">Prefiro não dizer</option>
           </select>
         </div>
         <div class="harmonySettings">
@@ -934,7 +948,7 @@
     <div class="settingsPanel" id="settingsReset">
       <div class="settingsPanelHeader">
         Reiniciar
-      </div>
+      </div><br>
       <div class="settingsPanelContent">
         <div class="harmonySettings">
           <label for="">Abrir sempre no modo simples</label>
@@ -948,6 +962,10 @@
           </div>
         </div>
         <div class="harmonySettings">
+          Trocar o idioma
+          <a href="enUsNormal.html">Trocar</a>
+        </div>
+        <div class="harmonySettings">
           Limpar dados do site (A data da limpeza será salva)
           <button>Limpar</button>
         </div>
@@ -959,11 +977,11 @@
     <div class="settingsPanel" id="settingsAbout">
       <div class="settingsPanelHeader">
         Sobre
-      </div>
+      </div><br>
       <div class="settingsPanelContent">
         <div class="harmonySettings">
           Versão do Site: D 1.1
-          <button>Verifique no GitHub novas versões</button>
+         <a href="https://github.com/IgorSilva-S/New_Tab_Screen/releases" target="_blank">Verifique novas versões no GitHub</a>
         </div>
         <div class="harmonySettings">
           Última correção de bugs: 22 de dezembro de 2023
@@ -1005,18 +1023,33 @@
     <div class="lines"></div>
   </div>
 
-  <!--Quando minúsculo-->
-  <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
-    Bloco de Notas
+  <!--Quando minúsculo: Normal-->
+  <div class="nTaskB" id="nTB">
+    <div class="appHided notepadHide" onclick="appear_np()" id="npHided">
+      Bloco de Notas
+    </div>
+    <div class="appHided calcHide" onclick="appear_cl()" id="clHided">
+      Calculadora
+    </div>
+    <div class="appHided mpHide" onclick="appear_mp()" id="mpHided">
+      Reprodutor de música
+    </div>
+    <div class="appHided ghostHide" onclick="appear_ghost()" id="ghostHided">
+      Ghost
+    </div>
+
+    <div class="appHided settingsHide" id="settingHided" onclick="appear_setting()">
+      Configurações
+    </div>
   </div>
-  <div class="appHided calcHide" onclick="appear_cl()" id="clHided">
-    Calculadora
-  </div>
-  <div class="appHided mpHide" onclick="appear_mp()" id="mpHided">
-    Reprodutor de música
-  </div>
-  <div class="appHided ghostHide" onclick="appear_ghost()" id="ghostHided">
-    Ghost
+
+  <!--Quando minúsculo: Estilo Windows-->
+  <div class="winTaskB" id="wTB">
+    <div class="appIcons npIcon" onclick="appear_np(), focusNp()"></div>
+    <div class="appIcons calcIcon" onclick="appear_cl(), focusCalc()"></div>
+    <div class="appIcons mpIcon" onclick="appear_mp(), focusMp()"></div>
+    <div class="appIcons ghostIcon" id="ghTB" onclick="appear_ghost(), focusGh()"></div>
+    <div class="appIcons settingIcon" onclick="appear_setting(), focusSet()"></div>
   </div>
 
   <!--Tela de bloqueio-->

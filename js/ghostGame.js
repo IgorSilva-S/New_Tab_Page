@@ -37,8 +37,7 @@ setInterval(() => {
         }
         crystal.addEventListener('animationiteration', function () {
             if (bScore % 100 == 0 && bScore != 0) {
-                normalTime = normalTime - 0.05
-                cloudsTime = cloudsTime - 0.05
+
                 crystal.style.animationDuration = `${normalTime}s`
                 soil.style.animationDuration = `${normalTime}s`
                 clouds.style.animationDuration = `${cloudsTime}s`
@@ -49,6 +48,8 @@ setInterval(() => {
             if (waitForTime) {
                 setTimeout(() => {
                     crystal.removeAttribute('style')
+                    normalTime = normalTime - 0.05
+                    cloudsTime = cloudsTime - 0.05
                 }, 100);
             }
         })

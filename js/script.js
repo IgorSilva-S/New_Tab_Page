@@ -10,6 +10,10 @@ let newTabOpen = true
 let tabToggle = document.getElementById('tabToggle');
 let recomendationEnabled = false
 let appsEnabled = true
+let lockEnabled = true
+let userEnabled = true
+let quickSettingsEnabled = true
+let resetEnabled = true
 let red, green, blue
 let NpMax = false
 let MpMax = false
@@ -28,9 +32,18 @@ let clockChecker = document.getElementById('clockBckg');
 let EnStyle = document.getElementById('enUsVersion');
 let ghostRunning = false
 let SettingMax = false
-let settingLocked = false
 let settingPersonBackground = document.getElementById("settingsBackgroundImage")
 let settClock = document.getElementById("settingsClockPrev")
+let CusImg = localStorage.getItem("CustomImage")
+let sClockChecker = document.getElementById('settingsClockBckg');
+let sTabToggle = document.getElementById('settingsOINT');
+let gamesChecker = document.getElementById('enableGames')
+let cycle = document.getElementById('dayCycle')
+let clockAMPM = false
+let settingPassword
+let settingLocked = false
+let settingAccessAllow = true
+let winTB = false
 
 //Charms functions 
 
@@ -44,6 +57,17 @@ let charmsapps = document.getElementById('appsinfo')
 setInterval(() => {
   const d = new Date
   let hour = d.getHours()
+  if (hour >= 12) {
+    cycle.innerText = 'PM'
+  } else {
+    cycle, innerText = 'AM'
+  }
+  if (clockAMPM) {
+    if (hour >= 13) {
+      hour = hour - 12
+    }
+  }
+
   let minute = d.getMinutes()
   const zero = n => {
     return ('0' + n).slice(-2)
@@ -152,43 +176,60 @@ setInterval(() => {
 image = localStorage.getItem('background')
 applyimg()
 
-let watchC = localStorage.getItem('watchColor')
-if (watchC == 1) {
-  document.querySelector('.time').style.color = '#191919'
-} else {
-  document.querySelector('.time').style.color = '#ffffff'
+function checkAll() {
+  let watchC = localStorage.getItem('watchColor')
+  if (watchC == 1) {
+    document.querySelector('.time').style.color = '#191919'
+    settClock.style.color = '#191919'
+  } else {
+    document.querySelector('.time').style.color = '#ffffff'
+    settClock.style.color = '#ffffff'
+  }
+
+  let watchBckg = localStorage.getItem('watchBackg')
+  if (watchBckg == 1) {
+    clockChecker.checked = true
+    sClockChecker.checked = true
+    clockBckg()
+  }
+
+  userinfos()
+
+  let recomendEnabled = localStorage.getItem('recomendationActive')
+  if (recomendEnabled == 1) {
+    document.getElementById('enableRecomendations').checked = true
+    recomendationsEnable()
+  }
+
+  let helped = localStorage.getItem('helped')
+  if (helped == 1) {
+    hideHelp()
+  }
+
+  let autoPin = localStorage.getItem('pinned')
+  if (autoPin == 1) {
+    un_pin()
+  }
+
+  let themeChanger = localStorage.getItem('darkTheme')
+  if (themeChanger == "yes") {
+    document.getElementById('changeColorStyle').checked = true
+    changeWebSiteTheme()
+  }
+
+  let clockType = localStorage.getItem('cAP')
+  if (clockType == 1) {
+    document.getElementById('hourForm').checked = true
+    dayCycle()
+  }
+
+  let checkSetting = localStorage.getItem('sLocked') 
+  if (checkSetting == 1) {
+    autoLockSetting()
+  }
 }
 
-let watchBckg = localStorage.getItem('watchBackg')
-if (watchBckg == 1) {
-  clockChecker.checked = true
-  clockBckg()
-}
-
-userinfos()
-
-let recomendEnabled = localStorage.getItem('recomendationActive')
-if (recomendEnabled == 1) {
-  document.getElementById('enableRecomendations').checked = true
-  recomendationsEnable()
-}
-
-let helped = localStorage.getItem('helped')
-if (helped == 1) {
-  hideHelp()
-}
-
-let autoPin = localStorage.getItem('pinned')
-if (autoPin == 1) {
-  un_pin()
-}
-
-let themeChanger = localStorage.getItem('darkTheme')
-if (themeChanger == "yes") {
-  document.getElementById('changeColorStyle').checked = true
-  changeWebSiteTheme()
-}
-
+checkAll()
 
 function changeEngine() {
   if (!enginechanged) {
@@ -316,8 +357,17 @@ function userinfos() {
   }
 }
 
-function saveName() {
-  let name = document.getElementById('usern').value
+function saveName(whoComes) {
+  let name
+  if (whoComes == 'bySettings') {
+    name = document.getElementById('usernSetting').value
+    document.getElementById('usern').value = name
+  }
+  if (whoComes == 'byCharms') {
+    name = document.getElementById('usern').value
+    document.getElementById('usernSetting').value = name
+  }
+  document.getElementById('settingsUserName').innerText = name
   localStorage.setItem("username", name)
 }
 
@@ -530,7 +580,14 @@ function applyimg() {
       document.querySelector('.chooseGradient').style.transform = 'scale(1)'
     }
   } else if (image == 11) {
-    document.querySelector('.chooseImage').style.transform = 'scale(1)'
+    setTimeout(() => {
+      if (CusImg != null) {
+        document.body.style.backgroundImage = `url(${CusImg})`
+        settingPersonBackground.style.backgroundImage = `url(${CusImg})`
+      } else {
+        document.querySelector('.chooseImage').style.transform = 'scale(1)'
+      }
+    }, 1);
   }
 }
 
@@ -656,7 +713,7 @@ function blurEffect() {
 }
 
 function un_tab() {
-  if (!tabToggle.checked) {
+  if (!tabToggle.checked || !sTabToggle.checked) {
     newTabOpen = false
   } else {
     newTabOpen = true
@@ -684,6 +741,49 @@ function appsDisable() {
     appsEnabled = true
   }
 }
+
+function lockDisable() {
+  if (lockEnabled) {
+    document.querySelector('.locki').style.display = "none"
+    lockEnabled = false
+  } else {
+    document.querySelector(".locki").style.display = "block";
+    lockEnabled = true
+  }
+}
+
+function userDisable() {
+  if (userEnabled) {
+    document.querySelector('.useri').style.display = "none"
+    userEnabled = false
+  } else {
+    document.querySelector(".useri").style.display = "block";
+    userEnabled = true
+  }
+}
+
+function quickSettingsDisable() {
+  if (quickSettingsEnabled) {
+    document.getElementById('quickSetting').style.display = "none"
+    document.getElementById('nSetting').style.display = "block";
+    quickSettingsEnabled = false
+  } else {
+    document.getElementById('quickSetting').style.display = "block"
+    document.getElementById('nSetting').style.display = "none";
+    quickSettingsEnabled = true
+  }
+}
+
+function resetDisable() {
+  if (resetEnabled) {
+    document.querySelector('.reseti').style.display = "none"
+    resetEnabled = false
+  } else {
+    document.querySelector(".reseti").style.display = "block";
+    resetEnabled = true
+  }
+}
+
 
 function closePop() {
   document.querySelector('.chooseColor').removeAttribute('style')
@@ -736,7 +836,8 @@ function applyImageFile() {
   reader.addEventListener('load', function () {
     document.body.style.backgroundImage = `url(${reader.result})`
     settingPersonBackground.style.backgroundImage = `url(${reader.result})`
-    console.log(reader.result)
+    localStorage.removeItem("CustomImage")
+    localStorage.setItem("CustomImage", reader.result)
   });
   reader.readAsDataURL(imageFile.files[0]);
 
@@ -755,7 +856,11 @@ function max_min_np() {
     } else {
       app.style.width = 'calc(100vw - 15%)'
     }
-    app.style.height = 'calc(100vh - 40px)'
+    if (!winTB) {
+      app.style.height = 'calc(100vh - 40px)'
+    } else {
+      app.style.height = 'calc(100vh - 87px)'
+    }
     NpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
@@ -818,6 +923,12 @@ function appear_ghost() {
   }
 }
 
+function appear_setting() {
+  document.getElementById('settingApp').style.transform = 'scale(1)'
+  document.getElementById('settingHided').removeAttribute('style')
+}
+
+
 function hideGhost() {
   document.getElementById('ghostApp').style.display = 'none'
   document.getElementById('ghostHided').style.display = 'flex'
@@ -845,8 +956,11 @@ function max_min_Mp() {
 
     } else {
       app.style.width = 'calc(100vw - 15%)'
+    } if (!winTB) {
+      app.style.height = 'calc(100vh - 40px)'
+    } else {
+      app.style.height = 'calc(100vh - 87px)'
     }
-    app.style.height = 'calc(100vh - 40px)'
     MpMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
@@ -892,8 +1006,11 @@ function max_min_ghost() {
 
     } else {
       app.style.width = 'calc(100vw - 15%)'
+    } if (!winTB) {
+      app.style.height = 'calc(100vh - 40px)'
+    } else {
+      app.style.height = 'calc(100vh - 87px)'
     }
-    app.style.height = 'calc(100vh - 40px)'
     ghMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
   } else {
@@ -935,13 +1052,18 @@ function disScrSvr() {
 }
 
 function clockBckg() {
-  if (clockChecker.checked) {
+  if (clockChecker.checked || sClockChecker.checked) {
     document.querySelector('.time').style.backgroundColor = "#f0f0f066"
     document.querySelector('.time').style.backdropFilter = "blur(20px)"
+    settClock.style.backgroundColor = '#f0f0f066'
+    settClock.style.backdropFilter = 'blur(20px)'
+
     localStorage.setItem('watchBackg', 1)
   } else {
     document.querySelector('.time').style.backgroundColor = "transparent"
     document.querySelector('.time').style.backdropFilter = "none"
+    settClock.style.backgroundColor = 'transparent'
+    settClock.style.backdropFilter = 'none'
     localStorage.setItem('watchBackg', 0)
   }
 }
@@ -951,6 +1073,7 @@ function focusNp() {
   document.getElementById('clApp').style.zIndex = 'auto'
   document.getElementById('mpApp').style.zIndex = 'auto'
   document.getElementById('ghostApp').style.zIndex = 'auto'
+  document.getElementById('settingApp').style.zIndex = 'auto'
 }
 
 function focusCalc() {
@@ -958,6 +1081,7 @@ function focusCalc() {
   document.getElementById('clApp').style.zIndex = '997'
   document.getElementById('mpApp').style.zIndex = 'auto'
   document.getElementById('ghostApp').style.zIndex = 'auto'
+  document.getElementById('settingApp').style.zIndex = 'auto'
 }
 
 function focusMp() {
@@ -965,6 +1089,7 @@ function focusMp() {
   document.getElementById('clApp').style.zIndex = 'auto'
   document.getElementById('mpApp').style.zIndex = '997'
   document.getElementById('ghostApp').style.zIndex = 'auto'
+  document.getElementById('settingApp').style.zIndex = 'auto'
 }
 
 function focusGh() {
@@ -972,7 +1097,17 @@ function focusGh() {
   document.getElementById('clApp').style.zIndex = 'auto'
   document.getElementById('mpApp').style.zIndex = 'auto'
   document.getElementById('ghostApp').style.zIndex = '997'
+  document.getElementById('settingApp').style.zIndex = 'auto'
 }
+
+function focusSet() {
+  document.getElementById('NpApp').style.zIndex = 'auto'
+  document.getElementById('clApp').style.zIndex = 'auto'
+  document.getElementById('mpApp').style.zIndex = 'auto'
+  document.getElementById('ghostApp').style.zIndex = 'auto'
+  document.getElementById('settingApp').style.zIndex = '997'
+}
+
 
 document.getElementById('searchinput').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
@@ -1215,6 +1350,9 @@ function closeApp(id) {
   if (id == 'gh1') {
     document.getElementById('ghostApp').style.display = 'none'
     ghostRunning = false
+    score = -1
+    ghost.removeAttribute('class')
+    ghost.className = 'normal'
   } else {
     document.getElementById(id + 'App').style.transform = 'scale(0)'
     if (id == 'Np') {
@@ -1229,6 +1367,9 @@ function closeApp(id) {
     if (id == 'mp') {
       song.src = ''
       document.getElementById('songName').innerText = 'O nome da música aparecerá aqui'
+    }
+    if (id == 'setting') {
+      settingsGoTo('sHome')
     }
   }
 }
@@ -1248,47 +1389,81 @@ function settingsGoTo(id) {
   let bAcs = document.getElementById('sAcs')
   let bRst = document.getElementById('sRst')
   let bAbt = document.getElementById('sAbt')
-  home.style.display = 'none'
-  sys.style.display = 'none'
-  psn.style.display = 'none'
-  user.style.display = 'none'
-  acs.style.display = 'none'
-  rst.style.display = 'none'
-  abt.style.display = 'none'
-  bHome.className = 'settingsBarButton'
-  bSys.className = 'settingsBarButton'
-  bPsn.className = 'settingsBarButton'
-  bUser.className = 'settingsBarButton'
-  bAcs.className = 'settingsBarButton'
-  bRst.className = 'settingsBarButton'
-  bAbt.className = 'settingsBarButton'
-  if (id == 'sHome') {
-    home.style.display = 'block'
-    bHome.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sSys') {
-    sys.style.display = 'block'
-    bSys.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sPsn') {
-    psn.style.display = 'block'
-    bPsn.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sUser') {
-    user.style.display = 'block'
-    bUser.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sAcs') {
-    acs.style.display = 'block'
-    bAcs.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sRst') {
-    rst.style.display = 'block'
-    bRst.className = 'settingsBarButtonActive'
-  }
-  if (id == 'sAbt') {
-    abt.style.display = 'block'
-    bAbt.className = 'settingsBarButtonActive'
+  if (!settingLocked) {
+    home.style.display = 'none'
+    sys.style.display = 'none'
+    psn.style.display = 'none'
+    user.style.display = 'none'
+    acs.style.display = 'none'
+    rst.style.display = 'none'
+    abt.style.display = 'none'
+    bHome.className = 'settingsBarButton'
+    bSys.className = 'settingsBarButton'
+    bPsn.className = 'settingsBarButton'
+    bUser.className = 'settingsBarButton'
+    bAcs.className = 'settingsBarButton'
+    bRst.className = 'settingsBarButton'
+    bAbt.className = 'settingsBarButton'
+    if (id == 'sHome') {
+      home.style.display = 'block'
+      bHome.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sSys') {
+      sys.style.display = 'block'
+      bSys.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sPsn') {
+      psn.style.display = 'block'
+      bPsn.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sUser') {
+      user.style.display = 'block'
+      bUser.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sAcs') {
+      acs.style.display = 'block'
+      bAcs.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sRst') {
+      rst.style.display = 'block'
+      bRst.className = 'settingsBarButtonActive'
+    }
+    if (id == 'sAbt') {
+      abt.style.display = 'block'
+      bAbt.className = 'settingsBarButtonActive'
+    }
+  } else {
+    if (settingAccessAllow) {
+      home.style.display = 'none'
+      sys.style.display = 'none'
+      psn.style.display = 'none'
+      user.style.display = 'none'
+      acs.style.display = 'none'
+      rst.style.display = 'none'
+      abt.style.display = 'none'
+      bHome.className = 'settingsBarButton'
+      bSys.className = 'settingsBarButton'
+      bPsn.className = 'settingsBarButton'
+      bUser.className = 'settingsBarButton'
+      bAcs.className = 'settingsBarButton'
+      bRst.className = 'settingsBarButton'
+      bAbt.className = 'settingsBarButton'
+      if (id == 'sAcs') {
+        acs.style.display = 'block'
+        bAcs.className = 'settingsBarButtonActive'
+      } else if (id == 'sHome') {
+        home.style.display = 'block'
+        bHome.className = 'settingsBarButtonActive'
+      } else {
+        alert('Configurações bloqueadas')
+        home.style.display = 'block'
+        bHome.className = 'settingsBarButtonActive'
+      }
+    } else {
+      alert('Configurações bloqueadas')
+      home.style.display = 'block'
+      bHome.className = 'settingsBarButtonActive'
+    }
   }
 }
 
@@ -1306,7 +1481,11 @@ function max_min_Sett() {
     } else {
       app.style.width = 'calc(100vw - 15%)'
     }
-    app.style.height = 'calc(100vh - 40px)'
+    if (!winTB) {
+      app.style.height = 'calc(100vh - 40px)'
+    } else {
+      app.style.height = 'calc(100vh - 87px)'
+    }
     SettingMax = true
     icon.src = 'img/WindowIcons/Minimize.png'
     app.style.borderRadius = '0'
@@ -1326,6 +1505,11 @@ function max_min_Sett() {
   }, 1);
 }
 
+function hideSett() {
+  document.getElementById('settingApp').style.transform = 'scale(0)'
+  document.getElementById('settingHided').style.display = 'flex'
+}
+
 function changeWebSiteTheme() {
   if (document.body.className == "dark") {
     document.body.removeAttribute('class')
@@ -1333,5 +1517,127 @@ function changeWebSiteTheme() {
   } else {
     document.body.className = "dark"
     localStorage.setItem("darkTheme", "yes")
+  }
+}
+
+function pickTB() {
+  let changeTB = document.getElementById('changeTB')
+  if (changeTB.checked) {
+    document.getElementById('wTB').style.bottom = '0'
+    document.getElementById('nTB').style.bottom = '-50px'
+    winTB = true
+    if (NpMax) {
+      document.getElementById('NpApp').style.height = 'calc(100vh - 87px)'
+    }
+    if (MpMax) {
+      document.getElementById('mpApp').style.height = 'calc(100vh - 87px)'
+    }
+    if (ghMax) {
+      document.getElementById('ghostApp').style.height = 'calc(100vh - 87px)'
+    }
+    if (SettingMax) {
+      document.getElementById('settingApp').style.height = 'calc(100vh - 87px)'
+    }
+  } else {
+    document.getElementById('wTB').style.bottom = '-50px'
+    document.getElementById('nTB').style.bottom = '0px'
+    winTB = false
+    if (NpMax) {
+      document.getElementById('NpApp').style.height = 'calc(100vh - 40px)'
+    }
+    if (MpMax) {
+      document.getElementById('mpApp').style.height = 'calc(100vh - 40px)'
+    }
+    if (ghMax) {
+      document.getElementById('ghostApp').style.height = 'calc(100vh - 40px)'
+    }
+    if (SettingMax) {
+      document.getElementById('settingApp').style.height = 'calc(100vh - 40px)'
+    }
+  }
+}
+
+function pickAlign() {
+  let alignChoose = document.getElementById('iconsAlign')
+  if (alignChoose.checked) {
+    document.getElementById('wTB').style.justifyContent = 'center'
+  } else {
+    document.getElementById('wTB').style.justifyContent = 'flex-start'
+  }
+}
+
+function enableGames() {
+  let RecGames = document.getElementById('recGames')
+  let CharmsGhost = document.getElementById('ghCharms')
+  let TBGhost = document.getElementById('ghTB')
+  let ghButton = document.getElementById('ghButton')
+  if (!gamesChecker.checked) {
+    RecGames.style.display = 'none'
+    CharmsGhost.style.display = 'none'
+    TBGhost.style.display = 'none'
+    ghButton.style.display = 'none'
+  } else {
+    RecGames.style.display = 'block'
+    CharmsGhost.style.display = 'block'
+    TBGhost.style.display = 'block'
+    ghButton.style.display = 'block'
+  }
+}
+
+function dayCycle() {
+  let hourForm = document.getElementById('hourForm')
+  if (!hourForm.checked) {
+    cycle.style.display = 'none'
+    clockAMPM = false
+    localStorage.setItem('cAP', 0)
+  } else {
+    cycle.style.display = 'block'
+    clockAMPM = true
+    localStorage.setItem('cAP', 1)
+  }
+}
+
+function passwordToSettings() {
+  settingPassword = prompt('Digite a senha para as configurações')
+  if (settingPassword != '' || settingPassword != '') {
+    localStorage.setItem('settingPassword', settingPassword)
+    settingsGoTo('sHome')
+    settingLocked = true
+    localStorage.setItem('sLocked', 1)
+    document.querySelector('.alertLock').style.display = 'block'
+  }
+}
+
+function autoLockSetting() {
+  settingPassword = localStorage.getItem('settingPassword')
+  settingLocked = localStorage.getItem('sLocked')
+  if (settingLocked == 1) {
+    settingLocked = true
+    document.querySelector('.alertLock').style.display = 'block'
+  } else {
+    settingLocked = false
+  }
+}
+
+function unlockSettings() {
+  passTst = prompt("Digite a senha das configurações")
+  if (passTst == settingPassword) {
+    alert('Configurações desbloqueada')
+    settingLocked = false
+    localStorage.setItem('sLocked', 0)
+    document.querySelector('.alertLock').style.display = 'none'
+  } else {
+    alert('Senha errada, tente novamente')
+  }
+}
+
+function genere() {
+  let genChoser = document.getElementById('settingsGen')
+  if (genChoser.value == 'g1') {
+    localStorage.setItem('genero', 'Bem-vindo')
+  } else if (genChoser.value == 'g2') {
+    localStorage.setItem('genero', 'Bem-vinda')
+  } else if (genChoser.value == 'g3') {
+    localStorage.setItem('genero', 'Olá')
   }
 }
