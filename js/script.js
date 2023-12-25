@@ -1641,3 +1641,32 @@ function genere() {
     localStorage.setItem('genero', 'Olá')
   }
 }
+
+function empUser() {
+  localStorage.setItem('genero', 'Olá')
+  passwordToSettings()
+  enableGames()
+  empUserName()
+}
+
+function empUserName() {
+  let name = prompt('Digite o nome deste usuário')
+  localStorage.setItem("username", name) 
+  userinfos()
+}
+
+function hcTheme() {
+  let hcChecker = document.getElementById('highContrast')
+  if (hcChecker.checked) {
+    document.body.className = 'highContrast'
+    document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+    document.body.style.backgroundColor = '#191919'
+  } else {
+    let originalTheme = localStorage.getItem('darkTheme')
+    if (originalTheme == 'yes') {
+      document.body.className = 'dark'
+    } else {
+      document.body.removeAttribute('class')
+    }
+  }
+}

@@ -164,6 +164,10 @@ body {
     outline: none;
 }
 
+.highContrast input::-webkit-input-placeholder {
+    color: black;
+}
+
 .searchengine {
     width: var(--mediumSearch);
     height: var(--mediumSearch);
@@ -219,6 +223,10 @@ body {
     z-index: 999;
 }
 
+.highContrast .charms {
+    background-color: #000000;
+}
+
 .charms:hover {
     opacity: 1;
     right: 0;
@@ -236,6 +244,10 @@ body {
     align-items: center;
     flex-direction: column;
     z-index: 1001;
+}
+
+.highContrast .lock {
+    background-color: #000000;
 }
 
 .lock input {
@@ -259,6 +271,10 @@ body {
 .lock input:focus {
     border: 2px solid #444;
     outline: none;
+}
+
+.highContrast .lock input:focus {
+    border: 5px solid #00ff00;
 }
 
 .lock h1 {
@@ -332,6 +348,10 @@ body {
     z-index: 1000;
 }
 
+.highContrast .charmsinfo {
+    background-color: #222;
+}
+
 .charmsinfo h1 {
     margin: 15px 0;
     text-align: center;
@@ -346,9 +366,23 @@ body {
     padding: 2px;
 }
 
+.highContrast .charmsinfo input[type='password'],
+.highContrast .charmsinfo input[type='text'] {
+    border-radius: 0;
+    border: 4px solid #888;
+    background-color: #fff;
+    height: 20px;
+}
+
 .charmsinfo input[type='password']:focus,
 .charmsinfo input[type='text']:focus {
     border: 2px solid #444;
+    outline: none;
+}
+
+.highContrast .charmsinfo input[type='password']:focus,
+.highContrast .charmsinfo input[type='text']:focus {
+    border: 4px solid #f0f;
     outline: none;
 }
 
@@ -361,8 +395,21 @@ body {
     transition-duration: .2s;
 }
 
+.highContrast .charmsinfo button {
+    font-size: 16px;
+    border-radius: 0;
+    border-color: #888;
+    background-color: #f0f0f0;
+    transition-duration: 0s;
+}
+
 .charmsinfo button:hover {
     background-color: #aaa;
+}
+
+.highContrast .charmsinfo button:hover {
+    background-color: #00ff00;
+    border-color: #00ff00;
 }
 
 .back {
@@ -387,8 +434,18 @@ body {
     transition-duration: .1s;
 }
 
+.highContrast .charmsinfo input[type="radio"] {
+    width: 20px;
+    height: 20px;
+}
+
 .charmsinfo input[type="radio"]:checked {
     border: 4px solid #0078d4
+}
+
+.highContrast .charmsinfo input[type="radio"]:checked {
+    border: 1px solid #0f0;
+    background-color: #0f0;
 }
 
 .lock button {
@@ -398,6 +455,19 @@ body {
     background-color: #ddd;
     margin: 10px 0;
     transition-duration: .2s;
+}
+
+.highContrast .lock button {
+    font-size: 16px;
+    border-radius: 0;
+    border-color: #888;
+    background-color: #f0f0f0;
+    transition-duration: 0s;
+}
+
+.highContrast .lock button:hover {
+    border: 1px solid #0f0;
+    background-color: #0f0;
 }
 
 .lock button:hover {
@@ -418,6 +488,15 @@ body {
 
 .charmsinfo .linkc:hover {
     background-color: #cccccc22;
+}
+
+.highContrast .charmsinfo .linkc {
+    transition-duration: 0s;
+}
+
+.highContrast .charmsinfo .linkc:hover {
+    background-color: #ddd;
+    color: black;
 }
 
 .charmsinfo .links {
@@ -446,6 +525,16 @@ body {
     top: var(--spacePopUpsTop);
     transform: scale(0);
     z-index: 998;
+}
+
+.highContrast .chooseColor {
+    border: 2px solid #0f0;
+    background-color: #101010;
+    color: white;
+}
+
+.highContrast .chooseColor h1 {
+    color: white;
 }
 
 .dark .chooseColor {
@@ -492,6 +581,10 @@ body {
     align-items: center;
 }
 
+.highContrast .bottomPopup {
+    background-color: #101010;
+}
+
 .dark .chooseColor .bottomPopup {
     background-color: #252525;
 }
@@ -507,9 +600,22 @@ body {
     transition-duration: .3s;
 }
 
+.highContrast .chooseColor button {
+    background-color: #fff;
+    border: 4px solid #888;
+    color: black;
+    border-radius: 0;
+    transition-duration: 0s;
+}
+
 .chooseColor .bottomPopup button:hover {
     background-color: #0088ff;
     border: 2px solid #0088ff;
+}
+
+.highContrast .chooseColor button:hover {
+    background-color: #0f0;
+    border:4px solid #0f0;
 }
 
 .leftPop {
@@ -550,9 +656,29 @@ body {
     transition-duration: .2s;
 }
 
+.highContrast #closeThis {
+    background-color: #eee;
+    border: 2px solid #f0f;
+}
+
+.highContrast #closeThis::after {
+    border-color: #f0f;
+    background-color: #f0f;
+}
+
 #closeThis:checked {
     background-color: #0088ff;
     border: 2px solid #0078d4;
+}
+
+.highContrast #closeThis:checked {
+    background-color: #00ff00;
+    border-color: #2f2;
+}
+
+.highContrast #closeThis:checked::after {
+    background-color: #101010;
+    border-color: #101010;
 }
 
 #closeThis:checked::after {
@@ -570,11 +696,17 @@ body {
     top: var(--spaceNp);
     border-radius: var(--radiusTopHeader);
     box-shadow: 2px 2px 20px 2px #191919;
-
 }
 
 .dark .notepad {
     background-color: #191919;
+}
+
+.highContrast .notepad {
+    border: 2px solid #0f0;
+    background-color: #000;
+    padding-top: 40px;
+    box-sizing: border-box;
 }
 
 .notepad .header {
@@ -599,6 +731,12 @@ body {
 
 .dark .notepad .header {
     background-color: rgba(25, 25, 25, 0.3);
+}
+
+.highContrast .notepad .header {
+    background-color: #0f0;
+    border: 2px solid #0f0;
+    left: -2px;
 }
 
 .dark .header p {
@@ -644,6 +782,16 @@ body {
     color: white;
 }
 
+.highContrast .appButtons {
+    background-color: #808080;
+    border: 2px solid #000;
+    box-sizing: border-box;
+}
+
+.highContrast .close {
+    background-color: #ff0000;
+}
+
 .notepad textarea {
     width: calc(100% - 40px);
     position: absolute;
@@ -658,6 +806,10 @@ body {
 }
 
 .dark .notepad textarea {
+    color: white;
+}
+
+.highContrast .notepad textarea {
     color: white;
 }
 
@@ -685,6 +837,15 @@ body {
 .dark .appHided {
     background-color: rgba(25, 25, 25, 0.7);
     color: white;
+}
+
+.highContrast .appHided {
+    background-color: #f0f;
+    transition-duration: 0s;
+}
+
+.highContrast .appHided:hover {
+    background-color: #0f0;
 }
 
 .appHided:hover {
@@ -745,8 +906,19 @@ body {
     align-items: center;
 }
 
+.highContrast .calc {
+    border: 2px solid #0f0;
+    background-color: #000;
+}
+
 .dark .calc .header {
     background-color: rgba(25, 25, 25, 0.3);
+}
+
+.highContrast .calc .header {
+    background-color: #0f0;
+    border: 2px solid #0f0;
+    left: -2px;
 }
 
 .calculator__display {
@@ -765,6 +937,13 @@ body {
 .dark .calculator__display {
     background-color: #4c575f;
     color: white;
+}
+
+.highContrast .calculator__display {
+    background-color: #f2f;
+    border: 2px solid #f0f;
+    color: white;
+    font-size: 50px;
 }
 
 .calcKeys {
@@ -804,6 +983,12 @@ body {
     color: white;
 }
 
+.highContrast .calcKeys button {
+    background-color: #0f0;
+    border: 2px solid #0f0;
+    transition-duration: 0s;
+}
+
 .key--operator:hover {
     background-color: #cee8ff;
 }
@@ -820,12 +1005,20 @@ body {
     background-color: #4c575f;
 }
 
+.highContrast .calcKeys button:hover {
+    background-color: #0ff;
+}
+
 .calcKeys button:active {
     background-color: #93ccff;
 }
 
 .dark .calcKeys button:active {
     background-color: #2d3338;
+}
+
+.highContrast .calcKeys button:active {
+    background-color: #f0f;
 }
 
 .calcKeys .key--equal {
@@ -838,6 +1031,10 @@ body {
 
 .dark .calcKeys .key--equal {
     background-color: #5e3126;
+}
+
+.highContrast .calcKeys .key--equal {
+    background-color: orangered;
 }
 
 .calcKeys .key--equal:hover {
@@ -882,7 +1079,7 @@ body {
     height: 50px;
     background: #000;
     margin: 5px;
-    border: 2px solid #444;
+    border: 2px solid #0f0;
     border-radius: 8px;
 }
 
@@ -891,7 +1088,7 @@ body {
     height: 50px;
     background: #fff;
     margin: 5px;
-    border: 2px solid #ccc;
+    border: 2px solid #0f0;
     border-radius: 8px;
 }
 
@@ -911,6 +1108,53 @@ body {
     top: var(--spacePopUpsTop);
     transform: scale(0);
     z-index: 998;
+}
+
+.highContrast .chooseGradient {
+    border: 2px solid #0f0;
+    background-color: #101010;
+    color: white;
+}
+
+.highContrast .chooseGradient h1 {
+    color: white;
+}
+
+.highContrast .chooseGradient button {
+    background-color: #fff;
+    border: 4px solid #888;
+    color: black;
+    border-radius: 0;
+    transition-duration: 0s;
+}
+
+.highContrast .chooseGradient button:hover {
+    background-color: #0f0;
+    border: 4px solid #0f0;
+}
+
+.highContrast .chooseGradient .bottomPopup {
+    background-color: #101010;
+}
+
+.highContrast #closeThisGd {
+    background-color: #eee;
+    border: 2px solid #f0f;
+}
+
+.highContrast #closeThisGd::after {
+    border-color: #f0f;
+    background-color: #f0f;
+}
+
+.highContrast #closeThisGd:checked {
+    background-color: #00ff00;
+    border-color: #2f2;
+}
+
+.highContrast #closeThisGd:checked::after {
+    background-color: #101010;
+    border-color: #101010;
 }
 
 .chooseGradient h1 {
