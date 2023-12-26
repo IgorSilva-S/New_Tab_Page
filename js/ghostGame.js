@@ -50,6 +50,9 @@ setInterval(() => {
                     crystal.removeAttribute('style')
                     normalTime = normalTime - 0.05
                     cloudsTime = cloudsTime - 0.05
+                    crystal.style.animationDuration = `${normalTime}s`
+                    soil.style.animationDuration = `${normalTime}s`
+                    clouds.style.animationDuration = `${cloudsTime}s`
                 }, 100);
             }
         })

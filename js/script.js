@@ -178,13 +178,29 @@ applyimg()
 
 let simpleView = localStorage.getItem('alwaysSimple')
 let simpleReloaded = sessionStorage.getItem('simpleReload')
+let langPref = localStorage.getItem('preferLang')
+let langReload = sessionStorage.getItem('langReload')
 
 if (simpleView == 1 && simpleReloaded != 1) {
-  location.href = 'simpleSearch.html'
+  if (langPref == 'EnUs') {
+    location.href = 'enUsSimpleSearch.html'
+  } else {
+    location.href = 'simpleSearch.html'
+  }
   sessionStorage.setItem('simpleReload', 1)
 }
 if (simpleView == 1) {
   document.getElementById('alwaysSimple').checked = true
+}
+
+if (langPref != undefined && langReload != 1) {
+  if (langPref == 'EnUs') {
+    location.href == 'enUsNormal.html'
+    sessionStorage.setItem('langReload', 1)
+  } else {
+    location.href == 'index.html'
+    sessionStorage.setItem('langReload', 1)
+  }
 }
 
 function checkAll() {
