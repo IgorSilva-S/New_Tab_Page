@@ -600,23 +600,13 @@ body {
     transition-duration: .3s;
 }
 
-.highContrast .chooseColor button {
-    background-color: #fff;
-    border: 4px solid #888;
-    color: black;
-    border-radius: 0;
-    transition-duration: 0s;
-}
 
 .chooseColor .bottomPopup button:hover {
     background-color: #0088ff;
     border: 2px solid #0088ff;
 }
 
-.highContrast .chooseColor button:hover {
-    background-color: #0f0;
-    border:4px solid #0f0;
-}
+
 
 .leftPop {
     position: absolute;
@@ -1079,6 +1069,15 @@ body {
     height: 50px;
     background: #000;
     margin: 5px;
+    border: 2px solid #444;
+    border-radius: 8px;
+}
+
+.highContrast .blackClock {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    margin: 5px;
     border: 2px solid #0f0;
     border-radius: 8px;
 }
@@ -1088,7 +1087,16 @@ body {
     height: 50px;
     background: #fff;
     margin: 5px;
-    border: 2px solid #0f0;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+
+.highContrast .whiteClock {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    margin: 5px;
+    border: 2px solid #f0f;
     border-radius: 8px;
 }
 
@@ -1120,18 +1128,7 @@ body {
     color: white;
 }
 
-.highContrast .chooseGradient button {
-    background-color: #fff;
-    border: 4px solid #888;
-    color: black;
-    border-radius: 0;
-    transition-duration: 0s;
-}
 
-.highContrast .chooseGradient button:hover {
-    background-color: #0f0;
-    border: 4px solid #0f0;
-}
 
 .highContrast .chooseGradient .bottomPopup {
     background-color: #101010;
@@ -1309,6 +1306,40 @@ body {
     z-index: 998;
 }
 
+.highContrast .chooseImage {
+    border: 2px solid #0f0;
+    background-color: #101010;
+    color: white;
+}
+
+.highContrast .chooseImage h1 {
+    color: white;
+}
+
+.highContrast .chooseImage .bottomPopup {
+    background-color: #101010;
+}
+
+.highContrast #closeThisImg {
+    background-color: #eee;
+    border: 2px solid #f0f;
+}
+
+.highContrast #closeThisImg::after {
+    border-color: #f0f;
+    background-color: #f0f;
+}
+
+.highContrast #closeThisImg:checked {
+    background-color: #00ff00;
+    border-color: #2f2;
+}
+
+.highContrast #closeThisImg:checked::after {
+    background-color: #101010;
+    border-color: #101010;
+}
+
 .dark .chooseImage {
     background-color: #191919;
     color: white;
@@ -1422,6 +1453,7 @@ body {
     color: white;
 }
 
+
 .alignNames {
     width: 150px;
     display: flex;
@@ -1477,6 +1509,12 @@ body {
     transform: scale(0);
 }
 
+.highContrast .music {
+    border: 2px solid #0f0;
+    background-color: #000;
+    color: white;
+}
+
 .dark .music {
     color: white;
     background-color: #19191977;
@@ -1491,6 +1529,12 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.highContrast .music .header {
+    background-color: #0f0;
+    border-radius: 4px 4px 0 0;
+    border-bottom: 2px solid #0f0;
 }
 
 .nameandcover {
@@ -1670,6 +1714,12 @@ body {
     display: none;
 }
 
+.highContrast .ghost {
+    border: 2px solid #0f0;
+    background-color: #000;
+    color: white;
+}
+
 .dark .ghost {
     color: white;
     background-color: #191919;
@@ -1686,6 +1736,11 @@ body {
     align-items: center;
 }
 
+.highContrast .ghost .header {
+    background-color: #0f0;
+    border-bottom: 2px solid #0f0;
+}
+
 .ghost .game {
     width: 100%;
     height: 50%;
@@ -1697,6 +1752,10 @@ body {
 
 .dark .ghost .game {
     border-color: #252525;
+}
+
+.highContrast .ghost .game {
+    border-color: #0ff;
 }
 
 .ghost .inst {
@@ -1966,6 +2025,10 @@ body {
     color: white;
 }
 
+.highContrast .ghost .scoreSign {
+    color: white;
+}
+
 .ghost .maxSign {
     position: absolute;
     top: 20%;
@@ -1977,6 +2040,10 @@ body {
 
 .dark .ghost .maxSign {
     color: #333
+}
+
+.highContrast .ghost .maxSign {
+    color: #777;
 }
 
 .ghost .flyAlert {
@@ -1992,6 +2059,10 @@ body {
     color: white;
 }
 
+.highContrast .ghost .flyAlert {
+    color: white;
+}
+
 .ghost .alert {
     animation-name: alertText;
     animation-duration: .5s;
@@ -1999,6 +2070,10 @@ body {
 }
 
 .dark .ghost .alert {
+    animation-name: alertTextDark;
+}
+
+.highContrast .ghost .alert {
     animation-name: alertTextDark;
 }
 
@@ -2060,6 +2135,11 @@ body {
     border-radius: 4px;
 }
 
+.highContrast .ghost .gameAlerts {
+    border: 2px solid #0f0;
+    background-color: #000;
+}
+
 .gameAlerts p {
     font-size: 30px;
     font-family: arcade classic;
@@ -2076,6 +2156,10 @@ body {
     background-repeat: no-repeat;
     border: none;
     border-radius: 4px;
+}
+
+.highContrast .gameAlerts button {
+    border: 2px solid #0f0;
 }
 
 /*Após 1.0 / After 1.0*/
@@ -2099,6 +2183,12 @@ body {
 .dark .snapStyle {
     background-color: #252525;
     border: 1px solid #404040;
+}
+
+.highContrast .snapStyle,
+.highContrast .snapStyleMobile {
+    border: 2px solid #0f0;
+    background-color: #000;
 }
 
 @keyframes appearSnap {
@@ -2144,6 +2234,10 @@ body {
     border-radius: 4px;
 }
 
+.highContrast .snap50 {
+    border: 2px solid #f0f;
+}
+
 .dark .snap50 {
     border-color: #404040;
 }
@@ -2164,6 +2258,10 @@ body {
     background-color: #0120a8;
 }
 
+.highContrast .snap50:hover {
+    background-color: #f0f;
+}
+
 .snap25 {
     width: 84px;
     height: 59px;
@@ -2178,8 +2276,16 @@ body {
     border-color: #404040;
 }
 
+.highContrast .snap25 {
+    border: 2px solid #f0f;
+}
+
 .snap25:hover {
     background-color: #0120a8;
+}
+
+.highContrast .snap25:hover {
+    background-color: #f0f;
 }
 
 .snapI50 {
@@ -2196,8 +2302,16 @@ body {
     border-color: #404040;
 }
 
+.highContrast .snapI50 {
+    border: 2px solid #f0f;
+}
+
 .snapI50:hover {
     background-color: #0120a8;
+}
+
+.highContrast .snapI50:hover {
+    background-color: #f0f;
 }
 
 #mpHeader .snapStyle,
@@ -2213,6 +2327,12 @@ body {
 .dark #ghostHeader .snapStyle,
 .dark #settingHeader .snapStyle {
     background-color: rgba(25, 25, 25, 0.7);
+}
+
+.highContrast #mpHeader .snapStyle,
+.highContrast #ghostHeader .snapStyle,
+.highContrast #settingHeader .snapStyle {
+    background-color: #000;
 }
 
 @keyframes appearSnapMetro {
@@ -2253,6 +2373,11 @@ body {
 .dark .snapStyleMobile {
     border-color: #404040;
     background-color: #252525;
+}
+
+.highContrast .snapStyleMobile {
+    border-color: #0f0;
+    background-color: #000;
 }
 
 .snapStyleMobile .snapI50 {
@@ -2297,6 +2422,12 @@ body {
     color: white;
 }
 
+.highContrast .settings {
+    background-color: #000;
+    color: white;
+    border: 2px solid #0f0;
+}
+
 .settings .header {
     width: 100%;
     height: 40px;
@@ -2305,6 +2436,11 @@ body {
     align-items: center;
     position: absolute;
     top: 0;
+}
+
+.highContrast .settings .header {
+    background-color: #0f0;
+    border-bottom: 2px solid #0f0;
 }
 
 .settings .settingsLeftBar {
@@ -2345,12 +2481,28 @@ body {
     color: white;
 }
 
+.highContrast .settings .settingsLeftBar .settingsBarButton,
+.highContrast .settings .settingsLeftBar .settingsBarButtonActive {
+    color: white;
+    border: 1px solid #0f0;
+    box-sizing: border-box;
+}
+
+.highContrast .settingsLeftBar {
+    top: 50px;
+}
+
 .settings .settingsLeftBar .settingsBarButtonActive {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
 .dark .settings .settingsLeftBar .settingsBarButtonActive {
     background-color: rgba(19, 19, 19, 0.5);
+}
+
+.highContrast .settings .settingsLeftBar .settingsBarButtonActive {
+    background-color: #0f0;
+    color: black;
 }
 
 .settings .settingsLeftBar .settingsBarButtonActive::before {
@@ -2363,12 +2515,21 @@ body {
     content: '';
 }
 
+.highContrast .settings .settingsLeftBar .settingsBarButtonActive::before {
+    background-color: #f0f;
+}
+
 .settings .settingsLeftBar .settingsBarButton:hover {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
 .dark .settings .settingsLeftBar .settingsBarButton:hover {
     background-color: rgba(19, 19, 19, 0.3);
+}
+
+.highContrast .settings .settingsLeftBar .settingsBarButton:hover {
+    background-color: #0f0;
+    color: black;
 }
 
 .settingsPanel {
@@ -2432,6 +2593,10 @@ body {
     background-color: #19191977;
 }
 
+.highContrast .settingsPanelCont::-webkit-scrollbar-thumb {
+    background-color: #f0f;
+}
+
 .panelHeader {
     font-size: 25px;
     font-weight: bold;
@@ -2454,6 +2619,11 @@ body {
 
 .dark .settings .infosContainer {
     background-color: #19191999;
+}
+
+.highContrast .settings .infosContainer {
+    background-color: transparent;
+    border: 1px solid #0f0;
 }
 
 .settings .infosContainer .infoHeader {
@@ -2506,6 +2676,11 @@ body {
     background-color: #19191977;
 }
 
+.highContrast .harmonySettings {
+    background-color: transparent;
+    border: 1px solid #0f0;
+}
+
 .harmonySettingsOptions {
     width: 99%;
     margin-right: 1%;
@@ -2521,6 +2696,11 @@ body {
     overflow-y: hidden;
 }
 
+.highContrast .harmonySettingsOptions {
+    background-color: transparent;
+    border: 1px solid #0f0;
+}
+
 .dark .harmonySettingsOptions {
     background-color: #19191977;
 }
@@ -2533,6 +2713,10 @@ body {
     appearance: none;
     border-radius: 100px;
     background-color: #19191977;
+}
+
+.highContrast .harmonySettingsOptions::-webkit-scrollbar-thumb {
+    background-color: #f0f;
 }
 
 .harmonySettingsOptions .harmonyOption {
@@ -2665,6 +2849,10 @@ body {
     flex-direction: column;
 }
 
+.highContrast .settingsPersonalizeInfo .siteBack .charmsPreview {
+    background-color: #000;
+}
+
 .charmsPreview .charmsPreButton {
     width: 10px;
     height: 10px;
@@ -2701,6 +2889,17 @@ body {
     background-color: rgba(19, 19, 19, 0.3);
 }
 
+.highContrast .settingsPersonalizeInfo .siteBack .nappPreview {
+    background-color: #000;
+    border: 1px solid #0f0;
+}
+
+.highContrast .nappPreview .nappHeader {
+    background-color: #0f0;
+    border: 1px solid #0f0;
+    left: -1px;
+}
+
 .settingsPersonalizeInfo .siteBack .mappPreview {
     width: 60px;
     height: 60px;
@@ -2714,6 +2913,10 @@ body {
 
 .dark .settingsPersonalizeInfo .siteBack .mappPreview {
     background-color: #191919aa;
+}
+
+.highContrast .settingsPersonalizeInfo .siteBack .mappPreview {
+    display: none;
 }
 
 .settingsPersonalizeInfo .siteBack .clockPreview {
@@ -2891,6 +3094,10 @@ body {
 
 .dark .winTaskB {
     background-color: #191919aa;
+}
+
+.highContrast .winTaskB {
+    background-color: #ccc;
 }
 
 /*Início Responsividade*/

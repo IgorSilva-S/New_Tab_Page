@@ -59,7 +59,7 @@
     <h1>Bloquear</h1>
     Insira a sua senha:
     <input type="password" name="" id="passcharms" /><br />
-    <button onclick="savePassw()">Salvar senha</button><br>
+    <button onclick="savePassw('byCharms')">Salvar senha</button><br>
     Ao salvar a senha, você utilizará ela até que salve outra no lugar dela.<br>
     Se você não lembra a senha utilizada, recomenda-se que troque a senha<br>
     Não use uma senha que você já use!<br>
@@ -890,8 +890,8 @@
         <div class="harmonySettings">
           Senha de usuário:
           <div class="txtOptDiv">
-            <input type="password">
-            <button>Alterar</button>
+            <input type="password" id="settingPassw">
+            <button onclick="savePassw('bySettings')">Alterar</button>
           </div>
         </div>
         <div class="harmonySettings">
@@ -922,21 +922,14 @@
           <input type="checkbox" name="" id="highContrast" onchange="hcTheme()">
         </div>
         <div class="harmonySettings">
-          <label for="">Tamanho dos botões</label>
-          <select name="" id="">
+          <label for="buttonsSize">Tamanho dos botões</label>
+          <select name="" id="buttonsSize" onchange="pickBtnSize(), applyBtnSize()">
             <option value="tb1">Médio</option>
             <option value="tb2">Pequeno</option>
             <option value="tb3">Grande</option>
           </select>
         </div>
-        <div class="harmonySettings">
-          <label for="">Tamanho do relógio</label>
-          <select name="" id="">
-            <option value="tw1">Médio</option>
-            <option value="tw2">Pequeno</option>
-            <option value="tw3">Grande</option>
-          </select>
-        </div>
+
         <div class="harmonySettings">
           <label for="">Evitar bloqueio desta seção</label>
           <input type="checkbox" name="" id="" checked>
@@ -951,14 +944,14 @@
       </div><br>
       <div class="settingsPanelContent">
         <div class="harmonySettings">
-          <label for="">Abrir sempre no modo simples</label>
-          <input type="checkbox" name="" id="">
+          <label for="alwaysSimple">Abrir sempre no modo simples</label>
+          <input type="checkbox" name="" id="alwaysSimple" onchange="alwaysSimple()">
         </div>
         <div class="harmonySettings">
           <label for="">Idioma de preferência</label>
           <div class="twoOptDiv">
-            <button>Português</button>
-            <button>Inglês</button>
+            <button onclick="localStorage.setItem('preferLang', 'PtBr')">Português</button>
+            <button onclick="localStorage.setItem('preferLang', 'EnUs')">Inglês</button>
           </div>
         </div>
         <div class="harmonySettings">
@@ -967,7 +960,11 @@
         </div>
         <div class="harmonySettings">
           Limpar dados do site (A data da limpeza será salva)
-          <button>Limpar</button>
+          <button onclick="clearEverything()">Limpar</button>
+        </div>
+        <div class="harmonySettings">
+          Limpar dados do site sem salvar a data
+          <button onclick="localStorage.clear(), location.href = 'index.html'">Limpar</button>
         </div>
         Esses dados incluem as suas configurações, personalizações, nomes e senhas salvas no site, e não há volta.
       </div>
@@ -981,7 +978,8 @@
       <div class="settingsPanelContent">
         <div class="harmonySettings">
           Versão do Site: D 1.1
-         <a href="https://github.com/IgorSilva-S/New_Tab_Screen/releases" target="_blank">Verifique novas versões no GitHub</a>
+          <a href="https://github.com/IgorSilva-S/New_Tab_Screen/releases" target="_blank">Verifique novas versões no
+            GitHub</a>
         </div>
         <div class="harmonySettings">
           Última correção de bugs: 22 de dezembro de 2023

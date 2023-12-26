@@ -176,6 +176,17 @@ setInterval(() => {
 image = localStorage.getItem('background')
 applyimg()
 
+let simpleView = localStorage.getItem('alwaysSimple')
+let simpleReloaded = sessionStorage.getItem('simpleReload')
+
+if (simpleView == 1 && simpleReloaded != 1) {
+  location.href = 'simpleSearch.html'
+  sessionStorage.setItem('simpleReload', 1)
+}
+if (simpleView == 1) {
+  document.getElementById('alwaysSimple').checked = true
+}
+
 function checkAll() {
   let watchC = localStorage.getItem('watchColor')
   if (watchC == 1) {
@@ -303,9 +314,16 @@ function searchingNow() {
   }
 }
 
-function savePassw() {
-  let pin = document.getElementById('passcharms').value
-  localStorage.setItem('userPassword', pin)
+function savePassw(whocomes) {
+  if (whocomes == 'byCharms') {
+    let pin = document.getElementById('passcharms').value
+    document.getElementById('settingPassw').value = pin
+    localStorage.setItem('userPassword', pin)
+  } else if (whocomes == 'bySettings') {
+    let pin = document.getElementById('settingPassw').value
+    document.getElementById('passcharms').value = pin
+    localStorage.setItem('userPassword', pin)
+  }
 }
 
 function lockall() {
@@ -355,6 +373,7 @@ function userinfos() {
       lockGrettings.innerText = lockText
     }
   }
+  document.getElementById('settingsUserName').innerText = localStorage.getItem('username')
 }
 
 function saveName(whoComes) {
@@ -1661,6 +1680,8 @@ function hcTheme() {
     document.body.className = 'highContrast'
     document.body.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
     document.body.style.backgroundColor = '#191919'
+    settingPersonBackground.style.backgroundImage = 'url(../img/Backgrounds/Transparency.png)'
+    settingPersonBackground.style.backgroundColor = '#191919'
   } else {
     let originalTheme = localStorage.getItem('darkTheme')
     if (originalTheme == 'yes') {
@@ -1668,5 +1689,61 @@ function hcTheme() {
     } else {
       document.body.removeAttribute('class')
     }
+    applyimg()
   }
+}
+
+function pickBtnSize() {
+  let checkerButton = document.getElementById('buttonsSize')
+  if (checkerButton.value == 'tb1') {
+    sizing = 2
+  } else if (checkerButton.value == 'tb2') {
+    sizing = 1
+  } else if (checkerButton.value == 'tb3') {
+    sizing = 3
+  }
+}
+
+function pickClckSize() {
+  let checkerClock = document.getElementById('clockSize')
+  if (checkerClock.value == 'twat1') {
+    sizing = 1
+  } else if (checkerClock.value = 'twat2') {
+    sizing = 2
+  } else if (checkerClock.value = 'twat3') {
+    sizing = 3
+  }
+}
+
+function applyClckSize() {
+   if (sizing == 1) {
+    document.getElementById('hour').style.fontSize = '90px'
+   }
+   if (sizing == 2) {
+     document.getElementById('hour').style.fontSize = '70px'
+   }
+  if (sizing == 3) {
+    document.getElementById('hour').style.fontSize = '110px'
+  }
+}
+
+function alwaysSimple() {
+  let simpleChecker = document.getElementById('alwaysSimple')
+  if (simpleChecker.checked) {
+    localStorage.setItem('alwaysSimple', 1)
+  } else {
+    localStorage.removeItem('alwaysSimple')
+  }
+}
+
+function clearEverything() {
+  localStorage.clear()
+  sessionStorage.clear()
+  let clearDate = new Date
+  let cDay = clearDate.getDate()
+  let cMonth = clearDate.getMonth() + 1
+  let cYear = clearDate.getFullYear()
+  localStorage.setItem('lastClearBr', `${cDay}/${cMonth}/${cYear}`)
+  localStorage.setItem('lastClearUs', `${cMonth}/${cDay}/${cYear}`)
+  location.href = 'index.html'
 }
