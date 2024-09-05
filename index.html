@@ -89,7 +89,7 @@
   <!--Informações da Charms: Configurações-->
   <div class="charmsinfo" id="settingsinfo">
     <div class="back" onclick="bts()"></div>
-    <h1>Config. Rápidas</h1>
+    <h1>Config.</h1>
     <h2>Personalizações</h2>
     <br /><br />
     Imagem de fundo<br />
@@ -161,9 +161,9 @@
       Grande<br>
       <button onclick="applyBtnSize()">Aplicar</button><br />
     </div>
-    <button
+    <!--<button
       onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), bts(), focusSet()">Abrir
-      App Config.</button>
+      App Config.</button>-->
   </div>
 
   <!--Informações da Charms: Recarregar-->
@@ -277,11 +277,11 @@
     <div class="linkc" id="ghCharms" onclick="openGhost(), focusGh()" ondblclick="bts()">
       Ghost
     </div>
-    <div class="linkc"
+    <!--<div class="linkc"
       onclick="document.getElementById('settingApp').style.transform = 'scale(1)', document.getElementById('settingHided').removeAttribute('style'), focusSet()"
       ondblclick="bts()">
       Configurações
-    </div>
+    </div>-->
 
     <div class="resetPosition">
       <h2>Restaurar posições</h2>
@@ -601,7 +601,7 @@
   </div>
 
   <!--Configurações do site-->
-  <div class="settings" id="settingApp" onclick="focusSet()" style="transform: scale(1);">
+  <div class="settings" id="settingApp" onclick="focusSet()">
     <div class="header" id="settingHeader">
       <div class="appButtons home" id="settingHomeButton" onclick="settingsGoTo(id)" style="display: none;">
         
@@ -1056,6 +1056,13 @@
     <input type="password" name="" id="passlock" />
     <button onclick="lockall()">Desbloquear</button>
     <h2 style="color: red; margin: 10px 0;" id="wrongPass"></h2>
+  </div>
+  <div class="changeIsNormal" id="changeIsNormal">
+    <div class="appButtons close" style="position: absolute; right: 0; top: 0;" onclick="document.getElementById('changeIsNormal').style.display = 'none'">
+      <img src="img/WindowIcons/Close.png" alt="" />
+    </div>
+    <p>Estamos de mudança!</p>
+    O nosso projeto está passando por modificações para melhoria de interfaçe, funcionalidades e organização. Fique atento ao novo projeto.
   </div>
 
   <!--Protetor de tela-->

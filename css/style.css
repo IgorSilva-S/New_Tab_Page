@@ -3100,6 +3100,36 @@ body {
     background-color: #ccc;
 }
 
+.changeIsNormal {
+    position: absolute;
+    right: 30px;
+    bottom: 10px;
+    background-color: #f0f0f0aa;
+    border-radius: 8px;
+    width: 500px;
+    height: 250px;
+    padding: 10px;
+    box-sizing: border-box;
+    backdrop-filter: blur(10px);
+    animation: popupOpen .5s linear;
+    z-index: 1000;
+}
+
+@keyframes popupOpen {
+    from {
+        bottom: -260px
+    } to {
+        bottom: 10px
+    }
+}
+
+.changeIsNormal p {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 /*Início Responsividade*/
 
 @media (max-height: 780px) {
